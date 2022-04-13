@@ -20,7 +20,7 @@ For more information, please visit [https://www.forestvpn.com/](https://www.fore
 To use the package from [pub.dev](https://pub.dev), please include the following in pubspec.yaml
 ```yaml
 dependencies:
-  forestvpn_api: 2.8.9
+  forestvpn_api: 2.8.10
 ```
 
 ### Github
@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
  - [CheckoutSessionProduct](doc/CheckoutSessionProduct.md)
  - [CloudPaymentsAuth](doc/CloudPaymentsAuth.md)
  - [CloudPaymentsPost3ds](doc/CloudPaymentsPost3ds.md)
+ - [CloudPaymentsSecure3d](doc/CloudPaymentsSecure3d.md)
  - [ConnectionMode](doc/ConnectionMode.md)
  - [Constraint](doc/Constraint.md)
  - [Country](doc/Country.md)

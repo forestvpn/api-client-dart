@@ -2,7 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-import 'package:built_value/json_object.dart';
+import 'package:forestvpn_api/src/model/cloud_payments_secure3d.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,7 +18,7 @@ abstract class CloudPaymentsAuth implements Built<CloudPaymentsAuth, CloudPaymen
     int get transactionId;
 
     @BuiltValueField(wireName: r'secure3d')
-    JsonObject? get secure3d;
+    CloudPaymentsSecure3d? get secure3d;
 
     CloudPaymentsAuth._();
 
@@ -50,7 +50,7 @@ class _$CloudPaymentsAuthSerializer implements StructuredSerializer<CloudPayment
             result
                 ..add(r'secure3d')
                 ..add(serializers.serialize(object.secure3d,
-                    specifiedType: const FullType(JsonObject)));
+                    specifiedType: const FullType(CloudPaymentsSecure3d)));
         }
         return result;
     }
@@ -74,8 +74,8 @@ class _$CloudPaymentsAuthSerializer implements StructuredSerializer<CloudPayment
                     break;
                 case r'secure3d':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(JsonObject)) as JsonObject;
-                    result.secure3d = valueDes;
+                        specifiedType: const FullType(CloudPaymentsSecure3d)) as CloudPaymentsSecure3d;
+                    result.secure3d.replace(valueDes);
                     break;
             }
         }

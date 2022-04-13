@@ -10,7 +10,7 @@ class _$CloudPaymentsAuth extends CloudPaymentsAuth {
   @override
   final int transactionId;
   @override
-  final JsonObject? secure3d;
+  final CloudPaymentsSecure3d? secure3d;
 
   factory _$CloudPaymentsAuth(
           [void Function(CloudPaymentsAuthBuilder)? updates]) =>
@@ -61,9 +61,11 @@ class CloudPaymentsAuthBuilder
   set transactionId(int? transactionId) =>
       _$this._transactionId = transactionId;
 
-  JsonObject? _secure3d;
-  JsonObject? get secure3d => _$this._secure3d;
-  set secure3d(JsonObject? secure3d) => _$this._secure3d = secure3d;
+  CloudPaymentsSecure3dBuilder? _secure3d;
+  CloudPaymentsSecure3dBuilder get secure3d =>
+      _$this._secure3d ??= new CloudPaymentsSecure3dBuilder();
+  set secure3d(CloudPaymentsSecure3dBuilder? secure3d) =>
+      _$this._secure3d = secure3d;
 
   CloudPaymentsAuthBuilder() {
     CloudPaymentsAuth._defaults(this);
@@ -73,7 +75,7 @@ class CloudPaymentsAuthBuilder
     final $v = _$v;
     if ($v != null) {
       _transactionId = $v.transactionId;
-      _secure3d = $v.secure3d;
+      _secure3d = $v.secure3d?.toBuilder();
       _$v = null;
     }
     return this;
@@ -92,11 +94,24 @@ class CloudPaymentsAuthBuilder
 
   @override
   _$CloudPaymentsAuth build() {
-    final _$result = _$v ??
-        new _$CloudPaymentsAuth._(
-            transactionId: BuiltValueNullFieldError.checkNotNull(
-                transactionId, 'CloudPaymentsAuth', 'transactionId'),
-            secure3d: secure3d);
+    _$CloudPaymentsAuth _$result;
+    try {
+      _$result = _$v ??
+          new _$CloudPaymentsAuth._(
+              transactionId: BuiltValueNullFieldError.checkNotNull(
+                  transactionId, 'CloudPaymentsAuth', 'transactionId'),
+              secure3d: _secure3d?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'secure3d';
+        _secure3d?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'CloudPaymentsAuth', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
