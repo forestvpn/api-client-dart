@@ -1,4 +1,4 @@
-# forestvpn_api.api.CheckoutApi
+# forestvpn_api.api.NewsApi
 
 ## Load the API package
 ```dart
@@ -9,16 +9,16 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCheckoutSession**](CheckoutApi.md#createcheckoutsession) | **POST** /checkout/sessions/ | Create checkout session
-[**expireCheckoutSession**](CheckoutApi.md#expirecheckoutsession) | **POST** /checkout/sessions/{sessionID}/expire/ | Expire checkout session
-[**getCheckoutSession**](CheckoutApi.md#getcheckoutsession) | **GET** /checkout/sessions/{sessionID}/ | Checkout session details
-[**getStripeCheckoutSession**](CheckoutApi.md#getstripecheckoutsession) | **GET** /checkout/sessions/{sessionID}/stripe/checkout/session/ | Stripe checkout session details
+[**getNotification**](NewsApi.md#getnotification) | **GET** /news/notifications/{notificationID}/ | Get notification content
+[**listNotifications**](NewsApi.md#listnotifications) | **GET** /news/notifications/ | Get notifications list
+[**updateNotificationMarkRead**](NewsApi.md#updatenotificationmarkread) | **PATCH** /news/notifications/{notificationID}/mark_read/ | Mark notification as read by user
+[**updateNotificationMarkReadAll**](NewsApi.md#updatenotificationmarkreadall) | **PATCH** /news/notifications/mark_read_all/ | Mark all notifications as read by user
 
 
-# **createCheckoutSession**
-> CheckoutSession createCheckoutSession(createCheckoutSessionRequest)
+# **getNotification**
+> NotificationDetail getNotification(notificationID)
 
-Create checkout session
+Get notification content
 
 ### Example
 ```dart
@@ -27,14 +27,14 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getCheckoutApi();
-final CreateCheckoutSessionRequest createCheckoutSessionRequest = ; // CreateCheckoutSessionRequest | 
+final api = ForestvpnApi().getNewsApi();
+final int notificationID = 56; // int | 
 
 try {
-    final response = api.createCheckoutSession(createCheckoutSessionRequest);
+    final response = api.getNotification(notificationID);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling CheckoutApi->createCheckoutSession: $e\n');
+    print('Exception when calling NewsApi->getNotification: $e\n');
 }
 ```
 
@@ -42,11 +42,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createCheckoutSessionRequest** | [**CreateCheckoutSessionRequest**](CreateCheckoutSessionRequest.md)|  | [optional] 
+ **notificationID** | **int**|  | 
 
 ### Return type
 
-[**CheckoutSession**](CheckoutSession.md)
+[**NotificationDetail**](NotificationDetail.md)
 
 ### Authorization
 
@@ -54,15 +54,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **expireCheckoutSession**
-> expireCheckoutSession(sessionID)
+# **listNotifications**
+> Notification listNotifications(isPublished)
 
-Expire checkout session
+Get notifications list
 
 ### Example
 ```dart
@@ -71,13 +71,14 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getCheckoutApi();
-final String sessionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final api = ForestvpnApi().getNewsApi();
+final bool isPublished = true; // bool | 
 
 try {
-    api.expireCheckoutSession(sessionID);
+    final response = api.listNotifications(isPublished);
+    print(response);
 } catch on DioError (e) {
-    print('Exception when calling CheckoutApi->expireCheckoutSession: $e\n');
+    print('Exception when calling NewsApi->listNotifications: $e\n');
 }
 ```
 
@@ -85,7 +86,50 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sessionID** | **String**|  | 
+ **isPublished** | **bool**|  | [optional] 
+
+### Return type
+
+[**Notification**](Notification.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateNotificationMarkRead**
+> updateNotificationMarkRead(notificationID)
+
+Mark notification as read by user
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getNewsApi();
+final int notificationID = 56; // int | 
+
+try {
+    api.updateNotificationMarkRead(notificationID);
+} catch on DioError (e) {
+    print('Exception when calling NewsApi->updateNotificationMarkRead: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notificationID** | **int**|  | 
 
 ### Return type
 
@@ -102,54 +146,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getCheckoutSession**
-> CheckoutSession getCheckoutSession(sessionID)
+# **updateNotificationMarkReadAll**
+> updateNotificationMarkReadAll()
 
-Checkout session details
-
-### Example
-```dart
-import 'package:forestvpn_api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-
-final api = ForestvpnApi().getCheckoutApi();
-final String sessionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
-
-try {
-    final response = api.getCheckoutSession(sessionID);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling CheckoutApi->getCheckoutSession: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sessionID** | **String**|  | 
-
-### Return type
-
-[**CheckoutSession**](CheckoutSession.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getStripeCheckoutSession**
-> StripeCheckoutSession getStripeCheckoutSession(sessionID)
-
-Stripe checkout session details
+Mark all notifications as read by user
 
 ### Example
 ```dart
@@ -158,26 +158,21 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getCheckoutApi();
-final String sessionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final api = ForestvpnApi().getNewsApi();
 
 try {
-    final response = api.getStripeCheckoutSession(sessionID);
-    print(response);
+    api.updateNotificationMarkReadAll();
 } catch on DioError (e) {
-    print('Exception when calling CheckoutApi->getStripeCheckoutSession: $e\n');
+    print('Exception when calling NewsApi->updateNotificationMarkReadAll: $e\n');
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sessionID** | **String**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**StripeCheckoutSession**](StripeCheckoutSession.md)
+void (empty response body)
 
 ### Authorization
 

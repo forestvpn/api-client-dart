@@ -21,14 +21,12 @@ import 'package:forestvpn_api/src/model/billing_feature.dart';
 import 'package:forestvpn_api/src/model/bundle.dart';
 import 'package:forestvpn_api/src/model/checkout_session.dart';
 import 'package:forestvpn_api/src/model/checkout_session_product.dart';
-import 'package:forestvpn_api/src/model/cloud_payments_pay.dart';
 import 'package:forestvpn_api/src/model/connection_mode.dart';
 import 'package:forestvpn_api/src/model/constraint.dart';
 import 'package:forestvpn_api/src/model/country.dart';
 import 'package:forestvpn_api/src/model/create_ad_unit_request_log_request.dart';
 import 'package:forestvpn_api/src/model/create_checkout_session_product.dart';
 import 'package:forestvpn_api/src/model/create_checkout_session_request.dart';
-import 'package:forestvpn_api/src/model/create_cloud_payments_pay.dart';
 import 'package:forestvpn_api/src/model/create_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request_info.dart';
@@ -38,11 +36,14 @@ import 'package:forestvpn_api/src/model/device_stats.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/fcm_device.dart';
+import 'package:forestvpn_api/src/model/featured_image.dart';
 import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
+import 'package:forestvpn_api/src/model/notification.dart';
+import 'package:forestvpn_api/src/model/notification_detail.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/play_store_purchase_verification_request.dart';
 import 'package:forestvpn_api/src/model/port_forwarding.dart';
@@ -71,14 +72,12 @@ part 'serializers.g.dart';
   Bundle,
   CheckoutSession,
   CheckoutSessionProduct,
-  CloudPaymentsPay,
   ConnectionMode,
   Constraint,
   Country,
   CreateAdUnitRequestLogRequest,
   CreateCheckoutSessionProduct,
   CreateCheckoutSessionRequest,
-  CreateCloudPaymentsPay,
   CreateFCMDeviceRequest,
   CreateOrUpdateDeviceRequest,
   CreateOrUpdateDeviceRequestInfo,
@@ -88,11 +87,14 @@ part 'serializers.g.dart';
   Environment,
   Error,
   FCMDevice,
+  FeaturedImage,
   Friendship,
   FriendshipInvitation,
   LegacyAuthMigrationToken,
   Location,
   NetworkService,
+  Notification,
+  NotificationDetail,
   PaymentMethod,
   PlayStorePurchaseVerificationRequest,
   PortForwarding,
