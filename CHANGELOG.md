@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.0] - 2022-04-08
+
+### Added
+
+- CloudPayments auth and post3ds methods
+- News API
+
 ## [2.10.0] - 2022-04-08
 
 ### Added
