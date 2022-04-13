@@ -1,8 +1,7 @@
 name: forestvpn_api
-version: 2.10.0
+version: 2.10.1
 description: A package to interact api.forestvpn.com (manage vpn profiles
 homepage: https://forestvpn.com/
-repository: https://github.com/forestvpn/api-client-dart
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
