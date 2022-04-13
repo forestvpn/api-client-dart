@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.1] - 2022-04-08
+
+### Chnages
+
+- Add CloudPaymentsSecure3d model
+
 ## [2.11.0] - 2022-04-08
 
 ### Added
