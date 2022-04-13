@@ -17,6 +17,7 @@ doc/CheckoutSession.md
 doc/CheckoutSessionProduct.md
 doc/CloudPaymentsAuth.md
 doc/CloudPaymentsPost3ds.md
+doc/CloudPaymentsSecure3d.md
 doc/ConnectionMode.md
 doc/Constraint.md
 doc/Country.md
@@ -91,6 +92,7 @@ lib/src/model/checkout_session.dart
 lib/src/model/checkout_session_product.dart
 lib/src/model/cloud_payments_auth.dart
 lib/src/model/cloud_payments_post3ds.dart
+lib/src/model/cloud_payments_secure3d.dart
 lib/src/model/connection_mode.dart
 lib/src/model/constraint.dart
 lib/src/model/country.dart
@@ -131,7 +133,3 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/cloud_payments_auth_test.dart
-test/cloud_payments_post3ds_test.dart
-test/create_cloud_payments_auth_test.dart
-test/create_cloud_payments_post3ds_test.dart

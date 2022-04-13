@@ -23,6 +23,7 @@ import 'package:forestvpn_api/src/model/checkout_session.dart';
 import 'package:forestvpn_api/src/model/checkout_session_product.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_auth.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_post3ds.dart';
+import 'package:forestvpn_api/src/model/cloud_payments_secure3d.dart';
 import 'package:forestvpn_api/src/model/connection_mode.dart';
 import 'package:forestvpn_api/src/model/constraint.dart';
 import 'package:forestvpn_api/src/model/country.dart';
@@ -75,6 +76,7 @@ part 'serializers.g.dart';
   CheckoutSessionProduct,
   CloudPaymentsAuth,
   CloudPaymentsPost3ds,
+  CloudPaymentsSecure3d,
   ConnectionMode,
   Constraint,
   Country,

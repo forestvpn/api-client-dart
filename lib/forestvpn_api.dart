@@ -32,6 +32,7 @@ export 'package:forestvpn_api/src/model/checkout_session.dart';
 export 'package:forestvpn_api/src/model/checkout_session_product.dart';
 export 'package:forestvpn_api/src/model/cloud_payments_auth.dart';
 export 'package:forestvpn_api/src/model/cloud_payments_post3ds.dart';
+export 'package:forestvpn_api/src/model/cloud_payments_secure3d.dart';
 export 'package:forestvpn_api/src/model/connection_mode.dart';
 export 'package:forestvpn_api/src/model/constraint.dart';
 export 'package:forestvpn_api/src/model/country.dart';
