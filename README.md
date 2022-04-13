@@ -20,7 +20,7 @@ For more information, please visit [https://www.forestvpn.com/](https://www.fore
 To use the package from [pub.dev](https://pub.dev), please include the following in pubspec.yaml
 ```yaml
 dependencies:
-  forestvpn_api: 2.10.1
+  forestvpn_api: 2.8.9
 ```
 
 ### Github
@@ -83,6 +83,8 @@ Class | Method | HTTP request | Description
 [*CheckoutApi*](doc/CheckoutApi.md) | [**expireCheckoutSession**](doc/CheckoutApi.md#expirecheckoutsession) | **POST** /checkout/sessions/{sessionID}/expire/ | Expire checkout session
 [*CheckoutApi*](doc/CheckoutApi.md) | [**getCheckoutSession**](doc/CheckoutApi.md#getcheckoutsession) | **GET** /checkout/sessions/{sessionID}/ | Checkout session details
 [*CheckoutApi*](doc/CheckoutApi.md) | [**getStripeCheckoutSession**](doc/CheckoutApi.md#getstripecheckoutsession) | **GET** /checkout/sessions/{sessionID}/stripe/checkout/session/ | Stripe checkout session details
+[*CheckoutApi*](doc/CheckoutApi.md) | [**processCloudPaymentsAuth**](doc/CheckoutApi.md#processcloudpaymentsauth) | **POST** /checkout/sessions/{sessionID}/cloud-payments/auth/ | Cloud payments auth
+[*CheckoutApi*](doc/CheckoutApi.md) | [**processCloudPaymentsPost3ds**](doc/CheckoutApi.md#processcloudpaymentspost3ds) | **POST** /checkout/sessions/{sessionID}/cloud-payments/post3ds/ | Cloud payments post3ds
 [*DeviceApi*](doc/DeviceApi.md) | [**createDevice**](doc/DeviceApi.md#createdevice) | **POST** /devices/ | Create new device
 [*DeviceApi*](doc/DeviceApi.md) | [**createDevicePortForwarding**](doc/DeviceApi.md#createdeviceportforwarding) | **POST** /devices/{deviceID}/port-forwarding/ | Create new device port forwarding
 [*DeviceApi*](doc/DeviceApi.md) | [**deleteDevice**](doc/DeviceApi.md#deletedevice) | **DELETE** /devices/{deviceID}/ | Delete Device
@@ -113,10 +115,6 @@ Class | Method | HTTP request | Description
 [*FriendshipApi*](doc/FriendshipApi.md) | [**rejectFriendshipInvitation**](doc/FriendshipApi.md#rejectfriendshipinvitation) | **DELETE** /friendship/invitations/{code}/ | Reject friendship invitation
 [*GeoApi*](doc/GeoApi.md) | [**listLocations**](doc/GeoApi.md#listlocations) | **GET** /locations/ | Location list
 [*GoogleApi*](doc/GoogleApi.md) | [**verifyPlayStorePurchase**](doc/GoogleApi.md#verifyplaystorepurchase) | **POST** /purchase/google/verify/ | Play store purchase verification
-[*NewsApi*](doc/NewsApi.md) | [**getNotification**](doc/NewsApi.md#getnotification) | **GET** /news/notifications/{notificationID}/ | Get notification content
-[*NewsApi*](doc/NewsApi.md) | [**listNotifications**](doc/NewsApi.md#listnotifications) | **GET** /news/notifications/ | Get notifications list
-[*NewsApi*](doc/NewsApi.md) | [**updateNotificationMarkRead**](doc/NewsApi.md#updatenotificationmarkread) | **PATCH** /news/notifications/{notificationID}/mark_read/ | Mark notification as read by user
-[*NewsApi*](doc/NewsApi.md) | [**updateNotificationMarkReadAll**](doc/NewsApi.md#updatenotificationmarkreadall) | **PATCH** /news/notifications/mark_read_all/ | Mark all notifications as read by user
 [*WireguardApi*](doc/WireguardApi.md) | [**getWireGuardPeerInfo**](doc/WireguardApi.md#getwireguardpeerinfo) | **GET** /wireguard/peers/{pubKey}/ | Wireguard peer info
 [*WireguardApi*](doc/WireguardApi.md) | [**listWireGuardPeers**](doc/WireguardApi.md#listwireguardpeers) | **GET** /wireguard/peers/ | Wireguard peers list
 
@@ -132,12 +130,16 @@ Class | Method | HTTP request | Description
  - [Bundle](doc/Bundle.md)
  - [CheckoutSession](doc/CheckoutSession.md)
  - [CheckoutSessionProduct](doc/CheckoutSessionProduct.md)
+ - [CloudPaymentsAuth](doc/CloudPaymentsAuth.md)
+ - [CloudPaymentsPost3ds](doc/CloudPaymentsPost3ds.md)
  - [ConnectionMode](doc/ConnectionMode.md)
  - [Constraint](doc/Constraint.md)
  - [Country](doc/Country.md)
  - [CreateAdUnitRequestLogRequest](doc/CreateAdUnitRequestLogRequest.md)
  - [CreateCheckoutSessionProduct](doc/CreateCheckoutSessionProduct.md)
  - [CreateCheckoutSessionRequest](doc/CreateCheckoutSessionRequest.md)
+ - [CreateCloudPaymentsAuth](doc/CreateCloudPaymentsAuth.md)
+ - [CreateCloudPaymentsPost3ds](doc/CreateCloudPaymentsPost3ds.md)
  - [CreateFCMDeviceRequest](doc/CreateFCMDeviceRequest.md)
  - [CreateOrUpdateDeviceRequest](doc/CreateOrUpdateDeviceRequest.md)
  - [CreateOrUpdateDeviceRequestInfo](doc/CreateOrUpdateDeviceRequestInfo.md)
@@ -147,14 +149,11 @@ Class | Method | HTTP request | Description
  - [Environment](doc/Environment.md)
  - [Error](doc/Error.md)
  - [FCMDevice](doc/FCMDevice.md)
- - [FeaturedImage](doc/FeaturedImage.md)
  - [Friendship](doc/Friendship.md)
  - [FriendshipInvitation](doc/FriendshipInvitation.md)
  - [LegacyAuthMigrationToken](doc/LegacyAuthMigrationToken.md)
  - [Location](doc/Location.md)
  - [NetworkService](doc/NetworkService.md)
- - [Notification](doc/Notification.md)
- - [NotificationDetail](doc/NotificationDetail.md)
  - [PaymentMethod](doc/PaymentMethod.md)
  - [PlayStorePurchaseVerificationRequest](doc/PlayStorePurchaseVerificationRequest.md)
  - [PortForwarding](doc/PortForwarding.md)

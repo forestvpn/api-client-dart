@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**expireCheckoutSession**](CheckoutApi.md#expirecheckoutsession) | **POST** /checkout/sessions/{sessionID}/expire/ | Expire checkout session
 [**getCheckoutSession**](CheckoutApi.md#getcheckoutsession) | **GET** /checkout/sessions/{sessionID}/ | Checkout session details
 [**getStripeCheckoutSession**](CheckoutApi.md#getstripecheckoutsession) | **GET** /checkout/sessions/{sessionID}/stripe/checkout/session/ | Stripe checkout session details
+[**processCloudPaymentsAuth**](CheckoutApi.md#processcloudpaymentsauth) | **POST** /checkout/sessions/{sessionID}/cloud-payments/auth/ | Cloud payments auth
+[**processCloudPaymentsPost3ds**](CheckoutApi.md#processcloudpaymentspost3ds) | **POST** /checkout/sessions/{sessionID}/cloud-payments/post3ds/ | Cloud payments post3ds
 
 
 # **createCheckoutSession**
@@ -186,6 +188,98 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **processCloudPaymentsAuth**
+> CloudPaymentsAuth processCloudPaymentsAuth(sessionID, createCloudPaymentsAuth)
+
+Cloud payments auth
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getCheckoutApi();
+final String sessionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final CreateCloudPaymentsAuth createCloudPaymentsAuth = ; // CreateCloudPaymentsAuth | 
+
+try {
+    final response = api.processCloudPaymentsAuth(sessionID, createCloudPaymentsAuth);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling CheckoutApi->processCloudPaymentsAuth: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sessionID** | **String**|  | 
+ **createCloudPaymentsAuth** | [**CreateCloudPaymentsAuth**](CreateCloudPaymentsAuth.md)|  | 
+
+### Return type
+
+[**CloudPaymentsAuth**](CloudPaymentsAuth.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **processCloudPaymentsPost3ds**
+> CloudPaymentsPost3ds processCloudPaymentsPost3ds(sessionID, createCloudPaymentsPost3ds)
+
+Cloud payments post3ds
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getCheckoutApi();
+final String sessionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final CreateCloudPaymentsPost3ds createCloudPaymentsPost3ds = ; // CreateCloudPaymentsPost3ds | 
+
+try {
+    final response = api.processCloudPaymentsPost3ds(sessionID, createCloudPaymentsPost3ds);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling CheckoutApi->processCloudPaymentsPost3ds: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sessionID** | **String**|  | 
+ **createCloudPaymentsPost3ds** | [**CreateCloudPaymentsPost3ds**](CreateCloudPaymentsPost3ds.md)|  | 
+
+### Return type
+
+[**CloudPaymentsPost3ds**](CloudPaymentsPost3ds.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
