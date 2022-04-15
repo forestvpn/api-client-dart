@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.0-news.1] - 2022-04-15
+
+### Added
+
+- News API
+
 ## [2.10.0] - 2022-04-08
 
 ### Added
