@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.11.0-news.1] - 2022-04-15
+## [2.11.2-news.2] - 2022-04-15
 
 ### Added
 
