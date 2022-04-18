@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listNotifications**
-> Notification listNotifications(isPublished)
+> BuiltList<Notification> listNotifications(isPublished)
 
 Get notifications list
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Notification**](Notification.md)
+[**BuiltList&lt;Notification&gt;**](Notification.md)
 
 ### Authorization
 

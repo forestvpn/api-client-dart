@@ -131,7 +131,3 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/featured_image_test.dart
-test/news_api_test.dart
-test/notification_detail_test.dart
-test/notification_test.dart
