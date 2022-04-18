@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/api_util.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
@@ -112,9 +113,9 @@ class NewsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Notification] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<Notification>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Notification>> listNotifications({ 
+  Future<Response<BuiltList<Notification>>> listNotifications({ 
     bool? isPublished,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -155,14 +156,14 @@ class NewsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Notification _responseData;
+    BuiltList<Notification> _responseData;
 
     try {
-      const _responseType = FullType(Notification);
+      const _responseType = FullType(BuiltList, [FullType(Notification)]);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as Notification;
+      ) as BuiltList<Notification>;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -173,7 +174,7 @@ class NewsApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<Notification>(
+    return Response<BuiltList<Notification>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

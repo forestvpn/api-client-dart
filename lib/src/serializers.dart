@@ -129,6 +129,10 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<DeviceStats>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Notification)]),
+        () => ListBuilder<Notification>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Location)]),
         () => ListBuilder<Location>(),
       )
