@@ -114,7 +114,7 @@ Class | Method | HTTP request | Description
 [*GeoApi*](doc/GeoApi.md) | [**listLocations**](doc/GeoApi.md#listlocations) | **GET** /locations/ | Location list
 [*GoogleApi*](doc/GoogleApi.md) | [**verifyPlayStorePurchase**](doc/GoogleApi.md#verifyplaystorepurchase) | **POST** /purchase/google/verify/ | Play store purchase verification
 [*NewsApi*](doc/NewsApi.md) | [**getNotification**](doc/NewsApi.md#getnotification) | **GET** /news/notifications/{notificationID}/ | Get notification content
-[*NewsApi*](doc/NewsApi.md) | [**getUnreadNotificationsCount**](doc/NewsApi.md#getunreadnotificationscount) | **GET** /news/unread_count/ | Get unread notifications count
+[*NewsApi*](doc/NewsApi.md) | [**getNotificationsUnreadCount**](doc/NewsApi.md#getnotificationsunreadcount) | **GET** /news/unread_count/ | Get unread notifications count
 [*NewsApi*](doc/NewsApi.md) | [**listNotifications**](doc/NewsApi.md#listnotifications) | **GET** /news/notifications/ | Get notifications list
 [*NewsApi*](doc/NewsApi.md) | [**updateNotificationMarkRead**](doc/NewsApi.md#updatenotificationmarkread) | **PATCH** /news/notifications/{notificationID}/mark_read/ | Mark notification as read by user
 [*NewsApi*](doc/NewsApi.md) | [**updateNotificationMarkReadAll**](doc/NewsApi.md#updatenotificationmarkreadall) | **PATCH** /news/notifications/mark_read_all/ | Mark all notifications as read by user

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getNotification**](NewsApi.md#getnotification) | **GET** /news/notifications/{notificationID}/ | Get notification content
-[**getUnreadNotificationsCount**](NewsApi.md#getunreadnotificationscount) | **GET** /news/unread_count/ | Get unread notifications count
+[**getNotificationsUnreadCount**](NewsApi.md#getnotificationsunreadcount) | **GET** /news/unread_count/ | Get unread notifications count
 [**listNotifications**](NewsApi.md#listnotifications) | **GET** /news/notifications/ | Get notifications list
 [**updateNotificationMarkRead**](NewsApi.md#updatenotificationmarkread) | **PATCH** /news/notifications/{notificationID}/mark_read/ | Mark notification as read by user
 [**updateNotificationMarkReadAll**](NewsApi.md#updatenotificationmarkreadall) | **PATCH** /news/notifications/mark_read_all/ | Mark all notifications as read by user
@@ -60,8 +60,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getUnreadNotificationsCount**
-> NotificationUnreadCount getUnreadNotificationsCount()
+# **getNotificationsUnreadCount**
+> NotificationUnreadCount getNotificationsUnreadCount()
 
 Get unread notifications count
 
@@ -75,10 +75,10 @@ import 'package:forestvpn_api/api.dart';
 final api = ForestvpnApi().getNewsApi();
 
 try {
-    final response = api.getUnreadNotificationsCount();
+    final response = api.getNotificationsUnreadCount();
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling NewsApi->getUnreadNotificationsCount: $e\n');
+    print('Exception when calling NewsApi->getNotificationsUnreadCount: $e\n');
 }
 ```
 

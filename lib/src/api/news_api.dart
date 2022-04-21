@@ -115,7 +115,7 @@ class NewsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [NotificationUnreadCount] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<NotificationUnreadCount>> getUnreadNotificationsCount({ 
+  Future<Response<NotificationUnreadCount>> getNotificationsUnreadCount({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
