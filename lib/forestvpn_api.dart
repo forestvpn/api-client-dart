@@ -54,6 +54,7 @@ export 'package:forestvpn_api/src/model/location.dart';
 export 'package:forestvpn_api/src/model/network_service.dart';
 export 'package:forestvpn_api/src/model/notification.dart';
 export 'package:forestvpn_api/src/model/notification_detail.dart';
+export 'package:forestvpn_api/src/model/notification_unread_count.dart';
 export 'package:forestvpn_api/src/model/payment_method.dart';
 export 'package:forestvpn_api/src/model/play_store_purchase_verification_request.dart';
 export 'package:forestvpn_api/src/model/port_forwarding.dart';
