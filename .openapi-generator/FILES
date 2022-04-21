@@ -44,6 +44,7 @@ doc/NetworkService.md
 doc/NewsApi.md
 doc/Notification.md
 doc/NotificationDetail.md
+doc/NotificationUnreadCount.md
 doc/PaymentMethod.md
 doc/PlayStorePurchaseVerificationRequest.md
 doc/PortForwarding.md
@@ -114,6 +115,7 @@ lib/src/model/location.dart
 lib/src/model/network_service.dart
 lib/src/model/notification.dart
 lib/src/model/notification_detail.dart
+lib/src/model/notification_unread_count.dart
 lib/src/model/payment_method.dart
 lib/src/model/play_store_purchase_verification_request.dart
 lib/src/model/port_forwarding.dart
@@ -131,3 +133,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/notification_unread_count_test.dart

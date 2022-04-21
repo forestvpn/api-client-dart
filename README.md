@@ -20,7 +20,7 @@ For more information, please visit [https://www.forestvpn.com/](https://www.fore
 To use the package from [pub.dev](https://pub.dev), please include the following in pubspec.yaml
 ```yaml
 dependencies:
-  forestvpn_api: 2.10.2
+  forestvpn_api: 2.10.3
 ```
 
 ### Github
@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 [*GeoApi*](doc/GeoApi.md) | [**listLocations**](doc/GeoApi.md#listlocations) | **GET** /locations/ | Location list
 [*GoogleApi*](doc/GoogleApi.md) | [**verifyPlayStorePurchase**](doc/GoogleApi.md#verifyplaystorepurchase) | **POST** /purchase/google/verify/ | Play store purchase verification
 [*NewsApi*](doc/NewsApi.md) | [**getNotification**](doc/NewsApi.md#getnotification) | **GET** /news/notifications/{notificationID}/ | Get notification content
+[*NewsApi*](doc/NewsApi.md) | [**getUnreadNotificationsCount**](doc/NewsApi.md#getunreadnotificationscount) | **GET** /news/unread_count/ | Get unread notifications count
 [*NewsApi*](doc/NewsApi.md) | [**listNotifications**](doc/NewsApi.md#listnotifications) | **GET** /news/notifications/ | Get notifications list
 [*NewsApi*](doc/NewsApi.md) | [**updateNotificationMarkRead**](doc/NewsApi.md#updatenotificationmarkread) | **PATCH** /news/notifications/{notificationID}/mark_read/ | Mark notification as read by user
 [*NewsApi*](doc/NewsApi.md) | [**updateNotificationMarkReadAll**](doc/NewsApi.md#updatenotificationmarkreadall) | **PATCH** /news/notifications/mark_read_all/ | Mark all notifications as read by user
@@ -155,6 +156,7 @@ Class | Method | HTTP request | Description
  - [NetworkService](doc/NetworkService.md)
  - [Notification](doc/Notification.md)
  - [NotificationDetail](doc/NotificationDetail.md)
+ - [NotificationUnreadCount](doc/NotificationUnreadCount.md)
  - [PaymentMethod](doc/PaymentMethod.md)
  - [PlayStorePurchaseVerificationRequest](doc/PlayStorePurchaseVerificationRequest.md)
  - [PortForwarding](doc/PortForwarding.md)

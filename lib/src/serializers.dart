@@ -44,6 +44,7 @@ import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_detail.dart';
+import 'package:forestvpn_api/src/model/notification_unread_count.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/play_store_purchase_verification_request.dart';
 import 'package:forestvpn_api/src/model/port_forwarding.dart';
@@ -95,6 +96,7 @@ part 'serializers.g.dart';
   NetworkService,
   Notification,
   NotificationDetail,
+  NotificationUnreadCount,
   PaymentMethod,
   PlayStorePurchaseVerificationRequest,
   PortForwarding,
