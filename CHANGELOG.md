@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.12.1-news.4] - 2022-04-21
+
+### Added
+
+- NotificationUnreadCount
+
 ## [2.11.2-news.2] - 2022-04-15
 
 ### Added
