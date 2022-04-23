@@ -24,6 +24,10 @@ class _$User extends User {
   @override
   final DateTime? dateJoined;
   @override
+  final String? country;
+  @override
+  final String? currencyCode;
+  @override
   final BuiltList<Environment>? environments;
 
   factory _$User([void Function(UserBuilder)? updates]) =>
@@ -38,6 +42,8 @@ class _$User extends User {
       this.emailVerified,
       this.photoUrl,
       this.dateJoined,
+      this.country,
+      this.currencyCode,
       this.environments})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'User', 'id');
@@ -63,6 +69,8 @@ class _$User extends User {
         emailVerified == other.emailVerified &&
         photoUrl == other.photoUrl &&
         dateJoined == other.dateJoined &&
+        country == other.country &&
+        currencyCode == other.currencyCode &&
         environments == other.environments;
   }
 
@@ -74,13 +82,19 @@ class _$User extends User {
                 $jc(
                     $jc(
                         $jc(
-                            $jc($jc($jc(0, id.hashCode), username.hashCode),
-                                firstName.hashCode),
-                            lastName.hashCode),
-                        email.hashCode),
-                    emailVerified.hashCode),
-                photoUrl.hashCode),
-            dateJoined.hashCode),
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc($jc(0, id.hashCode),
+                                            username.hashCode),
+                                        firstName.hashCode),
+                                    lastName.hashCode),
+                                email.hashCode),
+                            emailVerified.hashCode),
+                        photoUrl.hashCode),
+                    dateJoined.hashCode),
+                country.hashCode),
+            currencyCode.hashCode),
         environments.hashCode));
   }
 
@@ -95,6 +109,8 @@ class _$User extends User {
           ..add('emailVerified', emailVerified)
           ..add('photoUrl', photoUrl)
           ..add('dateJoined', dateJoined)
+          ..add('country', country)
+          ..add('currencyCode', currencyCode)
           ..add('environments', environments))
         .toString();
   }
@@ -136,6 +152,14 @@ class UserBuilder implements Builder<User, UserBuilder> {
   DateTime? get dateJoined => _$this._dateJoined;
   set dateJoined(DateTime? dateJoined) => _$this._dateJoined = dateJoined;
 
+  String? _country;
+  String? get country => _$this._country;
+  set country(String? country) => _$this._country = country;
+
+  String? _currencyCode;
+  String? get currencyCode => _$this._currencyCode;
+  set currencyCode(String? currencyCode) => _$this._currencyCode = currencyCode;
+
   ListBuilder<Environment>? _environments;
   ListBuilder<Environment> get environments =>
       _$this._environments ??= new ListBuilder<Environment>();
@@ -157,6 +181,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _emailVerified = $v.emailVerified;
       _photoUrl = $v.photoUrl;
       _dateJoined = $v.dateJoined;
+      _country = $v.country;
+      _currencyCode = $v.currencyCode;
       _environments = $v.environments?.toBuilder();
       _$v = null;
     }
@@ -189,6 +215,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
               emailVerified: emailVerified,
               photoUrl: photoUrl,
               dateJoined: dateJoined,
+              country: country,
+              currencyCode: currencyCode,
               environments: _environments?.build());
     } catch (_) {
       late String _$failedField;

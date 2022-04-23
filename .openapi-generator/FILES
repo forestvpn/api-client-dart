@@ -21,11 +21,13 @@ doc/CloudPaymentsSecure3d.md
 doc/ConnectionMode.md
 doc/Constraint.md
 doc/Country.md
+doc/CouponCheckoutSession.md
 doc/CreateAdUnitRequestLogRequest.md
 doc/CreateCheckoutSessionProduct.md
 doc/CreateCheckoutSessionRequest.md
 doc/CreateCloudPaymentsAuth.md
 doc/CreateCloudPaymentsPost3ds.md
+doc/CreateCouponCheckoutSession.md
 doc/CreateFCMDeviceRequest.md
 doc/CreateOrUpdateDeviceRequest.md
 doc/CreateOrUpdateDeviceRequestInfo.md
@@ -53,6 +55,7 @@ doc/Product.md
 doc/Recurring.md
 doc/Server.md
 doc/StripeCheckoutSession.md
+doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
 doc/User.md
 doc/WireGuard.md
@@ -96,11 +99,13 @@ lib/src/model/cloud_payments_secure3d.dart
 lib/src/model/connection_mode.dart
 lib/src/model/constraint.dart
 lib/src/model/country.dart
+lib/src/model/coupon_checkout_session.dart
 lib/src/model/create_ad_unit_request_log_request.dart
 lib/src/model/create_checkout_session_product.dart
 lib/src/model/create_checkout_session_request.dart
 lib/src/model/create_cloud_payments_auth.dart
 lib/src/model/create_cloud_payments_post3ds.dart
+lib/src/model/create_coupon_checkout_session.dart
 lib/src/model/create_fcm_device_request.dart
 lib/src/model/create_or_update_device_request.dart
 lib/src/model/create_or_update_device_request_info.dart
@@ -124,6 +129,7 @@ lib/src/model/product.dart
 lib/src/model/recurring.dart
 lib/src/model/server.dart
 lib/src/model/stripe_checkout_session.dart
+lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
 lib/src/model/user.dart
 lib/src/model/wire_guard.dart
@@ -133,3 +139,6 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/coupon_checkout_session_test.dart
+test/create_coupon_checkout_session_test.dart
+test/token_obtain_test.dart

@@ -20,6 +20,8 @@ part 'user.g.dart';
 /// * [emailVerified] 
 /// * [photoUrl] 
 /// * [dateJoined] 
+/// * [country] 
+/// * [currencyCode] 
 /// * [environments] 
 abstract class User implements Built<User, UserBuilder> {
     @BuiltValueField(wireName: r'id')
@@ -45,6 +47,12 @@ abstract class User implements Built<User, UserBuilder> {
 
     @BuiltValueField(wireName: r'date_joined')
     DateTime? get dateJoined;
+
+    @BuiltValueField(wireName: r'country')
+    String? get country;
+
+    @BuiltValueField(wireName: r'currency_code')
+    String? get currencyCode;
 
     @BuiltValueField(wireName: r'environments')
     BuiltList<Environment>? get environments;
@@ -115,6 +123,18 @@ class _$UserSerializer implements StructuredSerializer<User> {
                 ..add(serializers.serialize(object.dateJoined,
                     specifiedType: const FullType(DateTime)));
         }
+        if (object.country != null) {
+            result
+                ..add(r'country')
+                ..add(serializers.serialize(object.country,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.currencyCode != null) {
+            result
+                ..add(r'currency_code')
+                ..add(serializers.serialize(object.currencyCode,
+                    specifiedType: const FullType(String)));
+        }
         if (object.environments != null) {
             result
                 ..add(r'environments')
@@ -175,6 +195,16 @@ class _$UserSerializer implements StructuredSerializer<User> {
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(DateTime)) as DateTime;
                     result.dateJoined = valueDes;
+                    break;
+                case r'country':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.country = valueDes;
+                    break;
+                case r'currency_code':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.currencyCode = valueDes;
                     break;
                 case r'environments':
                     final valueDes = serializers.deserialize(value,

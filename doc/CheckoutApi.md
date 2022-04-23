@@ -9,6 +9,7 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**applyCouponCheckoutSession**](CheckoutApi.md#applycouponcheckoutsession) | **POST** /checkout/sessions/{sessionID}/apply_coupon/ | Apply coupon to session
 [**createCheckoutSession**](CheckoutApi.md#createcheckoutsession) | **POST** /checkout/sessions/ | Create checkout session
 [**expireCheckoutSession**](CheckoutApi.md#expirecheckoutsession) | **POST** /checkout/sessions/{sessionID}/expire/ | Expire checkout session
 [**getCheckoutSession**](CheckoutApi.md#getcheckoutsession) | **GET** /checkout/sessions/{sessionID}/ | Checkout session details
@@ -16,6 +17,52 @@ Method | HTTP request | Description
 [**processCloudPaymentsAuth**](CheckoutApi.md#processcloudpaymentsauth) | **POST** /checkout/sessions/{sessionID}/cloud-payments/auth/ | Cloud payments auth
 [**processCloudPaymentsPost3ds**](CheckoutApi.md#processcloudpaymentspost3ds) | **POST** /checkout/sessions/{sessionID}/cloud-payments/post3ds/ | Cloud payments post3ds
 
+
+# **applyCouponCheckoutSession**
+> CouponCheckoutSession applyCouponCheckoutSession(sessionID, createCouponCheckoutSession)
+
+Apply coupon to session
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getCheckoutApi();
+final String sessionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final CreateCouponCheckoutSession createCouponCheckoutSession = ; // CreateCouponCheckoutSession | 
+
+try {
+    final response = api.applyCouponCheckoutSession(sessionID, createCouponCheckoutSession);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling CheckoutApi->applyCouponCheckoutSession: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sessionID** | **String**|  | 
+ **createCouponCheckoutSession** | [**CreateCouponCheckoutSession**](CreateCouponCheckoutSession.md)|  | 
+
+### Return type
+
+[**CouponCheckoutSession**](CouponCheckoutSession.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createCheckoutSession**
 > CheckoutSession createCheckoutSession(createCheckoutSessionRequest)

@@ -27,11 +27,13 @@ import 'package:forestvpn_api/src/model/cloud_payments_secure3d.dart';
 import 'package:forestvpn_api/src/model/connection_mode.dart';
 import 'package:forestvpn_api/src/model/constraint.dart';
 import 'package:forestvpn_api/src/model/country.dart';
+import 'package:forestvpn_api/src/model/coupon_checkout_session.dart';
 import 'package:forestvpn_api/src/model/create_ad_unit_request_log_request.dart';
 import 'package:forestvpn_api/src/model/create_checkout_session_product.dart';
 import 'package:forestvpn_api/src/model/create_checkout_session_request.dart';
 import 'package:forestvpn_api/src/model/create_cloud_payments_auth.dart';
 import 'package:forestvpn_api/src/model/create_cloud_payments_post3ds.dart';
+import 'package:forestvpn_api/src/model/create_coupon_checkout_session.dart';
 import 'package:forestvpn_api/src/model/create_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request_info.dart';
@@ -54,6 +56,7 @@ import 'package:forestvpn_api/src/model/product.dart';
 import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
+import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/user.dart';
 import 'package:forestvpn_api/src/model/wire_guard.dart';
@@ -80,11 +83,13 @@ part 'serializers.g.dart';
   ConnectionMode,
   Constraint,
   Country,
+  CouponCheckoutSession,
   CreateAdUnitRequestLogRequest,
   CreateCheckoutSessionProduct,
   CreateCheckoutSessionRequest,
   CreateCloudPaymentsAuth,
   CreateCloudPaymentsPost3ds,
+  CreateCouponCheckoutSession,
   CreateFCMDeviceRequest,
   CreateOrUpdateDeviceRequest,
   CreateOrUpdateDeviceRequestInfo,
@@ -107,6 +112,7 @@ part 'serializers.g.dart';
   Recurring,
   Server,
   StripeCheckoutSession,
+  TokenObtain,
   UpdateFCMDeviceRequest,
   User,
   WireGuard,

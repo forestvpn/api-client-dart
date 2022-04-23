@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **emailVerified** | **bool** |  | [optional] 
 **photoUrl** | **String** |  | [optional] 
 **dateJoined** | [**DateTime**](DateTime.md) |  | [optional] 
+**country** | **String** |  | [optional] 
+**currencyCode** | **String** |  | [optional] 
 **environments** | [**BuiltList&lt;Environment&gt;**](Environment.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

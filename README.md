@@ -20,7 +20,7 @@ For more information, please visit [https://www.forestvpn.com/](https://www.fore
 To use the package from [pub.dev](https://pub.dev), please include the following in pubspec.yaml
 ```yaml
 dependencies:
-  forestvpn_api: 2.8.10
+  forestvpn_api: 2.8.11
 ```
 
 ### Github
@@ -71,6 +71,9 @@ Class | Method | HTTP request | Description
 [*AdsApi*](doc/AdsApi.md) | [**listAdPlacements**](doc/AdsApi.md#listadplacements) | **GET** /ads/placements/ | Get ad placement list
 [*AppleApi*](doc/AppleApi.md) | [**verifyAppStoreReceipt**](doc/AppleApi.md#verifyappstorereceipt) | **POST** /purchase/apple/verify/ | App store receipt verification
 [*AuthApi*](doc/AuthApi.md) | [**migrateLegacyAuth**](doc/AuthApi.md#migratelegacyauth) | **GET** /legacy/auth/ | Legacy auth migration
+[*AuthApi*](doc/AuthApi.md) | [**obtainToken**](doc/AuthApi.md#obtaintoken) | **POST** /auth/token/obtain/ | Obtain JWT token
+[*AuthApi*](doc/AuthApi.md) | [**updateUserProfile**](doc/AuthApi.md#updateuserprofile) | **PATCH** /auth/profile/ | Update profile
+[*AuthApi*](doc/AuthApi.md) | [**userProfile**](doc/AuthApi.md#userprofile) | **GET** /auth/profile/ | Profile
 [*AuthApi*](doc/AuthApi.md) | [**whoAmI**](doc/AuthApi.md#whoami) | **GET** /auth/whoami/ | Who am I
 [*BillingApi*](doc/BillingApi.md) | [**getBillingBundle**](doc/BillingApi.md#getbillingbundle) | **GET** /billing/bundles/{bundleID}/ | Bundle info
 [*BillingApi*](doc/BillingApi.md) | [**getBillingPaymentMethod**](doc/BillingApi.md#getbillingpaymentmethod) | **GET** /billing/payment-methods/{paymentMethodID}/ | Payment method info
@@ -79,6 +82,7 @@ Class | Method | HTTP request | Description
 [*BillingApi*](doc/BillingApi.md) | [**listBillingFeatures**](doc/BillingApi.md#listbillingfeatures) | **GET** /billing/features/ | Billing feature list
 [*BillingApi*](doc/BillingApi.md) | [**listBillingPaymentMethods**](doc/BillingApi.md#listbillingpaymentmethods) | **GET** /billing/payment-methods/ | Billing payment methods list
 [*BillingApi*](doc/BillingApi.md) | [**listBillingProducts**](doc/BillingApi.md#listbillingproducts) | **GET** /billing/products/ | Billing products list
+[*CheckoutApi*](doc/CheckoutApi.md) | [**applyCouponCheckoutSession**](doc/CheckoutApi.md#applycouponcheckoutsession) | **POST** /checkout/sessions/{sessionID}/apply_coupon/ | Apply coupon to session
 [*CheckoutApi*](doc/CheckoutApi.md) | [**createCheckoutSession**](doc/CheckoutApi.md#createcheckoutsession) | **POST** /checkout/sessions/ | Create checkout session
 [*CheckoutApi*](doc/CheckoutApi.md) | [**expireCheckoutSession**](doc/CheckoutApi.md#expirecheckoutsession) | **POST** /checkout/sessions/{sessionID}/expire/ | Expire checkout session
 [*CheckoutApi*](doc/CheckoutApi.md) | [**getCheckoutSession**](doc/CheckoutApi.md#getcheckoutsession) | **GET** /checkout/sessions/{sessionID}/ | Checkout session details
@@ -136,11 +140,13 @@ Class | Method | HTTP request | Description
  - [ConnectionMode](doc/ConnectionMode.md)
  - [Constraint](doc/Constraint.md)
  - [Country](doc/Country.md)
+ - [CouponCheckoutSession](doc/CouponCheckoutSession.md)
  - [CreateAdUnitRequestLogRequest](doc/CreateAdUnitRequestLogRequest.md)
  - [CreateCheckoutSessionProduct](doc/CreateCheckoutSessionProduct.md)
  - [CreateCheckoutSessionRequest](doc/CreateCheckoutSessionRequest.md)
  - [CreateCloudPaymentsAuth](doc/CreateCloudPaymentsAuth.md)
  - [CreateCloudPaymentsPost3ds](doc/CreateCloudPaymentsPost3ds.md)
+ - [CreateCouponCheckoutSession](doc/CreateCouponCheckoutSession.md)
  - [CreateFCMDeviceRequest](doc/CreateFCMDeviceRequest.md)
  - [CreateOrUpdateDeviceRequest](doc/CreateOrUpdateDeviceRequest.md)
  - [CreateOrUpdateDeviceRequestInfo](doc/CreateOrUpdateDeviceRequestInfo.md)
@@ -163,6 +169,7 @@ Class | Method | HTTP request | Description
  - [Recurring](doc/Recurring.md)
  - [Server](doc/Server.md)
  - [StripeCheckoutSession](doc/StripeCheckoutSession.md)
+ - [TokenObtain](doc/TokenObtain.md)
  - [UpdateFCMDeviceRequest](doc/UpdateFCMDeviceRequest.md)
  - [User](doc/User.md)
  - [WireGuard](doc/WireGuard.md)
