@@ -139,6 +139,3 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/coupon_checkout_session_test.dart
-test/create_coupon_checkout_session_test.dart
-test/token_obtain_test.dart

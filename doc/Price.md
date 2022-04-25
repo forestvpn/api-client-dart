@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **currency** | **String** |  | 
 **amount** | **int** |  | 
 **amountDecimal** | **num** |  | 
+**amountDecimalWithTax** | **num** |  | 
+**tax** | **num** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

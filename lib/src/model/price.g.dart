@@ -13,6 +13,10 @@ class _$Price extends Price {
   final int amount;
   @override
   final num amountDecimal;
+  @override
+  final num amountDecimalWithTax;
+  @override
+  final num tax;
 
   factory _$Price([void Function(PriceBuilder)? updates]) =>
       (new PriceBuilder()..update(updates)).build();
@@ -20,12 +24,17 @@ class _$Price extends Price {
   _$Price._(
       {required this.currency,
       required this.amount,
-      required this.amountDecimal})
+      required this.amountDecimal,
+      required this.amountDecimalWithTax,
+      required this.tax})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(currency, 'Price', 'currency');
     BuiltValueNullFieldError.checkNotNull(amount, 'Price', 'amount');
     BuiltValueNullFieldError.checkNotNull(
         amountDecimal, 'Price', 'amountDecimal');
+    BuiltValueNullFieldError.checkNotNull(
+        amountDecimalWithTax, 'Price', 'amountDecimalWithTax');
+    BuiltValueNullFieldError.checkNotNull(tax, 'Price', 'tax');
   }
 
   @override
@@ -41,13 +50,19 @@ class _$Price extends Price {
     return other is Price &&
         currency == other.currency &&
         amount == other.amount &&
-        amountDecimal == other.amountDecimal;
+        amountDecimal == other.amountDecimal &&
+        amountDecimalWithTax == other.amountDecimalWithTax &&
+        tax == other.tax;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, currency.hashCode), amount.hashCode),
-        amountDecimal.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc($jc($jc(0, currency.hashCode), amount.hashCode),
+                amountDecimal.hashCode),
+            amountDecimalWithTax.hashCode),
+        tax.hashCode));
   }
 
   @override
@@ -55,7 +70,9 @@ class _$Price extends Price {
     return (newBuiltValueToStringHelper('Price')
           ..add('currency', currency)
           ..add('amount', amount)
-          ..add('amountDecimal', amountDecimal))
+          ..add('amountDecimal', amountDecimal)
+          ..add('amountDecimalWithTax', amountDecimalWithTax)
+          ..add('tax', tax))
         .toString();
   }
 }
@@ -76,6 +93,15 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
   set amountDecimal(num? amountDecimal) =>
       _$this._amountDecimal = amountDecimal;
 
+  num? _amountDecimalWithTax;
+  num? get amountDecimalWithTax => _$this._amountDecimalWithTax;
+  set amountDecimalWithTax(num? amountDecimalWithTax) =>
+      _$this._amountDecimalWithTax = amountDecimalWithTax;
+
+  num? _tax;
+  num? get tax => _$this._tax;
+  set tax(num? tax) => _$this._tax = tax;
+
   PriceBuilder() {
     Price._defaults(this);
   }
@@ -86,6 +112,8 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
       _currency = $v.currency;
       _amount = $v.amount;
       _amountDecimal = $v.amountDecimal;
+      _amountDecimalWithTax = $v.amountDecimalWithTax;
+      _tax = $v.tax;
       _$v = null;
     }
     return this;
@@ -111,7 +139,10 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
             amount: BuiltValueNullFieldError.checkNotNull(
                 amount, 'Price', 'amount'),
             amountDecimal: BuiltValueNullFieldError.checkNotNull(
-                amountDecimal, 'Price', 'amountDecimal'));
+                amountDecimal, 'Price', 'amountDecimal'),
+            amountDecimalWithTax: BuiltValueNullFieldError.checkNotNull(
+                amountDecimalWithTax, 'Price', 'amountDecimalWithTax'),
+            tax: BuiltValueNullFieldError.checkNotNull(tax, 'Price', 'tax'));
     replace(_$result);
     return _$result;
   }

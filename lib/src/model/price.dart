@@ -13,6 +13,8 @@ part 'price.g.dart';
 /// * [currency] 
 /// * [amount] 
 /// * [amountDecimal] 
+/// * [amountDecimalWithTax] 
+/// * [tax] 
 abstract class Price implements Built<Price, PriceBuilder> {
     @BuiltValueField(wireName: r'currency')
     String get currency;
@@ -22,6 +24,12 @@ abstract class Price implements Built<Price, PriceBuilder> {
 
     @BuiltValueField(wireName: r'amount_decimal')
     num get amountDecimal;
+
+    @BuiltValueField(wireName: r'amount_decimal_with_tax')
+    num get amountDecimalWithTax;
+
+    @BuiltValueField(wireName: r'tax')
+    num get tax;
 
     Price._();
 
@@ -57,6 +65,14 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
             ..add(r'amount_decimal')
             ..add(serializers.serialize(object.amountDecimal,
                 specifiedType: const FullType(num)));
+        result
+            ..add(r'amount_decimal_with_tax')
+            ..add(serializers.serialize(object.amountDecimalWithTax,
+                specifiedType: const FullType(num)));
+        result
+            ..add(r'tax')
+            ..add(serializers.serialize(object.tax,
+                specifiedType: const FullType(num)));
         return result;
     }
 
@@ -86,6 +102,16 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(num)) as num;
                     result.amountDecimal = valueDes;
+                    break;
+                case r'amount_decimal_with_tax':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(num)) as num;
+                    result.amountDecimalWithTax = valueDes;
+                    break;
+                case r'tax':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(num)) as num;
+                    result.tax = valueDes;
                     break;
             }
         }
