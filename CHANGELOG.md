@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.3] - 2022-04-26
+
+### Chnages
+
+- Update checkout fields
+
 ## [2.11.2] - 2022-04-26
 
 ### Chnages
