@@ -20,7 +20,11 @@ For more information, please visit [https://www.forestvpn.com/](https://www.fore
 To use the package from [pub.dev](https://pub.dev), please include the following in pubspec.yaml
 ```yaml
 dependencies:
+<<<<<<< HEAD
   forestvpn_api: 2.11.3
+=======
+  forestvpn_api: 2.11.2
+>>>>>>> a58f7d56f22a10714e9cce757917a5b71d11a7a2
 ```
 
 ### Github

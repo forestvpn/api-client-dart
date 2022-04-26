@@ -1,5 +1,9 @@
 name: forestvpn_api
+<<<<<<< HEAD
 version: 2.11.3
+=======
+version: 2.11.2
+>>>>>>> a58f7d56f22a10714e9cce757917a5b71d11a7a2
 description: A package to interact api.forestvpn.com (manage vpn profiles
 homepage: https://forestvpn.com/
 
