@@ -18,9 +18,7 @@ part 'checkout_session.g.dart';
 /// * [redirectUrl] 
 /// * [currency] 
 /// * [amountSubtotal] 
-/// * [amountSubtotalDecimal] 
 /// * [amountTotal] 
-/// * [amountTotalDecimal] 
 /// * [locale] 
 /// * [email] 
 /// * [products] 
@@ -47,16 +45,10 @@ abstract class CheckoutSession implements Built<CheckoutSession, CheckoutSession
     String get currency;
 
     @BuiltValueField(wireName: r'amount_subtotal')
-    int get amountSubtotal;
-
-    @BuiltValueField(wireName: r'amount_subtotal_decimal')
-    num get amountSubtotalDecimal;
+    double get amountSubtotal;
 
     @BuiltValueField(wireName: r'amount_total')
-    int get amountTotal;
-
-    @BuiltValueField(wireName: r'amount_total_decimal')
-    num get amountTotalDecimal;
+    double get amountTotal;
 
     @BuiltValueField(wireName: r'locale')
     String? get locale;
@@ -135,19 +127,11 @@ class _$CheckoutSessionSerializer implements StructuredSerializer<CheckoutSessio
         result
             ..add(r'amount_subtotal')
             ..add(serializers.serialize(object.amountSubtotal,
-                specifiedType: const FullType(int)));
-        result
-            ..add(r'amount_subtotal_decimal')
-            ..add(serializers.serialize(object.amountSubtotalDecimal,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         result
             ..add(r'amount_total')
             ..add(serializers.serialize(object.amountTotal,
-                specifiedType: const FullType(int)));
-        result
-            ..add(r'amount_total_decimal')
-            ..add(serializers.serialize(object.amountTotalDecimal,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         if (object.locale != null) {
             result
                 ..add(r'locale')
@@ -234,23 +218,13 @@ class _$CheckoutSessionSerializer implements StructuredSerializer<CheckoutSessio
                     break;
                 case r'amount_subtotal':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
+                        specifiedType: const FullType(double)) as double;
                     result.amountSubtotal = valueDes;
-                    break;
-                case r'amount_subtotal_decimal':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
-                    result.amountSubtotalDecimal = valueDes;
                     break;
                 case r'amount_total':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
+                        specifiedType: const FullType(double)) as double;
                     result.amountTotal = valueDes;
-                    break;
-                case r'amount_total_decimal':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
-                    result.amountTotalDecimal = valueDes;
                     break;
                 case r'locale':
                     final valueDes = serializers.deserialize(value,

@@ -12,24 +12,20 @@ part 'price.g.dart';
 /// Properties:
 /// * [currency] 
 /// * [amount] 
-/// * [amountDecimal] 
-/// * [amountDecimalWithTax] 
+/// * [amountWithTax] 
 /// * [tax] 
 abstract class Price implements Built<Price, PriceBuilder> {
     @BuiltValueField(wireName: r'currency')
     String get currency;
 
     @BuiltValueField(wireName: r'amount')
-    int get amount;
+    double get amount;
 
-    @BuiltValueField(wireName: r'amount_decimal')
-    num get amountDecimal;
-
-    @BuiltValueField(wireName: r'amount_decimal_with_tax')
-    num get amountDecimalWithTax;
+    @BuiltValueField(wireName: r'amount_with_tax')
+    double get amountWithTax;
 
     @BuiltValueField(wireName: r'tax')
-    num get tax;
+    double get tax;
 
     Price._();
 
@@ -60,19 +56,15 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
         result
             ..add(r'amount')
             ..add(serializers.serialize(object.amount,
-                specifiedType: const FullType(int)));
+                specifiedType: const FullType(double)));
         result
-            ..add(r'amount_decimal')
-            ..add(serializers.serialize(object.amountDecimal,
-                specifiedType: const FullType(num)));
-        result
-            ..add(r'amount_decimal_with_tax')
-            ..add(serializers.serialize(object.amountDecimalWithTax,
-                specifiedType: const FullType(num)));
+            ..add(r'amount_with_tax')
+            ..add(serializers.serialize(object.amountWithTax,
+                specifiedType: const FullType(double)));
         result
             ..add(r'tax')
             ..add(serializers.serialize(object.tax,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         return result;
     }
 
@@ -95,22 +87,17 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
                     break;
                 case r'amount':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
+                        specifiedType: const FullType(double)) as double;
                     result.amount = valueDes;
                     break;
-                case r'amount_decimal':
+                case r'amount_with_tax':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
-                    result.amountDecimal = valueDes;
-                    break;
-                case r'amount_decimal_with_tax':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
-                    result.amountDecimalWithTax = valueDes;
+                        specifiedType: const FullType(double)) as double;
+                    result.amountWithTax = valueDes;
                     break;
                 case r'tax':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(double)) as double;
                     result.tax = valueDes;
                     break;
             }

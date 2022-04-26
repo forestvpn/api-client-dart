@@ -146,13 +146,9 @@ class _$CheckoutSession extends CheckoutSession {
   @override
   final String currency;
   @override
-  final int amountSubtotal;
+  final double amountSubtotal;
   @override
-  final num amountSubtotalDecimal;
-  @override
-  final int amountTotal;
-  @override
-  final num amountTotalDecimal;
+  final double amountTotal;
   @override
   final String? locale;
   @override
@@ -182,9 +178,7 @@ class _$CheckoutSession extends CheckoutSession {
       this.redirectUrl,
       required this.currency,
       required this.amountSubtotal,
-      required this.amountSubtotalDecimal,
       required this.amountTotal,
-      required this.amountTotalDecimal,
       this.locale,
       this.email,
       required this.products,
@@ -205,11 +199,7 @@ class _$CheckoutSession extends CheckoutSession {
     BuiltValueNullFieldError.checkNotNull(
         amountSubtotal, 'CheckoutSession', 'amountSubtotal');
     BuiltValueNullFieldError.checkNotNull(
-        amountSubtotalDecimal, 'CheckoutSession', 'amountSubtotalDecimal');
-    BuiltValueNullFieldError.checkNotNull(
         amountTotal, 'CheckoutSession', 'amountTotal');
-    BuiltValueNullFieldError.checkNotNull(
-        amountTotalDecimal, 'CheckoutSession', 'amountTotalDecimal');
     BuiltValueNullFieldError.checkNotNull(
         products, 'CheckoutSession', 'products');
     BuiltValueNullFieldError.checkNotNull(
@@ -239,9 +229,7 @@ class _$CheckoutSession extends CheckoutSession {
         redirectUrl == other.redirectUrl &&
         currency == other.currency &&
         amountSubtotal == other.amountSubtotal &&
-        amountSubtotalDecimal == other.amountSubtotalDecimal &&
         amountTotal == other.amountTotal &&
-        amountTotalDecimal == other.amountTotalDecimal &&
         locale == other.locale &&
         email == other.email &&
         products == other.products &&
@@ -271,24 +259,17 @@ class _$CheckoutSession extends CheckoutSession {
                                                         $jc(
                                                             $jc(
                                                                 $jc(
-                                                                    $jc(
-                                                                        $jc(
-                                                                            0,
-                                                                            id
-                                                                                .hashCode),
-                                                                        cancelUrl
-                                                                            .hashCode),
-                                                                    successUrl
+                                                                    0,
+                                                                    id
                                                                         .hashCode),
-                                                                redirectUrl
+                                                                cancelUrl
                                                                     .hashCode),
-                                                            currency.hashCode),
-                                                        amountSubtotal
-                                                            .hashCode),
-                                                    amountSubtotalDecimal
-                                                        .hashCode),
-                                                amountTotal.hashCode),
-                                            amountTotalDecimal.hashCode),
+                                                            successUrl
+                                                                .hashCode),
+                                                        redirectUrl.hashCode),
+                                                    currency.hashCode),
+                                                amountSubtotal.hashCode),
+                                            amountTotal.hashCode),
                                         locale.hashCode),
                                     email.hashCode),
                                 products.hashCode),
@@ -309,9 +290,7 @@ class _$CheckoutSession extends CheckoutSession {
           ..add('redirectUrl', redirectUrl)
           ..add('currency', currency)
           ..add('amountSubtotal', amountSubtotal)
-          ..add('amountSubtotalDecimal', amountSubtotalDecimal)
           ..add('amountTotal', amountTotal)
-          ..add('amountTotalDecimal', amountTotalDecimal)
           ..add('locale', locale)
           ..add('email', email)
           ..add('products', products)
@@ -349,24 +328,14 @@ class CheckoutSessionBuilder
   String? get currency => _$this._currency;
   set currency(String? currency) => _$this._currency = currency;
 
-  int? _amountSubtotal;
-  int? get amountSubtotal => _$this._amountSubtotal;
-  set amountSubtotal(int? amountSubtotal) =>
+  double? _amountSubtotal;
+  double? get amountSubtotal => _$this._amountSubtotal;
+  set amountSubtotal(double? amountSubtotal) =>
       _$this._amountSubtotal = amountSubtotal;
 
-  num? _amountSubtotalDecimal;
-  num? get amountSubtotalDecimal => _$this._amountSubtotalDecimal;
-  set amountSubtotalDecimal(num? amountSubtotalDecimal) =>
-      _$this._amountSubtotalDecimal = amountSubtotalDecimal;
-
-  int? _amountTotal;
-  int? get amountTotal => _$this._amountTotal;
-  set amountTotal(int? amountTotal) => _$this._amountTotal = amountTotal;
-
-  num? _amountTotalDecimal;
-  num? get amountTotalDecimal => _$this._amountTotalDecimal;
-  set amountTotalDecimal(num? amountTotalDecimal) =>
-      _$this._amountTotalDecimal = amountTotalDecimal;
+  double? _amountTotal;
+  double? get amountTotal => _$this._amountTotal;
+  set amountTotal(double? amountTotal) => _$this._amountTotal = amountTotal;
 
   String? _locale;
   String? get locale => _$this._locale;
@@ -420,9 +389,7 @@ class CheckoutSessionBuilder
       _redirectUrl = $v.redirectUrl;
       _currency = $v.currency;
       _amountSubtotal = $v.amountSubtotal;
-      _amountSubtotalDecimal = $v.amountSubtotalDecimal;
       _amountTotal = $v.amountTotal;
-      _amountTotalDecimal = $v.amountTotalDecimal;
       _locale = $v.locale;
       _email = $v.email;
       _products = $v.products.toBuilder();
@@ -465,21 +432,19 @@ class CheckoutSessionBuilder
                   currency, 'CheckoutSession', 'currency'),
               amountSubtotal: BuiltValueNullFieldError.checkNotNull(
                   amountSubtotal, 'CheckoutSession', 'amountSubtotal'),
-              amountSubtotalDecimal: BuiltValueNullFieldError.checkNotNull(
-                  amountSubtotalDecimal, 'CheckoutSession', 'amountSubtotalDecimal'),
               amountTotal: BuiltValueNullFieldError.checkNotNull(
                   amountTotal, 'CheckoutSession', 'amountTotal'),
-              amountTotalDecimal: BuiltValueNullFieldError.checkNotNull(
-                  amountTotalDecimal, 'CheckoutSession', 'amountTotalDecimal'),
               locale: locale,
               email: email,
               products: products.build(),
-              paymentStatus:
-                  BuiltValueNullFieldError.checkNotNull(paymentStatus, 'CheckoutSession', 'paymentStatus'),
-              status: BuiltValueNullFieldError.checkNotNull(status, 'CheckoutSession', 'status'),
+              paymentStatus: BuiltValueNullFieldError.checkNotNull(
+                  paymentStatus, 'CheckoutSession', 'paymentStatus'),
+              status: BuiltValueNullFieldError.checkNotNull(
+                  status, 'CheckoutSession', 'status'),
               trialPeriod: trialPeriod,
               user: user,
-              createdAt: BuiltValueNullFieldError.checkNotNull(createdAt, 'CheckoutSession', 'createdAt'),
+              createdAt:
+                  BuiltValueNullFieldError.checkNotNull(createdAt, 'CheckoutSession', 'createdAt'),
               expiresAt: BuiltValueNullFieldError.checkNotNull(expiresAt, 'CheckoutSession', 'expiresAt'));
     } catch (_) {
       late String _$failedField;
