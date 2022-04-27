@@ -9,9 +9,9 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **String** |  | 
-**amount** | **double** |  | 
-**amountWithTax** | **double** |  | 
-**tax** | **double** |  | 
+**amount** | **num** |  | 
+**amountWithTax** | **num** |  | 
+**tax** | **num** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

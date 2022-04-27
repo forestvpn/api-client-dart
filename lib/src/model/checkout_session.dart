@@ -45,10 +45,10 @@ abstract class CheckoutSession implements Built<CheckoutSession, CheckoutSession
     String get currency;
 
     @BuiltValueField(wireName: r'amount_subtotal')
-    double get amountSubtotal;
+    num get amountSubtotal;
 
     @BuiltValueField(wireName: r'amount_total')
-    double get amountTotal;
+    num get amountTotal;
 
     @BuiltValueField(wireName: r'locale')
     String? get locale;
@@ -127,11 +127,11 @@ class _$CheckoutSessionSerializer implements StructuredSerializer<CheckoutSessio
         result
             ..add(r'amount_subtotal')
             ..add(serializers.serialize(object.amountSubtotal,
-                specifiedType: const FullType(double)));
+                specifiedType: const FullType(num)));
         result
             ..add(r'amount_total')
             ..add(serializers.serialize(object.amountTotal,
-                specifiedType: const FullType(double)));
+                specifiedType: const FullType(num)));
         if (object.locale != null) {
             result
                 ..add(r'locale')
@@ -218,12 +218,12 @@ class _$CheckoutSessionSerializer implements StructuredSerializer<CheckoutSessio
                     break;
                 case r'amount_subtotal':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(double)) as double;
+                        specifiedType: const FullType(num)) as num;
                     result.amountSubtotal = valueDes;
                     break;
                 case r'amount_total':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(double)) as double;
+                        specifiedType: const FullType(num)) as num;
                     result.amountTotal = valueDes;
                     break;
                 case r'locale':

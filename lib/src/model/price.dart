@@ -19,13 +19,13 @@ abstract class Price implements Built<Price, PriceBuilder> {
     String get currency;
 
     @BuiltValueField(wireName: r'amount')
-    double get amount;
+    num get amount;
 
     @BuiltValueField(wireName: r'amount_with_tax')
-    double get amountWithTax;
+    num get amountWithTax;
 
     @BuiltValueField(wireName: r'tax')
-    double get tax;
+    num get tax;
 
     Price._();
 
@@ -56,15 +56,15 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
         result
             ..add(r'amount')
             ..add(serializers.serialize(object.amount,
-                specifiedType: const FullType(double)));
+                specifiedType: const FullType(num)));
         result
             ..add(r'amount_with_tax')
             ..add(serializers.serialize(object.amountWithTax,
-                specifiedType: const FullType(double)));
+                specifiedType: const FullType(num)));
         result
             ..add(r'tax')
             ..add(serializers.serialize(object.tax,
-                specifiedType: const FullType(double)));
+                specifiedType: const FullType(num)));
         return result;
     }
 
@@ -87,17 +87,17 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
                     break;
                 case r'amount':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(double)) as double;
+                        specifiedType: const FullType(num)) as num;
                     result.amount = valueDes;
                     break;
                 case r'amount_with_tax':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(double)) as double;
+                        specifiedType: const FullType(num)) as num;
                     result.amountWithTax = valueDes;
                     break;
                 case r'tax':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(double)) as double;
+                        specifiedType: const FullType(num)) as num;
                     result.tax = valueDes;
                     break;
             }

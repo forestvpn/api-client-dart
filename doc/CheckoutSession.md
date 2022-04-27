@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **successUrl** | **String** |  | 
 **redirectUrl** | **String** |  | [optional] 
 **currency** | **String** |  | 
-**amountSubtotal** | **double** |  | 
-**amountTotal** | **double** |  | 
+**amountSubtotal** | **num** |  | 
+**amountTotal** | **num** |  | 
 **locale** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
 **products** | [**BuiltList&lt;CheckoutSessionProduct&gt;**](CheckoutSessionProduct.md) |  | 

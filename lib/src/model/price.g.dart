@@ -10,11 +10,11 @@ class _$Price extends Price {
   @override
   final String currency;
   @override
-  final double amount;
+  final num amount;
   @override
-  final double amountWithTax;
+  final num amountWithTax;
   @override
-  final double tax;
+  final num tax;
 
   factory _$Price([void Function(PriceBuilder)? updates]) =>
       (new PriceBuilder()..update(updates)).build();
@@ -75,18 +75,18 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
   String? get currency => _$this._currency;
   set currency(String? currency) => _$this._currency = currency;
 
-  double? _amount;
-  double? get amount => _$this._amount;
-  set amount(double? amount) => _$this._amount = amount;
+  num? _amount;
+  num? get amount => _$this._amount;
+  set amount(num? amount) => _$this._amount = amount;
 
-  double? _amountWithTax;
-  double? get amountWithTax => _$this._amountWithTax;
-  set amountWithTax(double? amountWithTax) =>
+  num? _amountWithTax;
+  num? get amountWithTax => _$this._amountWithTax;
+  set amountWithTax(num? amountWithTax) =>
       _$this._amountWithTax = amountWithTax;
 
-  double? _tax;
-  double? get tax => _$this._tax;
-  set tax(double? tax) => _$this._tax = tax;
+  num? _tax;
+  num? get tax => _$this._tax;
+  set tax(num? tax) => _$this._tax = tax;
 
   PriceBuilder() {
     Price._defaults(this);
