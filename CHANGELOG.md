@@ -2,17 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.11.5] - 2022-04-27
+## [2.11.4 - 2.11.6] - 2022-04-27
 
 ### Chnages
 
 - Update billing fields
 
-## [2.11.4] - 2022-04-27
-
-### Chnages
-
-- Update billing fields
 
 ## [2.11.3] - 2022-04-26
 
