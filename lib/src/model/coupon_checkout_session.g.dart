@@ -10,7 +10,7 @@ class _$CouponCheckoutSession extends CouponCheckoutSession {
   @override
   final String key;
   @override
-  final int discount;
+  final double discount;
 
   factory _$CouponCheckoutSession(
           [void Function(CouponCheckoutSessionBuilder)? updates]) =>
@@ -62,9 +62,9 @@ class CouponCheckoutSessionBuilder
   String? get key => _$this._key;
   set key(String? key) => _$this._key = key;
 
-  int? _discount;
-  int? get discount => _$this._discount;
-  set discount(int? discount) => _$this._discount = discount;
+  double? _discount;
+  double? get discount => _$this._discount;
+  set discount(double? discount) => _$this._discount = discount;
 
   CouponCheckoutSessionBuilder() {
     CouponCheckoutSession._defaults(this);
