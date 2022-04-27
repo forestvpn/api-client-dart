@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.11.4 - 2.11.6] - 2022-04-27
+## [2.11.4 - 2.11.7] - 2022-04-27
 
 ### Chnages
 
