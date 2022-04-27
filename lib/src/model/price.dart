@@ -12,20 +12,16 @@ part 'price.g.dart';
 /// Properties:
 /// * [currency] 
 /// * [amount] 
-/// * [amountWithTax] 
 /// * [tax] 
 abstract class Price implements Built<Price, PriceBuilder> {
     @BuiltValueField(wireName: r'currency')
     String get currency;
 
     @BuiltValueField(wireName: r'amount')
-    num get amount;
-
-    @BuiltValueField(wireName: r'amount_with_tax')
-    num get amountWithTax;
+    double get amount;
 
     @BuiltValueField(wireName: r'tax')
-    num get tax;
+    double get tax;
 
     Price._();
 
@@ -56,15 +52,11 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
         result
             ..add(r'amount')
             ..add(serializers.serialize(object.amount,
-                specifiedType: const FullType(num)));
-        result
-            ..add(r'amount_with_tax')
-            ..add(serializers.serialize(object.amountWithTax,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         result
             ..add(r'tax')
             ..add(serializers.serialize(object.tax,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         return result;
     }
 
@@ -87,17 +79,12 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
                     break;
                 case r'amount':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(double)) as double;
                     result.amount = valueDes;
-                    break;
-                case r'amount_with_tax':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
-                    result.amountWithTax = valueDes;
                     break;
                 case r'tax':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(double)) as double;
                     result.tax = valueDes;
                     break;
             }

@@ -146,9 +146,9 @@ class _$CheckoutSession extends CheckoutSession {
   @override
   final String currency;
   @override
-  final num amountSubtotal;
+  final double amountSubtotal;
   @override
-  final num amountTotal;
+  final double amountTotal;
   @override
   final String? locale;
   @override
@@ -328,14 +328,14 @@ class CheckoutSessionBuilder
   String? get currency => _$this._currency;
   set currency(String? currency) => _$this._currency = currency;
 
-  num? _amountSubtotal;
-  num? get amountSubtotal => _$this._amountSubtotal;
-  set amountSubtotal(num? amountSubtotal) =>
+  double? _amountSubtotal;
+  double? get amountSubtotal => _$this._amountSubtotal;
+  set amountSubtotal(double? amountSubtotal) =>
       _$this._amountSubtotal = amountSubtotal;
 
-  num? _amountTotal;
-  num? get amountTotal => _$this._amountTotal;
-  set amountTotal(num? amountTotal) => _$this._amountTotal = amountTotal;
+  double? _amountTotal;
+  double? get amountTotal => _$this._amountTotal;
+  set amountTotal(double? amountTotal) => _$this._amountTotal = amountTotal;
 
   String? _locale;
   String? get locale => _$this._locale;

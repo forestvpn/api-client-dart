@@ -17,7 +17,7 @@ abstract class CouponCheckoutSession implements Built<CouponCheckoutSession, Cou
     String get key;
 
     @BuiltValueField(wireName: r'discount')
-    num get discount;
+    double get discount;
 
     CouponCheckoutSession._();
 
@@ -48,7 +48,7 @@ class _$CouponCheckoutSessionSerializer implements StructuredSerializer<CouponCh
         result
             ..add(r'discount')
             ..add(serializers.serialize(object.discount,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         return result;
     }
 
@@ -71,7 +71,7 @@ class _$CouponCheckoutSessionSerializer implements StructuredSerializer<CouponCh
                     break;
                 case r'discount':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(double)) as double;
                     result.discount = valueDes;
                     break;
             }

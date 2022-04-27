@@ -10,25 +10,17 @@ class _$Price extends Price {
   @override
   final String currency;
   @override
-  final num amount;
+  final double amount;
   @override
-  final num amountWithTax;
-  @override
-  final num tax;
+  final double tax;
 
   factory _$Price([void Function(PriceBuilder)? updates]) =>
       (new PriceBuilder()..update(updates)).build();
 
-  _$Price._(
-      {required this.currency,
-      required this.amount,
-      required this.amountWithTax,
-      required this.tax})
+  _$Price._({required this.currency, required this.amount, required this.tax})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(currency, 'Price', 'currency');
     BuiltValueNullFieldError.checkNotNull(amount, 'Price', 'amount');
-    BuiltValueNullFieldError.checkNotNull(
-        amountWithTax, 'Price', 'amountWithTax');
     BuiltValueNullFieldError.checkNotNull(tax, 'Price', 'tax');
   }
 
@@ -45,16 +37,13 @@ class _$Price extends Price {
     return other is Price &&
         currency == other.currency &&
         amount == other.amount &&
-        amountWithTax == other.amountWithTax &&
         tax == other.tax;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc(0, currency.hashCode), amount.hashCode),
-            amountWithTax.hashCode),
-        tax.hashCode));
+    return $jf(
+        $jc($jc($jc(0, currency.hashCode), amount.hashCode), tax.hashCode));
   }
 
   @override
@@ -62,7 +51,6 @@ class _$Price extends Price {
     return (newBuiltValueToStringHelper('Price')
           ..add('currency', currency)
           ..add('amount', amount)
-          ..add('amountWithTax', amountWithTax)
           ..add('tax', tax))
         .toString();
   }
@@ -75,18 +63,13 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
   String? get currency => _$this._currency;
   set currency(String? currency) => _$this._currency = currency;
 
-  num? _amount;
-  num? get amount => _$this._amount;
-  set amount(num? amount) => _$this._amount = amount;
+  double? _amount;
+  double? get amount => _$this._amount;
+  set amount(double? amount) => _$this._amount = amount;
 
-  num? _amountWithTax;
-  num? get amountWithTax => _$this._amountWithTax;
-  set amountWithTax(num? amountWithTax) =>
-      _$this._amountWithTax = amountWithTax;
-
-  num? _tax;
-  num? get tax => _$this._tax;
-  set tax(num? tax) => _$this._tax = tax;
+  double? _tax;
+  double? get tax => _$this._tax;
+  set tax(double? tax) => _$this._tax = tax;
 
   PriceBuilder() {
     Price._defaults(this);
@@ -97,7 +80,6 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
     if ($v != null) {
       _currency = $v.currency;
       _amount = $v.amount;
-      _amountWithTax = $v.amountWithTax;
       _tax = $v.tax;
       _$v = null;
     }
@@ -123,8 +105,6 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
                 currency, 'Price', 'currency'),
             amount: BuiltValueNullFieldError.checkNotNull(
                 amount, 'Price', 'amount'),
-            amountWithTax: BuiltValueNullFieldError.checkNotNull(
-                amountWithTax, 'Price', 'amountWithTax'),
             tax: BuiltValueNullFieldError.checkNotNull(tax, 'Price', 'tax'));
     replace(_$result);
     return _$result;
