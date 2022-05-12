@@ -10,6 +10,8 @@ class _$User extends User {
   @override
   final String id;
   @override
+  final String? promoCode;
+  @override
   final String username;
   @override
   final String? firstName;
@@ -35,6 +37,7 @@ class _$User extends User {
 
   _$User._(
       {required this.id,
+      this.promoCode,
       required this.username,
       this.firstName,
       this.lastName,
@@ -62,6 +65,7 @@ class _$User extends User {
     if (identical(other, this)) return true;
     return other is User &&
         id == other.id &&
+        promoCode == other.promoCode &&
         username == other.username &&
         firstName == other.firstName &&
         lastName == other.lastName &&
@@ -85,7 +89,9 @@ class _$User extends User {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, id.hashCode),
+                                        $jc(
+                                            $jc($jc(0, id.hashCode),
+                                                promoCode.hashCode),
                                             username.hashCode),
                                         firstName.hashCode),
                                     lastName.hashCode),
@@ -102,6 +108,7 @@ class _$User extends User {
   String toString() {
     return (newBuiltValueToStringHelper('User')
           ..add('id', id)
+          ..add('promoCode', promoCode)
           ..add('username', username)
           ..add('firstName', firstName)
           ..add('lastName', lastName)
@@ -122,6 +129,10 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String? _id;
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
+
+  String? _promoCode;
+  String? get promoCode => _$this._promoCode;
+  set promoCode(String? promoCode) => _$this._promoCode = promoCode;
 
   String? _username;
   String? get username => _$this._username;
@@ -174,6 +185,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
+      _promoCode = $v.promoCode;
       _username = $v.username;
       _firstName = $v.firstName;
       _lastName = $v.lastName;
@@ -207,6 +219,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _$result = _$v ??
           new _$User._(
               id: BuiltValueNullFieldError.checkNotNull(id, 'User', 'id'),
+              promoCode: promoCode,
               username: BuiltValueNullFieldError.checkNotNull(
                   username, 'User', 'username'),
               firstName: firstName,

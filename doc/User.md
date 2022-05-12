@@ -9,6 +9,7 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
+**promoCode** | **String** |  | [optional] 
 **username** | **String** |  | 
 **firstName** | **String** |  | [optional] 
 **lastName** | **String** |  | [optional] 

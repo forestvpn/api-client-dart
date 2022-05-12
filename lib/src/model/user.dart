@@ -13,6 +13,7 @@ part 'user.g.dart';
 ///
 /// Properties:
 /// * [id] 
+/// * [promoCode] 
 /// * [username] 
 /// * [firstName] 
 /// * [lastName] 
@@ -26,6 +27,9 @@ part 'user.g.dart';
 abstract class User implements Built<User, UserBuilder> {
     @BuiltValueField(wireName: r'id')
     String get id;
+
+    @BuiltValueField(wireName: r'promo_code')
+    String? get promoCode;
 
     @BuiltValueField(wireName: r'username')
     String get username;
@@ -83,6 +87,12 @@ class _$UserSerializer implements StructuredSerializer<User> {
             ..add(r'id')
             ..add(serializers.serialize(object.id,
                 specifiedType: const FullType(String)));
+        if (object.promoCode != null) {
+            result
+                ..add(r'promo_code')
+                ..add(serializers.serialize(object.promoCode,
+                    specifiedType: const FullType(String)));
+        }
         result
             ..add(r'username')
             ..add(serializers.serialize(object.username,
@@ -160,6 +170,11 @@ class _$UserSerializer implements StructuredSerializer<User> {
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     result.id = valueDes;
+                    break;
+                case r'promo_code':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.promoCode = valueDes;
                     break;
                 case r'username':
                     final valueDes = serializers.deserialize(value,

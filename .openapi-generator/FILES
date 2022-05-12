@@ -145,4 +145,3 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/currency_test.dart
