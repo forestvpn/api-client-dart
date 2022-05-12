@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 [*FriendshipApi*](doc/FriendshipApi.md) | [**listFriends**](doc/FriendshipApi.md#listfriends) | **GET** /friendship/friends/ | Get friends list
 [*FriendshipApi*](doc/FriendshipApi.md) | [**rejectFriendshipInvitation**](doc/FriendshipApi.md#rejectfriendshipinvitation) | **DELETE** /friendship/invitations/{code}/ | Reject friendship invitation
 [*GeoApi*](doc/GeoApi.md) | [**listCountries**](doc/GeoApi.md#listcountries) | **GET** /geo/countries/ | Countries list
+[*GeoApi*](doc/GeoApi.md) | [**listCurrencies**](doc/GeoApi.md#listcurrencies) | **GET** /geo/currencies/ | Correncies list
 [*GeoApi*](doc/GeoApi.md) | [**listLocations**](doc/GeoApi.md#listlocations) | **GET** /locations/ | Location list
 [*GoogleApi*](doc/GoogleApi.md) | [**verifyPlayStorePurchase**](doc/GoogleApi.md#verifyplaystorepurchase) | **POST** /purchase/google/verify/ | Play store purchase verification
 [*WireguardApi*](doc/WireguardApi.md) | [**getWireGuardPeerInfo**](doc/WireguardApi.md#getwireguardpeerinfo) | **GET** /wireguard/peers/{pubKey}/ | Wireguard peer info
@@ -154,6 +155,7 @@ Class | Method | HTTP request | Description
  - [CreateOrUpdateDeviceRequestInfo](doc/CreateOrUpdateDeviceRequestInfo.md)
  - [CreateOrUpdatePortForwardingRequest](doc/CreateOrUpdatePortForwardingRequest.md)
  - [CreateTokenLogin](doc/CreateTokenLogin.md)
+ - [Currency](doc/Currency.md)
  - [Device](doc/Device.md)
  - [DeviceStats](doc/DeviceStats.md)
  - [Environment](doc/Environment.md)

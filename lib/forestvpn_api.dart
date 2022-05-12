@@ -48,6 +48,7 @@ export 'package:forestvpn_api/src/model/create_or_update_device_request.dart';
 export 'package:forestvpn_api/src/model/create_or_update_device_request_info.dart';
 export 'package:forestvpn_api/src/model/create_or_update_port_forwarding_request.dart';
 export 'package:forestvpn_api/src/model/create_token_login.dart';
+export 'package:forestvpn_api/src/model/currency.dart';
 export 'package:forestvpn_api/src/model/device.dart';
 export 'package:forestvpn_api/src/model/device_stats.dart';
 export 'package:forestvpn_api/src/model/environment.dart';

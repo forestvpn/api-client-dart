@@ -39,6 +39,7 @@ import 'package:forestvpn_api/src/model/create_or_update_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request_info.dart';
 import 'package:forestvpn_api/src/model/create_or_update_port_forwarding_request.dart';
 import 'package:forestvpn_api/src/model/create_token_login.dart';
+import 'package:forestvpn_api/src/model/currency.dart';
 import 'package:forestvpn_api/src/model/device.dart';
 import 'package:forestvpn_api/src/model/device_stats.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
@@ -97,6 +98,7 @@ part 'serializers.g.dart';
   CreateOrUpdateDeviceRequestInfo,
   CreateOrUpdatePortForwardingRequest,
   CreateTokenLogin,
+  Currency,
   Device,
   DeviceStats,
   Environment,
@@ -149,6 +151,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Location)]),
         () => ListBuilder<Location>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Currency)]),
+        () => ListBuilder<Currency>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Product)]),

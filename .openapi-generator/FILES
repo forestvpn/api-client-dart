@@ -33,6 +33,7 @@ doc/CreateOrUpdateDeviceRequest.md
 doc/CreateOrUpdateDeviceRequestInfo.md
 doc/CreateOrUpdatePortForwardingRequest.md
 doc/CreateTokenLogin.md
+doc/Currency.md
 doc/Device.md
 doc/DeviceApi.md
 doc/DeviceStats.md
@@ -113,6 +114,7 @@ lib/src/model/create_or_update_device_request.dart
 lib/src/model/create_or_update_device_request_info.dart
 lib/src/model/create_or_update_port_forwarding_request.dart
 lib/src/model/create_token_login.dart
+lib/src/model/currency.dart
 lib/src/model/date.dart
 lib/src/model/device.dart
 lib/src/model/device_stats.dart
@@ -143,3 +145,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/currency_test.dart
