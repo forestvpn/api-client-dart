@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:forestvpn_api/src/model/create_token_login.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/token_login.dart';
@@ -25,7 +26,7 @@ class AuthApi {
   /// 
   ///
   /// Parameters:
-  /// * [tokenLogin] 
+  /// * [createTokenLogin] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -36,7 +37,7 @@ class AuthApi {
   /// Returns a [Future] containing a [Response] with a [TokenLogin] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<TokenLogin>> loginToken({ 
-    TokenLogin? tokenLogin,
+    CreateTokenLogin? createTokenLogin,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -67,8 +68,8 @@ class AuthApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(TokenLogin);
-      _bodyData = tokenLogin == null ? null : _serializers.serialize(tokenLogin, specifiedType: _type);
+      const _type = FullType(CreateTokenLogin);
+      _bodyData = createTokenLogin == null ? null : _serializers.serialize(createTokenLogin, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioError(

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **loginToken**
-> TokenLogin loginToken(tokenLogin)
+> TokenLogin loginToken(createTokenLogin)
 
 Login with JWT token
 
@@ -30,10 +30,10 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getAuthApi();
-final TokenLogin tokenLogin = ; // TokenLogin | 
+final CreateTokenLogin createTokenLogin = ; // CreateTokenLogin | 
 
 try {
-    final response = api.loginToken(tokenLogin);
+    final response = api.loginToken(createTokenLogin);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling AuthApi->loginToken: $e\n');
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tokenLogin** | [**TokenLogin**](TokenLogin.md)|  | [optional] 
+ **createTokenLogin** | [**CreateTokenLogin**](CreateTokenLogin.md)|  | [optional] 
 
 ### Return type
 

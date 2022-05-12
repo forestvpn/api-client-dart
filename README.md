@@ -20,7 +20,7 @@ For more information, please visit [https://www.forestvpn.com/](https://www.fore
 To use the package from [pub.dev](https://pub.dev), please include the following in pubspec.yaml
 ```yaml
 dependencies:
-  forestvpn_api: 2.11.9
+  forestvpn_api: 2.11.10
 ```
 
 ### Github
@@ -153,6 +153,7 @@ Class | Method | HTTP request | Description
  - [CreateOrUpdateDeviceRequest](doc/CreateOrUpdateDeviceRequest.md)
  - [CreateOrUpdateDeviceRequestInfo](doc/CreateOrUpdateDeviceRequestInfo.md)
  - [CreateOrUpdatePortForwardingRequest](doc/CreateOrUpdatePortForwardingRequest.md)
+ - [CreateTokenLogin](doc/CreateTokenLogin.md)
  - [Device](doc/Device.md)
  - [DeviceStats](doc/DeviceStats.md)
  - [Environment](doc/Environment.md)

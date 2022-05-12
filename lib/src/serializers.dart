@@ -38,6 +38,7 @@ import 'package:forestvpn_api/src/model/create_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request_info.dart';
 import 'package:forestvpn_api/src/model/create_or_update_port_forwarding_request.dart';
+import 'package:forestvpn_api/src/model/create_token_login.dart';
 import 'package:forestvpn_api/src/model/device.dart';
 import 'package:forestvpn_api/src/model/device_stats.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
@@ -95,6 +96,7 @@ part 'serializers.g.dart';
   CreateOrUpdateDeviceRequest,
   CreateOrUpdateDeviceRequestInfo,
   CreateOrUpdatePortForwardingRequest,
+  CreateTokenLogin,
   Device,
   DeviceStats,
   Environment,

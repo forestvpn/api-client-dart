@@ -10,10 +10,10 @@ part 'token_login.g.dart';
 /// TokenLogin
 ///
 /// Properties:
-/// * [token] 
+/// * [firebaseToken] 
 abstract class TokenLogin implements Built<TokenLogin, TokenLoginBuilder> {
-    @BuiltValueField(wireName: r'token')
-    String get token;
+    @BuiltValueField(wireName: r'firebase_token')
+    String get firebaseToken;
 
     TokenLogin._();
 
@@ -38,8 +38,8 @@ class _$TokenLoginSerializer implements StructuredSerializer<TokenLogin> {
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object?>[];
         result
-            ..add(r'token')
-            ..add(serializers.serialize(object.token,
+            ..add(r'firebase_token')
+            ..add(serializers.serialize(object.firebaseToken,
                 specifiedType: const FullType(String)));
         return result;
     }
@@ -56,10 +56,10 @@ class _$TokenLoginSerializer implements StructuredSerializer<TokenLogin> {
             final Object? value = iterator.current;
             
             switch (key) {
-                case r'token':
+                case r'firebase_token':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
-                    result.token = valueDes;
+                    result.firebaseToken = valueDes;
                     break;
             }
         }

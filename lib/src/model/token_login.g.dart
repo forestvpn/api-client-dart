@@ -8,13 +8,14 @@ part of 'token_login.dart';
 
 class _$TokenLogin extends TokenLogin {
   @override
-  final String token;
+  final String firebaseToken;
 
   factory _$TokenLogin([void Function(TokenLoginBuilder)? updates]) =>
       (new TokenLoginBuilder()..update(updates)).build();
 
-  _$TokenLogin._({required this.token}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(token, 'TokenLogin', 'token');
+  _$TokenLogin._({required this.firebaseToken}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        firebaseToken, 'TokenLogin', 'firebaseToken');
   }
 
   @override
@@ -27,17 +28,18 @@ class _$TokenLogin extends TokenLogin {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is TokenLogin && token == other.token;
+    return other is TokenLogin && firebaseToken == other.firebaseToken;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, token.hashCode));
+    return $jf($jc(0, firebaseToken.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('TokenLogin')..add('token', token))
+    return (newBuiltValueToStringHelper('TokenLogin')
+          ..add('firebaseToken', firebaseToken))
         .toString();
   }
 }
@@ -45,9 +47,10 @@ class _$TokenLogin extends TokenLogin {
 class TokenLoginBuilder implements Builder<TokenLogin, TokenLoginBuilder> {
   _$TokenLogin? _$v;
 
-  String? _token;
-  String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
+  String? _firebaseToken;
+  String? get firebaseToken => _$this._firebaseToken;
+  set firebaseToken(String? firebaseToken) =>
+      _$this._firebaseToken = firebaseToken;
 
   TokenLoginBuilder() {
     TokenLogin._defaults(this);
@@ -56,7 +59,7 @@ class TokenLoginBuilder implements Builder<TokenLogin, TokenLoginBuilder> {
   TokenLoginBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _token = $v.token;
+      _firebaseToken = $v.firebaseToken;
       _$v = null;
     }
     return this;
@@ -77,8 +80,8 @@ class TokenLoginBuilder implements Builder<TokenLogin, TokenLoginBuilder> {
   _$TokenLogin build() {
     final _$result = _$v ??
         new _$TokenLogin._(
-            token: BuiltValueNullFieldError.checkNotNull(
-                token, 'TokenLogin', 'token'));
+            firebaseToken: BuiltValueNullFieldError.checkNotNull(
+                firebaseToken, 'TokenLogin', 'firebaseToken'));
     replace(_$result);
     return _$result;
   }
