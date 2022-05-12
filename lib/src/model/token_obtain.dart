@@ -12,12 +12,16 @@ part 'token_obtain.g.dart';
 /// Properties:
 /// * [access] 
 /// * [refresh] 
+/// * [loginUrl] 
 abstract class TokenObtain implements Built<TokenObtain, TokenObtainBuilder> {
     @BuiltValueField(wireName: r'access')
     String get access;
 
     @BuiltValueField(wireName: r'refresh')
     String get refresh;
+
+    @BuiltValueField(wireName: r'login_url')
+    String get loginUrl;
 
     TokenObtain._();
 
@@ -49,6 +53,10 @@ class _$TokenObtainSerializer implements StructuredSerializer<TokenObtain> {
             ..add(r'refresh')
             ..add(serializers.serialize(object.refresh,
                 specifiedType: const FullType(String)));
+        result
+            ..add(r'login_url')
+            ..add(serializers.serialize(object.loginUrl,
+                specifiedType: const FullType(String)));
         return result;
     }
 
@@ -73,6 +81,11 @@ class _$TokenObtainSerializer implements StructuredSerializer<TokenObtain> {
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     result.refresh = valueDes;
+                    break;
+                case r'login_url':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.loginUrl = valueDes;
                     break;
             }
         }

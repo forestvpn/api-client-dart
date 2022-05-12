@@ -20,7 +20,7 @@ For more information, please visit [https://www.forestvpn.com/](https://www.fore
 To use the package from [pub.dev](https://pub.dev), please include the following in pubspec.yaml
 ```yaml
 dependencies:
-  forestvpn_api: 2.11.7
+  forestvpn_api: 2.11.9
 ```
 
 ### Github
@@ -70,8 +70,9 @@ Class | Method | HTTP request | Description
 [*AdsApi*](doc/AdsApi.md) | [**createAdUnitRequestLog**](doc/AdsApi.md#createadunitrequestlog) | **POST** /ads/request-logs/ | Create ad unit request log
 [*AdsApi*](doc/AdsApi.md) | [**listAdPlacements**](doc/AdsApi.md#listadplacements) | **GET** /ads/placements/ | Get ad placement list
 [*AppleApi*](doc/AppleApi.md) | [**verifyAppStoreReceipt**](doc/AppleApi.md#verifyappstorereceipt) | **POST** /purchase/apple/verify/ | App store receipt verification
+[*AuthApi*](doc/AuthApi.md) | [**loginToken**](doc/AuthApi.md#logintoken) | **POST** /auth/token/login/ | Login with JWT token
 [*AuthApi*](doc/AuthApi.md) | [**migrateLegacyAuth**](doc/AuthApi.md#migratelegacyauth) | **GET** /legacy/auth/ | Legacy auth migration
-[*AuthApi*](doc/AuthApi.md) | [**obtainToken**](doc/AuthApi.md#obtaintoken) | **POST** /auth/token/obtain/ | Obtain JWT token
+[*AuthApi*](doc/AuthApi.md) | [**obtainToken**](doc/AuthApi.md#obtaintoken) | **GET** /auth/token/obtain/ | Obtain JWT token
 [*AuthApi*](doc/AuthApi.md) | [**updateUserProfile**](doc/AuthApi.md#updateuserprofile) | **PATCH** /auth/profile/ | Update profile
 [*AuthApi*](doc/AuthApi.md) | [**userProfile**](doc/AuthApi.md#userprofile) | **GET** /auth/profile/ | Profile
 [*AuthApi*](doc/AuthApi.md) | [**whoAmI**](doc/AuthApi.md#whoami) | **GET** /auth/whoami/ | Who am I
@@ -117,6 +118,7 @@ Class | Method | HTTP request | Description
 [*FriendshipApi*](doc/FriendshipApi.md) | [**getFriendshipInvitation**](doc/FriendshipApi.md#getfriendshipinvitation) | **GET** /friendship/invitations/{code}/ | Friendship invitation details
 [*FriendshipApi*](doc/FriendshipApi.md) | [**listFriends**](doc/FriendshipApi.md#listfriends) | **GET** /friendship/friends/ | Get friends list
 [*FriendshipApi*](doc/FriendshipApi.md) | [**rejectFriendshipInvitation**](doc/FriendshipApi.md#rejectfriendshipinvitation) | **DELETE** /friendship/invitations/{code}/ | Reject friendship invitation
+[*GeoApi*](doc/GeoApi.md) | [**listCountries**](doc/GeoApi.md#listcountries) | **GET** /geo/countries/ | Countries list
 [*GeoApi*](doc/GeoApi.md) | [**listLocations**](doc/GeoApi.md#listlocations) | **GET** /locations/ | Location list
 [*GoogleApi*](doc/GoogleApi.md) | [**verifyPlayStorePurchase**](doc/GoogleApi.md#verifyplaystorepurchase) | **POST** /purchase/google/verify/ | Play store purchase verification
 [*WireguardApi*](doc/WireguardApi.md) | [**getWireGuardPeerInfo**](doc/WireguardApi.md#getwireguardpeerinfo) | **GET** /wireguard/peers/{pubKey}/ | Wireguard peer info
@@ -169,6 +171,7 @@ Class | Method | HTTP request | Description
  - [Recurring](doc/Recurring.md)
  - [Server](doc/Server.md)
  - [StripeCheckoutSession](doc/StripeCheckoutSession.md)
+ - [TokenLogin](doc/TokenLogin.md)
  - [TokenObtain](doc/TokenObtain.md)
  - [UpdateFCMDeviceRequest](doc/UpdateFCMDeviceRequest.md)
  - [User](doc/User.md)

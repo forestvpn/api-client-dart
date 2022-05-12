@@ -55,6 +55,7 @@ doc/Product.md
 doc/Recurring.md
 doc/Server.md
 doc/StripeCheckoutSession.md
+doc/TokenLogin.md
 doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
 doc/User.md
@@ -129,6 +130,7 @@ lib/src/model/product.dart
 lib/src/model/recurring.dart
 lib/src/model/server.dart
 lib/src/model/stripe_checkout_session.dart
+lib/src/model/token_login.dart
 lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
 lib/src/model/user.dart

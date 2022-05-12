@@ -9,12 +9,57 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**loginToken**](AuthApi.md#logintoken) | **POST** /auth/token/login/ | Login with JWT token
 [**migrateLegacyAuth**](AuthApi.md#migratelegacyauth) | **GET** /legacy/auth/ | Legacy auth migration
-[**obtainToken**](AuthApi.md#obtaintoken) | **POST** /auth/token/obtain/ | Obtain JWT token
+[**obtainToken**](AuthApi.md#obtaintoken) | **GET** /auth/token/obtain/ | Obtain JWT token
 [**updateUserProfile**](AuthApi.md#updateuserprofile) | **PATCH** /auth/profile/ | Update profile
 [**userProfile**](AuthApi.md#userprofile) | **GET** /auth/profile/ | Profile
 [**whoAmI**](AuthApi.md#whoami) | **GET** /auth/whoami/ | Who am I
 
+
+# **loginToken**
+> TokenLogin loginToken(tokenLogin)
+
+Login with JWT token
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getAuthApi();
+final TokenLogin tokenLogin = ; // TokenLogin | 
+
+try {
+    final response = api.loginToken(tokenLogin);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->loginToken: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tokenLogin** | [**TokenLogin**](TokenLogin.md)|  | [optional] 
+
+### Return type
+
+[**TokenLogin**](TokenLogin.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **migrateLegacyAuth**
 > LegacyAuthMigrationToken migrateLegacyAuth()

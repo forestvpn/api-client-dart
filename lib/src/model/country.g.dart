@@ -14,6 +14,8 @@ class _$Country extends Country {
   @override
   final String emoji;
   @override
+  final String? currencyCode;
+  @override
   final BuiltList<String>? alternativeNames;
 
   factory _$Country([void Function(CountryBuilder)? updates]) =>
@@ -23,6 +25,7 @@ class _$Country extends Country {
       {required this.id,
       required this.name,
       required this.emoji,
+      this.currencyCode,
       this.alternativeNames})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'Country', 'id');
@@ -44,12 +47,15 @@ class _$Country extends Country {
         id == other.id &&
         name == other.name &&
         emoji == other.emoji &&
+        currencyCode == other.currencyCode &&
         alternativeNames == other.alternativeNames;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc($jc(0, id.hashCode), name.hashCode), emoji.hashCode),
+    return $jf($jc(
+        $jc($jc($jc($jc(0, id.hashCode), name.hashCode), emoji.hashCode),
+            currencyCode.hashCode),
         alternativeNames.hashCode));
   }
 
@@ -59,6 +65,7 @@ class _$Country extends Country {
           ..add('id', id)
           ..add('name', name)
           ..add('emoji', emoji)
+          ..add('currencyCode', currencyCode)
           ..add('alternativeNames', alternativeNames))
         .toString();
   }
@@ -79,6 +86,10 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
   String? get emoji => _$this._emoji;
   set emoji(String? emoji) => _$this._emoji = emoji;
 
+  String? _currencyCode;
+  String? get currencyCode => _$this._currencyCode;
+  set currencyCode(String? currencyCode) => _$this._currencyCode = currencyCode;
+
   ListBuilder<String>? _alternativeNames;
   ListBuilder<String> get alternativeNames =>
       _$this._alternativeNames ??= new ListBuilder<String>();
@@ -95,6 +106,7 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
       _id = $v.id;
       _name = $v.name;
       _emoji = $v.emoji;
+      _currencyCode = $v.currencyCode;
       _alternativeNames = $v.alternativeNames?.toBuilder();
       _$v = null;
     }
@@ -123,6 +135,7 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
                   name, 'Country', 'name'),
               emoji: BuiltValueNullFieldError.checkNotNull(
                   emoji, 'Country', 'emoji'),
+              currencyCode: currencyCode,
               alternativeNames: _alternativeNames?.build());
     } catch (_) {
       late String _$failedField;

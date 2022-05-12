@@ -11,13 +11,18 @@ class _$TokenObtain extends TokenObtain {
   final String access;
   @override
   final String refresh;
+  @override
+  final String loginUrl;
 
   factory _$TokenObtain([void Function(TokenObtainBuilder)? updates]) =>
       (new TokenObtainBuilder()..update(updates)).build();
 
-  _$TokenObtain._({required this.access, required this.refresh}) : super._() {
+  _$TokenObtain._(
+      {required this.access, required this.refresh, required this.loginUrl})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(access, 'TokenObtain', 'access');
     BuiltValueNullFieldError.checkNotNull(refresh, 'TokenObtain', 'refresh');
+    BuiltValueNullFieldError.checkNotNull(loginUrl, 'TokenObtain', 'loginUrl');
   }
 
   @override
@@ -32,19 +37,22 @@ class _$TokenObtain extends TokenObtain {
     if (identical(other, this)) return true;
     return other is TokenObtain &&
         access == other.access &&
-        refresh == other.refresh;
+        refresh == other.refresh &&
+        loginUrl == other.loginUrl;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, access.hashCode), refresh.hashCode));
+    return $jf(
+        $jc($jc($jc(0, access.hashCode), refresh.hashCode), loginUrl.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('TokenObtain')
           ..add('access', access)
-          ..add('refresh', refresh))
+          ..add('refresh', refresh)
+          ..add('loginUrl', loginUrl))
         .toString();
   }
 }
@@ -60,6 +68,10 @@ class TokenObtainBuilder implements Builder<TokenObtain, TokenObtainBuilder> {
   String? get refresh => _$this._refresh;
   set refresh(String? refresh) => _$this._refresh = refresh;
 
+  String? _loginUrl;
+  String? get loginUrl => _$this._loginUrl;
+  set loginUrl(String? loginUrl) => _$this._loginUrl = loginUrl;
+
   TokenObtainBuilder() {
     TokenObtain._defaults(this);
   }
@@ -69,6 +81,7 @@ class TokenObtainBuilder implements Builder<TokenObtain, TokenObtainBuilder> {
     if ($v != null) {
       _access = $v.access;
       _refresh = $v.refresh;
+      _loginUrl = $v.loginUrl;
       _$v = null;
     }
     return this;
@@ -92,7 +105,9 @@ class TokenObtainBuilder implements Builder<TokenObtain, TokenObtainBuilder> {
             access: BuiltValueNullFieldError.checkNotNull(
                 access, 'TokenObtain', 'access'),
             refresh: BuiltValueNullFieldError.checkNotNull(
-                refresh, 'TokenObtain', 'refresh'));
+                refresh, 'TokenObtain', 'refresh'),
+            loginUrl: BuiltValueNullFieldError.checkNotNull(
+                loginUrl, 'TokenObtain', 'loginUrl'));
     replace(_$result);
     return _$result;
   }

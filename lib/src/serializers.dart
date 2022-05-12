@@ -56,6 +56,7 @@ import 'package:forestvpn_api/src/model/product.dart';
 import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
+import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/user.dart';
@@ -112,6 +113,7 @@ part 'serializers.g.dart';
   Recurring,
   Server,
   StripeCheckoutSession,
+  TokenLogin,
   TokenObtain,
   UpdateFCMDeviceRequest,
   User,
@@ -129,6 +131,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Device)]),
         () => ListBuilder<Device>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Country)]),
+        () => ListBuilder<Country>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(BillingFeature)]),

@@ -65,6 +65,7 @@ export 'package:forestvpn_api/src/model/product.dart';
 export 'package:forestvpn_api/src/model/recurring.dart';
 export 'package:forestvpn_api/src/model/server.dart';
 export 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
+export 'package:forestvpn_api/src/model/token_login.dart';
 export 'package:forestvpn_api/src/model/token_obtain.dart';
 export 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
 export 'package:forestvpn_api/src/model/user.dart';

@@ -14,6 +14,7 @@ part 'country.g.dart';
 /// * [id] 
 /// * [name] 
 /// * [emoji] 
+/// * [currencyCode] 
 /// * [alternativeNames] 
 abstract class Country implements Built<Country, CountryBuilder> {
     @BuiltValueField(wireName: r'id')
@@ -24,6 +25,9 @@ abstract class Country implements Built<Country, CountryBuilder> {
 
     @BuiltValueField(wireName: r'emoji')
     String get emoji;
+
+    @BuiltValueField(wireName: r'currency_code')
+    String? get currencyCode;
 
     @BuiltValueField(wireName: r'alternative_names')
     BuiltList<String>? get alternativeNames;
@@ -62,6 +66,12 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
             ..add(r'emoji')
             ..add(serializers.serialize(object.emoji,
                 specifiedType: const FullType(String)));
+        if (object.currencyCode != null) {
+            result
+                ..add(r'currency_code')
+                ..add(serializers.serialize(object.currencyCode,
+                    specifiedType: const FullType(String)));
+        }
         if (object.alternativeNames != null) {
             result
                 ..add(r'alternative_names')
@@ -97,6 +107,11 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     result.emoji = valueDes;
+                    break;
+                case r'currency_code':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.currencyCode = valueDes;
                     break;
                 case r'alternative_names':
                     final valueDes = serializers.deserialize(value,
