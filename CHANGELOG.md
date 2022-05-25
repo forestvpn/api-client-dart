@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.7 - 2.11.10] - 2022-05-25
+
+- Implement desktop authorization 
+
 ## [2.11.4 - 2.11.7] - 2022-04-27
 
 ### Chnages
