@@ -86,7 +86,7 @@ void main() {
 
     // Device's detail stats list
     //
-    //Future<BuiltList<DeviceStats>> listDeviceDetailStats(String deviceID, { String dateTimeAfter, String dateTimeBefore, num perPage, num page }) async
+    //Future<BuiltList<DeviceStats>> listDeviceDetailStats(String deviceID, { String dateTimeAfter, String dateTimeBefore, int perPage, int page }) async
     test('test listDeviceDetailStats', () async {
       // TODO
     });
@@ -95,14 +95,14 @@ void main() {
     //
     // Retrieve device's port forwarding lis 
     //
-    //Future<BuiltList<PortForwarding>> listDevicePortForwardings(String deviceID, { num perPage, num page }) async
+    //Future<BuiltList<PortForwarding>> listDevicePortForwardings(String deviceID, { int perPage, int page }) async
     test('test listDevicePortForwardings', () async {
       // TODO
     });
 
     // Device's stats list
     //
-    //Future<BuiltList<DeviceStats>> listDeviceStats(String deviceID, { Date dateAfter, Date dateBefore, num perPage, num page }) async
+    //Future<BuiltList<DeviceStats>> listDeviceStats(String deviceID, { Date dateAfter, Date dateBefore, int perPage, int page }) async
     test('test listDeviceStats', () async {
       // TODO
     });
@@ -116,7 +116,7 @@ void main() {
 
     // Device's wireguard profiles list
     //
-    //Future<BuiltList<WireGuard>> listDeviceWireGuards(String deviceID, { num perPage, num page }) async
+    //Future<BuiltList<WireGuard>> listDeviceWireGuards(String deviceID, { int perPage, int page }) async
     test('test listDeviceWireGuards', () async {
       // TODO
     });
@@ -125,7 +125,7 @@ void main() {
     //
     // Retrieve devices list 
     //
-    //Future<BuiltList<Device>> listDevices({ String externalKey, num perPage, num page }) async
+    //Future<BuiltList<Device>> listDevices({ String externalKey, int perPage, int page }) async
     test('test listDevices', () async {
       // TODO
     });

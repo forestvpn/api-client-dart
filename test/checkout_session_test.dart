@@ -32,23 +32,13 @@ void main() {
       // TODO
     });
 
-    // int amountSubtotal
+    // double amountSubtotal
     test('to test the property `amountSubtotal`', () async {
       // TODO
     });
 
-    // num amountSubtotalDecimal
-    test('to test the property `amountSubtotalDecimal`', () async {
-      // TODO
-    });
-
-    // int amountTotal
+    // double amountTotal
     test('to test the property `amountTotal`', () async {
-      // TODO
-    });
-
-    // num amountTotalDecimal
-    test('to test the property `amountTotalDecimal`', () async {
       // TODO
     });
 

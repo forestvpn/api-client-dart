@@ -90,8 +90,8 @@ class FriendshipApi {
   /// Returns a [Future] containing a [Response] with a [FriendshipInvitation] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<FriendshipInvitation>> createFriendshipInvitation({ 
-    num? perPage,
-    num? page,
+    int? perPage,
+    int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -119,8 +119,8 @@ class FriendshipApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(num)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(num)),
+      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
+      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -391,8 +391,8 @@ class FriendshipApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<Friendship>] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<Friendship>>> listFriends({ 
-    num? perPage,
-    num? page,
+    int? perPage,
+    int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -420,8 +420,8 @@ class FriendshipApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(num)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(num)),
+      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
+      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(

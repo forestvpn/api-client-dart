@@ -15,13 +15,13 @@ class _$BillingFeature extends BillingFeature {
   final BuiltList<Constraint>? constraints;
 
   factory _$BillingFeature([void Function(BillingFeatureBuilder)? updates]) =>
-      (new BillingFeatureBuilder()..update(updates)).build();
+      (new BillingFeatureBuilder()..update(updates))._build();
 
   _$BillingFeature._(
       {required this.bundleId, this.expiryDate, this.constraints})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        bundleId, 'BillingFeature', 'bundleId');
+        bundleId, r'BillingFeature', 'bundleId');
   }
 
   @override
@@ -49,7 +49,7 @@ class _$BillingFeature extends BillingFeature {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('BillingFeature')
+    return (newBuiltValueToStringHelper(r'BillingFeature')
           ..add('bundleId', bundleId)
           ..add('expiryDate', expiryDate)
           ..add('constraints', constraints))
@@ -102,13 +102,15 @@ class BillingFeatureBuilder
   }
 
   @override
-  _$BillingFeature build() {
+  BillingFeature build() => _build();
+
+  _$BillingFeature _build() {
     _$BillingFeature _$result;
     try {
       _$result = _$v ??
           new _$BillingFeature._(
               bundleId: BuiltValueNullFieldError.checkNotNull(
-                  bundleId, 'BillingFeature', 'bundleId'),
+                  bundleId, r'BillingFeature', 'bundleId'),
               expiryDate: expiryDate,
               constraints: _constraints?.build());
     } catch (_) {
@@ -118,7 +120,7 @@ class BillingFeatureBuilder
         _constraints?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'BillingFeature', _$failedField, e.toString());
+            r'BillingFeature', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -127,4 +129,4 @@ class BillingFeatureBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

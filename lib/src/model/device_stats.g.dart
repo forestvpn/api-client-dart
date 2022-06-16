@@ -10,20 +10,20 @@ class _$DeviceStats extends DeviceStats {
   @override
   final String? id;
   @override
-  final num? connections;
+  final int? connections;
   @override
-  final num? receivedBytes;
+  final int? receivedBytes;
   @override
-  final num? transmittedBytes;
+  final int? transmittedBytes;
   @override
-  final num? blockedAds;
+  final int? blockedAds;
   @override
-  final num? blockedMalwares;
+  final int? blockedMalwares;
   @override
   final DateTime? date;
 
   factory _$DeviceStats([void Function(DeviceStatsBuilder)? updates]) =>
-      (new DeviceStatsBuilder()..update(updates)).build();
+      (new DeviceStatsBuilder()..update(updates))._build();
 
   _$DeviceStats._(
       {this.id,
@@ -71,7 +71,7 @@ class _$DeviceStats extends DeviceStats {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('DeviceStats')
+    return (newBuiltValueToStringHelper(r'DeviceStats')
           ..add('id', id)
           ..add('connections', connections)
           ..add('receivedBytes', receivedBytes)
@@ -90,27 +90,27 @@ class DeviceStatsBuilder implements Builder<DeviceStats, DeviceStatsBuilder> {
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  num? _connections;
-  num? get connections => _$this._connections;
-  set connections(num? connections) => _$this._connections = connections;
+  int? _connections;
+  int? get connections => _$this._connections;
+  set connections(int? connections) => _$this._connections = connections;
 
-  num? _receivedBytes;
-  num? get receivedBytes => _$this._receivedBytes;
-  set receivedBytes(num? receivedBytes) =>
+  int? _receivedBytes;
+  int? get receivedBytes => _$this._receivedBytes;
+  set receivedBytes(int? receivedBytes) =>
       _$this._receivedBytes = receivedBytes;
 
-  num? _transmittedBytes;
-  num? get transmittedBytes => _$this._transmittedBytes;
-  set transmittedBytes(num? transmittedBytes) =>
+  int? _transmittedBytes;
+  int? get transmittedBytes => _$this._transmittedBytes;
+  set transmittedBytes(int? transmittedBytes) =>
       _$this._transmittedBytes = transmittedBytes;
 
-  num? _blockedAds;
-  num? get blockedAds => _$this._blockedAds;
-  set blockedAds(num? blockedAds) => _$this._blockedAds = blockedAds;
+  int? _blockedAds;
+  int? get blockedAds => _$this._blockedAds;
+  set blockedAds(int? blockedAds) => _$this._blockedAds = blockedAds;
 
-  num? _blockedMalwares;
-  num? get blockedMalwares => _$this._blockedMalwares;
-  set blockedMalwares(num? blockedMalwares) =>
+  int? _blockedMalwares;
+  int? get blockedMalwares => _$this._blockedMalwares;
+  set blockedMalwares(int? blockedMalwares) =>
       _$this._blockedMalwares = blockedMalwares;
 
   DateTime? _date;
@@ -148,7 +148,9 @@ class DeviceStatsBuilder implements Builder<DeviceStats, DeviceStatsBuilder> {
   }
 
   @override
-  _$DeviceStats build() {
+  DeviceStats build() => _build();
+
+  _$DeviceStats _build() {
     final _$result = _$v ??
         new _$DeviceStats._(
             id: id,
@@ -163,4 +165,4 @@ class DeviceStatsBuilder implements Builder<DeviceStats, DeviceStatsBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

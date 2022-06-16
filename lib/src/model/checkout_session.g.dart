@@ -169,7 +169,7 @@ class _$CheckoutSession extends CheckoutSession {
   final DateTime expiresAt;
 
   factory _$CheckoutSession([void Function(CheckoutSessionBuilder)? updates]) =>
-      (new CheckoutSessionBuilder()..update(updates)).build();
+      (new CheckoutSessionBuilder()..update(updates))._build();
 
   _$CheckoutSession._(
       {required this.id,
@@ -189,26 +189,26 @@ class _$CheckoutSession extends CheckoutSession {
       required this.createdAt,
       required this.expiresAt})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'CheckoutSession', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'CheckoutSession', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        cancelUrl, 'CheckoutSession', 'cancelUrl');
+        cancelUrl, r'CheckoutSession', 'cancelUrl');
     BuiltValueNullFieldError.checkNotNull(
-        successUrl, 'CheckoutSession', 'successUrl');
+        successUrl, r'CheckoutSession', 'successUrl');
     BuiltValueNullFieldError.checkNotNull(
-        currency, 'CheckoutSession', 'currency');
+        currency, r'CheckoutSession', 'currency');
     BuiltValueNullFieldError.checkNotNull(
-        amountSubtotal, 'CheckoutSession', 'amountSubtotal');
+        amountSubtotal, r'CheckoutSession', 'amountSubtotal');
     BuiltValueNullFieldError.checkNotNull(
-        amountTotal, 'CheckoutSession', 'amountTotal');
+        amountTotal, r'CheckoutSession', 'amountTotal');
     BuiltValueNullFieldError.checkNotNull(
-        products, 'CheckoutSession', 'products');
+        products, r'CheckoutSession', 'products');
     BuiltValueNullFieldError.checkNotNull(
-        paymentStatus, 'CheckoutSession', 'paymentStatus');
-    BuiltValueNullFieldError.checkNotNull(status, 'CheckoutSession', 'status');
+        paymentStatus, r'CheckoutSession', 'paymentStatus');
+    BuiltValueNullFieldError.checkNotNull(status, r'CheckoutSession', 'status');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, 'CheckoutSession', 'createdAt');
+        createdAt, r'CheckoutSession', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(
-        expiresAt, 'CheckoutSession', 'expiresAt');
+        expiresAt, r'CheckoutSession', 'expiresAt');
   }
 
   @override
@@ -283,7 +283,7 @@ class _$CheckoutSession extends CheckoutSession {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CheckoutSession')
+    return (newBuiltValueToStringHelper(r'CheckoutSession')
           ..add('id', id)
           ..add('cancelUrl', cancelUrl)
           ..add('successUrl', successUrl)
@@ -416,36 +416,38 @@ class CheckoutSessionBuilder
   }
 
   @override
-  _$CheckoutSession build() {
+  CheckoutSession build() => _build();
+
+  _$CheckoutSession _build() {
     _$CheckoutSession _$result;
     try {
       _$result = _$v ??
           new _$CheckoutSession._(
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, 'CheckoutSession', 'id'),
+                  id, r'CheckoutSession', 'id'),
               cancelUrl: BuiltValueNullFieldError.checkNotNull(
-                  cancelUrl, 'CheckoutSession', 'cancelUrl'),
+                  cancelUrl, r'CheckoutSession', 'cancelUrl'),
               successUrl: BuiltValueNullFieldError.checkNotNull(
-                  successUrl, 'CheckoutSession', 'successUrl'),
+                  successUrl, r'CheckoutSession', 'successUrl'),
               redirectUrl: redirectUrl,
               currency: BuiltValueNullFieldError.checkNotNull(
-                  currency, 'CheckoutSession', 'currency'),
+                  currency, r'CheckoutSession', 'currency'),
               amountSubtotal: BuiltValueNullFieldError.checkNotNull(
-                  amountSubtotal, 'CheckoutSession', 'amountSubtotal'),
+                  amountSubtotal, r'CheckoutSession', 'amountSubtotal'),
               amountTotal: BuiltValueNullFieldError.checkNotNull(
-                  amountTotal, 'CheckoutSession', 'amountTotal'),
+                  amountTotal, r'CheckoutSession', 'amountTotal'),
               locale: locale,
               email: email,
               products: products.build(),
               paymentStatus: BuiltValueNullFieldError.checkNotNull(
-                  paymentStatus, 'CheckoutSession', 'paymentStatus'),
+                  paymentStatus, r'CheckoutSession', 'paymentStatus'),
               status: BuiltValueNullFieldError.checkNotNull(
-                  status, 'CheckoutSession', 'status'),
+                  status, r'CheckoutSession', 'status'),
               trialPeriod: trialPeriod,
               user: user,
               createdAt:
-                  BuiltValueNullFieldError.checkNotNull(createdAt, 'CheckoutSession', 'createdAt'),
-              expiresAt: BuiltValueNullFieldError.checkNotNull(expiresAt, 'CheckoutSession', 'expiresAt'));
+                  BuiltValueNullFieldError.checkNotNull(createdAt, r'CheckoutSession', 'createdAt'),
+              expiresAt: BuiltValueNullFieldError.checkNotNull(expiresAt, r'CheckoutSession', 'expiresAt'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -453,7 +455,7 @@ class CheckoutSessionBuilder
         products.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'CheckoutSession', _$failedField, e.toString());
+            r'CheckoutSession', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -462,4 +464,4 @@ class CheckoutSessionBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // JsonObject secure3d
+    // CloudPaymentsSecure3d secure3d
     test('to test the property `secure3d`', () async {
       // TODO
     });

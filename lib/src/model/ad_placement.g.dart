@@ -15,13 +15,13 @@ class _$AdPlacement extends AdPlacement {
   final BuiltList<AdUnit> units;
 
   factory _$AdPlacement([void Function(AdPlacementBuilder)? updates]) =>
-      (new AdPlacementBuilder()..update(updates)).build();
+      (new AdPlacementBuilder()..update(updates))._build();
 
   _$AdPlacement._({required this.id, required this.slug, required this.units})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'AdPlacement', 'id');
-    BuiltValueNullFieldError.checkNotNull(slug, 'AdPlacement', 'slug');
-    BuiltValueNullFieldError.checkNotNull(units, 'AdPlacement', 'units');
+    BuiltValueNullFieldError.checkNotNull(id, r'AdPlacement', 'id');
+    BuiltValueNullFieldError.checkNotNull(slug, r'AdPlacement', 'slug');
+    BuiltValueNullFieldError.checkNotNull(units, r'AdPlacement', 'units');
   }
 
   @override
@@ -47,7 +47,7 @@ class _$AdPlacement extends AdPlacement {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AdPlacement')
+    return (newBuiltValueToStringHelper(r'AdPlacement')
           ..add('id', id)
           ..add('slug', slug)
           ..add('units', units))
@@ -97,15 +97,17 @@ class AdPlacementBuilder implements Builder<AdPlacement, AdPlacementBuilder> {
   }
 
   @override
-  _$AdPlacement build() {
+  AdPlacement build() => _build();
+
+  _$AdPlacement _build() {
     _$AdPlacement _$result;
     try {
       _$result = _$v ??
           new _$AdPlacement._(
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, 'AdPlacement', 'id'),
+                  id, r'AdPlacement', 'id'),
               slug: BuiltValueNullFieldError.checkNotNull(
-                  slug, 'AdPlacement', 'slug'),
+                  slug, r'AdPlacement', 'slug'),
               units: units.build());
     } catch (_) {
       late String _$failedField;
@@ -114,7 +116,7 @@ class AdPlacementBuilder implements Builder<AdPlacement, AdPlacementBuilder> {
         units.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AdPlacement', _$failedField, e.toString());
+            r'AdPlacement', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -123,4 +125,4 @@ class AdPlacementBuilder implements Builder<AdPlacement, AdPlacementBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

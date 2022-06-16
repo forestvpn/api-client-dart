@@ -45,11 +45,15 @@ import 'package:forestvpn_api/src/model/device_stats.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/fcm_device.dart';
+import 'package:forestvpn_api/src/model/featured_image.dart';
 import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
+import 'package:forestvpn_api/src/model/notification.dart';
+import 'package:forestvpn_api/src/model/notification_detail.dart';
+import 'package:forestvpn_api/src/model/notification_unread_count.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/play_store_purchase_verification_request.dart';
 import 'package:forestvpn_api/src/model/port_forwarding.dart';
@@ -58,6 +62,7 @@ import 'package:forestvpn_api/src/model/product.dart';
 import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
+import 'package:forestvpn_api/src/model/stripe_payment_intent.dart';
 import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
@@ -104,11 +109,15 @@ part 'serializers.g.dart';
   Environment,
   Error,
   FCMDevice,
+  FeaturedImage,
   Friendship,
   FriendshipInvitation,
   LegacyAuthMigrationToken,
   Location,
   NetworkService,
+  Notification,
+  NotificationDetail,
+  NotificationUnreadCount,
   PaymentMethod,
   PlayStorePurchaseVerificationRequest,
   PortForwarding,
@@ -117,6 +126,7 @@ part 'serializers.g.dart';
   Recurring,
   Server,
   StripeCheckoutSession,
+  StripePaymentIntent,
   TokenLogin,
   TokenObtain,
   UpdateFCMDeviceRequest,
@@ -147,6 +157,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(DeviceStats)]),
         () => ListBuilder<DeviceStats>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Notification)]),
+        () => ListBuilder<Notification>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Location)]),

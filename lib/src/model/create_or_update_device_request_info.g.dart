@@ -118,14 +118,14 @@ class _$CreateOrUpdateDeviceRequestInfo
 
   factory _$CreateOrUpdateDeviceRequestInfo(
           [void Function(CreateOrUpdateDeviceRequestInfoBuilder)? updates]) =>
-      (new CreateOrUpdateDeviceRequestInfoBuilder()..update(updates)).build();
+      (new CreateOrUpdateDeviceRequestInfoBuilder()..update(updates))._build();
 
   _$CreateOrUpdateDeviceRequestInfo._({required this.type, required this.info})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        type, 'CreateOrUpdateDeviceRequestInfo', 'type');
+        type, r'CreateOrUpdateDeviceRequestInfo', 'type');
     BuiltValueNullFieldError.checkNotNull(
-        info, 'CreateOrUpdateDeviceRequestInfo', 'info');
+        info, r'CreateOrUpdateDeviceRequestInfo', 'info');
   }
 
   @override
@@ -152,7 +152,7 @@ class _$CreateOrUpdateDeviceRequestInfo
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CreateOrUpdateDeviceRequestInfo')
+    return (newBuiltValueToStringHelper(r'CreateOrUpdateDeviceRequestInfo')
           ..add('type', type)
           ..add('info', info))
         .toString();
@@ -201,13 +201,15 @@ class CreateOrUpdateDeviceRequestInfoBuilder
   }
 
   @override
-  _$CreateOrUpdateDeviceRequestInfo build() {
+  CreateOrUpdateDeviceRequestInfo build() => _build();
+
+  _$CreateOrUpdateDeviceRequestInfo _build() {
     _$CreateOrUpdateDeviceRequestInfo _$result;
     try {
       _$result = _$v ??
           new _$CreateOrUpdateDeviceRequestInfo._(
               type: BuiltValueNullFieldError.checkNotNull(
-                  type, 'CreateOrUpdateDeviceRequestInfo', 'type'),
+                  type, r'CreateOrUpdateDeviceRequestInfo', 'type'),
               info: info.build());
     } catch (_) {
       late String _$failedField;
@@ -216,7 +218,7 @@ class CreateOrUpdateDeviceRequestInfoBuilder
         info.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'CreateOrUpdateDeviceRequestInfo', _$failedField, e.toString());
+            r'CreateOrUpdateDeviceRequestInfo', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -225,4 +227,4 @@ class CreateOrUpdateDeviceRequestInfoBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

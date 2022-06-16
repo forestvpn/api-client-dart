@@ -18,7 +18,7 @@ class _$FriendshipInvitation extends FriendshipInvitation {
 
   factory _$FriendshipInvitation(
           [void Function(FriendshipInvitationBuilder)? updates]) =>
-      (new FriendshipInvitationBuilder()..update(updates)).build();
+      (new FriendshipInvitationBuilder()..update(updates))._build();
 
   _$FriendshipInvitation._(
       {required this.code,
@@ -26,12 +26,14 @@ class _$FriendshipInvitation extends FriendshipInvitation {
       required this.shareText,
       required this.createdAt})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(code, 'FriendshipInvitation', 'code');
-    BuiltValueNullFieldError.checkNotNull(user, 'FriendshipInvitation', 'user');
     BuiltValueNullFieldError.checkNotNull(
-        shareText, 'FriendshipInvitation', 'shareText');
+        code, r'FriendshipInvitation', 'code');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, 'FriendshipInvitation', 'createdAt');
+        user, r'FriendshipInvitation', 'user');
+    BuiltValueNullFieldError.checkNotNull(
+        shareText, r'FriendshipInvitation', 'shareText');
+    BuiltValueNullFieldError.checkNotNull(
+        createdAt, r'FriendshipInvitation', 'createdAt');
   }
 
   @override
@@ -62,7 +64,7 @@ class _$FriendshipInvitation extends FriendshipInvitation {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('FriendshipInvitation')
+    return (newBuiltValueToStringHelper(r'FriendshipInvitation')
           ..add('code', code)
           ..add('user', user)
           ..add('shareText', shareText)
@@ -119,18 +121,20 @@ class FriendshipInvitationBuilder
   }
 
   @override
-  _$FriendshipInvitation build() {
+  FriendshipInvitation build() => _build();
+
+  _$FriendshipInvitation _build() {
     _$FriendshipInvitation _$result;
     try {
       _$result = _$v ??
           new _$FriendshipInvitation._(
               code: BuiltValueNullFieldError.checkNotNull(
-                  code, 'FriendshipInvitation', 'code'),
+                  code, r'FriendshipInvitation', 'code'),
               user: user.build(),
               shareText: BuiltValueNullFieldError.checkNotNull(
-                  shareText, 'FriendshipInvitation', 'shareText'),
+                  shareText, r'FriendshipInvitation', 'shareText'),
               createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, 'FriendshipInvitation', 'createdAt'));
+                  createdAt, r'FriendshipInvitation', 'createdAt'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -138,7 +142,7 @@ class FriendshipInvitationBuilder
         user.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'FriendshipInvitation', _$failedField, e.toString());
+            r'FriendshipInvitation', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -147,4 +151,4 @@ class FriendshipInvitationBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

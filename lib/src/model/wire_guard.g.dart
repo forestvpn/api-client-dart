@@ -17,7 +17,7 @@ class _$WireGuard extends WireGuard {
   final BuiltList<WireGuardPeer> peers;
 
   factory _$WireGuard([void Function(WireGuardBuilder)? updates]) =>
-      (new WireGuardBuilder()..update(updates)).build();
+      (new WireGuardBuilder()..update(updates))._build();
 
   _$WireGuard._(
       {required this.id,
@@ -25,10 +25,10 @@ class _$WireGuard extends WireGuard {
       required this.pubKey,
       required this.peers})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'WireGuard', 'id');
-    BuiltValueNullFieldError.checkNotNull(privKey, 'WireGuard', 'privKey');
-    BuiltValueNullFieldError.checkNotNull(pubKey, 'WireGuard', 'pubKey');
-    BuiltValueNullFieldError.checkNotNull(peers, 'WireGuard', 'peers');
+    BuiltValueNullFieldError.checkNotNull(id, r'WireGuard', 'id');
+    BuiltValueNullFieldError.checkNotNull(privKey, r'WireGuard', 'privKey');
+    BuiltValueNullFieldError.checkNotNull(pubKey, r'WireGuard', 'pubKey');
+    BuiltValueNullFieldError.checkNotNull(peers, r'WireGuard', 'peers');
   }
 
   @override
@@ -57,7 +57,7 @@ class _$WireGuard extends WireGuard {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('WireGuard')
+    return (newBuiltValueToStringHelper(r'WireGuard')
           ..add('id', id)
           ..add('privKey', privKey)
           ..add('pubKey', pubKey)
@@ -114,16 +114,18 @@ class WireGuardBuilder implements Builder<WireGuard, WireGuardBuilder> {
   }
 
   @override
-  _$WireGuard build() {
+  WireGuard build() => _build();
+
+  _$WireGuard _build() {
     _$WireGuard _$result;
     try {
       _$result = _$v ??
           new _$WireGuard._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'WireGuard', 'id'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'WireGuard', 'id'),
               privKey: BuiltValueNullFieldError.checkNotNull(
-                  privKey, 'WireGuard', 'privKey'),
+                  privKey, r'WireGuard', 'privKey'),
               pubKey: BuiltValueNullFieldError.checkNotNull(
-                  pubKey, 'WireGuard', 'pubKey'),
+                  pubKey, r'WireGuard', 'pubKey'),
               peers: peers.build());
     } catch (_) {
       late String _$failedField;
@@ -132,7 +134,7 @@ class WireGuardBuilder implements Builder<WireGuard, WireGuardBuilder> {
         peers.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'WireGuard', _$failedField, e.toString());
+            r'WireGuard', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -141,4 +143,4 @@ class WireGuardBuilder implements Builder<WireGuard, WireGuardBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

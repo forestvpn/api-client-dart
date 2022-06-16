@@ -74,8 +74,8 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getFriendshipApi();
-final num perPage = 8.14; // num | 
-final num page = 8.14; // num | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
     final response = api.createFriendshipInvitation(perPage, page);
@@ -89,8 +89,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **perPage** | **num**|  | [optional] 
- **page** | **num**|  | [optional] 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 
@@ -251,8 +251,8 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getFriendshipApi();
-final num perPage = 8.14; // num | 
-final num page = 8.14; // num | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
     final response = api.listFriends(perPage, page);
@@ -266,8 +266,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **perPage** | **num**|  | [optional] 
- **page** | **num**|  | [optional] 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 

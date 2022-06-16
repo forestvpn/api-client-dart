@@ -17,12 +17,12 @@ class _$WireGuardPeer extends WireGuardPeer {
   final BuiltList<String>? allowedIps;
 
   factory _$WireGuardPeer([void Function(WireGuardPeerBuilder)? updates]) =>
-      (new WireGuardPeerBuilder()..update(updates)).build();
+      (new WireGuardPeerBuilder()..update(updates))._build();
 
   _$WireGuardPeer._(
       {required this.pubKey, this.psKey, this.endpoint, this.allowedIps})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(pubKey, 'WireGuardPeer', 'pubKey');
+    BuiltValueNullFieldError.checkNotNull(pubKey, r'WireGuardPeer', 'pubKey');
   }
 
   @override
@@ -51,7 +51,7 @@ class _$WireGuardPeer extends WireGuardPeer {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('WireGuardPeer')
+    return (newBuiltValueToStringHelper(r'WireGuardPeer')
           ..add('pubKey', pubKey)
           ..add('psKey', psKey)
           ..add('endpoint', endpoint)
@@ -110,13 +110,15 @@ class WireGuardPeerBuilder
   }
 
   @override
-  _$WireGuardPeer build() {
+  WireGuardPeer build() => _build();
+
+  _$WireGuardPeer _build() {
     _$WireGuardPeer _$result;
     try {
       _$result = _$v ??
           new _$WireGuardPeer._(
               pubKey: BuiltValueNullFieldError.checkNotNull(
-                  pubKey, 'WireGuardPeer', 'pubKey'),
+                  pubKey, r'WireGuardPeer', 'pubKey'),
               psKey: psKey,
               endpoint: endpoint,
               allowedIps: _allowedIps?.build());
@@ -127,7 +129,7 @@ class WireGuardPeerBuilder
         _allowedIps?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'WireGuardPeer', _$failedField, e.toString());
+            r'WireGuardPeer', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -136,4 +138,4 @@ class WireGuardPeerBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

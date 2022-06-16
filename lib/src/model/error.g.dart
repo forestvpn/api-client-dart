@@ -13,11 +13,11 @@ class _$Error extends Error {
   final String message;
 
   factory _$Error([void Function(ErrorBuilder)? updates]) =>
-      (new ErrorBuilder()..update(updates)).build();
+      (new ErrorBuilder()..update(updates))._build();
 
   _$Error._({required this.code, required this.message}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(code, 'Error', 'code');
-    BuiltValueNullFieldError.checkNotNull(message, 'Error', 'message');
+    BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code');
+    BuiltValueNullFieldError.checkNotNull(message, r'Error', 'message');
   }
 
   @override
@@ -40,7 +40,7 @@ class _$Error extends Error {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Error')
+    return (newBuiltValueToStringHelper(r'Error')
           ..add('code', code)
           ..add('message', message))
         .toString();
@@ -84,15 +84,17 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder> {
   }
 
   @override
-  _$Error build() {
+  Error build() => _build();
+
+  _$Error _build() {
     final _$result = _$v ??
         new _$Error._(
-            code: BuiltValueNullFieldError.checkNotNull(code, 'Error', 'code'),
+            code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
             message: BuiltValueNullFieldError.checkNotNull(
-                message, 'Error', 'message'));
+                message, r'Error', 'message'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

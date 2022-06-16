@@ -26,7 +26,7 @@ class _$NotificationDetail extends NotificationDetail {
 
   factory _$NotificationDetail(
           [void Function(NotificationDetailBuilder)? updates]) =>
-      (new NotificationDetailBuilder()..update(updates)).build();
+      (new NotificationDetailBuilder()..update(updates))._build();
 
   _$NotificationDetail._(
       {required this.id,
@@ -38,20 +38,21 @@ class _$NotificationDetail extends NotificationDetail {
       required this.isUnread,
       required this.isFeatured})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'NotificationDetail', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'NotificationDetail', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, 'NotificationDetail', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(title, 'NotificationDetail', 'title');
+        createdAt, r'NotificationDetail', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(
-        summary, 'NotificationDetail', 'summary');
+        title, r'NotificationDetail', 'title');
     BuiltValueNullFieldError.checkNotNull(
-        featuredImage, 'NotificationDetail', 'featuredImage');
+        summary, r'NotificationDetail', 'summary');
     BuiltValueNullFieldError.checkNotNull(
-        content, 'NotificationDetail', 'content');
+        featuredImage, r'NotificationDetail', 'featuredImage');
     BuiltValueNullFieldError.checkNotNull(
-        isUnread, 'NotificationDetail', 'isUnread');
+        content, r'NotificationDetail', 'content');
     BuiltValueNullFieldError.checkNotNull(
-        isFeatured, 'NotificationDetail', 'isFeatured');
+        isUnread, r'NotificationDetail', 'isUnread');
+    BuiltValueNullFieldError.checkNotNull(
+        isFeatured, r'NotificationDetail', 'isFeatured');
   }
 
   @override
@@ -95,7 +96,7 @@ class _$NotificationDetail extends NotificationDetail {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('NotificationDetail')
+    return (newBuiltValueToStringHelper(r'NotificationDetail')
           ..add('id', id)
           ..add('createdAt', createdAt)
           ..add('title', title)
@@ -178,26 +179,28 @@ class NotificationDetailBuilder
   }
 
   @override
-  _$NotificationDetail build() {
+  NotificationDetail build() => _build();
+
+  _$NotificationDetail _build() {
     _$NotificationDetail _$result;
     try {
       _$result = _$v ??
           new _$NotificationDetail._(
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, 'NotificationDetail', 'id'),
+                  id, r'NotificationDetail', 'id'),
               createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, 'NotificationDetail', 'createdAt'),
+                  createdAt, r'NotificationDetail', 'createdAt'),
               title: BuiltValueNullFieldError.checkNotNull(
-                  title, 'NotificationDetail', 'title'),
+                  title, r'NotificationDetail', 'title'),
               summary: BuiltValueNullFieldError.checkNotNull(
-                  summary, 'NotificationDetail', 'summary'),
+                  summary, r'NotificationDetail', 'summary'),
               featuredImage: featuredImage.build(),
               content: BuiltValueNullFieldError.checkNotNull(
-                  content, 'NotificationDetail', 'content'),
+                  content, r'NotificationDetail', 'content'),
               isUnread: BuiltValueNullFieldError.checkNotNull(
-                  isUnread, 'NotificationDetail', 'isUnread'),
+                  isUnread, r'NotificationDetail', 'isUnread'),
               isFeatured: BuiltValueNullFieldError.checkNotNull(
-                  isFeatured, 'NotificationDetail', 'isFeatured'));
+                  isFeatured, r'NotificationDetail', 'isFeatured'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -205,7 +208,7 @@ class NotificationDetailBuilder
         featuredImage.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'NotificationDetail', _$failedField, e.toString());
+            r'NotificationDetail', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -214,4 +217,4 @@ class NotificationDetailBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

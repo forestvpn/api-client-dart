@@ -14,14 +14,14 @@ class _$CheckoutSessionProduct extends CheckoutSessionProduct {
 
   factory _$CheckoutSessionProduct(
           [void Function(CheckoutSessionProductBuilder)? updates]) =>
-      (new CheckoutSessionProductBuilder()..update(updates)).build();
+      (new CheckoutSessionProductBuilder()..update(updates))._build();
 
   _$CheckoutSessionProduct._({required this.product, required this.quantity})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        product, 'CheckoutSessionProduct', 'product');
+        product, r'CheckoutSessionProduct', 'product');
     BuiltValueNullFieldError.checkNotNull(
-        quantity, 'CheckoutSessionProduct', 'quantity');
+        quantity, r'CheckoutSessionProduct', 'quantity');
   }
 
   @override
@@ -48,7 +48,7 @@ class _$CheckoutSessionProduct extends CheckoutSessionProduct {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CheckoutSessionProduct')
+    return (newBuiltValueToStringHelper(r'CheckoutSessionProduct')
           ..add('product', product)
           ..add('quantity', quantity))
         .toString();
@@ -93,14 +93,16 @@ class CheckoutSessionProductBuilder
   }
 
   @override
-  _$CheckoutSessionProduct build() {
+  CheckoutSessionProduct build() => _build();
+
+  _$CheckoutSessionProduct _build() {
     _$CheckoutSessionProduct _$result;
     try {
       _$result = _$v ??
           new _$CheckoutSessionProduct._(
               product: product.build(),
               quantity: BuiltValueNullFieldError.checkNotNull(
-                  quantity, 'CheckoutSessionProduct', 'quantity'));
+                  quantity, r'CheckoutSessionProduct', 'quantity'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -108,7 +110,7 @@ class CheckoutSessionProductBuilder
         product.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'CheckoutSessionProduct', _$failedField, e.toString());
+            r'CheckoutSessionProduct', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -117,4 +119,4 @@ class CheckoutSessionProductBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

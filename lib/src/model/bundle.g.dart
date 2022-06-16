@@ -17,13 +17,13 @@ class _$Bundle extends Bundle {
   final BuiltList<Product>? products;
 
   factory _$Bundle([void Function(BundleBuilder)? updates]) =>
-      (new BundleBuilder()..update(updates)).build();
+      (new BundleBuilder()..update(updates))._build();
 
   _$Bundle._(
       {required this.id, required this.name, this.trialPeriod, this.products})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'Bundle', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, 'Bundle', 'name');
+    BuiltValueNullFieldError.checkNotNull(id, r'Bundle', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'Bundle', 'name');
   }
 
   @override
@@ -52,7 +52,7 @@ class _$Bundle extends Bundle {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Bundle')
+    return (newBuiltValueToStringHelper(r'Bundle')
           ..add('id', id)
           ..add('name', name)
           ..add('trialPeriod', trialPeriod)
@@ -109,14 +109,16 @@ class BundleBuilder implements Builder<Bundle, BundleBuilder> {
   }
 
   @override
-  _$Bundle build() {
+  Bundle build() => _build();
+
+  _$Bundle _build() {
     _$Bundle _$result;
     try {
       _$result = _$v ??
           new _$Bundle._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'Bundle', 'id'),
-              name:
-                  BuiltValueNullFieldError.checkNotNull(name, 'Bundle', 'name'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Bundle', 'id'),
+              name: BuiltValueNullFieldError.checkNotNull(
+                  name, r'Bundle', 'name'),
               trialPeriod: trialPeriod,
               products: _products?.build());
     } catch (_) {
@@ -126,7 +128,7 @@ class BundleBuilder implements Builder<Bundle, BundleBuilder> {
         _products?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Bundle', _$failedField, e.toString());
+            r'Bundle', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -135,4 +137,4 @@ class BundleBuilder implements Builder<Bundle, BundleBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

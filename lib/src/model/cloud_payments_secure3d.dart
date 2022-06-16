@@ -12,12 +12,16 @@ part 'cloud_payments_secure3d.g.dart';
 /// Properties:
 /// * [paReq] 
 /// * [acsUrl] 
+/// * [termUrl] 
 abstract class CloudPaymentsSecure3d implements Built<CloudPaymentsSecure3d, CloudPaymentsSecure3dBuilder> {
-    @BuiltValueField(wireName: r'paReq')
+    @BuiltValueField(wireName: r'pa_req')
     String get paReq;
 
-    @BuiltValueField(wireName: r'acsUrl')
+    @BuiltValueField(wireName: r'acs_url')
     String get acsUrl;
+
+    @BuiltValueField(wireName: r'term_url')
+    String get termUrl;
 
     CloudPaymentsSecure3d._();
 
@@ -42,12 +46,16 @@ class _$CloudPaymentsSecure3dSerializer implements StructuredSerializer<CloudPay
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object?>[];
         result
-            ..add(r'paReq')
+            ..add(r'pa_req')
             ..add(serializers.serialize(object.paReq,
                 specifiedType: const FullType(String)));
         result
-            ..add(r'acsUrl')
+            ..add(r'acs_url')
             ..add(serializers.serialize(object.acsUrl,
+                specifiedType: const FullType(String)));
+        result
+            ..add(r'term_url')
+            ..add(serializers.serialize(object.termUrl,
                 specifiedType: const FullType(String)));
         return result;
     }
@@ -64,15 +72,20 @@ class _$CloudPaymentsSecure3dSerializer implements StructuredSerializer<CloudPay
             final Object? value = iterator.current;
             
             switch (key) {
-                case r'paReq':
+                case r'pa_req':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     result.paReq = valueDes;
                     break;
-                case r'acsUrl':
+                case r'acs_url':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     result.acsUrl = valueDes;
+                    break;
+                case r'term_url':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.termUrl = valueDes;
                     break;
             }
         }

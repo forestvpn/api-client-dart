@@ -15,7 +15,7 @@ class _$Constraint extends Constraint {
   final BuiltList<String>? subject;
 
   factory _$Constraint([void Function(ConstraintBuilder)? updates]) =>
-      (new ConstraintBuilder()..update(updates)).build();
+      (new ConstraintBuilder()..update(updates))._build();
 
   _$Constraint._({this.namespace, this.relation, this.subject}) : super._();
 
@@ -43,7 +43,7 @@ class _$Constraint extends Constraint {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Constraint')
+    return (newBuiltValueToStringHelper(r'Constraint')
           ..add('namespace', namespace)
           ..add('relation', relation)
           ..add('subject', subject))
@@ -94,7 +94,9 @@ class ConstraintBuilder implements Builder<Constraint, ConstraintBuilder> {
   }
 
   @override
-  _$Constraint build() {
+  Constraint build() => _build();
+
+  _$Constraint _build() {
     _$Constraint _$result;
     try {
       _$result = _$v ??
@@ -109,7 +111,7 @@ class ConstraintBuilder implements Builder<Constraint, ConstraintBuilder> {
         _subject?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Constraint', _$failedField, e.toString());
+            r'Constraint', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -118,4 +120,4 @@ class ConstraintBuilder implements Builder<Constraint, ConstraintBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

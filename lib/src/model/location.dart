@@ -26,10 +26,10 @@ abstract class Location implements Built<Location, LocationBuilder> {
     String get name;
 
     @BuiltValueField(wireName: r'latitude')
-    num get latitude;
+    double get latitude;
 
     @BuiltValueField(wireName: r'longitude')
-    num get longitude;
+    double get longitude;
 
     @BuiltValueField(wireName: r'country')
     Country get country;
@@ -70,11 +70,11 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
         result
             ..add(r'latitude')
             ..add(serializers.serialize(object.latitude,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         result
             ..add(r'longitude')
             ..add(serializers.serialize(object.longitude,
-                specifiedType: const FullType(num)));
+                specifiedType: const FullType(double)));
         result
             ..add(r'country')
             ..add(serializers.serialize(object.country,
@@ -112,12 +112,12 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
                     break;
                 case r'latitude':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(double)) as double;
                     result.latitude = valueDes;
                     break;
                 case r'longitude':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(double)) as double;
                     result.longitude = valueDes;
                     break;
                 case r'country':

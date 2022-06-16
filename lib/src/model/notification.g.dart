@@ -23,7 +23,7 @@ class _$Notification extends Notification {
   final bool isFeatured;
 
   factory _$Notification([void Function(NotificationBuilder)? updates]) =>
-      (new NotificationBuilder()..update(updates)).build();
+      (new NotificationBuilder()..update(updates))._build();
 
   _$Notification._(
       {required this.id,
@@ -34,16 +34,17 @@ class _$Notification extends Notification {
       required this.isUnread,
       required this.isFeatured})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'Notification', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'Notification', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, 'Notification', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(title, 'Notification', 'title');
-    BuiltValueNullFieldError.checkNotNull(summary, 'Notification', 'summary');
+        createdAt, r'Notification', 'createdAt');
+    BuiltValueNullFieldError.checkNotNull(title, r'Notification', 'title');
+    BuiltValueNullFieldError.checkNotNull(summary, r'Notification', 'summary');
     BuiltValueNullFieldError.checkNotNull(
-        featuredImage, 'Notification', 'featuredImage');
-    BuiltValueNullFieldError.checkNotNull(isUnread, 'Notification', 'isUnread');
+        featuredImage, r'Notification', 'featuredImage');
     BuiltValueNullFieldError.checkNotNull(
-        isFeatured, 'Notification', 'isFeatured');
+        isUnread, r'Notification', 'isUnread');
+    BuiltValueNullFieldError.checkNotNull(
+        isFeatured, r'Notification', 'isFeatured');
   }
 
   @override
@@ -82,7 +83,7 @@ class _$Notification extends Notification {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Notification')
+    return (newBuiltValueToStringHelper(r'Notification')
           ..add('id', id)
           ..add('createdAt', createdAt)
           ..add('title', title)
@@ -159,24 +160,26 @@ class NotificationBuilder
   }
 
   @override
-  _$Notification build() {
+  Notification build() => _build();
+
+  _$Notification _build() {
     _$Notification _$result;
     try {
       _$result = _$v ??
           new _$Notification._(
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, 'Notification', 'id'),
+                  id, r'Notification', 'id'),
               createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, 'Notification', 'createdAt'),
+                  createdAt, r'Notification', 'createdAt'),
               title: BuiltValueNullFieldError.checkNotNull(
-                  title, 'Notification', 'title'),
+                  title, r'Notification', 'title'),
               summary: BuiltValueNullFieldError.checkNotNull(
-                  summary, 'Notification', 'summary'),
+                  summary, r'Notification', 'summary'),
               featuredImage: featuredImage.build(),
               isUnread: BuiltValueNullFieldError.checkNotNull(
-                  isUnread, 'Notification', 'isUnread'),
+                  isUnread, r'Notification', 'isUnread'),
               isFeatured: BuiltValueNullFieldError.checkNotNull(
-                  isFeatured, 'Notification', 'isFeatured'));
+                  isFeatured, r'Notification', 'isFeatured'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -184,7 +187,7 @@ class NotificationBuilder
         featuredImage.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Notification', _$failedField, e.toString());
+            r'Notification', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -193,4 +196,4 @@ class NotificationBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

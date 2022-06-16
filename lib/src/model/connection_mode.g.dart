@@ -17,13 +17,13 @@ class _$ConnectionMode extends ConnectionMode {
   final String? icon;
 
   factory _$ConnectionMode([void Function(ConnectionModeBuilder)? updates]) =>
-      (new ConnectionModeBuilder()..update(updates)).build();
+      (new ConnectionModeBuilder()..update(updates))._build();
 
   _$ConnectionMode._(
       {required this.id, required this.name, this.description, this.icon})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'ConnectionMode', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, 'ConnectionMode', 'name');
+    BuiltValueNullFieldError.checkNotNull(id, r'ConnectionMode', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'ConnectionMode', 'name');
   }
 
   @override
@@ -53,7 +53,7 @@ class _$ConnectionMode extends ConnectionMode {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ConnectionMode')
+    return (newBuiltValueToStringHelper(r'ConnectionMode')
           ..add('id', id)
           ..add('name', name)
           ..add('description', description)
@@ -110,13 +110,15 @@ class ConnectionModeBuilder
   }
 
   @override
-  _$ConnectionMode build() {
+  ConnectionMode build() => _build();
+
+  _$ConnectionMode _build() {
     final _$result = _$v ??
         new _$ConnectionMode._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, 'ConnectionMode', 'id'),
+                id, r'ConnectionMode', 'id'),
             name: BuiltValueNullFieldError.checkNotNull(
-                name, 'ConnectionMode', 'name'),
+                name, r'ConnectionMode', 'name'),
             description: description,
             icon: icon);
     replace(_$result);
@@ -124,4 +126,4 @@ class ConnectionModeBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

@@ -12,6 +12,11 @@ void main() {
       // TODO
     });
 
+    // String promoCode
+    test('to test the property `promoCode`', () async {
+      // TODO
+    });
+
     // String username
     test('to test the property `username`', () async {
       // TODO
@@ -44,6 +49,16 @@ void main() {
 
     // DateTime dateJoined
     test('to test the property `dateJoined`', () async {
+      // TODO
+    });
+
+    // String country
+    test('to test the property `country`', () async {
+      // TODO
+    });
+
+    // String currencyCode
+    test('to test the property `currencyCode`', () async {
       // TODO
     });
 

@@ -16,7 +16,7 @@ void main() {
 
     // Create friendship invitation
     //
-    //Future<FriendshipInvitation> createFriendshipInvitation({ num perPage, num page }) async
+    //Future<FriendshipInvitation> createFriendshipInvitation({ int perPage, int page }) async
     test('test createFriendshipInvitation', () async {
       // TODO
     });
@@ -44,7 +44,7 @@ void main() {
 
     // Get friends list
     //
-    //Future<BuiltList<Friendship>> listFriends({ num perPage, num page }) async
+    //Future<BuiltList<Friendship>> listFriends({ int perPage, int page }) async
     test('test listFriends', () async {
       // TODO
     });

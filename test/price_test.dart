@@ -12,13 +12,13 @@ void main() {
       // TODO
     });
 
-    // int amount
+    // double amount
     test('to test the property `amount`', () async {
       // TODO
     });
 
-    // num amountDecimal
-    test('to test the property `amountDecimal`', () async {
+    // double tax
+    test('to test the property `tax`', () async {
       // TODO
     });
 

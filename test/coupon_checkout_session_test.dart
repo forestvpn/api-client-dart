@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // int discount
+    // double discount
     test('to test the property `discount`', () async {
       // TODO
     });

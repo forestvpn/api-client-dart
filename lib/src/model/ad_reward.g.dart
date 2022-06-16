@@ -13,11 +13,11 @@ class _$AdReward extends AdReward {
   final int amount;
 
   factory _$AdReward([void Function(AdRewardBuilder)? updates]) =>
-      (new AdRewardBuilder()..update(updates)).build();
+      (new AdRewardBuilder()..update(updates))._build();
 
   _$AdReward._({required this.item, required this.amount}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(item, 'AdReward', 'item');
-    BuiltValueNullFieldError.checkNotNull(amount, 'AdReward', 'amount');
+    BuiltValueNullFieldError.checkNotNull(item, r'AdReward', 'item');
+    BuiltValueNullFieldError.checkNotNull(amount, r'AdReward', 'amount');
   }
 
   @override
@@ -40,7 +40,7 @@ class _$AdReward extends AdReward {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AdReward')
+    return (newBuiltValueToStringHelper(r'AdReward')
           ..add('item', item)
           ..add('amount', amount))
         .toString();
@@ -84,16 +84,18 @@ class AdRewardBuilder implements Builder<AdReward, AdRewardBuilder> {
   }
 
   @override
-  _$AdReward build() {
+  AdReward build() => _build();
+
+  _$AdReward _build() {
     final _$result = _$v ??
         new _$AdReward._(
-            item:
-                BuiltValueNullFieldError.checkNotNull(item, 'AdReward', 'item'),
+            item: BuiltValueNullFieldError.checkNotNull(
+                item, r'AdReward', 'item'),
             amount: BuiltValueNullFieldError.checkNotNull(
-                amount, 'AdReward', 'amount'));
+                amount, r'AdReward', 'amount'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

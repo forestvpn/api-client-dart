@@ -15,11 +15,11 @@ class _$PortForwarding extends PortForwarding {
   final int? dstPort;
 
   factory _$PortForwarding([void Function(PortForwardingBuilder)? updates]) =>
-      (new PortForwardingBuilder()..update(updates)).build();
+      (new PortForwardingBuilder()..update(updates))._build();
 
   _$PortForwarding._({required this.id, this.srcPort, this.dstPort})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'PortForwarding', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'PortForwarding', 'id');
   }
 
   @override
@@ -47,7 +47,7 @@ class _$PortForwarding extends PortForwarding {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('PortForwarding')
+    return (newBuiltValueToStringHelper(r'PortForwarding')
           ..add('id', id)
           ..add('srcPort', srcPort)
           ..add('dstPort', dstPort))
@@ -98,11 +98,13 @@ class PortForwardingBuilder
   }
 
   @override
-  _$PortForwarding build() {
+  PortForwarding build() => _build();
+
+  _$PortForwarding _build() {
     final _$result = _$v ??
         new _$PortForwarding._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, 'PortForwarding', 'id'),
+                id, r'PortForwarding', 'id'),
             srcPort: srcPort,
             dstPort: dstPort);
     replace(_$result);
@@ -110,4 +112,4 @@ class PortForwardingBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

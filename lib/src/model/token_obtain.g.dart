@@ -15,14 +15,14 @@ class _$TokenObtain extends TokenObtain {
   final String loginUrl;
 
   factory _$TokenObtain([void Function(TokenObtainBuilder)? updates]) =>
-      (new TokenObtainBuilder()..update(updates)).build();
+      (new TokenObtainBuilder()..update(updates))._build();
 
   _$TokenObtain._(
       {required this.access, required this.refresh, required this.loginUrl})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(access, 'TokenObtain', 'access');
-    BuiltValueNullFieldError.checkNotNull(refresh, 'TokenObtain', 'refresh');
-    BuiltValueNullFieldError.checkNotNull(loginUrl, 'TokenObtain', 'loginUrl');
+    BuiltValueNullFieldError.checkNotNull(access, r'TokenObtain', 'access');
+    BuiltValueNullFieldError.checkNotNull(refresh, r'TokenObtain', 'refresh');
+    BuiltValueNullFieldError.checkNotNull(loginUrl, r'TokenObtain', 'loginUrl');
   }
 
   @override
@@ -49,7 +49,7 @@ class _$TokenObtain extends TokenObtain {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('TokenObtain')
+    return (newBuiltValueToStringHelper(r'TokenObtain')
           ..add('access', access)
           ..add('refresh', refresh)
           ..add('loginUrl', loginUrl))
@@ -99,18 +99,20 @@ class TokenObtainBuilder implements Builder<TokenObtain, TokenObtainBuilder> {
   }
 
   @override
-  _$TokenObtain build() {
+  TokenObtain build() => _build();
+
+  _$TokenObtain _build() {
     final _$result = _$v ??
         new _$TokenObtain._(
             access: BuiltValueNullFieldError.checkNotNull(
-                access, 'TokenObtain', 'access'),
+                access, r'TokenObtain', 'access'),
             refresh: BuiltValueNullFieldError.checkNotNull(
-                refresh, 'TokenObtain', 'refresh'),
+                refresh, r'TokenObtain', 'refresh'),
             loginUrl: BuiltValueNullFieldError.checkNotNull(
-                loginUrl, 'TokenObtain', 'loginUrl'));
+                loginUrl, r'TokenObtain', 'loginUrl'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

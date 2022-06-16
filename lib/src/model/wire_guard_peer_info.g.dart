@@ -16,7 +16,7 @@ class _$WireGuardPeerInfo extends WireGuardPeerInfo {
 
   factory _$WireGuardPeerInfo(
           [void Function(WireGuardPeerInfoBuilder)? updates]) =>
-      (new WireGuardPeerInfoBuilder()..update(updates)).build();
+      (new WireGuardPeerInfoBuilder()..update(updates))._build();
 
   _$WireGuardPeerInfo._({this.pubKey, this.user, this.device}) : super._();
 
@@ -45,7 +45,7 @@ class _$WireGuardPeerInfo extends WireGuardPeerInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('WireGuardPeerInfo')
+    return (newBuiltValueToStringHelper(r'WireGuardPeerInfo')
           ..add('pubKey', pubKey)
           ..add('user', user)
           ..add('device', device))
@@ -98,7 +98,9 @@ class WireGuardPeerInfoBuilder
   }
 
   @override
-  _$WireGuardPeerInfo build() {
+  WireGuardPeerInfo build() => _build();
+
+  _$WireGuardPeerInfo _build() {
     _$WireGuardPeerInfo _$result;
     try {
       _$result = _$v ??
@@ -113,7 +115,7 @@ class WireGuardPeerInfoBuilder
         _device?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'WireGuardPeerInfo', _$failedField, e.toString());
+            r'WireGuardPeerInfo', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -122,4 +124,4 @@ class WireGuardPeerInfoBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

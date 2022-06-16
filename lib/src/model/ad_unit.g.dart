@@ -109,7 +109,7 @@ class _$AdUnit extends AdUnit {
   final AdProvider provider;
 
   factory _$AdUnit([void Function(AdUnitBuilder)? updates]) =>
-      (new AdUnitBuilder()..update(updates)).build();
+      (new AdUnitBuilder()..update(updates))._build();
 
   _$AdUnit._(
       {required this.id,
@@ -119,10 +119,10 @@ class _$AdUnit extends AdUnit {
       this.reward,
       required this.provider})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'AdUnit', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, 'AdUnit', 'name');
-    BuiltValueNullFieldError.checkNotNull(format, 'AdUnit', 'format');
-    BuiltValueNullFieldError.checkNotNull(provider, 'AdUnit', 'provider');
+    BuiltValueNullFieldError.checkNotNull(id, r'AdUnit', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'AdUnit', 'name');
+    BuiltValueNullFieldError.checkNotNull(format, r'AdUnit', 'format');
+    BuiltValueNullFieldError.checkNotNull(provider, r'AdUnit', 'provider');
   }
 
   @override
@@ -158,7 +158,7 @@ class _$AdUnit extends AdUnit {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AdUnit')
+    return (newBuiltValueToStringHelper(r'AdUnit')
           ..add('id', id)
           ..add('name', name)
           ..add('externalKey', externalKey)
@@ -227,17 +227,19 @@ class AdUnitBuilder implements Builder<AdUnit, AdUnitBuilder> {
   }
 
   @override
-  _$AdUnit build() {
+  AdUnit build() => _build();
+
+  _$AdUnit _build() {
     _$AdUnit _$result;
     try {
       _$result = _$v ??
           new _$AdUnit._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'AdUnit', 'id'),
-              name:
-                  BuiltValueNullFieldError.checkNotNull(name, 'AdUnit', 'name'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'AdUnit', 'id'),
+              name: BuiltValueNullFieldError.checkNotNull(
+                  name, r'AdUnit', 'name'),
               externalKey: externalKey,
               format: BuiltValueNullFieldError.checkNotNull(
-                  format, 'AdUnit', 'format'),
+                  format, r'AdUnit', 'format'),
               reward: _reward?.build(),
               provider: provider.build());
     } catch (_) {
@@ -249,7 +251,7 @@ class AdUnitBuilder implements Builder<AdUnit, AdUnitBuilder> {
         provider.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AdUnit', _$failedField, e.toString());
+            r'AdUnit', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -258,4 +260,4 @@ class AdUnitBuilder implements Builder<AdUnit, AdUnitBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

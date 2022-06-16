@@ -22,7 +22,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
 
   factory _$CreateCheckoutSessionRequest(
           [void Function(CreateCheckoutSessionRequestBuilder)? updates]) =>
-      (new CreateCheckoutSessionRequestBuilder()..update(updates)).build();
+      (new CreateCheckoutSessionRequestBuilder()..update(updates))._build();
 
   _$CreateCheckoutSessionRequest._(
       {required this.cancelUrl,
@@ -33,11 +33,11 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
       required this.products})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        cancelUrl, 'CreateCheckoutSessionRequest', 'cancelUrl');
+        cancelUrl, r'CreateCheckoutSessionRequest', 'cancelUrl');
     BuiltValueNullFieldError.checkNotNull(
-        successUrl, 'CreateCheckoutSessionRequest', 'successUrl');
+        successUrl, r'CreateCheckoutSessionRequest', 'successUrl');
     BuiltValueNullFieldError.checkNotNull(
-        products, 'CreateCheckoutSessionRequest', 'products');
+        products, r'CreateCheckoutSessionRequest', 'products');
   }
 
   @override
@@ -75,7 +75,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CreateCheckoutSessionRequest')
+    return (newBuiltValueToStringHelper(r'CreateCheckoutSessionRequest')
           ..add('cancelUrl', cancelUrl)
           ..add('successUrl', successUrl)
           ..add('currency', currency)
@@ -148,15 +148,17 @@ class CreateCheckoutSessionRequestBuilder
   }
 
   @override
-  _$CreateCheckoutSessionRequest build() {
+  CreateCheckoutSessionRequest build() => _build();
+
+  _$CreateCheckoutSessionRequest _build() {
     _$CreateCheckoutSessionRequest _$result;
     try {
       _$result = _$v ??
           new _$CreateCheckoutSessionRequest._(
               cancelUrl: BuiltValueNullFieldError.checkNotNull(
-                  cancelUrl, 'CreateCheckoutSessionRequest', 'cancelUrl'),
+                  cancelUrl, r'CreateCheckoutSessionRequest', 'cancelUrl'),
               successUrl: BuiltValueNullFieldError.checkNotNull(
-                  successUrl, 'CreateCheckoutSessionRequest', 'successUrl'),
+                  successUrl, r'CreateCheckoutSessionRequest', 'successUrl'),
               currency: currency,
               locale: locale,
               email: email,
@@ -168,7 +170,7 @@ class CreateCheckoutSessionRequestBuilder
         products.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'CreateCheckoutSessionRequest', _$failedField, e.toString());
+            r'CreateCheckoutSessionRequest', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -177,4 +179,4 @@ class CreateCheckoutSessionRequestBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

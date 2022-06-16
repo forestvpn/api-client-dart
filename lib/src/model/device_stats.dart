@@ -22,19 +22,19 @@ abstract class DeviceStats implements Built<DeviceStats, DeviceStatsBuilder> {
     String? get id;
 
     @BuiltValueField(wireName: r'connections')
-    num? get connections;
+    int? get connections;
 
     @BuiltValueField(wireName: r'received_bytes')
-    num? get receivedBytes;
+    int? get receivedBytes;
 
     @BuiltValueField(wireName: r'transmitted_bytes')
-    num? get transmittedBytes;
+    int? get transmittedBytes;
 
     @BuiltValueField(wireName: r'blocked_ads')
-    num? get blockedAds;
+    int? get blockedAds;
 
     @BuiltValueField(wireName: r'blocked_malwares')
-    num? get blockedMalwares;
+    int? get blockedMalwares;
 
     @BuiltValueField(wireName: r'date')
     DateTime? get date;
@@ -71,31 +71,31 @@ class _$DeviceStatsSerializer implements StructuredSerializer<DeviceStats> {
             result
                 ..add(r'connections')
                 ..add(serializers.serialize(object.connections,
-                    specifiedType: const FullType(num)));
+                    specifiedType: const FullType(int)));
         }
         if (object.receivedBytes != null) {
             result
                 ..add(r'received_bytes')
                 ..add(serializers.serialize(object.receivedBytes,
-                    specifiedType: const FullType(num)));
+                    specifiedType: const FullType(int)));
         }
         if (object.transmittedBytes != null) {
             result
                 ..add(r'transmitted_bytes')
                 ..add(serializers.serialize(object.transmittedBytes,
-                    specifiedType: const FullType(num)));
+                    specifiedType: const FullType(int)));
         }
         if (object.blockedAds != null) {
             result
                 ..add(r'blocked_ads')
                 ..add(serializers.serialize(object.blockedAds,
-                    specifiedType: const FullType(num)));
+                    specifiedType: const FullType(int)));
         }
         if (object.blockedMalwares != null) {
             result
                 ..add(r'blocked_malwares')
                 ..add(serializers.serialize(object.blockedMalwares,
-                    specifiedType: const FullType(num)));
+                    specifiedType: const FullType(int)));
         }
         if (object.date != null) {
             result
@@ -125,27 +125,27 @@ class _$DeviceStatsSerializer implements StructuredSerializer<DeviceStats> {
                     break;
                 case r'connections':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(int)) as int;
                     result.connections = valueDes;
                     break;
                 case r'received_bytes':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(int)) as int;
                     result.receivedBytes = valueDes;
                     break;
                 case r'transmitted_bytes':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(int)) as int;
                     result.transmittedBytes = valueDes;
                     break;
                 case r'blocked_ads':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(int)) as int;
                     result.blockedAds = valueDes;
                     break;
                 case r'blocked_malwares':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(num)) as num;
+                        specifiedType: const FullType(int)) as int;
                     result.blockedMalwares = valueDes;
                     break;
                 case r'date':

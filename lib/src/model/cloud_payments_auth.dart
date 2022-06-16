@@ -14,8 +14,8 @@ part 'cloud_payments_auth.g.dart';
 /// * [transactionId] 
 /// * [secure3d] 
 abstract class CloudPaymentsAuth implements Built<CloudPaymentsAuth, CloudPaymentsAuthBuilder> {
-    @BuiltValueField(wireName: r'transactionId')
-    int get transactionId;
+    @BuiltValueField(wireName: r'transaction_id')
+    int? get transactionId;
 
     @BuiltValueField(wireName: r'secure3d')
     CloudPaymentsSecure3d? get secure3d;
@@ -42,10 +42,12 @@ class _$CloudPaymentsAuthSerializer implements StructuredSerializer<CloudPayment
     Iterable<Object?> serialize(Serializers serializers, CloudPaymentsAuth object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object?>[];
-        result
-            ..add(r'transactionId')
-            ..add(serializers.serialize(object.transactionId,
-                specifiedType: const FullType(int)));
+        if (object.transactionId != null) {
+            result
+                ..add(r'transaction_id')
+                ..add(serializers.serialize(object.transactionId,
+                    specifiedType: const FullType(int)));
+        }
         if (object.secure3d != null) {
             result
                 ..add(r'secure3d')
@@ -67,7 +69,7 @@ class _$CloudPaymentsAuthSerializer implements StructuredSerializer<CloudPayment
             final Object? value = iterator.current;
             
             switch (key) {
-                case r'transactionId':
+                case r'transaction_id':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(int)) as int;
                     result.transactionId = valueDes;

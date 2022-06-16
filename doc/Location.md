@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **name** | **String** |  | 
-**latitude** | **num** |  | 
-**longitude** | **num** |  | 
+**latitude** | **double** |  | 
+**longitude** | **double** |  | 
 **country** | [**Country**](Country.md) |  | 
 **alternativeNames** | **BuiltList&lt;String&gt;** |  | [optional] 
 

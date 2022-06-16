@@ -10,6 +10,7 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getNotification**](NewsApi.md#getnotification) | **GET** /news/notifications/{notificationID}/ | Get notification content
+[**getNotificationsUnreadCount**](NewsApi.md#getnotificationsunreadcount) | **GET** /news/unread_count/ | Get unread notifications count
 [**listNotifications**](NewsApi.md#listnotifications) | **GET** /news/notifications/ | Get notifications list
 [**updateNotificationMarkRead**](NewsApi.md#updatenotificationmarkread) | **PATCH** /news/notifications/{notificationID}/mark_read/ | Mark notification as read by user
 [**updateNotificationMarkReadAll**](NewsApi.md#updatenotificationmarkreadall) | **PATCH** /news/notifications/mark_read_all/ | Mark all notifications as read by user
@@ -59,8 +60,48 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getNotificationsUnreadCount**
+> NotificationUnreadCount getNotificationsUnreadCount()
+
+Get unread notifications count
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getNewsApi();
+
+try {
+    final response = api.getNotificationsUnreadCount();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling NewsApi->getNotificationsUnreadCount: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**NotificationUnreadCount**](NotificationUnreadCount.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **listNotifications**
-> Notification listNotifications(isPublished)
+> BuiltList<Notification> listNotifications(isPublished)
 
 Get notifications list
 
@@ -90,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Notification**](Notification.md)
+[**BuiltList&lt;Notification&gt;**](Notification.md)
 
 ### Authorization
 

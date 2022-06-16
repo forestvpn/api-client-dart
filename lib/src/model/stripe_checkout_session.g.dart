@@ -16,7 +16,7 @@ class _$StripeCheckoutSession extends StripeCheckoutSession {
 
   factory _$StripeCheckoutSession(
           [void Function(StripeCheckoutSessionBuilder)? updates]) =>
-      (new StripeCheckoutSessionBuilder()..update(updates)).build();
+      (new StripeCheckoutSessionBuilder()..update(updates))._build();
 
   _$StripeCheckoutSession._(
       {required this.sessionId,
@@ -24,11 +24,11 @@ class _$StripeCheckoutSession extends StripeCheckoutSession {
       required this.cancelUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        sessionId, 'StripeCheckoutSession', 'sessionId');
+        sessionId, r'StripeCheckoutSession', 'sessionId');
     BuiltValueNullFieldError.checkNotNull(
-        successUrl, 'StripeCheckoutSession', 'successUrl');
+        successUrl, r'StripeCheckoutSession', 'successUrl');
     BuiltValueNullFieldError.checkNotNull(
-        cancelUrl, 'StripeCheckoutSession', 'cancelUrl');
+        cancelUrl, r'StripeCheckoutSession', 'cancelUrl');
   }
 
   @override
@@ -57,7 +57,7 @@ class _$StripeCheckoutSession extends StripeCheckoutSession {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('StripeCheckoutSession')
+    return (newBuiltValueToStringHelper(r'StripeCheckoutSession')
           ..add('sessionId', sessionId)
           ..add('successUrl', successUrl)
           ..add('cancelUrl', cancelUrl))
@@ -108,18 +108,20 @@ class StripeCheckoutSessionBuilder
   }
 
   @override
-  _$StripeCheckoutSession build() {
+  StripeCheckoutSession build() => _build();
+
+  _$StripeCheckoutSession _build() {
     final _$result = _$v ??
         new _$StripeCheckoutSession._(
             sessionId: BuiltValueNullFieldError.checkNotNull(
-                sessionId, 'StripeCheckoutSession', 'sessionId'),
+                sessionId, r'StripeCheckoutSession', 'sessionId'),
             successUrl: BuiltValueNullFieldError.checkNotNull(
-                successUrl, 'StripeCheckoutSession', 'successUrl'),
+                successUrl, r'StripeCheckoutSession', 'successUrl'),
             cancelUrl: BuiltValueNullFieldError.checkNotNull(
-                cancelUrl, 'StripeCheckoutSession', 'cancelUrl'));
+                cancelUrl, r'StripeCheckoutSession', 'cancelUrl'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

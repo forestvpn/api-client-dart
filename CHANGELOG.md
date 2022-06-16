@@ -2,16 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.11.7 - 2.11.10] - 2022-05-25
+## 3.0.0 - 2022-06-16
 
-- Implement desktop authorization 
+- API breaking changes
+- float to decimal in billing,checkout api
+- remove tax field from product price
+
+## [2.11.7 - 2.11.11] - 2022-05-25
+
+- Implement desktop authorization
 
 ## [2.11.4 - 2.11.7] - 2022-04-27
 
 ### Chnages
 
 - Update billing fields
-
 
 ## [2.11.3] - 2022-04-26
 
@@ -49,36 +54,43 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Ads manager API
+
 ## [2.8.8] - 2022-01-23
 
 ### Chnages
 
 - Billing API changes (added recurring options)
+
 ## [2.8.7] - 2022-01-09
 
 ### Chnages
 
 - Billing API changes (removed prices, add price)
+
 ## [2.8.6] - 2022-01-05
 
 ### Chnages
 
 - Checkout session model fixes
+
 ## [2.8.5] - 2022-01-05
 
 ### Chnages
 
 - Checkout session model fixes
+
 ## [2.8.4] - 2022-01-05
 
 ### Chnages
 
 - Checkout session model fixes
+
 ## [2.8.3] - 2022-01-05
 
 ### Chnages
 
 - Checkout session model fixes
+
 ## [2.8.2] - 2022-01-04
 
 ### Chnages
@@ -90,7 +102,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Stripe checkout session API
-   
+
 ## [2.8.0] - 2022-01-02
 
 ### Added
@@ -277,3 +289,6 @@ Dio next based API client
 - Null safe
 - API v2
 
+## [0.0.1] - 2019-01-01
+
+- Initial

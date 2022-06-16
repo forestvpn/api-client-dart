@@ -7,10 +7,12 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/api_util.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_detail.dart';
+import 'package:forestvpn_api/src/model/notification_unread_count.dart';
 
 class NewsApi {
 
@@ -100,6 +102,84 @@ class NewsApi {
     );
   }
 
+  /// Get unread notifications count
+  /// 
+  ///
+  /// Parameters:
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [NotificationUnreadCount] as data
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<NotificationUnreadCount>> getNotificationsUnreadCount({ 
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/news/unread_count/';
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'bearerAuth',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    NotificationUnreadCount _responseData;
+
+    try {
+      const _responseType = FullType(NotificationUnreadCount);
+      _responseData = _serializers.deserialize(
+        _response.data!,
+        specifiedType: _responseType,
+      ) as NotificationUnreadCount;
+
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<NotificationUnreadCount>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
   /// Get notifications list
   /// 
   ///
@@ -112,9 +192,9 @@ class NewsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Notification] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<Notification>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Notification>> listNotifications({ 
+  Future<Response<BuiltList<Notification>>> listNotifications({ 
     bool? isPublished,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -155,14 +235,14 @@ class NewsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Notification _responseData;
+    BuiltList<Notification> _responseData;
 
     try {
-      const _responseType = FullType(Notification);
+      const _responseType = FullType(BuiltList, [FullType(Notification)]);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as Notification;
+      ) as BuiltList<Notification>;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -173,7 +253,7 @@ class NewsApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<Notification>(
+    return Response<BuiltList<Notification>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

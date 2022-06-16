@@ -16,15 +16,15 @@ class _$CreateFCMDeviceRequest extends CreateFCMDeviceRequest {
 
   factory _$CreateFCMDeviceRequest(
           [void Function(CreateFCMDeviceRequestBuilder)? updates]) =>
-      (new CreateFCMDeviceRequestBuilder()..update(updates)).build();
+      (new CreateFCMDeviceRequestBuilder()..update(updates))._build();
 
   _$CreateFCMDeviceRequest._(
       {required this.registrationId, this.deviceId, required this.active})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        registrationId, 'CreateFCMDeviceRequest', 'registrationId');
+        registrationId, r'CreateFCMDeviceRequest', 'registrationId');
     BuiltValueNullFieldError.checkNotNull(
-        active, 'CreateFCMDeviceRequest', 'active');
+        active, r'CreateFCMDeviceRequest', 'active');
   }
 
   @override
@@ -53,7 +53,7 @@ class _$CreateFCMDeviceRequest extends CreateFCMDeviceRequest {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CreateFCMDeviceRequest')
+    return (newBuiltValueToStringHelper(r'CreateFCMDeviceRequest')
           ..add('registrationId', registrationId)
           ..add('deviceId', deviceId)
           ..add('active', active))
@@ -105,17 +105,19 @@ class CreateFCMDeviceRequestBuilder
   }
 
   @override
-  _$CreateFCMDeviceRequest build() {
+  CreateFCMDeviceRequest build() => _build();
+
+  _$CreateFCMDeviceRequest _build() {
     final _$result = _$v ??
         new _$CreateFCMDeviceRequest._(
             registrationId: BuiltValueNullFieldError.checkNotNull(
-                registrationId, 'CreateFCMDeviceRequest', 'registrationId'),
+                registrationId, r'CreateFCMDeviceRequest', 'registrationId'),
             deviceId: deviceId,
             active: BuiltValueNullFieldError.checkNotNull(
-                active, 'CreateFCMDeviceRequest', 'active'));
+                active, r'CreateFCMDeviceRequest', 'active'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

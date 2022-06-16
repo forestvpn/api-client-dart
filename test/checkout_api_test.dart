@@ -7,6 +7,13 @@ void main() {
   final instance = ForestvpnApi().getCheckoutApi();
 
   group(CheckoutApi, () {
+    // Apply coupon to session
+    //
+    //Future<CouponCheckoutSession> applyCouponCheckoutSession(String sessionID, CreateCouponCheckoutSession createCouponCheckoutSession) async
+    test('test applyCouponCheckoutSession', () async {
+      // TODO
+    });
+
     // Create checkout session
     //
     //Future<CheckoutSession> createCheckoutSession({ CreateCheckoutSessionRequest createCheckoutSessionRequest }) async
@@ -28,13 +35,6 @@ void main() {
       // TODO
     });
 
-    // Cloud payments payment details
-    //
-    //Future<CloudPaymentsPay> getCloudPaymentsPayDetails(String sessionID) async
-    test('test getCloudPaymentsPayDetails', () async {
-      // TODO
-    });
-
     // Stripe checkout session details
     //
     //Future<StripeCheckoutSession> getStripeCheckoutSession(String sessionID) async
@@ -42,10 +42,24 @@ void main() {
       // TODO
     });
 
-    // Cloud payments pay
+    // Stripe payment intent details
     //
-    //Future<StripeCheckoutSession> processCloudPaymentsPay(String sessionID, CreateCloudPaymentsPay createCloudPaymentsPay) async
-    test('test processCloudPaymentsPay', () async {
+    //Future<StripePaymentIntent> getStripePaymentIntent(String sessionID, { bool useStripeSdk, String returnUrl }) async
+    test('test getStripePaymentIntent', () async {
+      // TODO
+    });
+
+    // Cloud payments auth
+    //
+    //Future<CloudPaymentsAuth> processCloudPaymentsAuth(String sessionID, CreateCloudPaymentsAuth createCloudPaymentsAuth) async
+    test('test processCloudPaymentsAuth', () async {
+      // TODO
+    });
+
+    // Cloud payments post3ds
+    //
+    //Future<CloudPaymentsPost3ds> processCloudPaymentsPost3ds(String sessionID, CreateCloudPaymentsPost3ds createCloudPaymentsPost3ds) async
+    test('test processCloudPaymentsPost3ds', () async {
       // TODO
     });
 

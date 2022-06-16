@@ -12,16 +12,16 @@ class _$Location extends Location {
   @override
   final String name;
   @override
-  final num latitude;
+  final double latitude;
   @override
-  final num longitude;
+  final double longitude;
   @override
   final Country country;
   @override
   final BuiltList<String>? alternativeNames;
 
   factory _$Location([void Function(LocationBuilder)? updates]) =>
-      (new LocationBuilder()..update(updates)).build();
+      (new LocationBuilder()..update(updates))._build();
 
   _$Location._(
       {required this.id,
@@ -31,11 +31,11 @@ class _$Location extends Location {
       required this.country,
       this.alternativeNames})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'Location', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, 'Location', 'name');
-    BuiltValueNullFieldError.checkNotNull(latitude, 'Location', 'latitude');
-    BuiltValueNullFieldError.checkNotNull(longitude, 'Location', 'longitude');
-    BuiltValueNullFieldError.checkNotNull(country, 'Location', 'country');
+    BuiltValueNullFieldError.checkNotNull(id, r'Location', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'Location', 'name');
+    BuiltValueNullFieldError.checkNotNull(latitude, r'Location', 'latitude');
+    BuiltValueNullFieldError.checkNotNull(longitude, r'Location', 'longitude');
+    BuiltValueNullFieldError.checkNotNull(country, r'Location', 'country');
   }
 
   @override
@@ -69,7 +69,7 @@ class _$Location extends Location {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Location')
+    return (newBuiltValueToStringHelper(r'Location')
           ..add('id', id)
           ..add('name', name)
           ..add('latitude', latitude)
@@ -91,13 +91,13 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
-  num? _latitude;
-  num? get latitude => _$this._latitude;
-  set latitude(num? latitude) => _$this._latitude = latitude;
+  double? _latitude;
+  double? get latitude => _$this._latitude;
+  set latitude(double? latitude) => _$this._latitude = latitude;
 
-  num? _longitude;
-  num? get longitude => _$this._longitude;
-  set longitude(num? longitude) => _$this._longitude = longitude;
+  double? _longitude;
+  double? get longitude => _$this._longitude;
+  set longitude(double? longitude) => _$this._longitude = longitude;
 
   CountryBuilder? _country;
   CountryBuilder get country => _$this._country ??= new CountryBuilder();
@@ -139,18 +139,20 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   }
 
   @override
-  _$Location build() {
+  Location build() => _build();
+
+  _$Location _build() {
     _$Location _$result;
     try {
       _$result = _$v ??
           new _$Location._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'Location', 'id'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Location', 'id'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, 'Location', 'name'),
+                  name, r'Location', 'name'),
               latitude: BuiltValueNullFieldError.checkNotNull(
-                  latitude, 'Location', 'latitude'),
+                  latitude, r'Location', 'latitude'),
               longitude: BuiltValueNullFieldError.checkNotNull(
-                  longitude, 'Location', 'longitude'),
+                  longitude, r'Location', 'longitude'),
               country: country.build(),
               alternativeNames: _alternativeNames?.build());
     } catch (_) {
@@ -162,7 +164,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
         _alternativeNames?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Location', _$failedField, e.toString());
+            r'Location', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -171,4 +173,4 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

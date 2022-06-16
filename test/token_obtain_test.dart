@@ -17,5 +17,10 @@ void main() {
       // TODO
     });
 
+    // String loginUrl
+    test('to test the property `loginUrl`', () async {
+      // TODO
+    });
+
   });
 }

@@ -14,15 +14,15 @@ class _$CreateCheckoutSessionProduct extends CreateCheckoutSessionProduct {
 
   factory _$CreateCheckoutSessionProduct(
           [void Function(CreateCheckoutSessionProductBuilder)? updates]) =>
-      (new CreateCheckoutSessionProductBuilder()..update(updates)).build();
+      (new CreateCheckoutSessionProductBuilder()..update(updates))._build();
 
   _$CreateCheckoutSessionProduct._(
       {required this.product, required this.quantity})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        product, 'CreateCheckoutSessionProduct', 'product');
+        product, r'CreateCheckoutSessionProduct', 'product');
     BuiltValueNullFieldError.checkNotNull(
-        quantity, 'CreateCheckoutSessionProduct', 'quantity');
+        quantity, r'CreateCheckoutSessionProduct', 'quantity');
   }
 
   @override
@@ -49,7 +49,7 @@ class _$CreateCheckoutSessionProduct extends CreateCheckoutSessionProduct {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CreateCheckoutSessionProduct')
+    return (newBuiltValueToStringHelper(r'CreateCheckoutSessionProduct')
           ..add('product', product)
           ..add('quantity', quantity))
         .toString();
@@ -96,16 +96,18 @@ class CreateCheckoutSessionProductBuilder
   }
 
   @override
-  _$CreateCheckoutSessionProduct build() {
+  CreateCheckoutSessionProduct build() => _build();
+
+  _$CreateCheckoutSessionProduct _build() {
     final _$result = _$v ??
         new _$CreateCheckoutSessionProduct._(
             product: BuiltValueNullFieldError.checkNotNull(
-                product, 'CreateCheckoutSessionProduct', 'product'),
+                product, r'CreateCheckoutSessionProduct', 'product'),
             quantity: BuiltValueNullFieldError.checkNotNull(
-                quantity, 'CreateCheckoutSessionProduct', 'quantity'));
+                quantity, r'CreateCheckoutSessionProduct', 'quantity'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

@@ -11,11 +11,11 @@ class _$TokenLogin extends TokenLogin {
   final String firebaseToken;
 
   factory _$TokenLogin([void Function(TokenLoginBuilder)? updates]) =>
-      (new TokenLoginBuilder()..update(updates)).build();
+      (new TokenLoginBuilder()..update(updates))._build();
 
   _$TokenLogin._({required this.firebaseToken}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        firebaseToken, 'TokenLogin', 'firebaseToken');
+        firebaseToken, r'TokenLogin', 'firebaseToken');
   }
 
   @override
@@ -38,7 +38,7 @@ class _$TokenLogin extends TokenLogin {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('TokenLogin')
+    return (newBuiltValueToStringHelper(r'TokenLogin')
           ..add('firebaseToken', firebaseToken))
         .toString();
   }
@@ -77,14 +77,16 @@ class TokenLoginBuilder implements Builder<TokenLogin, TokenLoginBuilder> {
   }
 
   @override
-  _$TokenLogin build() {
+  TokenLogin build() => _build();
+
+  _$TokenLogin _build() {
     final _$result = _$v ??
         new _$TokenLogin._(
             firebaseToken: BuiltValueNullFieldError.checkNotNull(
-                firebaseToken, 'TokenLogin', 'firebaseToken'));
+                firebaseToken, r'TokenLogin', 'firebaseToken'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

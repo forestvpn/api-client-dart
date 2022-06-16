@@ -14,13 +14,13 @@ class _$CouponCheckoutSession extends CouponCheckoutSession {
 
   factory _$CouponCheckoutSession(
           [void Function(CouponCheckoutSessionBuilder)? updates]) =>
-      (new CouponCheckoutSessionBuilder()..update(updates)).build();
+      (new CouponCheckoutSessionBuilder()..update(updates))._build();
 
   _$CouponCheckoutSession._({required this.key, required this.discount})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(key, 'CouponCheckoutSession', 'key');
+    BuiltValueNullFieldError.checkNotNull(key, r'CouponCheckoutSession', 'key');
     BuiltValueNullFieldError.checkNotNull(
-        discount, 'CouponCheckoutSession', 'discount');
+        discount, r'CouponCheckoutSession', 'discount');
   }
 
   @override
@@ -47,7 +47,7 @@ class _$CouponCheckoutSession extends CouponCheckoutSession {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CouponCheckoutSession')
+    return (newBuiltValueToStringHelper(r'CouponCheckoutSession')
           ..add('key', key)
           ..add('discount', discount))
         .toString();
@@ -92,16 +92,18 @@ class CouponCheckoutSessionBuilder
   }
 
   @override
-  _$CouponCheckoutSession build() {
+  CouponCheckoutSession build() => _build();
+
+  _$CouponCheckoutSession _build() {
     final _$result = _$v ??
         new _$CouponCheckoutSession._(
             key: BuiltValueNullFieldError.checkNotNull(
-                key, 'CouponCheckoutSession', 'key'),
+                key, r'CouponCheckoutSession', 'key'),
             discount: BuiltValueNullFieldError.checkNotNull(
-                discount, 'CouponCheckoutSession', 'discount'));
+                discount, r'CouponCheckoutSession', 'discount'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

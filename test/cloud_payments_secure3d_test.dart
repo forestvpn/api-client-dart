@@ -17,5 +17,10 @@ void main() {
       // TODO
     });
 
+    // String termUrl
+    test('to test the property `termUrl`', () async {
+      // TODO
+    });
+
   });
 }

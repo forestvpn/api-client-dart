@@ -17,12 +17,12 @@ void main() {
       // TODO
     });
 
-    // num latitude
+    // double latitude
     test('to test the property `latitude`', () async {
       // TODO
     });
 
-    // num longitude
+    // double longitude
     test('to test the property `longitude`', () async {
       // TODO
     });

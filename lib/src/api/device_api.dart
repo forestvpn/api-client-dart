@@ -768,8 +768,8 @@ class DeviceApi {
     required String deviceID,
     String? dateTimeAfter,
     String? dateTimeBefore,
-    num? perPage,
-    num? page,
+    int? perPage,
+    int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -799,8 +799,8 @@ class DeviceApi {
     final _queryParameters = <String, dynamic>{
       if (dateTimeAfter != null) r'date_time_after': encodeQueryParameter(_serializers, dateTimeAfter, const FullType(String)),
       if (dateTimeBefore != null) r'date_time_before': encodeQueryParameter(_serializers, dateTimeBefore, const FullType(String)),
-      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(num)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(num)),
+      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
+      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -860,8 +860,8 @@ class DeviceApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<PortForwarding>>> listDevicePortForwardings({ 
     required String deviceID,
-    num? perPage,
-    num? page,
+    int? perPage,
+    int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -889,8 +889,8 @@ class DeviceApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(num)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(num)),
+      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
+      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -954,8 +954,8 @@ class DeviceApi {
     required String deviceID,
     Date? dateAfter,
     Date? dateBefore,
-    num? perPage,
-    num? page,
+    int? perPage,
+    int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -985,8 +985,8 @@ class DeviceApi {
     final _queryParameters = <String, dynamic>{
       if (dateAfter != null) r'date_after': encodeQueryParameter(_serializers, dateAfter, const FullType(Date)),
       if (dateBefore != null) r'date_before': encodeQueryParameter(_serializers, dateBefore, const FullType(Date)),
-      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(num)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(num)),
+      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
+      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1128,8 +1128,8 @@ class DeviceApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<WireGuard>>> listDeviceWireGuards({ 
     required String deviceID,
-    num? perPage,
-    num? page,
+    int? perPage,
+    int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1157,8 +1157,8 @@ class DeviceApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(num)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(num)),
+      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
+      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1218,8 +1218,8 @@ class DeviceApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<Device>>> listDevices({ 
     String? externalKey,
-    num? perPage,
-    num? page,
+    int? perPage,
+    int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1248,8 +1248,8 @@ class DeviceApi {
 
     final _queryParameters = <String, dynamic>{
       if (externalKey != null) r'external_key': encodeQueryParameter(_serializers, externalKey, const FullType(String)),
-      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(num)),
-      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(num)),
+      if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
+      if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(

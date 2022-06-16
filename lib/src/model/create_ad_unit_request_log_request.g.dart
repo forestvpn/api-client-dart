@@ -20,7 +20,7 @@ class _$CreateAdUnitRequestLogRequest extends CreateAdUnitRequestLogRequest {
 
   factory _$CreateAdUnitRequestLogRequest(
           [void Function(CreateAdUnitRequestLogRequestBuilder)? updates]) =>
-      (new CreateAdUnitRequestLogRequestBuilder()..update(updates)).build();
+      (new CreateAdUnitRequestLogRequestBuilder()..update(updates))._build();
 
   _$CreateAdUnitRequestLogRequest._(
       {required this.unit,
@@ -30,11 +30,11 @@ class _$CreateAdUnitRequestLogRequest extends CreateAdUnitRequestLogRequest {
       required this.duration})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        unit, 'CreateAdUnitRequestLogRequest', 'unit');
+        unit, r'CreateAdUnitRequestLogRequest', 'unit');
     BuiltValueNullFieldError.checkNotNull(
-        requestDate, 'CreateAdUnitRequestLogRequest', 'requestDate');
+        requestDate, r'CreateAdUnitRequestLogRequest', 'requestDate');
     BuiltValueNullFieldError.checkNotNull(
-        duration, 'CreateAdUnitRequestLogRequest', 'duration');
+        duration, r'CreateAdUnitRequestLogRequest', 'duration');
   }
 
   @override
@@ -69,7 +69,7 @@ class _$CreateAdUnitRequestLogRequest extends CreateAdUnitRequestLogRequest {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CreateAdUnitRequestLogRequest')
+    return (newBuiltValueToStringHelper(r'CreateAdUnitRequestLogRequest')
           ..add('unit', unit)
           ..add('requestDate', requestDate)
           ..add('errorCode', errorCode)
@@ -134,20 +134,22 @@ class CreateAdUnitRequestLogRequestBuilder
   }
 
   @override
-  _$CreateAdUnitRequestLogRequest build() {
+  CreateAdUnitRequestLogRequest build() => _build();
+
+  _$CreateAdUnitRequestLogRequest _build() {
     final _$result = _$v ??
         new _$CreateAdUnitRequestLogRequest._(
             unit: BuiltValueNullFieldError.checkNotNull(
-                unit, 'CreateAdUnitRequestLogRequest', 'unit'),
+                unit, r'CreateAdUnitRequestLogRequest', 'unit'),
             requestDate: BuiltValueNullFieldError.checkNotNull(
-                requestDate, 'CreateAdUnitRequestLogRequest', 'requestDate'),
+                requestDate, r'CreateAdUnitRequestLogRequest', 'requestDate'),
             errorCode: errorCode,
             errorMessage: errorMessage,
             duration: BuiltValueNullFieldError.checkNotNull(
-                duration, 'CreateAdUnitRequestLogRequest', 'duration'));
+                duration, r'CreateAdUnitRequestLogRequest', 'duration'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

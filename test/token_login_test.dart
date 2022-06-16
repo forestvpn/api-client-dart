@@ -7,8 +7,8 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(TokenLogin, () {
-    // String token
-    test('to test the property `token`', () async {
+    // String firebaseToken
+    test('to test the property `firebaseToken`', () async {
       // TODO
     });
 

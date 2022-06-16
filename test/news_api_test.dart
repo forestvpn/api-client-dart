@@ -14,9 +14,16 @@ void main() {
       // TODO
     });
 
+    // Get unread notifications count
+    //
+    //Future<NotificationUnreadCount> getNotificationsUnreadCount() async
+    test('test getNotificationsUnreadCount', () async {
+      // TODO
+    });
+
     // Get notifications list
     //
-    //Future<Notification> listNotifications({ bool isPublished }) async
+    //Future<BuiltList<Notification>> listNotifications({ bool isPublished }) async
     test('test listNotifications', () async {
       // TODO
     });

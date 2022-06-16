@@ -17,7 +17,7 @@ class _$PaymentMethod extends PaymentMethod {
   final String? description;
 
   factory _$PaymentMethod([void Function(PaymentMethodBuilder)? updates]) =>
-      (new PaymentMethodBuilder()..update(updates)).build();
+      (new PaymentMethodBuilder()..update(updates))._build();
 
   _$PaymentMethod._(
       {required this.id,
@@ -25,9 +25,9 @@ class _$PaymentMethod extends PaymentMethod {
       required this.name,
       this.description})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'PaymentMethod', 'id');
-    BuiltValueNullFieldError.checkNotNull(slug, 'PaymentMethod', 'slug');
-    BuiltValueNullFieldError.checkNotNull(name, 'PaymentMethod', 'name');
+    BuiltValueNullFieldError.checkNotNull(id, r'PaymentMethod', 'id');
+    BuiltValueNullFieldError.checkNotNull(slug, r'PaymentMethod', 'slug');
+    BuiltValueNullFieldError.checkNotNull(name, r'PaymentMethod', 'name');
   }
 
   @override
@@ -55,7 +55,7 @@ class _$PaymentMethod extends PaymentMethod {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('PaymentMethod')
+    return (newBuiltValueToStringHelper(r'PaymentMethod')
           ..add('id', id)
           ..add('slug', slug)
           ..add('name', name)
@@ -112,19 +112,21 @@ class PaymentMethodBuilder
   }
 
   @override
-  _$PaymentMethod build() {
+  PaymentMethod build() => _build();
+
+  _$PaymentMethod _build() {
     final _$result = _$v ??
         new _$PaymentMethod._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, 'PaymentMethod', 'id'),
+                id, r'PaymentMethod', 'id'),
             slug: BuiltValueNullFieldError.checkNotNull(
-                slug, 'PaymentMethod', 'slug'),
+                slug, r'PaymentMethod', 'slug'),
             name: BuiltValueNullFieldError.checkNotNull(
-                name, 'PaymentMethod', 'name'),
+                name, r'PaymentMethod', 'name'),
             description: description);
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

@@ -11,17 +11,22 @@ class _$CloudPaymentsSecure3d extends CloudPaymentsSecure3d {
   final String paReq;
   @override
   final String acsUrl;
+  @override
+  final String termUrl;
 
   factory _$CloudPaymentsSecure3d(
           [void Function(CloudPaymentsSecure3dBuilder)? updates]) =>
-      (new CloudPaymentsSecure3dBuilder()..update(updates)).build();
+      (new CloudPaymentsSecure3dBuilder()..update(updates))._build();
 
-  _$CloudPaymentsSecure3d._({required this.paReq, required this.acsUrl})
+  _$CloudPaymentsSecure3d._(
+      {required this.paReq, required this.acsUrl, required this.termUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        paReq, 'CloudPaymentsSecure3d', 'paReq');
+        paReq, r'CloudPaymentsSecure3d', 'paReq');
     BuiltValueNullFieldError.checkNotNull(
-        acsUrl, 'CloudPaymentsSecure3d', 'acsUrl');
+        acsUrl, r'CloudPaymentsSecure3d', 'acsUrl');
+    BuiltValueNullFieldError.checkNotNull(
+        termUrl, r'CloudPaymentsSecure3d', 'termUrl');
   }
 
   @override
@@ -38,19 +43,22 @@ class _$CloudPaymentsSecure3d extends CloudPaymentsSecure3d {
     if (identical(other, this)) return true;
     return other is CloudPaymentsSecure3d &&
         paReq == other.paReq &&
-        acsUrl == other.acsUrl;
+        acsUrl == other.acsUrl &&
+        termUrl == other.termUrl;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, paReq.hashCode), acsUrl.hashCode));
+    return $jf(
+        $jc($jc($jc(0, paReq.hashCode), acsUrl.hashCode), termUrl.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('CloudPaymentsSecure3d')
+    return (newBuiltValueToStringHelper(r'CloudPaymentsSecure3d')
           ..add('paReq', paReq)
-          ..add('acsUrl', acsUrl))
+          ..add('acsUrl', acsUrl)
+          ..add('termUrl', termUrl))
         .toString();
   }
 }
@@ -67,6 +75,10 @@ class CloudPaymentsSecure3dBuilder
   String? get acsUrl => _$this._acsUrl;
   set acsUrl(String? acsUrl) => _$this._acsUrl = acsUrl;
 
+  String? _termUrl;
+  String? get termUrl => _$this._termUrl;
+  set termUrl(String? termUrl) => _$this._termUrl = termUrl;
+
   CloudPaymentsSecure3dBuilder() {
     CloudPaymentsSecure3d._defaults(this);
   }
@@ -76,6 +88,7 @@ class CloudPaymentsSecure3dBuilder
     if ($v != null) {
       _paReq = $v.paReq;
       _acsUrl = $v.acsUrl;
+      _termUrl = $v.termUrl;
       _$v = null;
     }
     return this;
@@ -93,16 +106,20 @@ class CloudPaymentsSecure3dBuilder
   }
 
   @override
-  _$CloudPaymentsSecure3d build() {
+  CloudPaymentsSecure3d build() => _build();
+
+  _$CloudPaymentsSecure3d _build() {
     final _$result = _$v ??
         new _$CloudPaymentsSecure3d._(
             paReq: BuiltValueNullFieldError.checkNotNull(
-                paReq, 'CloudPaymentsSecure3d', 'paReq'),
+                paReq, r'CloudPaymentsSecure3d', 'paReq'),
             acsUrl: BuiltValueNullFieldError.checkNotNull(
-                acsUrl, 'CloudPaymentsSecure3d', 'acsUrl'));
+                acsUrl, r'CloudPaymentsSecure3d', 'acsUrl'),
+            termUrl: BuiltValueNullFieldError.checkNotNull(
+                termUrl, r'CloudPaymentsSecure3d', 'termUrl'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

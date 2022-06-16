@@ -19,7 +19,7 @@ class _$FeaturedImage extends FeaturedImage {
   final String xLargeAt2;
 
   factory _$FeaturedImage([void Function(FeaturedImageBuilder)? updates]) =>
-      (new FeaturedImageBuilder()..update(updates)).build();
+      (new FeaturedImageBuilder()..update(updates))._build();
 
   _$FeaturedImage._(
       {required this.small,
@@ -28,12 +28,12 @@ class _$FeaturedImage extends FeaturedImage {
       required this.xLarge,
       required this.xLargeAt2})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(small, 'FeaturedImage', 'small');
-    BuiltValueNullFieldError.checkNotNull(medium, 'FeaturedImage', 'medium');
-    BuiltValueNullFieldError.checkNotNull(large, 'FeaturedImage', 'large');
-    BuiltValueNullFieldError.checkNotNull(xLarge, 'FeaturedImage', 'xLarge');
+    BuiltValueNullFieldError.checkNotNull(small, r'FeaturedImage', 'small');
+    BuiltValueNullFieldError.checkNotNull(medium, r'FeaturedImage', 'medium');
+    BuiltValueNullFieldError.checkNotNull(large, r'FeaturedImage', 'large');
+    BuiltValueNullFieldError.checkNotNull(xLarge, r'FeaturedImage', 'xLarge');
     BuiltValueNullFieldError.checkNotNull(
-        xLargeAt2, 'FeaturedImage', 'xLargeAt2');
+        xLargeAt2, r'FeaturedImage', 'xLargeAt2');
   }
 
   @override
@@ -64,7 +64,7 @@ class _$FeaturedImage extends FeaturedImage {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('FeaturedImage')
+    return (newBuiltValueToStringHelper(r'FeaturedImage')
           ..add('small', small)
           ..add('medium', medium)
           ..add('large', large)
@@ -127,22 +127,24 @@ class FeaturedImageBuilder
   }
 
   @override
-  _$FeaturedImage build() {
+  FeaturedImage build() => _build();
+
+  _$FeaturedImage _build() {
     final _$result = _$v ??
         new _$FeaturedImage._(
             small: BuiltValueNullFieldError.checkNotNull(
-                small, 'FeaturedImage', 'small'),
+                small, r'FeaturedImage', 'small'),
             medium: BuiltValueNullFieldError.checkNotNull(
-                medium, 'FeaturedImage', 'medium'),
+                medium, r'FeaturedImage', 'medium'),
             large: BuiltValueNullFieldError.checkNotNull(
-                large, 'FeaturedImage', 'large'),
+                large, r'FeaturedImage', 'large'),
             xLarge: BuiltValueNullFieldError.checkNotNull(
-                xLarge, 'FeaturedImage', 'xLarge'),
+                xLarge, r'FeaturedImage', 'xLarge'),
             xLargeAt2: BuiltValueNullFieldError.checkNotNull(
-                xLargeAt2, 'FeaturedImage', 'xLargeAt2'));
+                xLargeAt2, r'FeaturedImage', 'xLargeAt2'));
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

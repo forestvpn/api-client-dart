@@ -11,17 +11,13 @@ part 'price.g.dart';
 ///
 /// Properties:
 /// * [currency] 
-/// * [amount] 
-/// * [tax] 
+/// * [price] 
 abstract class Price implements Built<Price, PriceBuilder> {
     @BuiltValueField(wireName: r'currency')
     String get currency;
 
-    @BuiltValueField(wireName: r'amount')
-    double get amount;
-
-    @BuiltValueField(wireName: r'tax')
-    double get tax;
+    @BuiltValueField(wireName: r'price')
+    double get price;
 
     Price._();
 
@@ -50,12 +46,8 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
             ..add(serializers.serialize(object.currency,
                 specifiedType: const FullType(String)));
         result
-            ..add(r'amount')
-            ..add(serializers.serialize(object.amount,
-                specifiedType: const FullType(double)));
-        result
-            ..add(r'tax')
-            ..add(serializers.serialize(object.tax,
+            ..add(r'price')
+            ..add(serializers.serialize(object.price,
                 specifiedType: const FullType(double)));
         return result;
     }
@@ -77,15 +69,10 @@ class _$PriceSerializer implements StructuredSerializer<Price> {
                         specifiedType: const FullType(String)) as String;
                     result.currency = valueDes;
                     break;
-                case r'amount':
+                case r'price':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(double)) as double;
-                    result.amount = valueDes;
-                    break;
-                case r'tax':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(double)) as double;
-                    result.tax = valueDes;
+                    result.price = valueDes;
                     break;
             }
         }

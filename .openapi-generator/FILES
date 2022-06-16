@@ -1,5 +1,4 @@
 .gitignore
-README.md
 analysis_options.yaml
 doc/AdPlacement.md
 doc/AdProvider.md
@@ -41,6 +40,7 @@ doc/Environment.md
 doc/Error.md
 doc/FCMDevice.md
 doc/FcmApi.md
+doc/FeaturedImage.md
 doc/Friendship.md
 doc/FriendshipApi.md
 doc/FriendshipInvitation.md
@@ -49,6 +49,10 @@ doc/GoogleApi.md
 doc/LegacyAuthMigrationToken.md
 doc/Location.md
 doc/NetworkService.md
+doc/NewsApi.md
+doc/Notification.md
+doc/NotificationDetail.md
+doc/NotificationUnreadCount.md
 doc/PaymentMethod.md
 doc/PlayStorePurchaseVerificationRequest.md
 doc/PortForwarding.md
@@ -57,6 +61,7 @@ doc/Product.md
 doc/Recurring.md
 doc/Server.md
 doc/StripeCheckoutSession.md
+doc/StripePaymentIntent.md
 doc/TokenLogin.md
 doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
@@ -79,6 +84,7 @@ lib/src/api/fcm_api.dart
 lib/src/api/friendship_api.dart
 lib/src/api/geo_api.dart
 lib/src/api/google_api.dart
+lib/src/api/news_api.dart
 lib/src/api/wireguard_api.dart
 lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
@@ -121,11 +127,15 @@ lib/src/model/device_stats.dart
 lib/src/model/environment.dart
 lib/src/model/error.dart
 lib/src/model/fcm_device.dart
+lib/src/model/featured_image.dart
 lib/src/model/friendship.dart
 lib/src/model/friendship_invitation.dart
 lib/src/model/legacy_auth_migration_token.dart
 lib/src/model/location.dart
 lib/src/model/network_service.dart
+lib/src/model/notification.dart
+lib/src/model/notification_detail.dart
+lib/src/model/notification_unread_count.dart
 lib/src/model/payment_method.dart
 lib/src/model/play_store_purchase_verification_request.dart
 lib/src/model/port_forwarding.dart
@@ -134,6 +144,7 @@ lib/src/model/product.dart
 lib/src/model/recurring.dart
 lib/src/model/server.dart
 lib/src/model/stripe_checkout_session.dart
+lib/src/model/stripe_payment_intent.dart
 lib/src/model/token_login.dart
 lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart

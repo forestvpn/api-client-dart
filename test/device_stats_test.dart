@@ -12,27 +12,27 @@ void main() {
       // TODO
     });
 
-    // num connections
+    // int connections
     test('to test the property `connections`', () async {
       // TODO
     });
 
-    // num receivedBytes
+    // int receivedBytes
     test('to test the property `receivedBytes`', () async {
       // TODO
     });
 
-    // num transmittedBytes
+    // int transmittedBytes
     test('to test the property `transmittedBytes`', () async {
       // TODO
     });
 
-    // num blockedAds
+    // int blockedAds
     test('to test the property `blockedAds`', () async {
       // TODO
     });
 
-    // num blockedMalwares
+    // int blockedMalwares
     test('to test the property `blockedMalwares`', () async {
       // TODO
     });

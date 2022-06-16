@@ -19,7 +19,7 @@ class _$Country extends Country {
   final BuiltList<String>? alternativeNames;
 
   factory _$Country([void Function(CountryBuilder)? updates]) =>
-      (new CountryBuilder()..update(updates)).build();
+      (new CountryBuilder()..update(updates))._build();
 
   _$Country._(
       {required this.id,
@@ -28,9 +28,9 @@ class _$Country extends Country {
       this.currencyCode,
       this.alternativeNames})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'Country', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, 'Country', 'name');
-    BuiltValueNullFieldError.checkNotNull(emoji, 'Country', 'emoji');
+    BuiltValueNullFieldError.checkNotNull(id, r'Country', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'Country', 'name');
+    BuiltValueNullFieldError.checkNotNull(emoji, r'Country', 'emoji');
   }
 
   @override
@@ -61,7 +61,7 @@ class _$Country extends Country {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Country')
+    return (newBuiltValueToStringHelper(r'Country')
           ..add('id', id)
           ..add('name', name)
           ..add('emoji', emoji)
@@ -125,16 +125,18 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
   }
 
   @override
-  _$Country build() {
+  Country build() => _build();
+
+  _$Country _build() {
     _$Country _$result;
     try {
       _$result = _$v ??
           new _$Country._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'Country', 'id'),
+              id: BuiltValueNullFieldError.checkNotNull(id, r'Country', 'id'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, 'Country', 'name'),
+                  name, r'Country', 'name'),
               emoji: BuiltValueNullFieldError.checkNotNull(
-                  emoji, 'Country', 'emoji'),
+                  emoji, r'Country', 'emoji'),
               currencyCode: currencyCode,
               alternativeNames: _alternativeNames?.build());
     } catch (_) {
@@ -144,7 +146,7 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
         _alternativeNames?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Country', _$failedField, e.toString());
+            r'Country', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -153,4 +155,4 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

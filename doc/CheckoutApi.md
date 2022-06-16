@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**expireCheckoutSession**](CheckoutApi.md#expirecheckoutsession) | **POST** /checkout/sessions/{sessionID}/expire/ | Expire checkout session
 [**getCheckoutSession**](CheckoutApi.md#getcheckoutsession) | **GET** /checkout/sessions/{sessionID}/ | Checkout session details
 [**getStripeCheckoutSession**](CheckoutApi.md#getstripecheckoutsession) | **GET** /checkout/sessions/{sessionID}/stripe/checkout/session/ | Stripe checkout session details
+[**getStripePaymentIntent**](CheckoutApi.md#getstripepaymentintent) | **GET** /checkout/sessions/{sessionID}/stripe/payment/intent/ | Stripe payment intent details
 [**processCloudPaymentsAuth**](CheckoutApi.md#processcloudpaymentsauth) | **POST** /checkout/sessions/{sessionID}/cloud-payments/auth/ | Cloud payments auth
 [**processCloudPaymentsPost3ds**](CheckoutApi.md#processcloudpaymentspost3ds) | **POST** /checkout/sessions/{sessionID}/cloud-payments/post3ds/ | Cloud payments post3ds
 
@@ -227,6 +228,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StripeCheckoutSession**](StripeCheckoutSession.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getStripePaymentIntent**
+> StripePaymentIntent getStripePaymentIntent(sessionID, useStripeSdk, returnUrl)
+
+Stripe payment intent details
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getCheckoutApi();
+final String sessionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final bool useStripeSdk = true; // bool | 
+final String returnUrl = returnUrl_example; // String | 
+
+try {
+    final response = api.getStripePaymentIntent(sessionID, useStripeSdk, returnUrl);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling CheckoutApi->getStripePaymentIntent: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sessionID** | **String**|  | 
+ **useStripeSdk** | **bool**|  | [optional] 
+ **returnUrl** | **String**|  | [optional] 
+
+### Return type
+
+[**StripePaymentIntent**](StripePaymentIntent.md)
 
 ### Authorization
 

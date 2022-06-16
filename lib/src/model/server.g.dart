@@ -13,12 +13,12 @@ class _$Server extends Server {
   final BuiltList<NetworkService> networkServices;
 
   factory _$Server([void Function(ServerBuilder)? updates]) =>
-      (new ServerBuilder()..update(updates)).build();
+      (new ServerBuilder()..update(updates))._build();
 
   _$Server._({required this.host, required this.networkServices}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(host, 'Server', 'host');
+    BuiltValueNullFieldError.checkNotNull(host, r'Server', 'host');
     BuiltValueNullFieldError.checkNotNull(
-        networkServices, 'Server', 'networkServices');
+        networkServices, r'Server', 'networkServices');
   }
 
   @override
@@ -43,7 +43,7 @@ class _$Server extends Server {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Server')
+    return (newBuiltValueToStringHelper(r'Server')
           ..add('host', host)
           ..add('networkServices', networkServices))
         .toString();
@@ -89,13 +89,15 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
   }
 
   @override
-  _$Server build() {
+  Server build() => _build();
+
+  _$Server _build() {
     _$Server _$result;
     try {
       _$result = _$v ??
           new _$Server._(
-              host:
-                  BuiltValueNullFieldError.checkNotNull(host, 'Server', 'host'),
+              host: BuiltValueNullFieldError.checkNotNull(
+                  host, r'Server', 'host'),
               networkServices: networkServices.build());
     } catch (_) {
       late String _$failedField;
@@ -104,7 +106,7 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
         networkServices.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Server', _$failedField, e.toString());
+            r'Server', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -113,4 +115,4 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

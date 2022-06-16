@@ -464,8 +464,8 @@ final api = ForestvpnApi().getDeviceApi();
 final String deviceID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final String dateTimeAfter = dateTimeAfter_example; // String | 
 final String dateTimeBefore = dateTimeBefore_example; // String | 
-final num perPage = 8.14; // num | 
-final num page = 8.14; // num | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
     final response = api.listDeviceDetailStats(deviceID, dateTimeAfter, dateTimeBefore, perPage, page);
@@ -482,8 +482,8 @@ Name | Type | Description  | Notes
  **deviceID** | **String**|  | 
  **dateTimeAfter** | **String**|  | [optional] 
  **dateTimeBefore** | **String**|  | [optional] 
- **perPage** | **num**|  | [optional] 
- **page** | **num**|  | [optional] 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 
@@ -516,8 +516,8 @@ import 'package:forestvpn_api/api.dart';
 
 final api = ForestvpnApi().getDeviceApi();
 final String deviceID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
-final num perPage = 8.14; // num | 
-final num page = 8.14; // num | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
     final response = api.listDevicePortForwardings(deviceID, perPage, page);
@@ -532,8 +532,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deviceID** | **String**|  | 
- **perPage** | **num**|  | [optional] 
- **page** | **num**|  | [optional] 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 
@@ -566,8 +566,8 @@ final api = ForestvpnApi().getDeviceApi();
 final String deviceID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final Date dateAfter = 2013-10-20; // Date | 
 final Date dateBefore = 2013-10-20; // Date | 
-final num perPage = 8.14; // num | 
-final num page = 8.14; // num | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
     final response = api.listDeviceStats(deviceID, dateAfter, dateBefore, perPage, page);
@@ -584,8 +584,8 @@ Name | Type | Description  | Notes
  **deviceID** | **String**|  | 
  **dateAfter** | **Date**|  | [optional] 
  **dateBefore** | **Date**|  | [optional] 
- **perPage** | **num**|  | [optional] 
- **page** | **num**|  | [optional] 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 
@@ -662,8 +662,8 @@ import 'package:forestvpn_api/api.dart';
 
 final api = ForestvpnApi().getDeviceApi();
 final String deviceID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
-final num perPage = 8.14; // num | 
-final num page = 8.14; // num | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
     final response = api.listDeviceWireGuards(deviceID, perPage, page);
@@ -678,8 +678,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deviceID** | **String**|  | 
- **perPage** | **num**|  | [optional] 
- **page** | **num**|  | [optional] 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 
@@ -712,8 +712,8 @@ import 'package:forestvpn_api/api.dart';
 
 final api = ForestvpnApi().getDeviceApi();
 final String externalKey = externalKey_example; // String | 
-final num perPage = 8.14; // num | 
-final num page = 8.14; // num | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
     final response = api.listDevices(externalKey, perPage, page);
@@ -728,8 +728,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **externalKey** | **String**|  | [optional] 
- **perPage** | **num**|  | [optional] 
- **page** | **num**|  | [optional] 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 
