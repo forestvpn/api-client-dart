@@ -66,7 +66,9 @@ import 'package:forestvpn_api/src/model/stripe_payment_intent.dart';
 import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
+import 'package:forestvpn_api/src/model/update_user_device_request.dart';
 import 'package:forestvpn_api/src/model/user.dart';
+import 'package:forestvpn_api/src/model/user_device.dart';
 import 'package:forestvpn_api/src/model/wire_guard.dart';
 import 'package:forestvpn_api/src/model/wire_guard_peer.dart';
 import 'package:forestvpn_api/src/model/wire_guard_peer_device.dart';
@@ -130,7 +132,9 @@ part 'serializers.g.dart';
   TokenLogin,
   TokenObtain,
   UpdateFCMDeviceRequest,
+  UpdateUserDeviceRequest,
   User,
+  UserDevice,
   WireGuard,
   WireGuardPeer,
   WireGuardPeerDevice,

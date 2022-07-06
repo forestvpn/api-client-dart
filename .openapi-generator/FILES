@@ -5,6 +5,7 @@ doc/AdProvider.md
 doc/AdReward.md
 doc/AdUnit.md
 doc/AdsApi.md
+doc/AppApi.md
 doc/AppStoreReceiptVerificationRequest.md
 doc/AppleApi.md
 doc/AuthApi.md
@@ -65,7 +66,9 @@ doc/StripePaymentIntent.md
 doc/TokenLogin.md
 doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
+doc/UpdateUserDeviceRequest.md
 doc/User.md
+doc/UserDevice.md
 doc/WireGuard.md
 doc/WireGuardPeer.md
 doc/WireGuardPeerDevice.md
@@ -75,6 +78,7 @@ doc/WireguardApi.md
 lib/forestvpn_api.dart
 lib/src/api.dart
 lib/src/api/ads_api.dart
+lib/src/api/app_api.dart
 lib/src/api/apple_api.dart
 lib/src/api/auth_api.dart
 lib/src/api/billing_api.dart
@@ -148,7 +152,9 @@ lib/src/model/stripe_payment_intent.dart
 lib/src/model/token_login.dart
 lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
+lib/src/model/update_user_device_request.dart
 lib/src/model/user.dart
+lib/src/model/user_device.dart
 lib/src/model/wire_guard.dart
 lib/src/model/wire_guard_peer.dart
 lib/src/model/wire_guard_peer_device.dart

@@ -10,6 +10,7 @@ import 'package:forestvpn_api/src/auth/basic_auth.dart';
 import 'package:forestvpn_api/src/auth/bearer_auth.dart';
 import 'package:forestvpn_api/src/auth/oauth.dart';
 import 'package:forestvpn_api/src/api/ads_api.dart';
+import 'package:forestvpn_api/src/api/app_api.dart';
 import 'package:forestvpn_api/src/api/apple_api.dart';
 import 'package:forestvpn_api/src/api/auth_api.dart';
 import 'package:forestvpn_api/src/api/billing_api.dart';
@@ -80,6 +81,12 @@ class ForestvpnApi {
   /// by doing that all interceptors will not be executed
   AdsApi getAdsApi() {
     return AdsApi(dio, serializers);
+  }
+
+  /// Get AppApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  AppApi getAppApi() {
+    return AppApi(dio, serializers);
   }
 
   /// Get AppleApi instance, base route and serializer can be overridden by a given but be careful,

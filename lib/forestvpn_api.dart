@@ -10,6 +10,7 @@ export 'package:forestvpn_api/src/serializers.dart';
 export 'package:forestvpn_api/src/model/date.dart';
 
 export 'package:forestvpn_api/src/api/ads_api.dart';
+export 'package:forestvpn_api/src/api/app_api.dart';
 export 'package:forestvpn_api/src/api/apple_api.dart';
 export 'package:forestvpn_api/src/api/auth_api.dart';
 export 'package:forestvpn_api/src/api/billing_api.dart';
@@ -76,7 +77,9 @@ export 'package:forestvpn_api/src/model/stripe_payment_intent.dart';
 export 'package:forestvpn_api/src/model/token_login.dart';
 export 'package:forestvpn_api/src/model/token_obtain.dart';
 export 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
+export 'package:forestvpn_api/src/model/update_user_device_request.dart';
 export 'package:forestvpn_api/src/model/user.dart';
+export 'package:forestvpn_api/src/model/user_device.dart';
 export 'package:forestvpn_api/src/model/wire_guard.dart';
 export 'package:forestvpn_api/src/model/wire_guard_peer.dart';
 export 'package:forestvpn_api/src/model/wire_guard_peer_device.dart';
