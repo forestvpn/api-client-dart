@@ -26,6 +26,7 @@ part 'device.g.dart';
 /// * [location] 
 /// * [servers] 
 /// * [lastActiveAt] 
+/// * [type] 
 abstract class Device implements Built<Device, DeviceBuilder> {
     @BuiltValueField(wireName: r'id')
     String get id;
@@ -59,6 +60,9 @@ abstract class Device implements Built<Device, DeviceBuilder> {
 
     @BuiltValueField(wireName: r'last_active_at')
     DateTime? get lastActiveAt;
+
+    @BuiltValueField(wireName: r'type')
+    String? get type;
 
     Device._();
 
@@ -147,6 +151,12 @@ class _$DeviceSerializer implements StructuredSerializer<Device> {
                 ..add(serializers.serialize(object.lastActiveAt,
                     specifiedType: const FullType(DateTime)));
         }
+        if (object.type != null) {
+            result
+                ..add(r'type')
+                ..add(serializers.serialize(object.type,
+                    specifiedType: const FullType(String)));
+        }
         return result;
     }
 
@@ -216,6 +226,11 @@ class _$DeviceSerializer implements StructuredSerializer<Device> {
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(DateTime)) as DateTime;
                     result.lastActiveAt = valueDes;
+                    break;
+                case r'type':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.type = valueDes;
                     break;
             }
         }

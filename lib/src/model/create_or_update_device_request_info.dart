@@ -3,6 +3,7 @@
 //
 
 import 'package:built_collection/built_collection.dart';
+import 'package:forestvpn_api/src/model/device_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,7 +16,7 @@ part 'create_or_update_device_request_info.g.dart';
 /// * [info] 
 abstract class CreateOrUpdateDeviceRequestInfo implements Built<CreateOrUpdateDeviceRequestInfo, CreateOrUpdateDeviceRequestInfoBuilder> {
     @BuiltValueField(wireName: r'type')
-    CreateOrUpdateDeviceRequestInfoTypeEnum get type;
+    DeviceType get type;
     // enum typeEnum {  ios,  ipados,  watchos,  macos,  android,  wp,  other,  };
 
     @BuiltValueField(wireName: r'info')
@@ -46,7 +47,7 @@ class _$CreateOrUpdateDeviceRequestInfoSerializer implements StructuredSerialize
         result
             ..add(r'type')
             ..add(serializers.serialize(object.type,
-                specifiedType: const FullType(CreateOrUpdateDeviceRequestInfoTypeEnum)));
+                specifiedType: const FullType(DeviceType)));
         result
             ..add(r'info')
             ..add(serializers.serialize(object.info,
@@ -68,7 +69,7 @@ class _$CreateOrUpdateDeviceRequestInfoSerializer implements StructuredSerialize
             switch (key) {
                 case r'type':
                     final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(CreateOrUpdateDeviceRequestInfoTypeEnum)) as CreateOrUpdateDeviceRequestInfoTypeEnum;
+                        specifiedType: const FullType(DeviceType)) as DeviceType;
                     result.type = valueDes;
                     break;
                 case r'info':
@@ -80,30 +81,5 @@ class _$CreateOrUpdateDeviceRequestInfoSerializer implements StructuredSerialize
         }
         return result.build();
     }
-}
-
-class CreateOrUpdateDeviceRequestInfoTypeEnum extends EnumClass {
-
-  @BuiltValueEnumConst(wireName: r'ios')
-  static const CreateOrUpdateDeviceRequestInfoTypeEnum ios = _$createOrUpdateDeviceRequestInfoTypeEnum_ios;
-  @BuiltValueEnumConst(wireName: r'ipados')
-  static const CreateOrUpdateDeviceRequestInfoTypeEnum ipados = _$createOrUpdateDeviceRequestInfoTypeEnum_ipados;
-  @BuiltValueEnumConst(wireName: r'watchos')
-  static const CreateOrUpdateDeviceRequestInfoTypeEnum watchos = _$createOrUpdateDeviceRequestInfoTypeEnum_watchos;
-  @BuiltValueEnumConst(wireName: r'macos')
-  static const CreateOrUpdateDeviceRequestInfoTypeEnum macos = _$createOrUpdateDeviceRequestInfoTypeEnum_macos;
-  @BuiltValueEnumConst(wireName: r'android')
-  static const CreateOrUpdateDeviceRequestInfoTypeEnum android = _$createOrUpdateDeviceRequestInfoTypeEnum_android;
-  @BuiltValueEnumConst(wireName: r'wp')
-  static const CreateOrUpdateDeviceRequestInfoTypeEnum wp = _$createOrUpdateDeviceRequestInfoTypeEnum_wp;
-  @BuiltValueEnumConst(wireName: r'other')
-  static const CreateOrUpdateDeviceRequestInfoTypeEnum other = _$createOrUpdateDeviceRequestInfoTypeEnum_other;
-
-  static Serializer<CreateOrUpdateDeviceRequestInfoTypeEnum> get serializer => _$createOrUpdateDeviceRequestInfoTypeEnumSerializer;
-
-  const CreateOrUpdateDeviceRequestInfoTypeEnum._(String name): super(name);
-
-  static BuiltSet<CreateOrUpdateDeviceRequestInfoTypeEnum> get values => _$createOrUpdateDeviceRequestInfoTypeEnumValues;
-  static CreateOrUpdateDeviceRequestInfoTypeEnum valueOf(String name) => _$createOrUpdateDeviceRequestInfoTypeEnumValueOf(name);
 }
 

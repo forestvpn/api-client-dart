@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **location** | [**Location**](Location.md) |  | [optional] 
 **servers** | [**BuiltList&lt;Server&gt;**](Server.md) |  | [optional] 
 **lastActiveAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**type** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -42,6 +42,7 @@ import 'package:forestvpn_api/src/model/create_token_login.dart';
 import 'package:forestvpn_api/src/model/currency.dart';
 import 'package:forestvpn_api/src/model/device.dart';
 import 'package:forestvpn_api/src/model/device_stats.dart';
+import 'package:forestvpn_api/src/model/device_type.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/fcm_device.dart';
@@ -108,6 +109,7 @@ part 'serializers.g.dart';
   Currency,
   Device,
   DeviceStats,
+  DeviceType,
   Environment,
   Error,
   FCMDevice,
