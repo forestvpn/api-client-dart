@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.2.0 - 2022-08-09
+
+- NewsApi
+    - getNotification
+    - getNotificationsUnreadCount
+    - listNotifications
+    - updateNotificationMarkRead
+    - updateNotificationMarkReadAll
+- CheckoutApi
+    - getStripePaymentIntent
+- AppApi
+    - getCurrentUserDevice
+    - updateCurrentUserDevice
+
 ## 3.1.0 - 2022-07-06
 
 - App API
