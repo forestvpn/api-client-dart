@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(CreateOrUpdateDeviceRequestInfo, () {
-    // String type
+    // DeviceType type
     test('to test the property `type`', () async {
       // TODO
     });

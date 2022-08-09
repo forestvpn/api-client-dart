@@ -8,7 +8,7 @@ import 'package:forestvpn_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** |  | 
+**type** | [**DeviceType**](DeviceType.md) |  | 
 **info** | **BuiltMap&lt;String, String&gt;** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -12,13 +12,8 @@ void main() {
       // TODO
     });
 
-    // double amount
-    test('to test the property `amount`', () async {
-      // TODO
-    });
-
-    // double tax
-    test('to test the property `tax`', () async {
+    // double price
+    test('to test the property `price`', () async {
       // TODO
     });
 

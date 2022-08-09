@@ -53,6 +53,7 @@ export 'package:forestvpn_api/src/model/create_token_login.dart';
 export 'package:forestvpn_api/src/model/currency.dart';
 export 'package:forestvpn_api/src/model/device.dart';
 export 'package:forestvpn_api/src/model/device_stats.dart';
+export 'package:forestvpn_api/src/model/device_type.dart';
 export 'package:forestvpn_api/src/model/environment.dart';
 export 'package:forestvpn_api/src/model/error.dart';
 export 'package:forestvpn_api/src/model/fcm_device.dart';

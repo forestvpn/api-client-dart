@@ -6,113 +6,10 @@ part of 'create_or_update_device_request_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnum_ios =
-    const CreateOrUpdateDeviceRequestInfoTypeEnum._('ios');
-const CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnum_ipados =
-    const CreateOrUpdateDeviceRequestInfoTypeEnum._('ipados');
-const CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnum_watchos =
-    const CreateOrUpdateDeviceRequestInfoTypeEnum._('watchos');
-const CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnum_macos =
-    const CreateOrUpdateDeviceRequestInfoTypeEnum._('macos');
-const CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnum_android =
-    const CreateOrUpdateDeviceRequestInfoTypeEnum._('android');
-const CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnum_wp =
-    const CreateOrUpdateDeviceRequestInfoTypeEnum._('wp');
-const CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnum_other =
-    const CreateOrUpdateDeviceRequestInfoTypeEnum._('other');
-
-CreateOrUpdateDeviceRequestInfoTypeEnum
-    _$createOrUpdateDeviceRequestInfoTypeEnumValueOf(String name) {
-  switch (name) {
-    case 'ios':
-      return _$createOrUpdateDeviceRequestInfoTypeEnum_ios;
-    case 'ipados':
-      return _$createOrUpdateDeviceRequestInfoTypeEnum_ipados;
-    case 'watchos':
-      return _$createOrUpdateDeviceRequestInfoTypeEnum_watchos;
-    case 'macos':
-      return _$createOrUpdateDeviceRequestInfoTypeEnum_macos;
-    case 'android':
-      return _$createOrUpdateDeviceRequestInfoTypeEnum_android;
-    case 'wp':
-      return _$createOrUpdateDeviceRequestInfoTypeEnum_wp;
-    case 'other':
-      return _$createOrUpdateDeviceRequestInfoTypeEnum_other;
-    default:
-      throw new ArgumentError(name);
-  }
-}
-
-final BuiltSet<CreateOrUpdateDeviceRequestInfoTypeEnum>
-    _$createOrUpdateDeviceRequestInfoTypeEnumValues =
-    new BuiltSet<CreateOrUpdateDeviceRequestInfoTypeEnum>(const <
-        CreateOrUpdateDeviceRequestInfoTypeEnum>[
-  _$createOrUpdateDeviceRequestInfoTypeEnum_ios,
-  _$createOrUpdateDeviceRequestInfoTypeEnum_ipados,
-  _$createOrUpdateDeviceRequestInfoTypeEnum_watchos,
-  _$createOrUpdateDeviceRequestInfoTypeEnum_macos,
-  _$createOrUpdateDeviceRequestInfoTypeEnum_android,
-  _$createOrUpdateDeviceRequestInfoTypeEnum_wp,
-  _$createOrUpdateDeviceRequestInfoTypeEnum_other,
-]);
-
-Serializer<CreateOrUpdateDeviceRequestInfoTypeEnum>
-    _$createOrUpdateDeviceRequestInfoTypeEnumSerializer =
-    new _$CreateOrUpdateDeviceRequestInfoTypeEnumSerializer();
-
-class _$CreateOrUpdateDeviceRequestInfoTypeEnumSerializer
-    implements PrimitiveSerializer<CreateOrUpdateDeviceRequestInfoTypeEnum> {
-  static const Map<String, Object> _toWire = const <String, Object>{
-    'ios': 'ios',
-    'ipados': 'ipados',
-    'watchos': 'watchos',
-    'macos': 'macos',
-    'android': 'android',
-    'wp': 'wp',
-    'other': 'other',
-  };
-  static const Map<Object, String> _fromWire = const <Object, String>{
-    'ios': 'ios',
-    'ipados': 'ipados',
-    'watchos': 'watchos',
-    'macos': 'macos',
-    'android': 'android',
-    'wp': 'wp',
-    'other': 'other',
-  };
-
-  @override
-  final Iterable<Type> types = const <Type>[
-    CreateOrUpdateDeviceRequestInfoTypeEnum
-  ];
-  @override
-  final String wireName = 'CreateOrUpdateDeviceRequestInfoTypeEnum';
-
-  @override
-  Object serialize(Serializers serializers,
-          CreateOrUpdateDeviceRequestInfoTypeEnum object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      _toWire[object.name] ?? object.name;
-
-  @override
-  CreateOrUpdateDeviceRequestInfoTypeEnum deserialize(
-          Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CreateOrUpdateDeviceRequestInfoTypeEnum.valueOf(
-          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
-}
-
 class _$CreateOrUpdateDeviceRequestInfo
     extends CreateOrUpdateDeviceRequestInfo {
   @override
-  final CreateOrUpdateDeviceRequestInfoTypeEnum type;
+  final DeviceType type;
   @override
   final BuiltMap<String, String> info;
 
@@ -165,10 +62,9 @@ class CreateOrUpdateDeviceRequestInfoBuilder
             CreateOrUpdateDeviceRequestInfoBuilder> {
   _$CreateOrUpdateDeviceRequestInfo? _$v;
 
-  CreateOrUpdateDeviceRequestInfoTypeEnum? _type;
-  CreateOrUpdateDeviceRequestInfoTypeEnum? get type => _$this._type;
-  set type(CreateOrUpdateDeviceRequestInfoTypeEnum? type) =>
-      _$this._type = type;
+  DeviceType? _type;
+  DeviceType? get type => _$this._type;
+  set type(DeviceType? type) => _$this._type = type;
 
   MapBuilder<String, String>? _info;
   MapBuilder<String, String> get info =>

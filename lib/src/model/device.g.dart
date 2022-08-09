@@ -29,6 +29,8 @@ class _$Device extends Device {
   final BuiltList<Server>? servers;
   @override
   final DateTime? lastActiveAt;
+  @override
+  final String? type;
 
   factory _$Device([void Function(DeviceBuilder)? updates]) =>
       (new DeviceBuilder()..update(updates))._build();
@@ -44,7 +46,8 @@ class _$Device extends Device {
       this.wireguard,
       this.location,
       this.servers,
-      this.lastActiveAt})
+      this.lastActiveAt,
+      this.type})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Device', 'id');
   }
@@ -70,7 +73,8 @@ class _$Device extends Device {
         wireguard == other.wireguard &&
         location == other.location &&
         servers == other.servers &&
-        lastActiveAt == other.lastActiveAt;
+        lastActiveAt == other.lastActiveAt &&
+        type == other.type;
   }
 
   @override
@@ -84,17 +88,19 @@ class _$Device extends Device {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, id.hashCode),
-                                            externalKey.hashCode),
-                                        name.hashCode),
-                                    ips.hashCode),
-                                dns.hashCode),
-                            torOver.hashCode),
-                        connectionMode.hashCode),
-                    wireguard.hashCode),
-                location.hashCode),
-            servers.hashCode),
-        lastActiveAt.hashCode));
+                                        $jc(
+                                            $jc($jc(0, id.hashCode),
+                                                externalKey.hashCode),
+                                            name.hashCode),
+                                        ips.hashCode),
+                                    dns.hashCode),
+                                torOver.hashCode),
+                            connectionMode.hashCode),
+                        wireguard.hashCode),
+                    location.hashCode),
+                servers.hashCode),
+            lastActiveAt.hashCode),
+        type.hashCode));
   }
 
   @override
@@ -110,7 +116,8 @@ class _$Device extends Device {
           ..add('wireguard', wireguard)
           ..add('location', location)
           ..add('servers', servers)
-          ..add('lastActiveAt', lastActiveAt))
+          ..add('lastActiveAt', lastActiveAt)
+          ..add('type', type))
         .toString();
   }
 }
@@ -167,6 +174,10 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
   set lastActiveAt(DateTime? lastActiveAt) =>
       _$this._lastActiveAt = lastActiveAt;
 
+  String? _type;
+  String? get type => _$this._type;
+  set type(String? type) => _$this._type = type;
+
   DeviceBuilder() {
     Device._defaults(this);
   }
@@ -185,6 +196,7 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
       _location = $v.location?.toBuilder();
       _servers = $v.servers?.toBuilder();
       _lastActiveAt = $v.lastActiveAt;
+      _type = $v.type;
       _$v = null;
     }
     return this;
@@ -219,7 +231,8 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
               wireguard: _wireguard?.build(),
               location: _location?.build(),
               servers: _servers?.build(),
-              lastActiveAt: lastActiveAt);
+              lastActiveAt: lastActiveAt,
+              type: type);
     } catch (_) {
       late String _$failedField;
       try {
