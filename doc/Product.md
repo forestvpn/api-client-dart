@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **description** | **String** |  | [optional] 
 **bundle** | [**Bundle**](Bundle.md) |  | [optional] 
-**price** | [**Price**](Price.md) |  | 
+**price** | [**Price**](Price.md) |  | [optional] 
 **recurring** | [**Recurring**](Recurring.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -37,6 +37,7 @@ doc/Currency.md
 doc/Device.md
 doc/DeviceApi.md
 doc/DeviceStats.md
+doc/DeviceType.md
 doc/Environment.md
 doc/Error.md
 doc/FCMDevice.md
@@ -128,6 +129,7 @@ lib/src/model/currency.dart
 lib/src/model/date.dart
 lib/src/model/device.dart
 lib/src/model/device_stats.dart
+lib/src/model/device_type.dart
 lib/src/model/environment.dart
 lib/src/model/error.dart
 lib/src/model/fcm_device.dart

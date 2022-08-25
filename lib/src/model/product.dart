@@ -33,7 +33,7 @@ abstract class Product implements Built<Product, ProductBuilder> {
     Bundle? get bundle;
 
     @BuiltValueField(wireName: r'price')
-    Price get price;
+    Price? get price;
 
     @BuiltValueField(wireName: r'recurring')
     Recurring? get recurring;
@@ -80,10 +80,12 @@ class _$ProductSerializer implements StructuredSerializer<Product> {
                 ..add(serializers.serialize(object.bundle,
                     specifiedType: const FullType(Bundle)));
         }
-        result
-            ..add(r'price')
-            ..add(serializers.serialize(object.price,
-                specifiedType: const FullType(Price)));
+        if (object.price != null) {
+            result
+                ..add(r'price')
+                ..add(serializers.serialize(object.price,
+                    specifiedType: const FullType(Price)));
+        }
         if (object.recurring != null) {
             result
                 ..add(r'recurring')

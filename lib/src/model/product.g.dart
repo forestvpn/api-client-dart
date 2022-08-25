@@ -16,7 +16,7 @@ class _$Product extends Product {
   @override
   final Bundle? bundle;
   @override
-  final Price price;
+  final Price? price;
   @override
   final Recurring? recurring;
 
@@ -28,12 +28,11 @@ class _$Product extends Product {
       required this.name,
       this.description,
       this.bundle,
-      required this.price,
+      this.price,
       this.recurring})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Product', 'id');
     BuiltValueNullFieldError.checkNotNull(name, r'Product', 'name');
-    BuiltValueNullFieldError.checkNotNull(price, r'Product', 'price');
   }
 
   @override
@@ -119,7 +118,7 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
       _name = $v.name;
       _description = $v.description;
       _bundle = $v.bundle?.toBuilder();
-      _price = $v.price.toBuilder();
+      _price = $v.price?.toBuilder();
       _recurring = $v.recurring?.toBuilder();
       _$v = null;
     }
@@ -150,7 +149,7 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
                   name, r'Product', 'name'),
               description: description,
               bundle: _bundle?.build(),
-              price: price.build(),
+              price: _price?.build(),
               recurring: _recurring?.build());
     } catch (_) {
       late String _$failedField;
@@ -158,7 +157,7 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
         _$failedField = 'bundle';
         _bundle?.build();
         _$failedField = 'price';
-        price.build();
+        _price?.build();
         _$failedField = 'recurring';
         _recurring?.build();
       } catch (e) {
