@@ -10,24 +10,25 @@ class _$PaymentMethod extends PaymentMethod {
   @override
   final String id;
   @override
-  final String slug;
+  final PaymentMethodType type;
   @override
-  final String name;
+  final PaymentMethodCard? card;
   @override
-  final String? description;
+  final DateTime createdAt;
 
   factory _$PaymentMethod([void Function(PaymentMethodBuilder)? updates]) =>
       (new PaymentMethodBuilder()..update(updates))._build();
 
   _$PaymentMethod._(
       {required this.id,
-      required this.slug,
-      required this.name,
-      this.description})
+      required this.type,
+      this.card,
+      required this.createdAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'PaymentMethod', 'id');
-    BuiltValueNullFieldError.checkNotNull(slug, r'PaymentMethod', 'slug');
-    BuiltValueNullFieldError.checkNotNull(name, r'PaymentMethod', 'name');
+    BuiltValueNullFieldError.checkNotNull(type, r'PaymentMethod', 'type');
+    BuiltValueNullFieldError.checkNotNull(
+        createdAt, r'PaymentMethod', 'createdAt');
   }
 
   @override
@@ -42,24 +43,24 @@ class _$PaymentMethod extends PaymentMethod {
     if (identical(other, this)) return true;
     return other is PaymentMethod &&
         id == other.id &&
-        slug == other.slug &&
-        name == other.name &&
-        description == other.description;
+        type == other.type &&
+        card == other.card &&
+        createdAt == other.createdAt;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc($jc(0, id.hashCode), slug.hashCode), name.hashCode),
-        description.hashCode));
+    return $jf($jc($jc($jc($jc(0, id.hashCode), type.hashCode), card.hashCode),
+        createdAt.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'PaymentMethod')
           ..add('id', id)
-          ..add('slug', slug)
-          ..add('name', name)
-          ..add('description', description))
+          ..add('type', type)
+          ..add('card', card)
+          ..add('createdAt', createdAt))
         .toString();
   }
 }
@@ -72,17 +73,18 @@ class PaymentMethodBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  String? _slug;
-  String? get slug => _$this._slug;
-  set slug(String? slug) => _$this._slug = slug;
+  PaymentMethodType? _type;
+  PaymentMethodType? get type => _$this._type;
+  set type(PaymentMethodType? type) => _$this._type = type;
 
-  String? _name;
-  String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  PaymentMethodCardBuilder? _card;
+  PaymentMethodCardBuilder get card =>
+      _$this._card ??= new PaymentMethodCardBuilder();
+  set card(PaymentMethodCardBuilder? card) => _$this._card = card;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(String? description) => _$this._description = description;
+  DateTime? _createdAt;
+  DateTime? get createdAt => _$this._createdAt;
+  set createdAt(DateTime? createdAt) => _$this._createdAt = createdAt;
 
   PaymentMethodBuilder() {
     PaymentMethod._defaults(this);
@@ -92,9 +94,9 @@ class PaymentMethodBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _slug = $v.slug;
-      _name = $v.name;
-      _description = $v.description;
+      _type = $v.type;
+      _card = $v.card?.toBuilder();
+      _createdAt = $v.createdAt;
       _$v = null;
     }
     return this;
@@ -115,15 +117,28 @@ class PaymentMethodBuilder
   PaymentMethod build() => _build();
 
   _$PaymentMethod _build() {
-    final _$result = _$v ??
-        new _$PaymentMethod._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'PaymentMethod', 'id'),
-            slug: BuiltValueNullFieldError.checkNotNull(
-                slug, r'PaymentMethod', 'slug'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'PaymentMethod', 'name'),
-            description: description);
+    _$PaymentMethod _$result;
+    try {
+      _$result = _$v ??
+          new _$PaymentMethod._(
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, r'PaymentMethod', 'id'),
+              type: BuiltValueNullFieldError.checkNotNull(
+                  type, r'PaymentMethod', 'type'),
+              card: _card?.build(),
+              createdAt: BuiltValueNullFieldError.checkNotNull(
+                  createdAt, r'PaymentMethod', 'createdAt'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'card';
+        _card?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'PaymentMethod', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

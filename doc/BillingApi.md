@@ -9,14 +9,62 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createPaymentMethodStripeSetupIntent**](BillingApi.md#createpaymentmethodstripesetupintent) | **POST** /billing/payment-methods/stripe/setup-intents/ | Create stripe&#39;s setup intent for add new payment method.
 [**getBillingBundle**](BillingApi.md#getbillingbundle) | **GET** /billing/bundles/{bundleID}/ | Bundle info
-[**getBillingPaymentMethod**](BillingApi.md#getbillingpaymentmethod) | **GET** /billing/payment-methods/{paymentMethodID}/ | Payment method info
+[**getBillingPaymentOption**](BillingApi.md#getbillingpaymentoption) | **GET** /billing/payment-options/{paymentOptionID}/ | Payment option info
 [**getBillingProduct**](BillingApi.md#getbillingproduct) | **GET** /billing/products/{productID}/ | Product info
+[**getPaymentMethod**](BillingApi.md#getpaymentmethod) | **GET** /billing/payment-methods/{paymentMethodID}/ | Payment method info
 [**listBillingBundles**](BillingApi.md#listbillingbundles) | **GET** /billing/bundles/ | Billing bundles list
 [**listBillingFeatures**](BillingApi.md#listbillingfeatures) | **GET** /billing/features/ | Billing feature list
-[**listBillingPaymentMethods**](BillingApi.md#listbillingpaymentmethods) | **GET** /billing/payment-methods/ | Billing payment methods list
+[**listBillingPaymentOptions**](BillingApi.md#listbillingpaymentoptions) | **GET** /billing/payment-options/ | Billing payment option list
 [**listBillingProducts**](BillingApi.md#listbillingproducts) | **GET** /billing/products/ | Billing products list
+[**listBillingSubscriptions**](BillingApi.md#listbillingsubscriptions) | **GET** /billing/subscriptions/ | Billing subscriptions list
+[**listPaymentMethods**](BillingApi.md#listpaymentmethods) | **GET** /billing/payment-methods/ | Payment method list
 
+
+# **createPaymentMethodStripeSetupIntent**
+> StripeSetupIntent createPaymentMethodStripeSetupIntent(createStripeSetupIntentRequest)
+
+Create stripe's setup intent for add new payment method.
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getBillingApi();
+final CreateStripeSetupIntentRequest createStripeSetupIntentRequest = ; // CreateStripeSetupIntentRequest | 
+
+try {
+    final response = api.createPaymentMethodStripeSetupIntent(createStripeSetupIntentRequest);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling BillingApi->createPaymentMethodStripeSetupIntent: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createStripeSetupIntentRequest** | [**CreateStripeSetupIntentRequest**](CreateStripeSetupIntentRequest.md)|  | [optional] 
+
+### Return type
+
+[**StripeSetupIntent**](StripeSetupIntent.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getBillingBundle**
 > Bundle getBillingBundle(bundleID)
@@ -62,10 +110,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getBillingPaymentMethod**
-> PaymentMethod getBillingPaymentMethod(paymentMethodID)
+# **getBillingPaymentOption**
+> PaymentOption getBillingPaymentOption(paymentOptionID)
 
-Payment method info
+Payment option info
 
 ### Example
 ```dart
@@ -75,13 +123,13 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getBillingApi();
-final String paymentMethodID = paymentMethodID_example; // String | 
+final String paymentOptionID = paymentOptionID_example; // String | 
 
 try {
-    final response = api.getBillingPaymentMethod(paymentMethodID);
+    final response = api.getBillingPaymentOption(paymentOptionID);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling BillingApi->getBillingPaymentMethod: $e\n');
+    print('Exception when calling BillingApi->getBillingPaymentOption: $e\n');
 }
 ```
 
@@ -89,11 +137,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **paymentMethodID** | **String**|  | 
+ **paymentOptionID** | **String**|  | 
 
 ### Return type
 
-[**PaymentMethod**](PaymentMethod.md)
+[**PaymentOption**](PaymentOption.md)
 
 ### Authorization
 
@@ -138,6 +186,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Product**](Product.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPaymentMethod**
+> PaymentMethod getPaymentMethod(paymentMethodID)
+
+Payment method info
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getBillingApi();
+final String paymentMethodID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+
+try {
+    final response = api.getPaymentMethod(paymentMethodID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling BillingApi->getPaymentMethod: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **paymentMethodID** | **String**|  | 
+
+### Return type
+
+[**PaymentMethod**](PaymentMethod.md)
 
 ### Authorization
 
@@ -234,10 +326,10 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **listBillingPaymentMethods**
-> BuiltList<PaymentMethod> listBillingPaymentMethods()
+# **listBillingPaymentOptions**
+> BuiltList<PaymentOption> listBillingPaymentOptions()
 
-Billing payment methods list
+Billing payment option list
 
 ### Example
 ```dart
@@ -249,10 +341,10 @@ import 'package:forestvpn_api/api.dart';
 final api = ForestvpnApi().getBillingApi();
 
 try {
-    final response = api.listBillingPaymentMethods();
+    final response = api.listBillingPaymentOptions();
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling BillingApi->listBillingPaymentMethods: $e\n');
+    print('Exception when calling BillingApi->listBillingPaymentOptions: $e\n');
 }
 ```
 
@@ -261,7 +353,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;PaymentMethod&gt;**](PaymentMethod.md)
+[**BuiltList&lt;PaymentOption&gt;**](PaymentOption.md)
 
 ### Authorization
 
@@ -302,6 +394,86 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**BuiltList&lt;Product&gt;**](Product.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listBillingSubscriptions**
+> BuiltList<Subscription> listBillingSubscriptions()
+
+Billing subscriptions list
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getBillingApi();
+
+try {
+    final response = api.listBillingSubscriptions();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling BillingApi->listBillingSubscriptions: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BuiltList&lt;Subscription&gt;**](Subscription.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listPaymentMethods**
+> BuiltList<PaymentMethod> listPaymentMethods()
+
+Payment method list
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getBillingApi();
+
+try {
+    final response = api.listPaymentMethods();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling BillingApi->listPaymentMethods: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BuiltList&lt;PaymentMethod&gt;**](PaymentMethod.md)
 
 ### Authorization
 

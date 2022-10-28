@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+// ignore_for_file: unused_element
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,59 +12,95 @@ part 'notification_unread_count.g.dart';
 ///
 /// Properties:
 /// * [count] 
+@BuiltValue()
 abstract class NotificationUnreadCount implements Built<NotificationUnreadCount, NotificationUnreadCountBuilder> {
-    @BuiltValueField(wireName: r'count')
-    int get count;
+  @BuiltValueField(wireName: r'count')
+  int get count;
 
-    NotificationUnreadCount._();
+  NotificationUnreadCount._();
 
-    @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(NotificationUnreadCountBuilder b) => b;
+  factory NotificationUnreadCount([void updates(NotificationUnreadCountBuilder b)]) = _$NotificationUnreadCount;
 
-    factory NotificationUnreadCount([void updates(NotificationUnreadCountBuilder b)]) = _$NotificationUnreadCount;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NotificationUnreadCountBuilder b) => b;
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<NotificationUnreadCount> get serializer => _$NotificationUnreadCountSerializer();
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NotificationUnreadCount> get serializer => _$NotificationUnreadCountSerializer();
 }
 
-class _$NotificationUnreadCountSerializer implements StructuredSerializer<NotificationUnreadCount> {
-    @override
-    final Iterable<Type> types = const [NotificationUnreadCount, _$NotificationUnreadCount];
+class _$NotificationUnreadCountSerializer implements PrimitiveSerializer<NotificationUnreadCount> {
+  @override
+  final Iterable<Type> types = const [NotificationUnreadCount, _$NotificationUnreadCount];
 
-    @override
-    final String wireName = r'NotificationUnreadCount';
+  @override
+  final String wireName = r'NotificationUnreadCount';
 
-    @override
-    Iterable<Object?> serialize(Serializers serializers, NotificationUnreadCount object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
-        result
-            ..add(r'count')
-            ..add(serializers.serialize(object.count,
-                specifiedType: const FullType(int)));
-        return result;
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    NotificationUnreadCount object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'count';
+    yield serializers.serialize(
+      object.count,
+      specifiedType: const FullType(int),
+    );
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NotificationUnreadCount object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required NotificationUnreadCountBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'count':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.count = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
     }
+  }
 
-    @override
-    NotificationUnreadCount deserialize(Serializers serializers, Iterable<Object?> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = NotificationUnreadCountBuilder();
-
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final Object? value = iterator.current;
-            
-            switch (key) {
-                case r'count':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
-                    result.count = valueDes;
-                    break;
-            }
-        }
-        return result.build();
-    }
+  @override
+  NotificationUnreadCount deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NotificationUnreadCountBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

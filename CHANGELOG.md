@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.3.0 - 2022-08-09
+
+Breaking changes:
+ - billing payment-methods moved to payment-options
+  
+Added:
+ - payment-methods api
+ - attach new payment method through stripe setup intent
+
 ## 3.2.0 - 2022-08-09
 
 - NewsApi

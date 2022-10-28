@@ -4,6 +4,8 @@
 
 // ignore_for_file: unused_import
 
+import 'package:one_of_serializer/any_of_serializer.dart';
+import 'package:one_of_serializer/one_of_serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
@@ -16,6 +18,7 @@ import 'package:forestvpn_api/src/model/ad_placement.dart';
 import 'package:forestvpn_api/src/model/ad_provider.dart';
 import 'package:forestvpn_api/src/model/ad_reward.dart';
 import 'package:forestvpn_api/src/model/ad_unit.dart';
+import 'package:forestvpn_api/src/model/aggregated_data_usage_stats.dart';
 import 'package:forestvpn_api/src/model/app_store_receipt_verification_request.dart';
 import 'package:forestvpn_api/src/model/billing_feature.dart';
 import 'package:forestvpn_api/src/model/bundle.dart';
@@ -38,9 +41,11 @@ import 'package:forestvpn_api/src/model/create_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request_info.dart';
 import 'package:forestvpn_api/src/model/create_or_update_port_forwarding_request.dart';
+import 'package:forestvpn_api/src/model/create_stripe_setup_intent_request.dart';
 import 'package:forestvpn_api/src/model/create_token_login.dart';
 import 'package:forestvpn_api/src/model/currency.dart';
 import 'package:forestvpn_api/src/model/device.dart';
+import 'package:forestvpn_api/src/model/device_record.dart';
 import 'package:forestvpn_api/src/model/device_stats.dart';
 import 'package:forestvpn_api/src/model/device_type.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
@@ -56,6 +61,9 @@ import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_detail.dart';
 import 'package:forestvpn_api/src/model/notification_unread_count.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
+import 'package:forestvpn_api/src/model/payment_method_card.dart';
+import 'package:forestvpn_api/src/model/payment_method_type.dart';
+import 'package:forestvpn_api/src/model/payment_option.dart';
 import 'package:forestvpn_api/src/model/play_store_purchase_verification_request.dart';
 import 'package:forestvpn_api/src/model/port_forwarding.dart';
 import 'package:forestvpn_api/src/model/price.dart';
@@ -64,6 +72,8 @@ import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
 import 'package:forestvpn_api/src/model/stripe_payment_intent.dart';
+import 'package:forestvpn_api/src/model/stripe_setup_intent.dart';
+import 'package:forestvpn_api/src/model/subscription.dart';
 import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
@@ -83,6 +93,7 @@ part 'serializers.g.dart';
   AdProvider,
   AdReward,
   AdUnit,
+  AggregatedDataUsageStats,
   AppStoreReceiptVerificationRequest,
   BillingFeature,
   Bundle,
@@ -105,9 +116,11 @@ part 'serializers.g.dart';
   CreateOrUpdateDeviceRequest,
   CreateOrUpdateDeviceRequestInfo,
   CreateOrUpdatePortForwardingRequest,
+  CreateStripeSetupIntentRequest,
   CreateTokenLogin,
   Currency,
   Device,
+  DeviceRecord,
   DeviceStats,
   DeviceType,
   Environment,
@@ -123,6 +136,9 @@ part 'serializers.g.dart';
   NotificationDetail,
   NotificationUnreadCount,
   PaymentMethod,
+  PaymentMethodCard,
+  PaymentMethodType,
+  PaymentOption,
   PlayStorePurchaseVerificationRequest,
   PortForwarding,
   Price,
@@ -131,6 +147,8 @@ part 'serializers.g.dart';
   Server,
   StripeCheckoutSession,
   StripePaymentIntent,
+  StripeSetupIntent,
+  Subscription,
   TokenLogin,
   TokenObtain,
   UpdateFCMDeviceRequest,
@@ -169,6 +187,10 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Notification>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Subscription)]),
+        () => ListBuilder<Subscription>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Location)]),
         () => ListBuilder<Location>(),
       )
@@ -177,12 +199,20 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Currency>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PaymentOption)]),
+        () => ListBuilder<PaymentOption>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Product)]),
         () => ListBuilder<Product>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ConnectionMode)]),
         () => ListBuilder<ConnectionMode>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(AggregatedDataUsageStats)]),
+        () => ListBuilder<AggregatedDataUsageStats>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AdPlacement)]),
@@ -216,6 +246,8 @@ Serializers serializers = (_$serializers.toBuilder()
         const FullType(BuiltList, [FullType(WireGuardPeerInfo)]),
         () => ListBuilder<WireGuardPeerInfo>(),
       )
+      ..add(const OneOfSerializer())
+      ..add(const AnyOfSerializer())
       ..add(const DateSerializer())
       ..add(Iso8601DateTimeSerializer()))
     .build();

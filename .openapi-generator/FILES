@@ -5,6 +5,8 @@ doc/AdProvider.md
 doc/AdReward.md
 doc/AdUnit.md
 doc/AdsApi.md
+doc/AggregatedDataUsageStats.md
+doc/AnalyticsApi.md
 doc/AppApi.md
 doc/AppStoreReceiptVerificationRequest.md
 doc/AppleApi.md
@@ -32,10 +34,12 @@ doc/CreateFCMDeviceRequest.md
 doc/CreateOrUpdateDeviceRequest.md
 doc/CreateOrUpdateDeviceRequestInfo.md
 doc/CreateOrUpdatePortForwardingRequest.md
+doc/CreateStripeSetupIntentRequest.md
 doc/CreateTokenLogin.md
 doc/Currency.md
 doc/Device.md
 doc/DeviceApi.md
+doc/DeviceRecord.md
 doc/DeviceStats.md
 doc/DeviceType.md
 doc/Environment.md
@@ -56,6 +60,9 @@ doc/Notification.md
 doc/NotificationDetail.md
 doc/NotificationUnreadCount.md
 doc/PaymentMethod.md
+doc/PaymentMethodCard.md
+doc/PaymentMethodType.md
+doc/PaymentOption.md
 doc/PlayStorePurchaseVerificationRequest.md
 doc/PortForwarding.md
 doc/Price.md
@@ -64,6 +71,8 @@ doc/Recurring.md
 doc/Server.md
 doc/StripeCheckoutSession.md
 doc/StripePaymentIntent.md
+doc/StripeSetupIntent.md
+doc/Subscription.md
 doc/TokenLogin.md
 doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
@@ -79,6 +88,7 @@ doc/WireguardApi.md
 lib/forestvpn_api.dart
 lib/src/api.dart
 lib/src/api/ads_api.dart
+lib/src/api/analytics_api.dart
 lib/src/api/app_api.dart
 lib/src/api/apple_api.dart
 lib/src/api/auth_api.dart
@@ -102,6 +112,7 @@ lib/src/model/ad_placement.dart
 lib/src/model/ad_provider.dart
 lib/src/model/ad_reward.dart
 lib/src/model/ad_unit.dart
+lib/src/model/aggregated_data_usage_stats.dart
 lib/src/model/app_store_receipt_verification_request.dart
 lib/src/model/billing_feature.dart
 lib/src/model/bundle.dart
@@ -124,10 +135,12 @@ lib/src/model/create_fcm_device_request.dart
 lib/src/model/create_or_update_device_request.dart
 lib/src/model/create_or_update_device_request_info.dart
 lib/src/model/create_or_update_port_forwarding_request.dart
+lib/src/model/create_stripe_setup_intent_request.dart
 lib/src/model/create_token_login.dart
 lib/src/model/currency.dart
 lib/src/model/date.dart
 lib/src/model/device.dart
+lib/src/model/device_record.dart
 lib/src/model/device_stats.dart
 lib/src/model/device_type.dart
 lib/src/model/environment.dart
@@ -143,6 +156,9 @@ lib/src/model/notification.dart
 lib/src/model/notification_detail.dart
 lib/src/model/notification_unread_count.dart
 lib/src/model/payment_method.dart
+lib/src/model/payment_method_card.dart
+lib/src/model/payment_method_type.dart
+lib/src/model/payment_option.dart
 lib/src/model/play_store_purchase_verification_request.dart
 lib/src/model/port_forwarding.dart
 lib/src/model/price.dart
@@ -151,6 +167,8 @@ lib/src/model/recurring.dart
 lib/src/model/server.dart
 lib/src/model/stripe_checkout_session.dart
 lib/src/model/stripe_payment_intent.dart
+lib/src/model/stripe_setup_intent.dart
+lib/src/model/subscription.dart
 lib/src/model/token_login.dart
 lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
@@ -164,3 +182,12 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/aggregated_data_usage_stats_test.dart
+test/analytics_api_test.dart
+test/create_stripe_setup_intent_request_test.dart
+test/device_record_test.dart
+test/payment_method_card_test.dart
+test/payment_method_type_test.dart
+test/payment_option_test.dart
+test/stripe_setup_intent_test.dart
+test/subscription_test.dart
