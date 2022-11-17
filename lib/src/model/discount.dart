@@ -3,68 +3,70 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'error.g.dart';
+part 'discount.g.dart';
 
-/// Error
+/// Discount
 ///
 /// Properties:
-/// * [code] 
-/// * [message] 
-/// * [detail] 
+/// * [price] 
+/// * [recurring] 
+/// * [discount] 
 @BuiltValue()
-abstract class Error implements Built<Error, ErrorBuilder> {
-  @BuiltValueField(wireName: r'code')
-  String get code;
+abstract class Discount implements Built<Discount, DiscountBuilder> {
+  @BuiltValueField(wireName: r'price')
+  double? get price;
 
-  @BuiltValueField(wireName: r'message')
-  String get message;
+  @BuiltValueField(wireName: r'recurring')
+  String? get recurring;
 
-  @BuiltValueField(wireName: r'detail')
-  BuiltMap<String, JsonObject?>? get detail;
+  @BuiltValueField(wireName: r'discount')
+  double? get discount;
 
-  Error._();
+  Discount._();
 
-  factory Error([void updates(ErrorBuilder b)]) = _$Error;
+  factory Discount([void updates(DiscountBuilder b)]) = _$Discount;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ErrorBuilder b) => b;
+  static void _defaults(DiscountBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Error> get serializer => _$ErrorSerializer();
+  static Serializer<Discount> get serializer => _$DiscountSerializer();
 }
 
-class _$ErrorSerializer implements PrimitiveSerializer<Error> {
+class _$DiscountSerializer implements PrimitiveSerializer<Discount> {
   @override
-  final Iterable<Type> types = const [Error, _$Error];
+  final Iterable<Type> types = const [Discount, _$Discount];
 
   @override
-  final String wireName = r'Error';
+  final String wireName = r'Discount';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Error object, {
+    Discount object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'code';
-    yield serializers.serialize(
-      object.code,
-      specifiedType: const FullType(String),
-    );
-    yield r'message';
-    yield serializers.serialize(
-      object.message,
-      specifiedType: const FullType(String),
-    );
-    if (object.detail != null) {
-      yield r'detail';
+    if (object.price != null) {
+      yield r'price';
       yield serializers.serialize(
-        object.detail,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+        object.price,
+        specifiedType: const FullType(double),
+      );
+    }
+    if (object.recurring != null) {
+      yield r'recurring';
+      yield serializers.serialize(
+        object.recurring,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.discount != null) {
+      yield r'discount';
+      yield serializers.serialize(
+        object.discount,
+        specifiedType: const FullType(double),
       );
     }
   }
@@ -72,7 +74,7 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
   @override
   Object serialize(
     Serializers serializers,
-    Error object, {
+    Discount object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -83,33 +85,33 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ErrorBuilder result,
+    required DiscountBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'code':
+        case r'price':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(double),
+          ) as double;
+          result.price = valueDes;
+          break;
+        case r'recurring':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.code = valueDes;
+          result.recurring = valueDes;
           break;
-        case r'message':
+        case r'discount':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.message = valueDes;
-          break;
-        case r'detail':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-          ) as BuiltMap<String, JsonObject?>;
-          result.detail.replace(valueDes);
+            specifiedType: const FullType(double),
+          ) as double;
+          result.discount = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -120,12 +122,12 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
   }
 
   @override
-  Error deserialize(
+  Discount deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ErrorBuilder();
+    final result = DiscountBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product.dart';
+part of 'product_without_price.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$Product extends Product {
+class _$ProductWithoutPrice extends ProductWithoutPrice {
   @override
   final String id;
   @override
@@ -16,47 +16,46 @@ class _$Product extends Product {
   @override
   final Bundle? bundle;
   @override
-  final Price? price;
-  @override
   final Recurring? recurring;
   @override
   final Discount? discount;
   @override
   final bool? isMostPopular;
 
-  factory _$Product([void Function(ProductBuilder)? updates]) =>
-      (new ProductBuilder()..update(updates))._build();
+  factory _$ProductWithoutPrice(
+          [void Function(ProductWithoutPriceBuilder)? updates]) =>
+      (new ProductWithoutPriceBuilder()..update(updates))._build();
 
-  _$Product._(
+  _$ProductWithoutPrice._(
       {required this.id,
       required this.name,
       this.description,
       this.bundle,
-      this.price,
       this.recurring,
       this.discount,
       this.isMostPopular})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'Product', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'Product', 'name');
+    BuiltValueNullFieldError.checkNotNull(id, r'ProductWithoutPrice', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'ProductWithoutPrice', 'name');
   }
 
   @override
-  Product rebuild(void Function(ProductBuilder) updates) =>
+  ProductWithoutPrice rebuild(
+          void Function(ProductWithoutPriceBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ProductBuilder toBuilder() => new ProductBuilder()..replace(this);
+  ProductWithoutPriceBuilder toBuilder() =>
+      new ProductWithoutPriceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Product &&
+    return other is ProductWithoutPrice &&
         id == other.id &&
         name == other.name &&
         description == other.description &&
         bundle == other.bundle &&
-        price == other.price &&
         recurring == other.recurring &&
         discount == other.discount &&
         isMostPopular == other.isMostPopular;
@@ -68,11 +67,9 @@ class _$Product extends Product {
         $jc(
             $jc(
                 $jc(
-                    $jc(
-                        $jc($jc($jc(0, id.hashCode), name.hashCode),
-                            description.hashCode),
-                        bundle.hashCode),
-                    price.hashCode),
+                    $jc($jc($jc(0, id.hashCode), name.hashCode),
+                        description.hashCode),
+                    bundle.hashCode),
                 recurring.hashCode),
             discount.hashCode),
         isMostPopular.hashCode));
@@ -80,12 +77,11 @@ class _$Product extends Product {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Product')
+    return (newBuiltValueToStringHelper(r'ProductWithoutPrice')
           ..add('id', id)
           ..add('name', name)
           ..add('description', description)
           ..add('bundle', bundle)
-          ..add('price', price)
           ..add('recurring', recurring)
           ..add('discount', discount)
           ..add('isMostPopular', isMostPopular))
@@ -93,8 +89,9 @@ class _$Product extends Product {
   }
 }
 
-class ProductBuilder implements Builder<Product, ProductBuilder> {
-  _$Product? _$v;
+class ProductWithoutPriceBuilder
+    implements Builder<ProductWithoutPrice, ProductWithoutPriceBuilder> {
+  _$ProductWithoutPrice? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -112,10 +109,6 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
   BundleBuilder get bundle => _$this._bundle ??= new BundleBuilder();
   set bundle(BundleBuilder? bundle) => _$this._bundle = bundle;
 
-  PriceBuilder? _price;
-  PriceBuilder get price => _$this._price ??= new PriceBuilder();
-  set price(PriceBuilder? price) => _$this._price = price;
-
   RecurringBuilder? _recurring;
   RecurringBuilder get recurring =>
       _$this._recurring ??= new RecurringBuilder();
@@ -130,18 +123,17 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
   set isMostPopular(bool? isMostPopular) =>
       _$this._isMostPopular = isMostPopular;
 
-  ProductBuilder() {
-    Product._defaults(this);
+  ProductWithoutPriceBuilder() {
+    ProductWithoutPrice._defaults(this);
   }
 
-  ProductBuilder get _$this {
+  ProductWithoutPriceBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
       _name = $v.name;
       _description = $v.description;
       _bundle = $v.bundle?.toBuilder();
-      _price = $v.price?.toBuilder();
       _recurring = $v.recurring?.toBuilder();
       _discount = $v.discount?.toBuilder();
       _isMostPopular = $v.isMostPopular;
@@ -151,30 +143,30 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
   }
 
   @override
-  void replace(Product other) {
+  void replace(ProductWithoutPrice other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Product;
+    _$v = other as _$ProductWithoutPrice;
   }
 
   @override
-  void update(void Function(ProductBuilder)? updates) {
+  void update(void Function(ProductWithoutPriceBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  Product build() => _build();
+  ProductWithoutPrice build() => _build();
 
-  _$Product _build() {
-    _$Product _$result;
+  _$ProductWithoutPrice _build() {
+    _$ProductWithoutPrice _$result;
     try {
       _$result = _$v ??
-          new _$Product._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Product', 'id'),
+          new _$ProductWithoutPrice._(
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, r'ProductWithoutPrice', 'id'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'Product', 'name'),
+                  name, r'ProductWithoutPrice', 'name'),
               description: description,
               bundle: _bundle?.build(),
-              price: _price?.build(),
               recurring: _recurring?.build(),
               discount: _discount?.build(),
               isMostPopular: isMostPopular);
@@ -183,15 +175,13 @@ class ProductBuilder implements Builder<Product, ProductBuilder> {
       try {
         _$failedField = 'bundle';
         _bundle?.build();
-        _$failedField = 'price';
-        _price?.build();
         _$failedField = 'recurring';
         _recurring?.build();
         _$failedField = 'discount';
         _discount?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'Product', _$failedField, e.toString());
+            r'ProductWithoutPrice', _$failedField, e.toString());
       }
       rethrow;
     }

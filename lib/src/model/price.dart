@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:forestvpn_api/src/model/product.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,6 +14,7 @@ part 'price.g.dart';
 /// Properties:
 /// * [currency] 
 /// * [price] 
+/// * [product] 
 @BuiltValue()
 abstract class Price implements Built<Price, PriceBuilder> {
   @BuiltValueField(wireName: r'currency')
@@ -20,6 +22,9 @@ abstract class Price implements Built<Price, PriceBuilder> {
 
   @BuiltValueField(wireName: r'price')
   double get price;
+
+  @BuiltValueField(wireName: r'product')
+  Product? get product;
 
   Price._();
 
@@ -54,6 +59,13 @@ class _$PriceSerializer implements PrimitiveSerializer<Price> {
       object.price,
       specifiedType: const FullType(double),
     );
+    if (object.product != null) {
+      yield r'product';
+      yield serializers.serialize(
+        object.product,
+        specifiedType: const FullType(Product),
+      );
+    }
   }
 
   @override
@@ -90,6 +102,13 @@ class _$PriceSerializer implements PrimitiveSerializer<Price> {
             specifiedType: const FullType(double),
           ) as double;
           result.price = valueDes;
+          break;
+        case r'product':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Product),
+          ) as Product;
+          result.product.replace(valueDes);
           break;
         default:
           unhandled.add(key);

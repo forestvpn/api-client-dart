@@ -3,76 +3,73 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
+import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'error.g.dart';
+part 'billing_account.g.dart';
 
-/// Error
+/// Represents billing account
 ///
 /// Properties:
-/// * [code] 
-/// * [message] 
-/// * [detail] 
+/// * [id] 
+/// * [defaultPaymentMethod] 
+/// * [defaultPaymentMethodId] 
 @BuiltValue()
-abstract class Error implements Built<Error, ErrorBuilder> {
-  @BuiltValueField(wireName: r'code')
-  String get code;
+abstract class BillingAccount implements Built<BillingAccount, BillingAccountBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-  @BuiltValueField(wireName: r'message')
-  String get message;
+  @BuiltValueField(wireName: r'default_payment_method')
+  PaymentMethod get defaultPaymentMethod;
 
-  @BuiltValueField(wireName: r'detail')
-  BuiltMap<String, JsonObject?>? get detail;
+  @BuiltValueField(wireName: r'default_payment_method_id')
+  String get defaultPaymentMethodId;
 
-  Error._();
+  BillingAccount._();
 
-  factory Error([void updates(ErrorBuilder b)]) = _$Error;
+  factory BillingAccount([void updates(BillingAccountBuilder b)]) = _$BillingAccount;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ErrorBuilder b) => b;
+  static void _defaults(BillingAccountBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Error> get serializer => _$ErrorSerializer();
+  static Serializer<BillingAccount> get serializer => _$BillingAccountSerializer();
 }
 
-class _$ErrorSerializer implements PrimitiveSerializer<Error> {
+class _$BillingAccountSerializer implements PrimitiveSerializer<BillingAccount> {
   @override
-  final Iterable<Type> types = const [Error, _$Error];
+  final Iterable<Type> types = const [BillingAccount, _$BillingAccount];
 
   @override
-  final String wireName = r'Error';
+  final String wireName = r'BillingAccount';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Error object, {
+    BillingAccount object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'code';
+    yield r'id';
     yield serializers.serialize(
-      object.code,
+      object.id,
       specifiedType: const FullType(String),
     );
-    yield r'message';
+    yield r'default_payment_method';
     yield serializers.serialize(
-      object.message,
+      object.defaultPaymentMethod,
+      specifiedType: const FullType(PaymentMethod),
+    );
+    yield r'default_payment_method_id';
+    yield serializers.serialize(
+      object.defaultPaymentMethodId,
       specifiedType: const FullType(String),
     );
-    if (object.detail != null) {
-      yield r'detail';
-      yield serializers.serialize(
-        object.detail,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-      );
-    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    Error object, {
+    BillingAccount object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -83,33 +80,33 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ErrorBuilder result,
+    required BillingAccountBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'code':
+        case r'id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.code = valueDes;
+          result.id = valueDes;
           break;
-        case r'message':
+        case r'default_payment_method':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PaymentMethod),
+          ) as PaymentMethod;
+          result.defaultPaymentMethod.replace(valueDes);
+          break;
+        case r'default_payment_method_id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.message = valueDes;
-          break;
-        case r'detail':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-          ) as BuiltMap<String, JsonObject?>;
-          result.detail.replace(valueDes);
+          result.defaultPaymentMethodId = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -120,12 +117,12 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
   }
 
   @override
-  Error deserialize(
+  BillingAccount deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ErrorBuilder();
+    final result = BillingAccountBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

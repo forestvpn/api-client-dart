@@ -1,4 +1,4 @@
-# forestvpn_api.model.Product
+# forestvpn_api.model.ProductWithoutPrice
 
 ## Load the model package
 ```dart
@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **description** | **String** |  | [optional] 
 **bundle** | [**Bundle**](Bundle.md) |  | [optional] 
-**price** | [**Price**](Price.md) |  | [optional] 
 **recurring** | [**Recurring**](Recurring.md) |  | [optional] 
 **discount** | [**Discount**](Discount.md) |  | [optional] 
 **isMostPopular** | **bool** |  | [optional] 

@@ -1,4 +1,4 @@
-# forestvpn_api.model.Product
+# forestvpn_api.model.BillingAccount
 
 ## Load the model package
 ```dart
@@ -9,13 +9,8 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**name** | **String** |  | 
-**description** | **String** |  | [optional] 
-**bundle** | [**Bundle**](Bundle.md) |  | [optional] 
-**price** | [**Price**](Price.md) |  | [optional] 
-**recurring** | [**Recurring**](Recurring.md) |  | [optional] 
-**discount** | [**Discount**](Discount.md) |  | [optional] 
-**isMostPopular** | **bool** |  | [optional] 
+**defaultPaymentMethod** | [**PaymentMethod**](PaymentMethod.md) |  | 
+**defaultPaymentMethodId** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

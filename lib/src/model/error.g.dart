@@ -8,14 +8,17 @@ part of 'error.dart';
 
 class _$Error extends Error {
   @override
-  final int code;
+  final String code;
   @override
   final String message;
+  @override
+  final BuiltMap<String, JsonObject?>? detail;
 
   factory _$Error([void Function(ErrorBuilder)? updates]) =>
       (new ErrorBuilder()..update(updates))._build();
 
-  _$Error._({required this.code, required this.message}) : super._() {
+  _$Error._({required this.code, required this.message, this.detail})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code');
     BuiltValueNullFieldError.checkNotNull(message, r'Error', 'message');
   }
@@ -30,19 +33,24 @@ class _$Error extends Error {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Error && code == other.code && message == other.message;
+    return other is Error &&
+        code == other.code &&
+        message == other.message &&
+        detail == other.detail;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, code.hashCode), message.hashCode));
+    return $jf(
+        $jc($jc($jc(0, code.hashCode), message.hashCode), detail.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Error')
           ..add('code', code)
-          ..add('message', message))
+          ..add('message', message)
+          ..add('detail', detail))
         .toString();
   }
 }
@@ -50,13 +58,19 @@ class _$Error extends Error {
 class ErrorBuilder implements Builder<Error, ErrorBuilder> {
   _$Error? _$v;
 
-  int? _code;
-  int? get code => _$this._code;
-  set code(int? code) => _$this._code = code;
+  String? _code;
+  String? get code => _$this._code;
+  set code(String? code) => _$this._code = code;
 
   String? _message;
   String? get message => _$this._message;
   set message(String? message) => _$this._message = message;
+
+  MapBuilder<String, JsonObject?>? _detail;
+  MapBuilder<String, JsonObject?> get detail =>
+      _$this._detail ??= new MapBuilder<String, JsonObject?>();
+  set detail(MapBuilder<String, JsonObject?>? detail) =>
+      _$this._detail = detail;
 
   ErrorBuilder() {
     Error._defaults(this);
@@ -67,6 +81,7 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder> {
     if ($v != null) {
       _code = $v.code;
       _message = $v.message;
+      _detail = $v.detail?.toBuilder();
       _$v = null;
     }
     return this;
@@ -87,11 +102,26 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder> {
   Error build() => _build();
 
   _$Error _build() {
-    final _$result = _$v ??
-        new _$Error._(
-            code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
-            message: BuiltValueNullFieldError.checkNotNull(
-                message, r'Error', 'message'));
+    _$Error _$result;
+    try {
+      _$result = _$v ??
+          new _$Error._(
+              code:
+                  BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
+              message: BuiltValueNullFieldError.checkNotNull(
+                  message, r'Error', 'message'),
+              detail: _detail?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'detail';
+        _detail?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'Error', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

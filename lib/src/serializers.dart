@@ -20,6 +20,7 @@ import 'package:forestvpn_api/src/model/ad_reward.dart';
 import 'package:forestvpn_api/src/model/ad_unit.dart';
 import 'package:forestvpn_api/src/model/aggregated_data_usage_stats.dart';
 import 'package:forestvpn_api/src/model/app_store_receipt_verification_request.dart';
+import 'package:forestvpn_api/src/model/billing_account.dart';
 import 'package:forestvpn_api/src/model/billing_feature.dart';
 import 'package:forestvpn_api/src/model/bundle.dart';
 import 'package:forestvpn_api/src/model/checkout_session.dart';
@@ -42,23 +43,24 @@ import 'package:forestvpn_api/src/model/create_or_update_device_request.dart';
 import 'package:forestvpn_api/src/model/create_or_update_device_request_info.dart';
 import 'package:forestvpn_api/src/model/create_or_update_port_forwarding_request.dart';
 import 'package:forestvpn_api/src/model/create_stripe_setup_intent_request.dart';
+import 'package:forestvpn_api/src/model/create_subscription_request.dart';
 import 'package:forestvpn_api/src/model/create_token_login.dart';
 import 'package:forestvpn_api/src/model/currency.dart';
 import 'package:forestvpn_api/src/model/device.dart';
 import 'package:forestvpn_api/src/model/device_record.dart';
 import 'package:forestvpn_api/src/model/device_stats.dart';
 import 'package:forestvpn_api/src/model/device_type.dart';
+import 'package:forestvpn_api/src/model/discount.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/fcm_device.dart';
-import 'package:forestvpn_api/src/model/featured_image.dart';
 import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
-import 'package:forestvpn_api/src/model/notification_detail.dart';
+import 'package:forestvpn_api/src/model/notification_all_list.dart';
 import 'package:forestvpn_api/src/model/notification_unread_count.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/payment_method_card.dart';
@@ -68,12 +70,16 @@ import 'package:forestvpn_api/src/model/play_store_purchase_verification_request
 import 'package:forestvpn_api/src/model/port_forwarding.dart';
 import 'package:forestvpn_api/src/model/price.dart';
 import 'package:forestvpn_api/src/model/product.dart';
+import 'package:forestvpn_api/src/model/product_without_price.dart';
 import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
 import 'package:forestvpn_api/src/model/stripe_payment_intent.dart';
 import 'package:forestvpn_api/src/model/stripe_setup_intent.dart';
 import 'package:forestvpn_api/src/model/subscription.dart';
+import 'package:forestvpn_api/src/model/subscription_item.dart';
+import 'package:forestvpn_api/src/model/subscription_source.dart';
+import 'package:forestvpn_api/src/model/subscription_status.dart';
 import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
@@ -95,6 +101,7 @@ part 'serializers.g.dart';
   AdUnit,
   AggregatedDataUsageStats,
   AppStoreReceiptVerificationRequest,
+  BillingAccount,
   BillingFeature,
   Bundle,
   CheckoutSession,
@@ -117,23 +124,24 @@ part 'serializers.g.dart';
   CreateOrUpdateDeviceRequestInfo,
   CreateOrUpdatePortForwardingRequest,
   CreateStripeSetupIntentRequest,
+  CreateSubscriptionRequest,
   CreateTokenLogin,
   Currency,
   Device,
   DeviceRecord,
   DeviceStats,
   DeviceType,
+  Discount,
   Environment,
   Error,
   FCMDevice,
-  FeaturedImage,
   Friendship,
   FriendshipInvitation,
   LegacyAuthMigrationToken,
   Location,
   NetworkService,
   Notification,
-  NotificationDetail,
+  NotificationAllList,
   NotificationUnreadCount,
   PaymentMethod,
   PaymentMethodCard,
@@ -143,12 +151,16 @@ part 'serializers.g.dart';
   PortForwarding,
   Price,
   Product,
+  ProductWithoutPrice,
   Recurring,
   Server,
   StripeCheckoutSession,
   StripePaymentIntent,
   StripeSetupIntent,
   Subscription,
+  SubscriptionItem,
+  SubscriptionSource,
+  SubscriptionStatus,
   TokenLogin,
   TokenObtain,
   UpdateFCMDeviceRequest,
@@ -183,10 +195,6 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<DeviceStats>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(Notification)]),
-        () => ListBuilder<Notification>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Subscription)]),
         () => ListBuilder<Subscription>(),
       )
@@ -219,6 +227,10 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<AdPlacement>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SubscriptionItem)]),
+        () => ListBuilder<SubscriptionItem>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PortForwarding)]),
         () => ListBuilder<PortForwarding>(),
       )
@@ -233,6 +245,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PaymentMethod)]),
         () => ListBuilder<PaymentMethod>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(NotificationAllList)]),
+        () => ListBuilder<NotificationAllList>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Friendship)]),

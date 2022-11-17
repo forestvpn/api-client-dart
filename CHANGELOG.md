@@ -1,6 +1,12 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## 3.3.5 - 2022-11-17
+
+Added:
+ - billing: subscriptions, account api
+ - notifications api
+ - discount info in product prices
 
 ## 3.3.0 - 2022-08-09
 

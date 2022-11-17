@@ -4,75 +4,66 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
+import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'error.g.dart';
+part 'notification_all_list.g.dart';
 
-/// Error
+/// NotificationAllList
 ///
 /// Properties:
-/// * [code] 
-/// * [message] 
-/// * [detail] 
+/// * [unreadCount] 
+/// * [allList] 
 @BuiltValue()
-abstract class Error implements Built<Error, ErrorBuilder> {
-  @BuiltValueField(wireName: r'code')
-  String get code;
+abstract class NotificationAllList implements Built<NotificationAllList, NotificationAllListBuilder> {
+  @BuiltValueField(wireName: r'unread_count')
+  int? get unreadCount;
 
-  @BuiltValueField(wireName: r'message')
-  String get message;
+  @BuiltValueField(wireName: r'all_list')
+  BuiltList<Notification> get allList;
 
-  @BuiltValueField(wireName: r'detail')
-  BuiltMap<String, JsonObject?>? get detail;
+  NotificationAllList._();
 
-  Error._();
-
-  factory Error([void updates(ErrorBuilder b)]) = _$Error;
+  factory NotificationAllList([void updates(NotificationAllListBuilder b)]) = _$NotificationAllList;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ErrorBuilder b) => b;
+  static void _defaults(NotificationAllListBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Error> get serializer => _$ErrorSerializer();
+  static Serializer<NotificationAllList> get serializer => _$NotificationAllListSerializer();
 }
 
-class _$ErrorSerializer implements PrimitiveSerializer<Error> {
+class _$NotificationAllListSerializer implements PrimitiveSerializer<NotificationAllList> {
   @override
-  final Iterable<Type> types = const [Error, _$Error];
+  final Iterable<Type> types = const [NotificationAllList, _$NotificationAllList];
 
   @override
-  final String wireName = r'Error';
+  final String wireName = r'NotificationAllList';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Error object, {
+    NotificationAllList object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'code';
-    yield serializers.serialize(
-      object.code,
-      specifiedType: const FullType(String),
-    );
-    yield r'message';
-    yield serializers.serialize(
-      object.message,
-      specifiedType: const FullType(String),
-    );
-    if (object.detail != null) {
-      yield r'detail';
+    if (object.unreadCount != null) {
+      yield r'unread_count';
       yield serializers.serialize(
-        object.detail,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+        object.unreadCount,
+        specifiedType: const FullType(int),
       );
     }
+    yield r'all_list';
+    yield serializers.serialize(
+      object.allList,
+      specifiedType: const FullType(BuiltList, [FullType(Notification)]),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    Error object, {
+    NotificationAllList object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -83,33 +74,26 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ErrorBuilder result,
+    required NotificationAllListBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'code':
+        case r'unread_count':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.code = valueDes;
+            specifiedType: const FullType(int),
+          ) as int;
+          result.unreadCount = valueDes;
           break;
-        case r'message':
+        case r'all_list':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.message = valueDes;
-          break;
-        case r'detail':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-          ) as BuiltMap<String, JsonObject?>;
-          result.detail.replace(valueDes);
+            specifiedType: const FullType(BuiltList, [FullType(Notification)]),
+          ) as BuiltList<Notification>;
+          result.allList.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -120,12 +104,12 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
   }
 
   @override
-  Error deserialize(
+  NotificationAllList deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ErrorBuilder();
+    final result = NotificationAllListBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

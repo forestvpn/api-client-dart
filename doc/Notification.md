@@ -9,12 +9,20 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**createdAt** | [**DateTime**](DateTime.md) |  | 
+**slug** | **int** |  | 
 **title** | **String** |  | 
-**summary** | **String** |  | 
-**featuredImage** | [**FeaturedImage**](FeaturedImage.md) |  | 
-**isUnread** | **bool** |  | 
-**isFeatured** | **bool** |  | 
+**description** | **String** |  | 
+**unread** | **bool** |  | 
+**type** | **String** |  | 
+**level** | **String** |  | [optional] 
+**recipient** | **String** |  | [optional] 
+**actorContentType** | **int** |  | [optional] 
+**actorObjectId** | **String** |  | [optional] 
+**verb** | **String** |  | [optional] 
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**public** | **bool** |  | [optional] 
+**deleted** | **bool** |  | [optional] 
+**data** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

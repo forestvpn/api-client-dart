@@ -3,76 +3,82 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
+import 'package:forestvpn_api/src/model/price.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'error.g.dart';
+part 'subscription_item.g.dart';
 
-/// Error
+/// SubscriptionItem
 ///
 /// Properties:
-/// * [code] 
-/// * [message] 
-/// * [detail] 
+/// * [id] 
+/// * [price] 
+/// * [priceId] 
+/// * [quantity] 
 @BuiltValue()
-abstract class Error implements Built<Error, ErrorBuilder> {
-  @BuiltValueField(wireName: r'code')
-  String get code;
+abstract class SubscriptionItem implements Built<SubscriptionItem, SubscriptionItemBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-  @BuiltValueField(wireName: r'message')
-  String get message;
+  @BuiltValueField(wireName: r'price')
+  Price get price;
 
-  @BuiltValueField(wireName: r'detail')
-  BuiltMap<String, JsonObject?>? get detail;
+  @BuiltValueField(wireName: r'price_id')
+  String get priceId;
 
-  Error._();
+  @BuiltValueField(wireName: r'quantity')
+  int get quantity;
 
-  factory Error([void updates(ErrorBuilder b)]) = _$Error;
+  SubscriptionItem._();
+
+  factory SubscriptionItem([void updates(SubscriptionItemBuilder b)]) = _$SubscriptionItem;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ErrorBuilder b) => b;
+  static void _defaults(SubscriptionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Error> get serializer => _$ErrorSerializer();
+  static Serializer<SubscriptionItem> get serializer => _$SubscriptionItemSerializer();
 }
 
-class _$ErrorSerializer implements PrimitiveSerializer<Error> {
+class _$SubscriptionItemSerializer implements PrimitiveSerializer<SubscriptionItem> {
   @override
-  final Iterable<Type> types = const [Error, _$Error];
+  final Iterable<Type> types = const [SubscriptionItem, _$SubscriptionItem];
 
   @override
-  final String wireName = r'Error';
+  final String wireName = r'SubscriptionItem';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Error object, {
+    SubscriptionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'code';
+    yield r'id';
     yield serializers.serialize(
-      object.code,
+      object.id,
       specifiedType: const FullType(String),
     );
-    yield r'message';
+    yield r'price';
     yield serializers.serialize(
-      object.message,
+      object.price,
+      specifiedType: const FullType(Price),
+    );
+    yield r'price_id';
+    yield serializers.serialize(
+      object.priceId,
       specifiedType: const FullType(String),
     );
-    if (object.detail != null) {
-      yield r'detail';
-      yield serializers.serialize(
-        object.detail,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-      );
-    }
+    yield r'quantity';
+    yield serializers.serialize(
+      object.quantity,
+      specifiedType: const FullType(int),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    Error object, {
+    SubscriptionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -83,33 +89,40 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ErrorBuilder result,
+    required SubscriptionItemBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'code':
+        case r'id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.code = valueDes;
+          result.id = valueDes;
           break;
-        case r'message':
+        case r'price':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Price),
+          ) as Price;
+          result.price.replace(valueDes);
+          break;
+        case r'price_id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.message = valueDes;
+          result.priceId = valueDes;
           break;
-        case r'detail':
+        case r'quantity':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-          ) as BuiltMap<String, JsonObject?>;
-          result.detail.replace(valueDes);
+            specifiedType: const FullType(int),
+          ) as int;
+          result.quantity = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -120,12 +133,12 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
   }
 
   @override
-  Error deserialize(
+  SubscriptionItem deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ErrorBuilder();
+    final result = SubscriptionItemBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

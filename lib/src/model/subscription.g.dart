@@ -6,112 +6,63 @@ part of 'subscription.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const SubscriptionSource_Enum _$subscriptionSourceEnum_default_ =
-    const SubscriptionSource_Enum._('default_');
-const SubscriptionSource_Enum _$subscriptionSourceEnum_stripe =
-    const SubscriptionSource_Enum._('stripe');
-const SubscriptionSource_Enum _$subscriptionSourceEnum_google =
-    const SubscriptionSource_Enum._('google');
-const SubscriptionSource_Enum _$subscriptionSourceEnum_apple =
-    const SubscriptionSource_Enum._('apple');
-const SubscriptionSource_Enum _$subscriptionSourceEnum_cloudPayments =
-    const SubscriptionSource_Enum._('cloudPayments');
-
-SubscriptionSource_Enum _$subscriptionSourceEnumValueOf(String name) {
-  switch (name) {
-    case 'default_':
-      return _$subscriptionSourceEnum_default_;
-    case 'stripe':
-      return _$subscriptionSourceEnum_stripe;
-    case 'google':
-      return _$subscriptionSourceEnum_google;
-    case 'apple':
-      return _$subscriptionSourceEnum_apple;
-    case 'cloudPayments':
-      return _$subscriptionSourceEnum_cloudPayments;
-    default:
-      throw new ArgumentError(name);
-  }
-}
-
-final BuiltSet<SubscriptionSource_Enum> _$subscriptionSourceEnumValues =
-    new BuiltSet<SubscriptionSource_Enum>(const <SubscriptionSource_Enum>[
-  _$subscriptionSourceEnum_default_,
-  _$subscriptionSourceEnum_stripe,
-  _$subscriptionSourceEnum_google,
-  _$subscriptionSourceEnum_apple,
-  _$subscriptionSourceEnum_cloudPayments,
-]);
-
-Serializer<SubscriptionSource_Enum> _$subscriptionSourceEnumSerializer =
-    new _$SubscriptionSource_EnumSerializer();
-
-class _$SubscriptionSource_EnumSerializer
-    implements PrimitiveSerializer<SubscriptionSource_Enum> {
-  static const Map<String, Object> _toWire = const <String, Object>{
-    'default_': 'default',
-    'stripe': 'stripe',
-    'google': 'google',
-    'apple': 'apple',
-    'cloudPayments': 'cloud_payments',
-  };
-  static const Map<Object, String> _fromWire = const <Object, String>{
-    'default': 'default_',
-    'stripe': 'stripe',
-    'google': 'google',
-    'apple': 'apple',
-    'cloud_payments': 'cloudPayments',
-  };
-
-  @override
-  final Iterable<Type> types = const <Type>[SubscriptionSource_Enum];
-  @override
-  final String wireName = 'SubscriptionSource_Enum';
-
-  @override
-  Object serialize(Serializers serializers, SubscriptionSource_Enum object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      _toWire[object.name] ?? object.name;
-
-  @override
-  SubscriptionSource_Enum deserialize(
-          Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SubscriptionSource_Enum.valueOf(
-          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
-}
-
 class _$Subscription extends Subscription {
   @override
   final String id;
   @override
-  final String productId;
+  final String? promotionalCode;
   @override
-  final SubscriptionSource_Enum? source_;
+  final SubscriptionSource? source_;
   @override
-  final DateTime? expiresDate;
+  final DateTime startDate;
   @override
-  final int? quantity;
+  final DateTime? endedAt;
   @override
-  final double? price;
+  final DateTime currentPeriodStart;
   @override
-  final String? currency;
+  final DateTime currentPeriodEnd;
+  @override
+  final DateTime? trialStart;
+  @override
+  final DateTime? trialEnd;
+  @override
+  final DateTime? cancelAt;
+  @override
+  final DateTime? canceledAt;
+  @override
+  final SubscriptionStatus status;
+  @override
+  final String? description;
+  @override
+  final BuiltList<SubscriptionItem>? items;
 
   factory _$Subscription([void Function(SubscriptionBuilder)? updates]) =>
       (new SubscriptionBuilder()..update(updates))._build();
 
   _$Subscription._(
       {required this.id,
-      required this.productId,
+      this.promotionalCode,
       this.source_,
-      this.expiresDate,
-      this.quantity,
-      this.price,
-      this.currency})
+      required this.startDate,
+      this.endedAt,
+      required this.currentPeriodStart,
+      required this.currentPeriodEnd,
+      this.trialStart,
+      this.trialEnd,
+      this.cancelAt,
+      this.canceledAt,
+      required this.status,
+      this.description,
+      this.items})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Subscription', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        productId, r'Subscription', 'productId');
+        startDate, r'Subscription', 'startDate');
+    BuiltValueNullFieldError.checkNotNull(
+        currentPeriodStart, r'Subscription', 'currentPeriodStart');
+    BuiltValueNullFieldError.checkNotNull(
+        currentPeriodEnd, r'Subscription', 'currentPeriodEnd');
+    BuiltValueNullFieldError.checkNotNull(status, r'Subscription', 'status');
   }
 
   @override
@@ -126,12 +77,19 @@ class _$Subscription extends Subscription {
     if (identical(other, this)) return true;
     return other is Subscription &&
         id == other.id &&
-        productId == other.productId &&
+        promotionalCode == other.promotionalCode &&
         source_ == other.source_ &&
-        expiresDate == other.expiresDate &&
-        quantity == other.quantity &&
-        price == other.price &&
-        currency == other.currency;
+        startDate == other.startDate &&
+        endedAt == other.endedAt &&
+        currentPeriodStart == other.currentPeriodStart &&
+        currentPeriodEnd == other.currentPeriodEnd &&
+        trialStart == other.trialStart &&
+        trialEnd == other.trialEnd &&
+        cancelAt == other.cancelAt &&
+        canceledAt == other.canceledAt &&
+        status == other.status &&
+        description == other.description &&
+        items == other.items;
   }
 
   @override
@@ -140,24 +98,49 @@ class _$Subscription extends Subscription {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, id.hashCode), productId.hashCode),
-                        source_.hashCode),
-                    expiresDate.hashCode),
-                quantity.hashCode),
-            price.hashCode),
-        currency.hashCode));
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(0, id.hashCode),
+                                                        promotionalCode
+                                                            .hashCode),
+                                                    source_.hashCode),
+                                                startDate.hashCode),
+                                            endedAt.hashCode),
+                                        currentPeriodStart.hashCode),
+                                    currentPeriodEnd.hashCode),
+                                trialStart.hashCode),
+                            trialEnd.hashCode),
+                        cancelAt.hashCode),
+                    canceledAt.hashCode),
+                status.hashCode),
+            description.hashCode),
+        items.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Subscription')
           ..add('id', id)
-          ..add('productId', productId)
+          ..add('promotionalCode', promotionalCode)
           ..add('source_', source_)
-          ..add('expiresDate', expiresDate)
-          ..add('quantity', quantity)
-          ..add('price', price)
-          ..add('currency', currency))
+          ..add('startDate', startDate)
+          ..add('endedAt', endedAt)
+          ..add('currentPeriodStart', currentPeriodStart)
+          ..add('currentPeriodEnd', currentPeriodEnd)
+          ..add('trialStart', trialStart)
+          ..add('trialEnd', trialEnd)
+          ..add('cancelAt', cancelAt)
+          ..add('canceledAt', canceledAt)
+          ..add('status', status)
+          ..add('description', description)
+          ..add('items', items))
         .toString();
   }
 }
@@ -170,29 +153,61 @@ class SubscriptionBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  String? _productId;
-  String? get productId => _$this._productId;
-  set productId(String? productId) => _$this._productId = productId;
+  String? _promotionalCode;
+  String? get promotionalCode => _$this._promotionalCode;
+  set promotionalCode(String? promotionalCode) =>
+      _$this._promotionalCode = promotionalCode;
 
-  SubscriptionSource_Enum? _source_;
-  SubscriptionSource_Enum? get source_ => _$this._source_;
-  set source_(SubscriptionSource_Enum? source_) => _$this._source_ = source_;
+  SubscriptionSource? _source_;
+  SubscriptionSource? get source_ => _$this._source_;
+  set source_(SubscriptionSource? source_) => _$this._source_ = source_;
 
-  DateTime? _expiresDate;
-  DateTime? get expiresDate => _$this._expiresDate;
-  set expiresDate(DateTime? expiresDate) => _$this._expiresDate = expiresDate;
+  DateTime? _startDate;
+  DateTime? get startDate => _$this._startDate;
+  set startDate(DateTime? startDate) => _$this._startDate = startDate;
 
-  int? _quantity;
-  int? get quantity => _$this._quantity;
-  set quantity(int? quantity) => _$this._quantity = quantity;
+  DateTime? _endedAt;
+  DateTime? get endedAt => _$this._endedAt;
+  set endedAt(DateTime? endedAt) => _$this._endedAt = endedAt;
 
-  double? _price;
-  double? get price => _$this._price;
-  set price(double? price) => _$this._price = price;
+  DateTime? _currentPeriodStart;
+  DateTime? get currentPeriodStart => _$this._currentPeriodStart;
+  set currentPeriodStart(DateTime? currentPeriodStart) =>
+      _$this._currentPeriodStart = currentPeriodStart;
 
-  String? _currency;
-  String? get currency => _$this._currency;
-  set currency(String? currency) => _$this._currency = currency;
+  DateTime? _currentPeriodEnd;
+  DateTime? get currentPeriodEnd => _$this._currentPeriodEnd;
+  set currentPeriodEnd(DateTime? currentPeriodEnd) =>
+      _$this._currentPeriodEnd = currentPeriodEnd;
+
+  DateTime? _trialStart;
+  DateTime? get trialStart => _$this._trialStart;
+  set trialStart(DateTime? trialStart) => _$this._trialStart = trialStart;
+
+  DateTime? _trialEnd;
+  DateTime? get trialEnd => _$this._trialEnd;
+  set trialEnd(DateTime? trialEnd) => _$this._trialEnd = trialEnd;
+
+  DateTime? _cancelAt;
+  DateTime? get cancelAt => _$this._cancelAt;
+  set cancelAt(DateTime? cancelAt) => _$this._cancelAt = cancelAt;
+
+  DateTime? _canceledAt;
+  DateTime? get canceledAt => _$this._canceledAt;
+  set canceledAt(DateTime? canceledAt) => _$this._canceledAt = canceledAt;
+
+  SubscriptionStatus? _status;
+  SubscriptionStatus? get status => _$this._status;
+  set status(SubscriptionStatus? status) => _$this._status = status;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
+  ListBuilder<SubscriptionItem>? _items;
+  ListBuilder<SubscriptionItem> get items =>
+      _$this._items ??= new ListBuilder<SubscriptionItem>();
+  set items(ListBuilder<SubscriptionItem>? items) => _$this._items = items;
 
   SubscriptionBuilder() {
     Subscription._defaults(this);
@@ -202,12 +217,19 @@ class SubscriptionBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _productId = $v.productId;
+      _promotionalCode = $v.promotionalCode;
       _source_ = $v.source_;
-      _expiresDate = $v.expiresDate;
-      _quantity = $v.quantity;
-      _price = $v.price;
-      _currency = $v.currency;
+      _startDate = $v.startDate;
+      _endedAt = $v.endedAt;
+      _currentPeriodStart = $v.currentPeriodStart;
+      _currentPeriodEnd = $v.currentPeriodEnd;
+      _trialStart = $v.trialStart;
+      _trialEnd = $v.trialEnd;
+      _cancelAt = $v.cancelAt;
+      _canceledAt = $v.canceledAt;
+      _status = $v.status;
+      _description = $v.description;
+      _items = $v.items?.toBuilder();
       _$v = null;
     }
     return this;
@@ -228,17 +250,40 @@ class SubscriptionBuilder
   Subscription build() => _build();
 
   _$Subscription _build() {
-    final _$result = _$v ??
-        new _$Subscription._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'Subscription', 'id'),
-            productId: BuiltValueNullFieldError.checkNotNull(
-                productId, r'Subscription', 'productId'),
-            source_: source_,
-            expiresDate: expiresDate,
-            quantity: quantity,
-            price: price,
-            currency: currency);
+    _$Subscription _$result;
+    try {
+      _$result = _$v ??
+          new _$Subscription._(
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, r'Subscription', 'id'),
+              promotionalCode: promotionalCode,
+              source_: source_,
+              startDate: BuiltValueNullFieldError.checkNotNull(
+                  startDate, r'Subscription', 'startDate'),
+              endedAt: endedAt,
+              currentPeriodStart: BuiltValueNullFieldError.checkNotNull(
+                  currentPeriodStart, r'Subscription', 'currentPeriodStart'),
+              currentPeriodEnd: BuiltValueNullFieldError.checkNotNull(
+                  currentPeriodEnd, r'Subscription', 'currentPeriodEnd'),
+              trialStart: trialStart,
+              trialEnd: trialEnd,
+              cancelAt: cancelAt,
+              canceledAt: canceledAt,
+              status: BuiltValueNullFieldError.checkNotNull(
+                  status, r'Subscription', 'status'),
+              description: description,
+              items: _items?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'items';
+        _items?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'Subscription', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

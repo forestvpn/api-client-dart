@@ -3,6 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
+import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,11 +13,15 @@ part 'notification_unread_count.g.dart';
 /// NotificationUnreadCount
 ///
 /// Properties:
-/// * [count] 
+/// * [unreadCount] 
+/// * [unreadList] 
 @BuiltValue()
 abstract class NotificationUnreadCount implements Built<NotificationUnreadCount, NotificationUnreadCountBuilder> {
-  @BuiltValueField(wireName: r'count')
-  int get count;
+  @BuiltValueField(wireName: r'unread_count')
+  int get unreadCount;
+
+  @BuiltValueField(wireName: r'unread_list')
+  BuiltList<Notification> get unreadList;
 
   NotificationUnreadCount._();
 
@@ -40,10 +46,15 @@ class _$NotificationUnreadCountSerializer implements PrimitiveSerializer<Notific
     NotificationUnreadCount object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'count';
+    yield r'unread_count';
     yield serializers.serialize(
-      object.count,
+      object.unreadCount,
       specifiedType: const FullType(int),
+    );
+    yield r'unread_list';
+    yield serializers.serialize(
+      object.unreadList,
+      specifiedType: const FullType(BuiltList, [FullType(Notification)]),
     );
   }
 
@@ -68,12 +79,19 @@ class _$NotificationUnreadCountSerializer implements PrimitiveSerializer<Notific
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'count':
+        case r'unread_count':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(int),
           ) as int;
-          result.count = valueDes;
+          result.unreadCount = valueDes;
+          break;
+        case r'unread_list':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(Notification)]),
+          ) as BuiltList<Notification>;
+          result.unreadList.replace(valueDes);
           break;
         default:
           unhandled.add(key);

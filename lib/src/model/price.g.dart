@@ -11,11 +11,14 @@ class _$Price extends Price {
   final String currency;
   @override
   final double price;
+  @override
+  final Product? product;
 
   factory _$Price([void Function(PriceBuilder)? updates]) =>
       (new PriceBuilder()..update(updates))._build();
 
-  _$Price._({required this.currency, required this.price}) : super._() {
+  _$Price._({required this.currency, required this.price, this.product})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(currency, r'Price', 'currency');
     BuiltValueNullFieldError.checkNotNull(price, r'Price', 'price');
   }
@@ -30,19 +33,24 @@ class _$Price extends Price {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Price && currency == other.currency && price == other.price;
+    return other is Price &&
+        currency == other.currency &&
+        price == other.price &&
+        product == other.product;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, currency.hashCode), price.hashCode));
+    return $jf(
+        $jc($jc($jc(0, currency.hashCode), price.hashCode), product.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Price')
           ..add('currency', currency)
-          ..add('price', price))
+          ..add('price', price)
+          ..add('product', product))
         .toString();
   }
 }
@@ -58,6 +66,10 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
   double? get price => _$this._price;
   set price(double? price) => _$this._price = price;
 
+  ProductBuilder? _product;
+  ProductBuilder get product => _$this._product ??= new ProductBuilder();
+  set product(ProductBuilder? product) => _$this._product = product;
+
   PriceBuilder() {
     Price._defaults(this);
   }
@@ -67,6 +79,7 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
     if ($v != null) {
       _currency = $v.currency;
       _price = $v.price;
+      _product = $v.product?.toBuilder();
       _$v = null;
     }
     return this;
@@ -87,12 +100,26 @@ class PriceBuilder implements Builder<Price, PriceBuilder> {
   Price build() => _build();
 
   _$Price _build() {
-    final _$result = _$v ??
-        new _$Price._(
-            currency: BuiltValueNullFieldError.checkNotNull(
-                currency, r'Price', 'currency'),
-            price: BuiltValueNullFieldError.checkNotNull(
-                price, r'Price', 'price'));
+    _$Price _$result;
+    try {
+      _$result = _$v ??
+          new _$Price._(
+              currency: BuiltValueNullFieldError.checkNotNull(
+                  currency, r'Price', 'currency'),
+              price: BuiltValueNullFieldError.checkNotNull(
+                  price, r'Price', 'price'),
+              product: _product?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'product';
+        _product?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'Price', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

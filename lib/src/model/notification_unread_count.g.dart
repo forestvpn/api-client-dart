@@ -8,15 +8,21 @@ part of 'notification_unread_count.dart';
 
 class _$NotificationUnreadCount extends NotificationUnreadCount {
   @override
-  final int count;
+  final int unreadCount;
+  @override
+  final BuiltList<Notification> unreadList;
 
   factory _$NotificationUnreadCount(
           [void Function(NotificationUnreadCountBuilder)? updates]) =>
       (new NotificationUnreadCountBuilder()..update(updates))._build();
 
-  _$NotificationUnreadCount._({required this.count}) : super._() {
+  _$NotificationUnreadCount._(
+      {required this.unreadCount, required this.unreadList})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        count, r'NotificationUnreadCount', 'count');
+        unreadCount, r'NotificationUnreadCount', 'unreadCount');
+    BuiltValueNullFieldError.checkNotNull(
+        unreadList, r'NotificationUnreadCount', 'unreadList');
   }
 
   @override
@@ -31,18 +37,21 @@ class _$NotificationUnreadCount extends NotificationUnreadCount {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NotificationUnreadCount && count == other.count;
+    return other is NotificationUnreadCount &&
+        unreadCount == other.unreadCount &&
+        unreadList == other.unreadList;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, count.hashCode));
+    return $jf($jc($jc(0, unreadCount.hashCode), unreadList.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'NotificationUnreadCount')
-          ..add('count', count))
+          ..add('unreadCount', unreadCount)
+          ..add('unreadList', unreadList))
         .toString();
   }
 }
@@ -52,9 +61,15 @@ class NotificationUnreadCountBuilder
         Builder<NotificationUnreadCount, NotificationUnreadCountBuilder> {
   _$NotificationUnreadCount? _$v;
 
-  int? _count;
-  int? get count => _$this._count;
-  set count(int? count) => _$this._count = count;
+  int? _unreadCount;
+  int? get unreadCount => _$this._unreadCount;
+  set unreadCount(int? unreadCount) => _$this._unreadCount = unreadCount;
+
+  ListBuilder<Notification>? _unreadList;
+  ListBuilder<Notification> get unreadList =>
+      _$this._unreadList ??= new ListBuilder<Notification>();
+  set unreadList(ListBuilder<Notification>? unreadList) =>
+      _$this._unreadList = unreadList;
 
   NotificationUnreadCountBuilder() {
     NotificationUnreadCount._defaults(this);
@@ -63,7 +78,8 @@ class NotificationUnreadCountBuilder
   NotificationUnreadCountBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
+      _unreadCount = $v.unreadCount;
+      _unreadList = $v.unreadList.toBuilder();
       _$v = null;
     }
     return this;
@@ -84,10 +100,24 @@ class NotificationUnreadCountBuilder
   NotificationUnreadCount build() => _build();
 
   _$NotificationUnreadCount _build() {
-    final _$result = _$v ??
-        new _$NotificationUnreadCount._(
-            count: BuiltValueNullFieldError.checkNotNull(
-                count, r'NotificationUnreadCount', 'count'));
+    _$NotificationUnreadCount _$result;
+    try {
+      _$result = _$v ??
+          new _$NotificationUnreadCount._(
+              unreadCount: BuiltValueNullFieldError.checkNotNull(
+                  unreadCount, r'NotificationUnreadCount', 'unreadCount'),
+              unreadList: unreadList.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'unreadList';
+        unreadList.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'NotificationUnreadCount', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

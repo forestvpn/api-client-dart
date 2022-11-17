@@ -14,6 +14,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AdUnitFormatEnum.serializer)
       ..add(AggregatedDataUsageStats.serializer)
       ..add(AppStoreReceiptVerificationRequest.serializer)
+      ..add(BillingAccount.serializer)
       ..add(BillingFeature.serializer)
       ..add(Bundle.serializer)
       ..add(CheckoutSession.serializer)
@@ -38,16 +39,17 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(CreateOrUpdateDeviceRequestInfo.serializer)
       ..add(CreateOrUpdatePortForwardingRequest.serializer)
       ..add(CreateStripeSetupIntentRequest.serializer)
+      ..add(CreateSubscriptionRequest.serializer)
       ..add(CreateTokenLogin.serializer)
       ..add(Currency.serializer)
       ..add(Device.serializer)
       ..add(DeviceRecord.serializer)
       ..add(DeviceStats.serializer)
       ..add(DeviceType.serializer)
+      ..add(Discount.serializer)
       ..add(Environment.serializer)
       ..add(Error.serializer)
       ..add(FCMDevice.serializer)
-      ..add(FeaturedImage.serializer)
       ..add(Friendship.serializer)
       ..add(FriendshipInvitation.serializer)
       ..add(LegacyAuthMigrationToken.serializer)
@@ -55,7 +57,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(NetworkService.serializer)
       ..add(NetworkServiceProtoEnum.serializer)
       ..add(Notification.serializer)
-      ..add(NotificationDetail.serializer)
+      ..add(NotificationAllList.serializer)
+      ..add(NotificationLevelEnum.serializer)
+      ..add(NotificationTypeEnum.serializer)
       ..add(NotificationUnreadCount.serializer)
       ..add(PaymentMethod.serializer)
       ..add(PaymentMethodCard.serializer)
@@ -65,13 +69,16 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(PortForwarding.serializer)
       ..add(Price.serializer)
       ..add(Product.serializer)
+      ..add(ProductWithoutPrice.serializer)
       ..add(Recurring.serializer)
       ..add(Server.serializer)
       ..add(StripeCheckoutSession.serializer)
       ..add(StripePaymentIntent.serializer)
       ..add(StripeSetupIntent.serializer)
       ..add(Subscription.serializer)
-      ..add(SubscriptionSource_Enum.serializer)
+      ..add(SubscriptionItem.serializer)
+      ..add(SubscriptionSource.serializer)
+      ..add(SubscriptionStatus.serializer)
       ..add(TokenLogin.serializer)
       ..add(TokenObtain.serializer)
       ..add(UpdateFCMDeviceRequest.serializer)
@@ -104,6 +111,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(NetworkService)]),
           () => new ListBuilder<NetworkService>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Notification)]),
+          () => new ListBuilder<Notification>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Notification)]),
+          () => new ListBuilder<Notification>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Product)]),
           () => new ListBuilder<Product>())
       ..addBuilderFactory(
@@ -128,12 +141,21 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(Server)]),
           () => new ListBuilder<Server>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(SubscriptionItem)]),
+          () => new ListBuilder<SubscriptionItem>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(WireGuardPeer)]),
           () => new ListBuilder<WireGuardPeer>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>()))
+          () => new MapBuilder<String, String>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>()))
     .build();
 
 // ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

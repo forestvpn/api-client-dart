@@ -3,28 +3,26 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:forestvpn_api/src/model/price.dart';
 import 'package:forestvpn_api/src/model/bundle.dart';
 import 'package:forestvpn_api/src/model/discount.dart';
 import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'product.g.dart';
+part 'product_without_price.g.dart';
 
-/// Product
+/// ProductWithoutPrice
 ///
 /// Properties:
 /// * [id] 
 /// * [name] 
 /// * [description] 
 /// * [bundle] 
-/// * [price] 
 /// * [recurring] 
 /// * [discount] 
 /// * [isMostPopular] 
 @BuiltValue()
-abstract class Product implements Built<Product, ProductBuilder> {
+abstract class ProductWithoutPrice implements Built<ProductWithoutPrice, ProductWithoutPriceBuilder> {
   @BuiltValueField(wireName: r'id')
   String get id;
 
@@ -37,9 +35,6 @@ abstract class Product implements Built<Product, ProductBuilder> {
   @BuiltValueField(wireName: r'bundle')
   Bundle? get bundle;
 
-  @BuiltValueField(wireName: r'price')
-  Price? get price;
-
   @BuiltValueField(wireName: r'recurring')
   Recurring? get recurring;
 
@@ -49,27 +44,27 @@ abstract class Product implements Built<Product, ProductBuilder> {
   @BuiltValueField(wireName: r'is_most_popular')
   bool? get isMostPopular;
 
-  Product._();
+  ProductWithoutPrice._();
 
-  factory Product([void updates(ProductBuilder b)]) = _$Product;
+  factory ProductWithoutPrice([void updates(ProductWithoutPriceBuilder b)]) = _$ProductWithoutPrice;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProductBuilder b) => b;
+  static void _defaults(ProductWithoutPriceBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Product> get serializer => _$ProductSerializer();
+  static Serializer<ProductWithoutPrice> get serializer => _$ProductWithoutPriceSerializer();
 }
 
-class _$ProductSerializer implements PrimitiveSerializer<Product> {
+class _$ProductWithoutPriceSerializer implements PrimitiveSerializer<ProductWithoutPrice> {
   @override
-  final Iterable<Type> types = const [Product, _$Product];
+  final Iterable<Type> types = const [ProductWithoutPrice, _$ProductWithoutPrice];
 
   @override
-  final String wireName = r'Product';
+  final String wireName = r'ProductWithoutPrice';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Product object, {
+    ProductWithoutPrice object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'id';
@@ -94,13 +89,6 @@ class _$ProductSerializer implements PrimitiveSerializer<Product> {
       yield serializers.serialize(
         object.bundle,
         specifiedType: const FullType(Bundle),
-      );
-    }
-    if (object.price != null) {
-      yield r'price';
-      yield serializers.serialize(
-        object.price,
-        specifiedType: const FullType(Price),
       );
     }
     if (object.recurring != null) {
@@ -129,7 +117,7 @@ class _$ProductSerializer implements PrimitiveSerializer<Product> {
   @override
   Object serialize(
     Serializers serializers,
-    Product object, {
+    ProductWithoutPrice object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -140,7 +128,7 @@ class _$ProductSerializer implements PrimitiveSerializer<Product> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ProductBuilder result,
+    required ProductWithoutPriceBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -175,13 +163,6 @@ class _$ProductSerializer implements PrimitiveSerializer<Product> {
           ) as Bundle;
           result.bundle.replace(valueDes);
           break;
-        case r'price':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(Price),
-          ) as Price;
-          result.price.replace(valueDes);
-          break;
         case r'recurring':
           final valueDes = serializers.deserialize(
             value,
@@ -212,12 +193,12 @@ class _$ProductSerializer implements PrimitiveSerializer<Product> {
   }
 
   @override
-  Product deserialize(
+  ProductWithoutPrice deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ProductBuilder();
+    final result = ProductWithoutPriceBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
