@@ -8,6 +8,7 @@ import 'package:forestvpn_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  | 
 **currency** | **String** |  | 
 **price** | **double** |  | 
 **product** | [**Product**](Product.md) |  | [optional] 

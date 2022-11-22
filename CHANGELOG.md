@@ -1,6 +1,13 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## [3.3.6] - 2022-11-17
+
+### Chnages
+
+- add "id" field to Price model
+
 ## 3.3.5 - 2022-11-17
 
 Added:

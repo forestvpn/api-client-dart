@@ -12,11 +12,15 @@ part 'price.g.dart';
 /// Price
 ///
 /// Properties:
+/// * [id] 
 /// * [currency] 
 /// * [price] 
 /// * [product] 
 @BuiltValue()
 abstract class Price implements Built<Price, PriceBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
+
   @BuiltValueField(wireName: r'currency')
   String get currency;
 
@@ -49,6 +53,11 @@ class _$PriceSerializer implements PrimitiveSerializer<Price> {
     Price object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
     yield r'currency';
     yield serializers.serialize(
       object.currency,
@@ -89,6 +98,13 @@ class _$PriceSerializer implements PrimitiveSerializer<Price> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
         case r'currency':
           final valueDes = serializers.deserialize(
             value,
