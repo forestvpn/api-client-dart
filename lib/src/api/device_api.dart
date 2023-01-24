@@ -1204,7 +1204,12 @@ class DeviceApi {
   /// Retrieve devices list 
   ///
   /// Parameters:
-  /// * [externalKey] 
+  /// * [q] - Filter by search query
+  /// * [externalKey] - Filter by external_key
+  /// * [recentlyActive] - Filter by recently active
+  /// * [lastActiveAtAfter] - Filter by last active at date-time after provided value
+  /// * [lastActiveAtBefore] - Filter by last active at date-time before provided value
+  /// * [sort] - Sort by provided field
   /// * [perPage] 
   /// * [page] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -1217,7 +1222,12 @@ class DeviceApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<Device>] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<Device>>> listDevices({ 
+    String? q,
     String? externalKey,
+    bool? recentlyActive,
+    DateTime? lastActiveAtAfter,
+    DateTime? lastActiveAtBefore,
+    String? sort,
     int? perPage,
     int? page,
     CancelToken? cancelToken,
@@ -1247,7 +1257,12 @@ class DeviceApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      if (q != null) r'q': encodeQueryParameter(_serializers, q, const FullType(String)),
       if (externalKey != null) r'external_key': encodeQueryParameter(_serializers, externalKey, const FullType(String)),
+      if (recentlyActive != null) r'recently_active': encodeQueryParameter(_serializers, recentlyActive, const FullType(bool)),
+      if (lastActiveAtAfter != null) r'last_active_at_after': encodeQueryParameter(_serializers, lastActiveAtAfter, const FullType(DateTime)),
+      if (lastActiveAtBefore != null) r'last_active_at_before': encodeQueryParameter(_serializers, lastActiveAtBefore, const FullType(DateTime)),
+      if (sort != null) r'sort': encodeQueryParameter(_serializers, sort, const FullType(String)),
       if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
       if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };

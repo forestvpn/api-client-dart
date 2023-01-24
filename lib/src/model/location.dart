@@ -18,6 +18,8 @@ part 'location.g.dart';
 /// * [latitude] 
 /// * [longitude] 
 /// * [country] 
+/// * [distance] - it's distance in kilometers between an user (longitude and latitude from request object) and a location object
+/// * [latencyRate] - it's a rate from 0 to 1 which shows a connection quality. where 1 is good and 0 is bad
 /// * [alternativeNames] 
 @BuiltValue()
 abstract class Location implements Built<Location, LocationBuilder> {
@@ -35,6 +37,14 @@ abstract class Location implements Built<Location, LocationBuilder> {
 
   @BuiltValueField(wireName: r'country')
   Country get country;
+
+  /// it's distance in kilometers between an user (longitude and latitude from request object) and a location object
+  @BuiltValueField(wireName: r'distance')
+  double? get distance;
+
+  /// it's a rate from 0 to 1 which shows a connection quality. where 1 is good and 0 is bad
+  @BuiltValueField(wireName: r'latency_rate')
+  double? get latencyRate;
 
   @BuiltValueField(wireName: r'alternative_names')
   BuiltList<String>? get alternativeNames;
@@ -87,6 +97,20 @@ class _$LocationSerializer implements PrimitiveSerializer<Location> {
       object.country,
       specifiedType: const FullType(Country),
     );
+    if (object.distance != null) {
+      yield r'distance';
+      yield serializers.serialize(
+        object.distance,
+        specifiedType: const FullType(double),
+      );
+    }
+    if (object.latencyRate != null) {
+      yield r'latency_rate';
+      yield serializers.serialize(
+        object.latencyRate,
+        specifiedType: const FullType(double),
+      );
+    }
     if (object.alternativeNames != null) {
       yield r'alternative_names';
       yield serializers.serialize(
@@ -151,6 +175,20 @@ class _$LocationSerializer implements PrimitiveSerializer<Location> {
             specifiedType: const FullType(Country),
           ) as Country;
           result.country.replace(valueDes);
+          break;
+        case r'distance':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(double),
+          ) as double;
+          result.distance = valueDes;
+          break;
+        case r'latency_rate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(double),
+          ) as double;
+          result.latencyRate = valueDes;
           break;
         case r'alternative_names':
           final valueDes = serializers.deserialize(

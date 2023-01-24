@@ -181,6 +181,7 @@ class GeoApi {
   /// 
   ///
   /// Parameters:
+  /// * [xDeviceCoordinates] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -191,6 +192,7 @@ class GeoApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<Location>] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<Location>>> listLocations({ 
+    String? xDeviceCoordinates,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -202,6 +204,7 @@ class GeoApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        if (xDeviceCoordinates != null) r'X-Device-Coordinates': xDeviceCoordinates,
         ...?headers,
       },
       extra: <String, dynamic>{

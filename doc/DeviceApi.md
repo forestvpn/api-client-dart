@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listDevices**
-> BuiltList<Device> listDevices(externalKey, perPage, page)
+> BuiltList<Device> listDevices(q, externalKey, recentlyActive, lastActiveAtAfter, lastActiveAtBefore, sort, perPage, page)
 
 Device List
 
@@ -711,12 +711,17 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getDeviceApi();
-final String externalKey = externalKey_example; // String | 
+final String q = q_example; // String | Filter by search query
+final String externalKey = externalKey_example; // String | Filter by external_key
+final bool recentlyActive = true; // bool | Filter by recently active
+final DateTime lastActiveAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | Filter by last active at date-time after provided value
+final DateTime lastActiveAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | Filter by last active at date-time before provided value
+final String sort = sort_example; // String | Sort by provided field
 final int perPage = 56; // int | 
 final int page = 56; // int | 
 
 try {
-    final response = api.listDevices(externalKey, perPage, page);
+    final response = api.listDevices(q, externalKey, recentlyActive, lastActiveAtAfter, lastActiveAtBefore, sort, perPage, page);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling DeviceApi->listDevices: $e\n');
@@ -727,7 +732,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **externalKey** | **String**|  | [optional] 
+ **q** | **String**| Filter by search query | [optional] 
+ **externalKey** | **String**| Filter by external_key | [optional] 
+ **recentlyActive** | **bool**| Filter by recently active | [optional] 
+ **lastActiveAtAfter** | **DateTime**| Filter by last active at date-time after provided value | [optional] 
+ **lastActiveAtBefore** | **DateTime**| Filter by last active at date-time before provided value | [optional] 
+ **sort** | **String**| Sort by provided field | [optional] 
  **perPage** | **int**|  | [optional] 
  **page** | **int**|  | [optional] 
 

@@ -79,6 +79,8 @@ doc/Subscription.md
 doc/SubscriptionItem.md
 doc/SubscriptionSource.md
 doc/SubscriptionStatus.md
+doc/SupportApi.md
+doc/TicketCategory.md
 doc/TokenLogin.md
 doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
@@ -106,6 +108,7 @@ lib/src/api/friendship_api.dart
 lib/src/api/geo_api.dart
 lib/src/api/google_api.dart
 lib/src/api/notifications_api.dart
+lib/src/api/support_api.dart
 lib/src/api/wireguard_api.dart
 lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
@@ -181,6 +184,7 @@ lib/src/model/subscription.dart
 lib/src/model/subscription_item.dart
 lib/src/model/subscription_source.dart
 lib/src/model/subscription_status.dart
+lib/src/model/ticket_category.dart
 lib/src/model/token_login.dart
 lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
@@ -194,3 +198,5 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/support_api_test.dart
+test/ticket_category_test.dart

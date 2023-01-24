@@ -95,7 +95,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listLocations**
-> BuiltList<Location> listLocations()
+> BuiltList<Location> listLocations(xDeviceCoordinates)
 
 Location list
 
@@ -107,9 +107,10 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getGeoApi();
+final String xDeviceCoordinates = xDeviceCoordinates_example; // String | 
 
 try {
-    final response = api.listLocations();
+    final response = api.listLocations(xDeviceCoordinates);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling GeoApi->listLocations: $e\n');
@@ -117,7 +118,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xDeviceCoordinates** | **String**|  | [optional] 
 
 ### Return type
 

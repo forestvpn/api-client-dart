@@ -18,6 +18,10 @@ class _$Location extends Location {
   @override
   final Country country;
   @override
+  final double? distance;
+  @override
+  final double? latencyRate;
+  @override
   final BuiltList<String>? alternativeNames;
 
   factory _$Location([void Function(LocationBuilder)? updates]) =>
@@ -29,6 +33,8 @@ class _$Location extends Location {
       required this.latitude,
       required this.longitude,
       required this.country,
+      this.distance,
+      this.latencyRate,
       this.alternativeNames})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Location', 'id');
@@ -54,6 +60,8 @@ class _$Location extends Location {
         latitude == other.latitude &&
         longitude == other.longitude &&
         country == other.country &&
+        distance == other.distance &&
+        latencyRate == other.latencyRate &&
         alternativeNames == other.alternativeNames;
   }
 
@@ -61,9 +69,15 @@ class _$Location extends Location {
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc($jc(0, id.hashCode), name.hashCode), latitude.hashCode),
-                longitude.hashCode),
-            country.hashCode),
+            $jc(
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, id.hashCode), name.hashCode),
+                            latitude.hashCode),
+                        longitude.hashCode),
+                    country.hashCode),
+                distance.hashCode),
+            latencyRate.hashCode),
         alternativeNames.hashCode));
   }
 
@@ -75,6 +89,8 @@ class _$Location extends Location {
           ..add('latitude', latitude)
           ..add('longitude', longitude)
           ..add('country', country)
+          ..add('distance', distance)
+          ..add('latencyRate', latencyRate)
           ..add('alternativeNames', alternativeNames))
         .toString();
   }
@@ -103,6 +119,14 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   CountryBuilder get country => _$this._country ??= new CountryBuilder();
   set country(CountryBuilder? country) => _$this._country = country;
 
+  double? _distance;
+  double? get distance => _$this._distance;
+  set distance(double? distance) => _$this._distance = distance;
+
+  double? _latencyRate;
+  double? get latencyRate => _$this._latencyRate;
+  set latencyRate(double? latencyRate) => _$this._latencyRate = latencyRate;
+
   ListBuilder<String>? _alternativeNames;
   ListBuilder<String> get alternativeNames =>
       _$this._alternativeNames ??= new ListBuilder<String>();
@@ -121,6 +145,8 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
       _latitude = $v.latitude;
       _longitude = $v.longitude;
       _country = $v.country.toBuilder();
+      _distance = $v.distance;
+      _latencyRate = $v.latencyRate;
       _alternativeNames = $v.alternativeNames?.toBuilder();
       _$v = null;
     }
@@ -154,12 +180,15 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
               longitude: BuiltValueNullFieldError.checkNotNull(
                   longitude, r'Location', 'longitude'),
               country: country.build(),
+              distance: distance,
+              latencyRate: latencyRate,
               alternativeNames: _alternativeNames?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'country';
         country.build();
+
         _$failedField = 'alternativeNames';
         _alternativeNames?.build();
       } catch (e) {

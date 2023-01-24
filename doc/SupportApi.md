@@ -1,4 +1,4 @@
-# forestvpn_api.api.AppApi
+# forestvpn_api.api.SupportApi
 
 ## Load the API package
 ```dart
@@ -9,54 +9,14 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCurrentUserDevice**](AppApi.md#getcurrentuserdevice) | **GET** /app/devices/current/ | Get user device info
-[**updateCurrentUserDevice**](AppApi.md#updatecurrentuserdevice) | **PATCH** /app/devices/current/ | Update user device
+[**createSupportTicket**](SupportApi.md#createsupportticket) | **POST** /support/tickets/ | Create support ticket
+[**getSupportTicketCategory**](SupportApi.md#getsupportticketcategory) | **GET** /support/ticket-categories/ | Get ticket categories
 
 
-# **getCurrentUserDevice**
-> UserDevice getCurrentUserDevice()
+# **createSupportTicket**
+> createSupportTicket(text, category, files)
 
-Get user device info
-
-### Example
-```dart
-import 'package:forestvpn_api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-
-final api = ForestvpnApi().getAppApi();
-
-try {
-    final response = api.getCurrentUserDevice();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling AppApi->getCurrentUserDevice: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**UserDevice**](UserDevice.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **updateCurrentUserDevice**
-> updateCurrentUserDevice(updateUserDeviceRequest)
-
-Update user device
+Create support ticket
 
 ### Example
 ```dart
@@ -65,13 +25,15 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getAppApi();
-final UpdateUserDeviceRequest updateUserDeviceRequest = ; // UpdateUserDeviceRequest | 
+final api = ForestvpnApi().getSupportApi();
+final String text = text_example; // String | 
+final String category = category_example; // String | Ticket category's slug
+final BuiltList<MultipartFile> files = /path/to/file.txt; // BuiltList<MultipartFile> | 
 
 try {
-    api.updateCurrentUserDevice(updateUserDeviceRequest);
+    api.createSupportTicket(text, category, files);
 } catch on DioError (e) {
-    print('Exception when calling AppApi->updateCurrentUserDevice: $e\n');
+    print('Exception when calling SupportApi->createSupportTicket: $e\n');
 }
 ```
 
@@ -79,7 +41,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateUserDeviceRequest** | [**UpdateUserDeviceRequest**](UpdateUserDeviceRequest.md)|  | 
+ **text** | **String**|  | 
+ **category** | **String**| Ticket category's slug | 
+ **files** | [**BuiltList&lt;MultipartFile&gt;**](MultipartFile.md)|  | [optional] 
 
 ### Return type
 
@@ -91,7 +55,47 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getSupportTicketCategory**
+> TicketCategory getSupportTicketCategory()
+
+Get ticket categories
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getSupportApi();
+
+try {
+    final response = api.getSupportTicketCategory();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SupportApi->getSupportTicketCategory: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TicketCategory**](TicketCategory.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.0] - 2023-01-24
+
+### Chnages
+
+- add "distance" & "latency_rate" to locations api
+- add tcikets api
+  
+
 ## [3.3.6] - 2022-11-17
 
 ### Chnages
