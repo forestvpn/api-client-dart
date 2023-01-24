@@ -1,0 +1,144 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+trigger:
+  event:
+    - push
+
+volumes:
+  - name: cache
+    temp: { }
+  - name: dist
+    temp: { }
+
+environment:
+  JAVA_OPTS: -Xmx1024M -DloggerPath=conf/log4j.properties
+  PUB_CACHE: /cache/dart
+
+steps:
+  - name: deps
+    image: dart:2.18.7-sdk
+    volumes:
+      - name: cache
+        path: /cache
+    commands:
+      - dart pub get
+
+  - name: build
+    image: dart:2.18.7-sdk
+    volumes:
+      - name: cache
+        path: /cache
+      - name: dist
+        path: /dist
+    commands:
+      - dart run build_runner build
+    depends_on:
+      - deps
+  
+  - name: slack
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: SLACK_WEBHOOK
+      channel: cicd
+      link_names: true
+      template: >
+        {{#success build.status}}
+          The {{ repo.owner }}/{{ repo.name }} build <{{ build.link }}| {{build.number}} ↗> is succeeded! Thanks <@{{build.author}}>
+        {{else}}
+          The {{ repo.owner }}/{{ repo.name }} build <{{ build.link }}| {{build.number}} ↗> is broken! Blame <@{{build.author}}>
+        {{/success}}
+    depends_on:
+      - build
+    when:
+      status: [ success, failure ]
+
+---
+kind: pipeline
+type: docker
+name: "publish: pub.dev"
+
+trigger:
+  event:
+    - tag
+
+volumes:
+  - name: cache
+    temp: { }
+  - name: dist
+    temp: { }
+
+environment:
+  JAVA_OPTS: -Xmx1024M -DloggerPath=conf/log4j.properties
+  PUB_CACHE: /cache/dart
+
+steps:
+  - name: deps
+    image: dart:2.18.7-sdk
+    volumes:
+      - name: cache
+        path: /cache
+    commands:
+      - dart pub get
+
+  - name: build
+    image: dart:2.18.7-sdk
+    volumes:
+      - name: cache
+        path: /cache
+      - name: dist
+        path: /dist
+    commands:
+      - dart run build_runner build
+    depends_on:
+      - deps
+  
+  - name: validate
+    image: dart:2.18.7-sdk
+    volumes:
+      - name: cache
+        path: /cache
+      - name: dist
+        path: /dist
+    commands:
+      - dart pub publish -n
+    depends_on:
+      - build
+
+  - name: publish
+    image: dart:2.18.7-sdk
+    environment:
+      PUB_DEV_CREDENTIALS:
+        from_secret: PUB_DEV_CREDENTIALS
+    volumes:
+      - name: cache
+        path: /cache
+      - name: dist
+        path: /dist
+    commands:
+      - mkdir -p $PUB_CACHE
+      - echo $PUB_DEV_CREDENTIALS >> $PUB_CACHE/credentials.json
+      - dart pub publish -f
+    depends_on:
+      - validate
+  
+  - name: slack
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: SLACK_RELEASE_WEBHOOK
+      link_names: true
+      icon_url: https://unsplash.it/256/256/?random
+      template: >
+        {{#success build.status}}
+          ✔ Publish to registry.npmjs.org <{{ build.link }}| {{ repo.owner }}/{{ repo.name }}:{{ build.tag }} ↗> is succeed!! Thanks @{{build.author}}
+        {{else}}
+         :x: Publish to registry.npmjs.org <{{ build.link }}| {{ repo.owner }}/{{ repo.name }}:{{ build.tag }} ↗> is failed! Blame @{{build.author}}
+        {{/success}}
+    when:
+      status: [ success, failure ]
+    depends_on:
+      - publish
