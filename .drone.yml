@@ -14,7 +14,6 @@ volumes:
     temp: { }
 
 environment:
-  JAVA_OPTS: -Xmx1024M -DloggerPath=conf/log4j.properties
   PUB_CACHE: /cache/dart
 
 steps:
@@ -34,7 +33,7 @@ steps:
       - name: dist
         path: /dist
     commands:
-      - dart run build_runner build
+      - dart run build_runner build --delete-conflicting-outputs -v
     depends_on:
       - deps
   
@@ -72,7 +71,6 @@ volumes:
     temp: { }
 
 environment:
-  JAVA_OPTS: -Xmx1024M -DloggerPath=conf/log4j.properties
   PUB_CACHE: /cache/dart
 
 steps:
@@ -92,7 +90,7 @@ steps:
       - name: dist
         path: /dist
     commands:
-      - dart run build_runner build
+      - dart run build_runner build --delete-conflicting-outputs -v
     depends_on:
       - deps
   

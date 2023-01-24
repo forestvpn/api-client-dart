@@ -1,4 +1,7 @@
-# forestvpn_api (EXPERIMENTAL)
+# forestvpn_api
+
+[![Build Status](https://drone.fvpn.uk/api/badges/forestvpn/api-client-dart/status.svg)](https://drone.fvpn.uk/forestvpn/api-client-dart)
+
 ForestVPN defeats content restrictions and censorship to deliver unlimited access to video, music, social media,
 and more, from anywhere in the world.
 
