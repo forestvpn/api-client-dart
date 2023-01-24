@@ -134,9 +134,9 @@ steps:
       icon_url: https://unsplash.it/256/256/?random
       template: >
         {{#success build.status}}
-          ✔ Publish to registry.npmjs.org <{{ build.link }}| {{ repo.owner }}/{{ repo.name }}:{{ build.tag }} ↗> is succeed!! Thanks @{{build.author}}
+          ✔ Publish to pub.dev <{{ build.link }}| {{ repo.owner }}/{{ repo.name }}:{{ build.tag }} ↗> is succeed!! Thanks @{{build.author}}
         {{else}}
-         :x: Publish to registry.npmjs.org <{{ build.link }}| {{ repo.owner }}/{{ repo.name }}:{{ build.tag }} ↗> is failed! Blame @{{build.author}}
+         :x: Publish to pub.dev <{{ build.link }}| {{ repo.owner }}/{{ repo.name }}:{{ build.tag }} ↗> is failed! Blame @{{build.author}}
         {{/success}}
     when:
       status: [ success, failure ]
