@@ -11,8 +11,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getNotificationsUnreadCount**](NotificationsApi.md#getnotificationsunreadcount) | **GET** /notifications/unread_count/ | Get unread notifications count
 [**listNotifications**](NotificationsApi.md#listnotifications) | **GET** /notifications/all_list/ | Get notifications list
-[**updateNotificationMarkRead**](NotificationsApi.md#updatenotificationmarkread) | **GET** /notifications/mark_read/{slug}/ | Mark notification as read by user
-[**updateNotificationMarkReadAll**](NotificationsApi.md#updatenotificationmarkreadall) | **GET** /notifications/mark-all-as-read/ | Mark all notifications as read by user
+[**updateNotificationMarkRead**](NotificationsApi.md#updatenotificationmarkread) | **GET** /notifications/mark_as_read/{slug}/ | Mark notification as read by user
+[**updateNotificationMarkReadAll**](NotificationsApi.md#updatenotificationmarkreadall) | **GET** /notifications/mark_all_as_read/ | Mark all notifications as read by user
 
 
 # **getNotificationsUnreadCount**
@@ -56,7 +56,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listNotifications**
-> BuiltList<NotificationAllList> listNotifications(max)
+> BuiltList<NotificationAllList> listNotifications(limit, offset, type)
 
 Get notifications list
 
@@ -68,10 +68,12 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getNotificationsApi();
-final int max = 56; // int | 
+final int limit = 56; // int | 
+final int offset = 56; // int | 
+final String type = type_example; // String | 
 
 try {
-    final response = api.listNotifications(max);
+    final response = api.listNotifications(limit, offset, type);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling NotificationsApi->listNotifications: $e\n');
@@ -82,7 +84,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **max** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional] 
+ **offset** | **int**|  | [optional] 
+ **type** | **String**|  | [optional] 
 
 ### Return type
 
@@ -100,7 +104,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateNotificationMarkRead**
-> Error updateNotificationMarkRead(slug, next)
+> updateNotificationMarkRead(slug)
 
 Mark notification as read by user
 
@@ -113,11 +117,9 @@ import 'package:forestvpn_api/api.dart';
 
 final api = ForestvpnApi().getNotificationsApi();
 final int slug = 56; // int | 
-final String next = next_example; // String | 
 
 try {
-    final response = api.updateNotificationMarkRead(slug, next);
-    print(response);
+    api.updateNotificationMarkRead(slug);
 } catch on DioError (e) {
     print('Exception when calling NotificationsApi->updateNotificationMarkRead: $e\n');
 }
@@ -128,11 +130,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **slug** | **int**|  | 
- **next** | **String**|  | 
 
 ### Return type
 
-[**Error**](Error.md)
+void (empty response body)
 
 ### Authorization
 
@@ -146,7 +147,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateNotificationMarkReadAll**
-> Error updateNotificationMarkReadAll(next)
+> updateNotificationMarkReadAll()
 
 Mark all notifications as read by user
 
@@ -158,25 +159,20 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getNotificationsApi();
-final String next = next_example; // String | 
 
 try {
-    final response = api.updateNotificationMarkReadAll(next);
-    print(response);
+    api.updateNotificationMarkReadAll();
 } catch on DioError (e) {
     print('Exception when calling NotificationsApi->updateNotificationMarkReadAll: $e\n');
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **next** | **String**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**Error**](Error.md)
+void (empty response body)
 
 ### Authorization
 

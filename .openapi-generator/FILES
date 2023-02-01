@@ -1,5 +1,6 @@
 .gitignore
 analysis_options.yaml
+doc/AccessTokenRequest.md
 doc/AdPlacement.md
 doc/AdProvider.md
 doc/AdReward.md
@@ -59,6 +60,7 @@ doc/Location.md
 doc/NetworkService.md
 doc/Notification.md
 doc/NotificationAllList.md
+doc/NotificationType.md
 doc/NotificationUnreadCount.md
 doc/NotificationsApi.md
 doc/PaymentMethod.md
@@ -117,6 +119,7 @@ lib/src/auth/basic_auth.dart
 lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
+lib/src/model/access_token_request.dart
 lib/src/model/ad_placement.dart
 lib/src/model/ad_provider.dart
 lib/src/model/ad_reward.dart
@@ -165,6 +168,7 @@ lib/src/model/location.dart
 lib/src/model/network_service.dart
 lib/src/model/notification.dart
 lib/src/model/notification_all_list.dart
+lib/src/model/notification_type.dart
 lib/src/model/notification_unread_count.dart
 lib/src/model/payment_method.dart
 lib/src/model/payment_method_card.dart
@@ -198,5 +202,3 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/support_api_test.dart
-test/ticket_category_test.dart

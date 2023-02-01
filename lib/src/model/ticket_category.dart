@@ -11,15 +11,15 @@ part 'ticket_category.g.dart';
 /// TicketCategory
 ///
 /// Properties:
+/// * [id] 
 /// * [name] 
-/// * [slug] 
 @BuiltValue()
 abstract class TicketCategory implements Built<TicketCategory, TicketCategoryBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String? get id;
+
   @BuiltValueField(wireName: r'name')
   String? get name;
-
-  @BuiltValueField(wireName: r'slug')
-  String? get slug;
 
   TicketCategory._();
 
@@ -44,17 +44,17 @@ class _$TicketCategorySerializer implements PrimitiveSerializer<TicketCategory> 
     TicketCategory object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.id != null) {
+      yield r'id';
+      yield serializers.serialize(
+        object.id,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.name != null) {
       yield r'name';
       yield serializers.serialize(
         object.name,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.slug != null) {
-      yield r'slug';
-      yield serializers.serialize(
-        object.slug,
         specifiedType: const FullType(String),
       );
     }
@@ -81,19 +81,19 @@ class _$TicketCategorySerializer implements PrimitiveSerializer<TicketCategory> 
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
         case r'name':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
           result.name = valueDes;
-          break;
-        case r'slug':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.slug = valueDes;
           break;
         default:
           unhandled.add(key);

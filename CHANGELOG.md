@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.6.1] - 2023-02-01
+
+### Chnages
+
+- add auth api (access token requests)
+- fix: support api (tickets)
+- fix: notifications api
+
 ## [3.5.0] - 2023-01-24
 
 ### Chnages

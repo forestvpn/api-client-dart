@@ -9,13 +9,145 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**authorizeAccessTokenRequest**](AuthApi.md#authorizeaccesstokenrequest) | **POST** /auth/access-token-requests/{requestID}/authorize/ | Authorize access token request
+[**createAccessTokenRequest**](AuthApi.md#createaccesstokenrequest) | **POST** /auth/access-token-requests/ | Create access token request
+[**getAccessTokenRequest**](AuthApi.md#getaccesstokenrequest) | **GET** /auth/access-token-requests/{requestID}/ | Get access token request details
 [**loginToken**](AuthApi.md#logintoken) | **POST** /auth/token/login/ | Login with JWT token
 [**migrateLegacyAuth**](AuthApi.md#migratelegacyauth) | **GET** /legacy/auth/ | Legacy auth migration
 [**obtainToken**](AuthApi.md#obtaintoken) | **GET** /auth/token/obtain/ | Obtain JWT token
+[**revokeAccessTokenRequest**](AuthApi.md#revokeaccesstokenrequest) | **POST** /auth/access-token-requests/{requestID}/revoke/ | Revoke access token request
 [**updateUserProfile**](AuthApi.md#updateuserprofile) | **PATCH** /auth/profile/ | Update profile
 [**userProfile**](AuthApi.md#userprofile) | **GET** /auth/profile/ | Profile
 [**whoAmI**](AuthApi.md#whoami) | **GET** /auth/whoami/ | Who am I
 
+
+# **authorizeAccessTokenRequest**
+> AccessTokenRequest authorizeAccessTokenRequest(requestID)
+
+Authorize access token request
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getAuthApi();
+final String requestID = requestID_example; // String | 
+
+try {
+    final response = api.authorizeAccessTokenRequest(requestID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->authorizeAccessTokenRequest: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestID** | **String**|  | 
+
+### Return type
+
+[**AccessTokenRequest**](AccessTokenRequest.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createAccessTokenRequest**
+> AccessTokenRequest createAccessTokenRequest()
+
+Create access token request
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getAuthApi();
+
+try {
+    final response = api.createAccessTokenRequest();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->createAccessTokenRequest: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AccessTokenRequest**](AccessTokenRequest.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getAccessTokenRequest**
+> AccessTokenRequest getAccessTokenRequest(requestID)
+
+Get access token request details
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getAuthApi();
+final String requestID = requestID_example; // String | 
+
+try {
+    final response = api.getAccessTokenRequest(requestID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->getAccessTokenRequest: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestID** | **String**|  | 
+
+### Return type
+
+[**AccessTokenRequest**](AccessTokenRequest.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **loginToken**
 > TokenLogin loginToken(createTokenLogin)
@@ -129,6 +261,50 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**TokenObtain**](TokenObtain.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **revokeAccessTokenRequest**
+> AccessTokenRequest revokeAccessTokenRequest(requestID)
+
+Revoke access token request
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getAuthApi();
+final String requestID = requestID_example; // String | 
+
+try {
+    final response = api.revokeAccessTokenRequest(requestID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->revokeAccessTokenRequest: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestID** | **String**|  | 
+
+### Return type
+
+[**AccessTokenRequest**](AccessTokenRequest.md)
 
 ### Authorization
 

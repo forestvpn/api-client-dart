@@ -25,6 +25,7 @@ export 'package:forestvpn_api/src/api/notifications_api.dart';
 export 'package:forestvpn_api/src/api/support_api.dart';
 export 'package:forestvpn_api/src/api/wireguard_api.dart';
 
+export 'package:forestvpn_api/src/model/access_token_request.dart';
 export 'package:forestvpn_api/src/model/ad_placement.dart';
 export 'package:forestvpn_api/src/model/ad_provider.dart';
 export 'package:forestvpn_api/src/model/ad_reward.dart';
@@ -72,6 +73,7 @@ export 'package:forestvpn_api/src/model/location.dart';
 export 'package:forestvpn_api/src/model/network_service.dart';
 export 'package:forestvpn_api/src/model/notification.dart';
 export 'package:forestvpn_api/src/model/notification_all_list.dart';
+export 'package:forestvpn_api/src/model/notification_type.dart';
 export 'package:forestvpn_api/src/model/notification_unread_count.dart';
 export 'package:forestvpn_api/src/model/payment_method.dart';
 export 'package:forestvpn_api/src/model/payment_method_card.dart';

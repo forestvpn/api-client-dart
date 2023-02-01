@@ -14,6 +14,7 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:forestvpn_api/src/date_serializer.dart';
 import 'package:forestvpn_api/src/model/date.dart';
 
+import 'package:forestvpn_api/src/model/access_token_request.dart';
 import 'package:forestvpn_api/src/model/ad_placement.dart';
 import 'package:forestvpn_api/src/model/ad_provider.dart';
 import 'package:forestvpn_api/src/model/ad_reward.dart';
@@ -61,6 +62,7 @@ import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_all_list.dart';
+import 'package:forestvpn_api/src/model/notification_type.dart';
 import 'package:forestvpn_api/src/model/notification_unread_count.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/payment_method_card.dart';
@@ -96,6 +98,7 @@ import 'package:forestvpn_api/src/model/wire_guard_peer_user.dart';
 part 'serializers.g.dart';
 
 @SerializersFor([
+  AccessTokenRequest,
   AdPlacement,
   AdProvider,
   AdReward,
@@ -143,6 +146,7 @@ part 'serializers.g.dart';
   NetworkService,
   Notification,
   NotificationAllList,
+  NotificationType,
   NotificationUnreadCount,
   PaymentMethod,
   PaymentMethodCard,
@@ -179,6 +183,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(WireGuard)]),
         () => ListBuilder<WireGuard>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TicketCategory)]),
+        () => ListBuilder<TicketCategory>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Device)]),

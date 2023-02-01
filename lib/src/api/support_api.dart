@@ -73,7 +73,7 @@ class SupportApi {
       _bodyData = FormData.fromMap(<String, dynamic>{
         r'text': encodeFormParameter(_serializers, text, const FullType(String)),
         r'category': encodeFormParameter(_serializers, category, const FullType(String)),
-        if (files != null) r'files': files.toList(),
+        r'files': files.toList(),
       });
 
     } catch(error, stackTrace) {
@@ -110,9 +110,9 @@ class SupportApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [TicketCategory] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<TicketCategory>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<TicketCategory>> getSupportTicketCategory({ 
+  Future<Response<BuiltList<TicketCategory>>> getSupportTicketCategory({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -147,14 +147,14 @@ class SupportApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TicketCategory _responseData;
+    BuiltList<TicketCategory> _responseData;
 
     try {
-      const _responseType = FullType(TicketCategory);
+      const _responseType = FullType(BuiltList, [FullType(TicketCategory)]);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as TicketCategory;
+      ) as BuiltList<TicketCategory>;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -165,7 +165,7 @@ class SupportApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<TicketCategory>(
+    return Response<BuiltList<TicketCategory>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

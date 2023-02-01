@@ -103,7 +103,9 @@ class NotificationsApi {
   /// 
   ///
   /// Parameters:
-  /// * [max] 
+  /// * [limit] 
+  /// * [offset] 
+  /// * [type] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -114,7 +116,9 @@ class NotificationsApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<NotificationAllList>] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<NotificationAllList>>> listNotifications({ 
-    int? max,
+    int? limit,
+    int? offset,
+    String? type,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -142,7 +146,9 @@ class NotificationsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (max != null) r'max': encodeQueryParameter(_serializers, max, const FullType(int)),
+      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (offset != null) r'offset': encodeQueryParameter(_serializers, offset, const FullType(int)),
+      if (type != null) r'type': encodeQueryParameter(_serializers, type, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -189,7 +195,6 @@ class NotificationsApi {
   ///
   /// Parameters:
   /// * [slug] 
-  /// * [next] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -197,11 +202,10 @@ class NotificationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Error] as data
+  /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Error>> updateNotificationMarkRead({ 
+  Future<Response<void>> updateNotificationMarkRead({ 
     required int slug,
-    required String next,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -209,7 +213,7 @@ class NotificationsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/notifications/mark_read/{slug}/'.replaceAll('{' r'slug' '}', slug.toString()).replaceAll('{' r'next' '}', next.toString());
+    final _path = r'/notifications/mark_as_read/{slug}/'.replaceAll('{' r'slug' '}', slug.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -236,41 +240,13 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Error _responseData;
-
-    try {
-      const _responseType = FullType(Error);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as Error;
-
-    } catch (error, stackTrace) {
-      throw DioError(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
-    }
-
-    return Response<Error>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
+    return _response;
   }
 
   /// Mark all notifications as read by user
   /// 
   ///
   /// Parameters:
-  /// * [next] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -278,10 +254,9 @@ class NotificationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [Error] as data
+  /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<Error>> updateNotificationMarkReadAll({ 
-    required String next,
+  Future<Response<void>> updateNotificationMarkReadAll({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -289,7 +264,7 @@ class NotificationsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/notifications/mark-all-as-read/'.replaceAll('{' r'next' '}', next.toString());
+    final _path = r'/notifications/mark_all_as_read/';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -316,34 +291,7 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Error _responseData;
-
-    try {
-      const _responseType = FullType(Error);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as Error;
-
-    } catch (error, stackTrace) {
-      throw DioError(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
-    }
-
-    return Response<Error>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
+    return _response;
   }
 
 }
