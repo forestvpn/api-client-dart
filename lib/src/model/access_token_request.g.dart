@@ -81,7 +81,9 @@ class _$AccessTokenRequest extends AccessTokenRequest {
   @override
   final String id;
   @override
-  final String? userAgent;
+  final String? name;
+  @override
+  final UserAgent userAgent;
   @override
   final String? accessToken;
   @override
@@ -97,13 +99,16 @@ class _$AccessTokenRequest extends AccessTokenRequest {
 
   _$AccessTokenRequest._(
       {required this.id,
-      this.userAgent,
+      this.name,
+      required this.userAgent,
       this.accessToken,
       required this.status,
       required this.createdAt,
       required this.expiresAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'AccessTokenRequest', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        userAgent, r'AccessTokenRequest', 'userAgent');
     BuiltValueNullFieldError.checkNotNull(
         status, r'AccessTokenRequest', 'status');
     BuiltValueNullFieldError.checkNotNull(
@@ -126,6 +131,7 @@ class _$AccessTokenRequest extends AccessTokenRequest {
     if (identical(other, this)) return true;
     return other is AccessTokenRequest &&
         id == other.id &&
+        name == other.name &&
         userAgent == other.userAgent &&
         accessToken == other.accessToken &&
         status == other.status &&
@@ -137,6 +143,7 @@ class _$AccessTokenRequest extends AccessTokenRequest {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, userAgent.hashCode);
     _$hash = $jc(_$hash, accessToken.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
@@ -150,6 +157,7 @@ class _$AccessTokenRequest extends AccessTokenRequest {
   String toString() {
     return (newBuiltValueToStringHelper(r'AccessTokenRequest')
           ..add('id', id)
+          ..add('name', name)
           ..add('userAgent', userAgent)
           ..add('accessToken', accessToken)
           ..add('status', status)
@@ -167,9 +175,14 @@ class AccessTokenRequestBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  String? _userAgent;
-  String? get userAgent => _$this._userAgent;
-  set userAgent(String? userAgent) => _$this._userAgent = userAgent;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  UserAgentBuilder? _userAgent;
+  UserAgentBuilder get userAgent =>
+      _$this._userAgent ??= new UserAgentBuilder();
+  set userAgent(UserAgentBuilder? userAgent) => _$this._userAgent = userAgent;
 
   String? _accessToken;
   String? get accessToken => _$this._accessToken;
@@ -195,7 +208,8 @@ class AccessTokenRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _userAgent = $v.userAgent;
+      _name = $v.name;
+      _userAgent = $v.userAgent.toBuilder();
       _accessToken = $v.accessToken;
       _status = $v.status;
       _createdAt = $v.createdAt;
@@ -220,18 +234,32 @@ class AccessTokenRequestBuilder
   AccessTokenRequest build() => _build();
 
   _$AccessTokenRequest _build() {
-    final _$result = _$v ??
-        new _$AccessTokenRequest._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'AccessTokenRequest', 'id'),
-            userAgent: userAgent,
-            accessToken: accessToken,
-            status: BuiltValueNullFieldError.checkNotNull(
-                status, r'AccessTokenRequest', 'status'),
-            createdAt: BuiltValueNullFieldError.checkNotNull(
-                createdAt, r'AccessTokenRequest', 'createdAt'),
-            expiresAt: BuiltValueNullFieldError.checkNotNull(
-                expiresAt, r'AccessTokenRequest', 'expiresAt'));
+    _$AccessTokenRequest _$result;
+    try {
+      _$result = _$v ??
+          new _$AccessTokenRequest._(
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, r'AccessTokenRequest', 'id'),
+              name: name,
+              userAgent: userAgent.build(),
+              accessToken: accessToken,
+              status: BuiltValueNullFieldError.checkNotNull(
+                  status, r'AccessTokenRequest', 'status'),
+              createdAt: BuiltValueNullFieldError.checkNotNull(
+                  createdAt, r'AccessTokenRequest', 'createdAt'),
+              expiresAt: BuiltValueNullFieldError.checkNotNull(
+                  expiresAt, r'AccessTokenRequest', 'expiresAt'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userAgent';
+        userAgent.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'AccessTokenRequest', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -62,7 +62,6 @@ import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_all_list.dart';
-import 'package:forestvpn_api/src/model/notification_type.dart';
 import 'package:forestvpn_api/src/model/notification_unread_count.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/payment_method_card.dart';
@@ -88,6 +87,10 @@ import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/update_user_device_request.dart';
 import 'package:forestvpn_api/src/model/user.dart';
+import 'package:forestvpn_api/src/model/user_agent.dart';
+import 'package:forestvpn_api/src/model/user_agent_browser.dart';
+import 'package:forestvpn_api/src/model/user_agent_device.dart';
+import 'package:forestvpn_api/src/model/user_agent_os.dart';
 import 'package:forestvpn_api/src/model/user_device.dart';
 import 'package:forestvpn_api/src/model/wire_guard.dart';
 import 'package:forestvpn_api/src/model/wire_guard_peer.dart';
@@ -146,7 +149,6 @@ part 'serializers.g.dart';
   NetworkService,
   Notification,
   NotificationAllList,
-  NotificationType,
   NotificationUnreadCount,
   PaymentMethod,
   PaymentMethodCard,
@@ -172,6 +174,10 @@ part 'serializers.g.dart';
   UpdateFCMDeviceRequest,
   UpdateUserDeviceRequest,
   User,
+  UserAgent,
+  UserAgentBrowser,
+  UserAgentDevice,
+  UserAgentOs,
   UserDevice,
   WireGuard,
   WireGuardPeer,

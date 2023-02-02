@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.7.0] - 2023-02-02
+
+### Chnages
+
+- feat: `name` due to access token request creation
+- feat: `user_agent` structure in access token request
+- fix: support api crash
+
 ## [3.6.1] - 2023-02-01
 
 ### Chnages

@@ -73,7 +73,7 @@ class SupportApi {
       _bodyData = FormData.fromMap(<String, dynamic>{
         r'text': encodeFormParameter(_serializers, text, const FullType(String)),
         r'category': encodeFormParameter(_serializers, category, const FullType(String)),
-        r'files': files.toList(),
+        if (files != null) r'files': files.toList(),
       });
 
     } catch(error, stackTrace) {

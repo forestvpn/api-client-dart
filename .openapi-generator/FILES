@@ -60,7 +60,6 @@ doc/Location.md
 doc/NetworkService.md
 doc/Notification.md
 doc/NotificationAllList.md
-doc/NotificationType.md
 doc/NotificationUnreadCount.md
 doc/NotificationsApi.md
 doc/PaymentMethod.md
@@ -88,6 +87,10 @@ doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
 doc/UpdateUserDeviceRequest.md
 doc/User.md
+doc/UserAgent.md
+doc/UserAgentBrowser.md
+doc/UserAgentDevice.md
+doc/UserAgentOs.md
 doc/UserDevice.md
 doc/WireGuard.md
 doc/WireGuardPeer.md
@@ -168,7 +171,6 @@ lib/src/model/location.dart
 lib/src/model/network_service.dart
 lib/src/model/notification.dart
 lib/src/model/notification_all_list.dart
-lib/src/model/notification_type.dart
 lib/src/model/notification_unread_count.dart
 lib/src/model/payment_method.dart
 lib/src/model/payment_method_card.dart
@@ -194,6 +196,10 @@ lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
 lib/src/model/update_user_device_request.dart
 lib/src/model/user.dart
+lib/src/model/user_agent.dart
+lib/src/model/user_agent_browser.dart
+lib/src/model/user_agent_device.dart
+lib/src/model/user_agent_os.dart
 lib/src/model/user_device.dart
 lib/src/model/wire_guard.dart
 lib/src/model/wire_guard_peer.dart

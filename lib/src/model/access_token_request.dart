@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:forestvpn_api/src/model/user_agent.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -13,6 +14,7 @@ part 'access_token_request.g.dart';
 ///
 /// Properties:
 /// * [id] 
+/// * [name] - It might be empty string
 /// * [userAgent] 
 /// * [accessToken] 
 /// * [status] 
@@ -23,8 +25,12 @@ abstract class AccessTokenRequest implements Built<AccessTokenRequest, AccessTok
   @BuiltValueField(wireName: r'id')
   String get id;
 
+  /// It might be empty string
+  @BuiltValueField(wireName: r'name')
+  String? get name;
+
   @BuiltValueField(wireName: r'user_agent')
-  String? get userAgent;
+  UserAgent get userAgent;
 
   @BuiltValueField(wireName: r'access_token')
   String? get accessToken;
@@ -67,13 +73,18 @@ class _$AccessTokenRequestSerializer implements PrimitiveSerializer<AccessTokenR
       object.id,
       specifiedType: const FullType(String),
     );
-    if (object.userAgent != null) {
-      yield r'user_agent';
+    if (object.name != null) {
+      yield r'name';
       yield serializers.serialize(
-        object.userAgent,
-        specifiedType: const FullType(String),
+        object.name,
+        specifiedType: const FullType.nullable(String),
       );
     }
+    yield r'user_agent';
+    yield serializers.serialize(
+      object.userAgent,
+      specifiedType: const FullType(UserAgent),
+    );
     if (object.accessToken != null) {
       yield r'access_token';
       yield serializers.serialize(
@@ -126,12 +137,20 @@ class _$AccessTokenRequestSerializer implements PrimitiveSerializer<AccessTokenR
           ) as String;
           result.id = valueDes;
           break;
+        case r'name':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.name = valueDes;
+          break;
         case r'user_agent':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.userAgent = valueDes;
+            specifiedType: const FullType(UserAgent),
+          ) as UserAgent;
+          result.userAgent.replace(valueDes);
           break;
         case r'access_token':
           final valueDes = serializers.deserialize(

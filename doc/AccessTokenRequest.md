@@ -9,7 +9,8 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**userAgent** | **String** |  | [optional] 
+**name** | **String** | It might be empty string | [optional] 
+**userAgent** | [**UserAgent**](UserAgent.md) |  | 
 **accessToken** | **String** |  | [optional] 
 **status** | **String** |  | 
 **createdAt** | [**DateTime**](DateTime.md) |  | 

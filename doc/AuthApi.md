@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createAccessTokenRequest**
-> AccessTokenRequest createAccessTokenRequest()
+> AccessTokenRequest createAccessTokenRequest(name)
 
 Create access token request
 
@@ -78,9 +78,10 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getAuthApi();
+final String name = name_example; // String | 
 
 try {
-    final response = api.createAccessTokenRequest();
+    final response = api.createAccessTokenRequest(name);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling AuthApi->createAccessTokenRequest: $e\n');
@@ -88,7 +89,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**|  | [optional] 
 
 ### Return type
 

@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:forestvpn_api/src/api_util.dart';
 import 'package:forestvpn_api/src/model/access_token_request.dart';
 import 'package:forestvpn_api/src/model/create_token_login.dart';
 import 'package:forestvpn_api/src/model/error.dart';
@@ -107,6 +108,7 @@ class AuthApi {
   /// 
   ///
   /// Parameters:
+  /// * [name] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -117,6 +119,7 @@ class AuthApi {
   /// Returns a [Future] containing a [Response] with a [AccessTokenRequest] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<AccessTokenRequest>> createAccessTokenRequest({ 
+    String? name,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -143,9 +146,14 @@ class AuthApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
