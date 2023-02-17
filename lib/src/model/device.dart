@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-// ignore_for_file: unused_element
 import 'package:forestvpn_api/src/model/connection_mode.dart';
 import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/wire_guard.dart';
@@ -28,283 +27,214 @@ part 'device.g.dart';
 /// * [servers] 
 /// * [lastActiveAt] 
 /// * [type] 
-@BuiltValue()
 abstract class Device implements Built<Device, DeviceBuilder> {
-  @BuiltValueField(wireName: r'id')
-  String get id;
+    @BuiltValueField(wireName: r'id')
+    String get id;
 
-  @BuiltValueField(wireName: r'external_key')
-  String? get externalKey;
+    @BuiltValueField(wireName: r'external_key')
+    String? get externalKey;
 
-  @BuiltValueField(wireName: r'name')
-  String? get name;
+    @BuiltValueField(wireName: r'name')
+    String? get name;
 
-  @BuiltValueField(wireName: r'ips')
-  BuiltList<String>? get ips;
+    @BuiltValueField(wireName: r'ips')
+    BuiltList<String>? get ips;
 
-  @BuiltValueField(wireName: r'dns')
-  BuiltList<String>? get dns;
+    @BuiltValueField(wireName: r'dns')
+    BuiltList<String>? get dns;
 
-  @BuiltValueField(wireName: r'tor_over')
-  bool? get torOver;
+    @BuiltValueField(wireName: r'tor_over')
+    bool? get torOver;
 
-  @BuiltValueField(wireName: r'connection_mode')
-  ConnectionMode? get connectionMode;
+    @BuiltValueField(wireName: r'connection_mode')
+    ConnectionMode? get connectionMode;
 
-  @BuiltValueField(wireName: r'wireguard')
-  WireGuard? get wireguard;
+    @BuiltValueField(wireName: r'wireguard')
+    WireGuard? get wireguard;
 
-  @BuiltValueField(wireName: r'location')
-  Location? get location;
+    @BuiltValueField(wireName: r'location')
+    Location? get location;
 
-  @BuiltValueField(wireName: r'servers')
-  BuiltList<Server>? get servers;
+    @BuiltValueField(wireName: r'servers')
+    BuiltList<Server>? get servers;
 
-  @BuiltValueField(wireName: r'last_active_at')
-  DateTime? get lastActiveAt;
+    @BuiltValueField(wireName: r'last_active_at')
+    DateTime? get lastActiveAt;
 
-  @BuiltValueField(wireName: r'type')
-  String? get type;
+    @BuiltValueField(wireName: r'type')
+    String? get type;
 
-  Device._();
+    Device._();
 
-  factory Device([void updates(DeviceBuilder b)]) = _$Device;
+    @BuiltValueHook(initializeBuilder: true)
+    static void _defaults(DeviceBuilder b) => b
+        ..torOver = false;
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(DeviceBuilder b) => b
-      ..torOver = false;
+    factory Device([void updates(DeviceBuilder b)]) = _$Device;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Device> get serializer => _$DeviceSerializer();
+    @BuiltValueSerializer(custom: true)
+    static Serializer<Device> get serializer => _$DeviceSerializer();
 }
 
-class _$DeviceSerializer implements PrimitiveSerializer<Device> {
-  @override
-  final Iterable<Type> types = const [Device, _$Device];
+class _$DeviceSerializer implements StructuredSerializer<Device> {
+    @override
+    final Iterable<Type> types = const [Device, _$Device];
 
-  @override
-  final String wireName = r'Device';
+    @override
+    final String wireName = r'Device';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    Device object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(String),
-    );
-    if (object.externalKey != null) {
-      yield r'external_key';
-      yield serializers.serialize(
-        object.externalKey,
-        specifiedType: const FullType(String),
-      );
+    @override
+    Iterable<Object?> serialize(Serializers serializers, Device object,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = <Object?>[];
+        result
+            ..add(r'id')
+            ..add(serializers.serialize(object.id,
+                specifiedType: const FullType(String)));
+        if (object.externalKey != null) {
+            result
+                ..add(r'external_key')
+                ..add(serializers.serialize(object.externalKey,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.name != null) {
+            result
+                ..add(r'name')
+                ..add(serializers.serialize(object.name,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.ips != null) {
+            result
+                ..add(r'ips')
+                ..add(serializers.serialize(object.ips,
+                    specifiedType: const FullType(BuiltList, [FullType(String)])));
+        }
+        if (object.dns != null) {
+            result
+                ..add(r'dns')
+                ..add(serializers.serialize(object.dns,
+                    specifiedType: const FullType(BuiltList, [FullType(String)])));
+        }
+        if (object.torOver != null) {
+            result
+                ..add(r'tor_over')
+                ..add(serializers.serialize(object.torOver,
+                    specifiedType: const FullType(bool)));
+        }
+        if (object.connectionMode != null) {
+            result
+                ..add(r'connection_mode')
+                ..add(serializers.serialize(object.connectionMode,
+                    specifiedType: const FullType(ConnectionMode)));
+        }
+        if (object.wireguard != null) {
+            result
+                ..add(r'wireguard')
+                ..add(serializers.serialize(object.wireguard,
+                    specifiedType: const FullType(WireGuard)));
+        }
+        if (object.location != null) {
+            result
+                ..add(r'location')
+                ..add(serializers.serialize(object.location,
+                    specifiedType: const FullType(Location)));
+        }
+        if (object.servers != null) {
+            result
+                ..add(r'servers')
+                ..add(serializers.serialize(object.servers,
+                    specifiedType: const FullType(BuiltList, [FullType(Server)])));
+        }
+        if (object.lastActiveAt != null) {
+            result
+                ..add(r'last_active_at')
+                ..add(serializers.serialize(object.lastActiveAt,
+                    specifiedType: const FullType(DateTime)));
+        }
+        if (object.type != null) {
+            result
+                ..add(r'type')
+                ..add(serializers.serialize(object.type,
+                    specifiedType: const FullType(String)));
+        }
+        return result;
     }
-    if (object.name != null) {
-      yield r'name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.ips != null) {
-      yield r'ips';
-      yield serializers.serialize(
-        object.ips,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      );
-    }
-    if (object.dns != null) {
-      yield r'dns';
-      yield serializers.serialize(
-        object.dns,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      );
-    }
-    if (object.torOver != null) {
-      yield r'tor_over';
-      yield serializers.serialize(
-        object.torOver,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.connectionMode != null) {
-      yield r'connection_mode';
-      yield serializers.serialize(
-        object.connectionMode,
-        specifiedType: const FullType(ConnectionMode),
-      );
-    }
-    if (object.wireguard != null) {
-      yield r'wireguard';
-      yield serializers.serialize(
-        object.wireguard,
-        specifiedType: const FullType(WireGuard),
-      );
-    }
-    if (object.location != null) {
-      yield r'location';
-      yield serializers.serialize(
-        object.location,
-        specifiedType: const FullType(Location),
-      );
-    }
-    if (object.servers != null) {
-      yield r'servers';
-      yield serializers.serialize(
-        object.servers,
-        specifiedType: const FullType(BuiltList, [FullType(Server)]),
-      );
-    }
-    if (object.lastActiveAt != null) {
-      yield r'last_active_at';
-      yield serializers.serialize(
-        object.lastActiveAt,
-        specifiedType: const FullType(DateTime),
-      );
-    }
-    if (object.type != null) {
-      yield r'type';
-      yield serializers.serialize(
-        object.type,
-        specifiedType: const FullType(String),
-      );
-    }
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    Device object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+    @override
+    Device deserialize(Serializers serializers, Iterable<Object?> serialized,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = DeviceBuilder();
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required DeviceBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.id = valueDes;
-          break;
-        case r'external_key':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.externalKey = valueDes;
-          break;
-        case r'name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.name = valueDes;
-          break;
-        case r'ips':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.ips.replace(valueDes);
-          break;
-        case r'dns':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.dns.replace(valueDes);
-          break;
-        case r'tor_over':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.torOver = valueDes;
-          break;
-        case r'connection_mode':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ConnectionMode),
-          ) as ConnectionMode;
-          result.connectionMode.replace(valueDes);
-          break;
-        case r'wireguard':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(WireGuard),
-          ) as WireGuard;
-          result.wireguard.replace(valueDes);
-          break;
-        case r'location':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(Location),
-          ) as Location;
-          result.location.replace(valueDes);
-          break;
-        case r'servers':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(Server)]),
-          ) as BuiltList<Server>;
-          result.servers.replace(valueDes);
-          break;
-        case r'last_active_at':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(DateTime),
-          ) as DateTime;
-          result.lastActiveAt = valueDes;
-          break;
-        case r'type':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.type = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+        final iterator = serialized.iterator;
+        while (iterator.moveNext()) {
+            final key = iterator.current as String;
+            iterator.moveNext();
+            final Object? value = iterator.current;
+            
+            switch (key) {
+                case r'id':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.id = valueDes;
+                    break;
+                case r'external_key':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.externalKey = valueDes;
+                    break;
+                case r'name':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.name = valueDes;
+                    break;
+                case r'ips':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(BuiltList, [FullType(String)])) as BuiltList<String>;
+                    result.ips.replace(valueDes);
+                    break;
+                case r'dns':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(BuiltList, [FullType(String)])) as BuiltList<String>;
+                    result.dns.replace(valueDes);
+                    break;
+                case r'tor_over':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(bool)) as bool;
+                    result.torOver = valueDes;
+                    break;
+                case r'connection_mode':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(ConnectionMode)) as ConnectionMode;
+                    result.connectionMode.replace(valueDes);
+                    break;
+                case r'wireguard':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(WireGuard)) as WireGuard;
+                    result.wireguard.replace(valueDes);
+                    break;
+                case r'location':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(Location)) as Location;
+                    result.location.replace(valueDes);
+                    break;
+                case r'servers':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(BuiltList, [FullType(Server)])) as BuiltList<Server>;
+                    result.servers.replace(valueDes);
+                    break;
+                case r'last_active_at':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(DateTime)) as DateTime;
+                    result.lastActiveAt = valueDes;
+                    break;
+                case r'type':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.type = valueDes;
+                    break;
+            }
+        }
+        return result.build();
     }
-  }
-
-  @override
-  Device deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = DeviceBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
 }
 

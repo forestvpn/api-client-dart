@@ -30,7 +30,7 @@ class _$Subscription extends Subscription {
   @override
   final DateTime? canceledAt;
   @override
-  final SubscriptionStatus status;
+  final SubscriptionStatus? status;
   @override
   final String? description;
   @override
@@ -51,7 +51,7 @@ class _$Subscription extends Subscription {
       this.trialEnd,
       this.cancelAt,
       this.canceledAt,
-      required this.status,
+      this.status,
       this.description,
       this.items})
       : super._() {
@@ -62,7 +62,6 @@ class _$Subscription extends Subscription {
         currentPeriodStart, r'Subscription', 'currentPeriodStart');
     BuiltValueNullFieldError.checkNotNull(
         currentPeriodEnd, r'Subscription', 'currentPeriodEnd');
-    BuiltValueNullFieldError.checkNotNull(status, r'Subscription', 'status');
   }
 
   @override
@@ -258,8 +257,7 @@ class SubscriptionBuilder
               trialEnd: trialEnd,
               cancelAt: cancelAt,
               canceledAt: canceledAt,
-              status: BuiltValueNullFieldError.checkNotNull(
-                  status, r'Subscription', 'status'),
+              status: status,
               description: description,
               items: _items?.build());
     } catch (_) {

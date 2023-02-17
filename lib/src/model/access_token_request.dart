@@ -2,8 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-// ignore_for_file: unused_element
-import 'package:forestvpn_api/src/model/user_agent.dart';
+import 'package:forestvpn_api/src/model/access_token_request_user_agent.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -20,193 +19,139 @@ part 'access_token_request.g.dart';
 /// * [status] 
 /// * [createdAt] 
 /// * [expiresAt] 
-@BuiltValue()
 abstract class AccessTokenRequest implements Built<AccessTokenRequest, AccessTokenRequestBuilder> {
-  @BuiltValueField(wireName: r'id')
-  String get id;
+    @BuiltValueField(wireName: r'id')
+    String get id;
 
-  /// It might be empty string
-  @BuiltValueField(wireName: r'name')
-  String? get name;
+    /// It might be empty string
+    @BuiltValueField(wireName: r'name')
+    String? get name;
 
-  @BuiltValueField(wireName: r'user_agent')
-  UserAgent get userAgent;
+    @BuiltValueField(wireName: r'user_agent')
+    AccessTokenRequestUserAgent get userAgent;
 
-  @BuiltValueField(wireName: r'access_token')
-  String? get accessToken;
+    @BuiltValueField(wireName: r'access_token')
+    String? get accessToken;
 
-  @BuiltValueField(wireName: r'status')
-  AccessTokenRequestStatusEnum get status;
-  // enum statusEnum {  pending,  authorized,  revoked,  expired,  };
+    @BuiltValueField(wireName: r'status')
+    AccessTokenRequestStatusEnum get status;
+    // enum statusEnum {  pending,  authorized,  revoked,  expired,  };
 
-  @BuiltValueField(wireName: r'created_at')
-  DateTime get createdAt;
+    @BuiltValueField(wireName: r'created_at')
+    DateTime get createdAt;
 
-  @BuiltValueField(wireName: r'expires_at')
-  DateTime get expiresAt;
+    @BuiltValueField(wireName: r'expires_at')
+    DateTime get expiresAt;
 
-  AccessTokenRequest._();
+    AccessTokenRequest._();
 
-  factory AccessTokenRequest([void updates(AccessTokenRequestBuilder b)]) = _$AccessTokenRequest;
+    @BuiltValueHook(initializeBuilder: true)
+    static void _defaults(AccessTokenRequestBuilder b) => b;
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccessTokenRequestBuilder b) => b;
+    factory AccessTokenRequest([void updates(AccessTokenRequestBuilder b)]) = _$AccessTokenRequest;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AccessTokenRequest> get serializer => _$AccessTokenRequestSerializer();
+    @BuiltValueSerializer(custom: true)
+    static Serializer<AccessTokenRequest> get serializer => _$AccessTokenRequestSerializer();
 }
 
-class _$AccessTokenRequestSerializer implements PrimitiveSerializer<AccessTokenRequest> {
-  @override
-  final Iterable<Type> types = const [AccessTokenRequest, _$AccessTokenRequest];
+class _$AccessTokenRequestSerializer implements StructuredSerializer<AccessTokenRequest> {
+    @override
+    final Iterable<Type> types = const [AccessTokenRequest, _$AccessTokenRequest];
 
-  @override
-  final String wireName = r'AccessTokenRequest';
+    @override
+    final String wireName = r'AccessTokenRequest';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    AccessTokenRequest object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(String),
-    );
-    if (object.name != null) {
-      yield r'name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType.nullable(String),
-      );
+    @override
+    Iterable<Object?> serialize(Serializers serializers, AccessTokenRequest object,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = <Object?>[];
+        result
+            ..add(r'id')
+            ..add(serializers.serialize(object.id,
+                specifiedType: const FullType(String)));
+        if (object.name != null) {
+            result
+                ..add(r'name')
+                ..add(serializers.serialize(object.name,
+                    specifiedType: const FullType.nullable(String)));
+        }
+        result
+            ..add(r'user_agent')
+            ..add(serializers.serialize(object.userAgent,
+                specifiedType: const FullType(AccessTokenRequestUserAgent)));
+        if (object.accessToken != null) {
+            result
+                ..add(r'access_token')
+                ..add(serializers.serialize(object.accessToken,
+                    specifiedType: const FullType(String)));
+        }
+        result
+            ..add(r'status')
+            ..add(serializers.serialize(object.status,
+                specifiedType: const FullType(AccessTokenRequestStatusEnum)));
+        result
+            ..add(r'created_at')
+            ..add(serializers.serialize(object.createdAt,
+                specifiedType: const FullType(DateTime)));
+        result
+            ..add(r'expires_at')
+            ..add(serializers.serialize(object.expiresAt,
+                specifiedType: const FullType(DateTime)));
+        return result;
     }
-    yield r'user_agent';
-    yield serializers.serialize(
-      object.userAgent,
-      specifiedType: const FullType(UserAgent),
-    );
-    if (object.accessToken != null) {
-      yield r'access_token';
-      yield serializers.serialize(
-        object.accessToken,
-        specifiedType: const FullType(String),
-      );
+
+    @override
+    AccessTokenRequest deserialize(Serializers serializers, Iterable<Object?> serialized,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = AccessTokenRequestBuilder();
+
+        final iterator = serialized.iterator;
+        while (iterator.moveNext()) {
+            final key = iterator.current as String;
+            iterator.moveNext();
+            final Object? value = iterator.current;
+            
+            switch (key) {
+                case r'id':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.id = valueDes;
+                    break;
+                case r'name':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType.nullable(String)) as String?;
+                    if (valueDes == null) continue;
+                    result.name = valueDes;
+                    break;
+                case r'user_agent':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(AccessTokenRequestUserAgent)) as AccessTokenRequestUserAgent;
+                    result.userAgent.replace(valueDes);
+                    break;
+                case r'access_token':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.accessToken = valueDes;
+                    break;
+                case r'status':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(AccessTokenRequestStatusEnum)) as AccessTokenRequestStatusEnum;
+                    result.status = valueDes;
+                    break;
+                case r'created_at':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(DateTime)) as DateTime;
+                    result.createdAt = valueDes;
+                    break;
+                case r'expires_at':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(DateTime)) as DateTime;
+                    result.expiresAt = valueDes;
+                    break;
+            }
+        }
+        return result.build();
     }
-    yield r'status';
-    yield serializers.serialize(
-      object.status,
-      specifiedType: const FullType(AccessTokenRequestStatusEnum),
-    );
-    yield r'created_at';
-    yield serializers.serialize(
-      object.createdAt,
-      specifiedType: const FullType(DateTime),
-    );
-    yield r'expires_at';
-    yield serializers.serialize(
-      object.expiresAt,
-      specifiedType: const FullType(DateTime),
-    );
-  }
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    AccessTokenRequest object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required AccessTokenRequestBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.id = valueDes;
-          break;
-        case r'name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.name = valueDes;
-          break;
-        case r'user_agent':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(UserAgent),
-          ) as UserAgent;
-          result.userAgent.replace(valueDes);
-          break;
-        case r'access_token':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.accessToken = valueDes;
-          break;
-        case r'status':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(AccessTokenRequestStatusEnum),
-          ) as AccessTokenRequestStatusEnum;
-          result.status = valueDes;
-          break;
-        case r'created_at':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(DateTime),
-          ) as DateTime;
-          result.createdAt = valueDes;
-          break;
-        case r'expires_at':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(DateTime),
-          ) as DateTime;
-          result.expiresAt = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
-
-  @override
-  AccessTokenRequest deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AccessTokenRequestBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
 }
 
 class AccessTokenRequestStatusEnum extends EnumClass {

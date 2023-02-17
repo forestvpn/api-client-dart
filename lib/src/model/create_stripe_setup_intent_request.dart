@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-// ignore_for_file: unused_element
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,97 +11,61 @@ part 'create_stripe_setup_intent_request.g.dart';
 ///
 /// Properties:
 /// * [returnUrl] 
-@BuiltValue()
 abstract class CreateStripeSetupIntentRequest implements Built<CreateStripeSetupIntentRequest, CreateStripeSetupIntentRequestBuilder> {
-  @BuiltValueField(wireName: r'return_url')
-  String? get returnUrl;
+    @BuiltValueField(wireName: r'return_url')
+    String? get returnUrl;
 
-  CreateStripeSetupIntentRequest._();
+    CreateStripeSetupIntentRequest._();
 
-  factory CreateStripeSetupIntentRequest([void updates(CreateStripeSetupIntentRequestBuilder b)]) = _$CreateStripeSetupIntentRequest;
+    @BuiltValueHook(initializeBuilder: true)
+    static void _defaults(CreateStripeSetupIntentRequestBuilder b) => b;
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CreateStripeSetupIntentRequestBuilder b) => b;
+    factory CreateStripeSetupIntentRequest([void updates(CreateStripeSetupIntentRequestBuilder b)]) = _$CreateStripeSetupIntentRequest;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CreateStripeSetupIntentRequest> get serializer => _$CreateStripeSetupIntentRequestSerializer();
+    @BuiltValueSerializer(custom: true)
+    static Serializer<CreateStripeSetupIntentRequest> get serializer => _$CreateStripeSetupIntentRequestSerializer();
 }
 
-class _$CreateStripeSetupIntentRequestSerializer implements PrimitiveSerializer<CreateStripeSetupIntentRequest> {
-  @override
-  final Iterable<Type> types = const [CreateStripeSetupIntentRequest, _$CreateStripeSetupIntentRequest];
+class _$CreateStripeSetupIntentRequestSerializer implements StructuredSerializer<CreateStripeSetupIntentRequest> {
+    @override
+    final Iterable<Type> types = const [CreateStripeSetupIntentRequest, _$CreateStripeSetupIntentRequest];
 
-  @override
-  final String wireName = r'CreateStripeSetupIntentRequest';
+    @override
+    final String wireName = r'CreateStripeSetupIntentRequest';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    CreateStripeSetupIntentRequest object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.returnUrl != null) {
-      yield r'return_url';
-      yield serializers.serialize(
-        object.returnUrl,
-        specifiedType: const FullType(String),
-      );
+    @override
+    Iterable<Object?> serialize(Serializers serializers, CreateStripeSetupIntentRequest object,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = <Object?>[];
+        if (object.returnUrl != null) {
+            result
+                ..add(r'return_url')
+                ..add(serializers.serialize(object.returnUrl,
+                    specifiedType: const FullType(String)));
+        }
+        return result;
     }
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    CreateStripeSetupIntentRequest object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+    @override
+    CreateStripeSetupIntentRequest deserialize(Serializers serializers, Iterable<Object?> serialized,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = CreateStripeSetupIntentRequestBuilder();
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required CreateStripeSetupIntentRequestBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'return_url':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.returnUrl = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+        final iterator = serialized.iterator;
+        while (iterator.moveNext()) {
+            final key = iterator.current as String;
+            iterator.moveNext();
+            final Object? value = iterator.current;
+            
+            switch (key) {
+                case r'return_url':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.returnUrl = valueDes;
+                    break;
+            }
+        }
+        return result.build();
     }
-  }
-
-  @override
-  CreateStripeSetupIntentRequest deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CreateStripeSetupIntentRequestBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
 }
 

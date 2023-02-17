@@ -16,7 +16,9 @@ Method | HTTP request | Description
 [**migrateLegacyAuth**](AuthApi.md#migratelegacyauth) | **GET** /legacy/auth/ | Legacy auth migration
 [**obtainToken**](AuthApi.md#obtaintoken) | **GET** /auth/token/obtain/ | Obtain JWT token
 [**revokeAccessTokenRequest**](AuthApi.md#revokeaccesstokenrequest) | **POST** /auth/access-token-requests/{requestID}/revoke/ | Revoke access token request
+[**updateUserPhoto**](AuthApi.md#updateuserphoto) | **PATCH** /auth/profile/photo/ | Update profile photo
 [**updateUserProfile**](AuthApi.md#updateuserprofile) | **PATCH** /auth/profile/ | Update profile
+[**userPhoto**](AuthApi.md#userphoto) | **GET** /auth/profile/photo/ | Photo
 [**userProfile**](AuthApi.md#userprofile) | **GET** /auth/profile/ | Profile
 [**whoAmI**](AuthApi.md#whoami) | **GET** /auth/whoami/ | Who am I
 
@@ -321,6 +323,50 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **updateUserPhoto**
+> UserPhoto updateUserPhoto(userPhoto)
+
+Update profile photo
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getAuthApi();
+final UserPhoto userPhoto = ; // UserPhoto | 
+
+try {
+    final response = api.updateUserPhoto(userPhoto);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->updateUserPhoto: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userPhoto** | [**UserPhoto**](UserPhoto.md)|  | [optional] 
+
+### Return type
+
+[**UserPhoto**](UserPhoto.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateUserProfile**
 > User updateUserProfile(user)
 
@@ -361,6 +407,46 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userPhoto**
+> UserPhoto userPhoto()
+
+Photo
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getAuthApi();
+
+try {
+    final response = api.userPhoto();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->userPhoto: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UserPhoto**](UserPhoto.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -4,8 +4,6 @@
 
 // ignore_for_file: unused_import
 
-import 'package:one_of_serializer/any_of_serializer.dart';
-import 'package:one_of_serializer/one_of_serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
@@ -15,6 +13,7 @@ import 'package:forestvpn_api/src/date_serializer.dart';
 import 'package:forestvpn_api/src/model/date.dart';
 
 import 'package:forestvpn_api/src/model/access_token_request.dart';
+import 'package:forestvpn_api/src/model/access_token_request_user_agent.dart';
 import 'package:forestvpn_api/src/model/ad_placement.dart';
 import 'package:forestvpn_api/src/model/ad_provider.dart';
 import 'package:forestvpn_api/src/model/ad_reward.dart';
@@ -22,6 +21,7 @@ import 'package:forestvpn_api/src/model/ad_unit.dart';
 import 'package:forestvpn_api/src/model/aggregated_data_usage_stats.dart';
 import 'package:forestvpn_api/src/model/app_store_receipt_verification_request.dart';
 import 'package:forestvpn_api/src/model/billing_account.dart';
+import 'package:forestvpn_api/src/model/billing_account_default_payment_method.dart';
 import 'package:forestvpn_api/src/model/billing_feature.dart';
 import 'package:forestvpn_api/src/model/bundle.dart';
 import 'package:forestvpn_api/src/model/checkout_session.dart';
@@ -59,6 +59,7 @@ import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
+import 'package:forestvpn_api/src/model/media_response.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_all_list.dart';
@@ -79,6 +80,7 @@ import 'package:forestvpn_api/src/model/stripe_payment_intent.dart';
 import 'package:forestvpn_api/src/model/stripe_setup_intent.dart';
 import 'package:forestvpn_api/src/model/subscription.dart';
 import 'package:forestvpn_api/src/model/subscription_item.dart';
+import 'package:forestvpn_api/src/model/subscription_item_price.dart';
 import 'package:forestvpn_api/src/model/subscription_source.dart';
 import 'package:forestvpn_api/src/model/subscription_status.dart';
 import 'package:forestvpn_api/src/model/ticket_category.dart';
@@ -92,6 +94,7 @@ import 'package:forestvpn_api/src/model/user_agent_browser.dart';
 import 'package:forestvpn_api/src/model/user_agent_device.dart';
 import 'package:forestvpn_api/src/model/user_agent_os.dart';
 import 'package:forestvpn_api/src/model/user_device.dart';
+import 'package:forestvpn_api/src/model/user_photo.dart';
 import 'package:forestvpn_api/src/model/wire_guard.dart';
 import 'package:forestvpn_api/src/model/wire_guard_peer.dart';
 import 'package:forestvpn_api/src/model/wire_guard_peer_device.dart';
@@ -102,6 +105,7 @@ part 'serializers.g.dart';
 
 @SerializersFor([
   AccessTokenRequest,
+  AccessTokenRequestUserAgent,
   AdPlacement,
   AdProvider,
   AdReward,
@@ -109,6 +113,7 @@ part 'serializers.g.dart';
   AggregatedDataUsageStats,
   AppStoreReceiptVerificationRequest,
   BillingAccount,
+  BillingAccountDefaultPaymentMethod,
   BillingFeature,
   Bundle,
   CheckoutSession,
@@ -146,6 +151,7 @@ part 'serializers.g.dart';
   FriendshipInvitation,
   LegacyAuthMigrationToken,
   Location,
+  MediaResponse,
   NetworkService,
   Notification,
   NotificationAllList,
@@ -166,6 +172,7 @@ part 'serializers.g.dart';
   StripeSetupIntent,
   Subscription,
   SubscriptionItem,
+  SubscriptionItemPrice,
   SubscriptionSource,
   SubscriptionStatus,
   TicketCategory,
@@ -179,6 +186,7 @@ part 'serializers.g.dart';
   UserAgentDevice,
   UserAgentOs,
   UserDevice,
+  UserPhoto,
   WireGuard,
   WireGuardPeer,
   WireGuardPeerDevice,
@@ -278,8 +286,6 @@ Serializers serializers = (_$serializers.toBuilder()
         const FullType(BuiltList, [FullType(WireGuardPeerInfo)]),
         () => ListBuilder<WireGuardPeerInfo>(),
       )
-      ..add(const OneOfSerializer())
-      ..add(const AnyOfSerializer())
       ..add(const DateSerializer())
       ..add(Iso8601DateTimeSerializer()))
     .build();

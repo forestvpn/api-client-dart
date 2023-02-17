@@ -9,7 +9,7 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**price** | [**Price**](Price.md) |  | 
+**price** | [**SubscriptionItemPrice**](SubscriptionItemPrice.md) |  | 
 **priceId** | **String** |  | 
 **quantity** | **int** |  | 
 
