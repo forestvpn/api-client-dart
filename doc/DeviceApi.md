@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**getDevice**](DeviceApi.md#getdevice) | **GET** /devices/{deviceID}/ | Device Info
 [**getDeviceStats**](DeviceApi.md#getdevicestats) | **GET** /devices/{deviceID}/stats/{statsID}/ | Device&#39;s stats detail
 [**getDeviceWireGuard**](DeviceApi.md#getdevicewireguard) | **GET** /devices/{deviceID}/wireguards/{wireGuardID}/ | Device&#39;s wireguard profile detail
+[**getWireGuardConf**](DeviceApi.md#getwireguardconf) | **GET** /devices/{deviceID}/wireguard.conf | Wireguard conf
 [**listDeviceBindings**](DeviceApi.md#listdevicebindings) | **GET** /devices/{deviceID}/bindings/ | Device bindings
 [**listDeviceConnectionModes**](DeviceApi.md#listdeviceconnectionmodes) | **GET** /devices/{deviceID}/connection-modes/ | Device connection modes
 [**listDeviceDetailStats**](DeviceApi.md#listdevicedetailstats) | **GET** /devices/{deviceID}/detail-stats/ | Device&#39;s detail stats list
@@ -349,6 +350,52 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getWireGuardConf**
+> String getWireGuardConf(deviceID)
+
+Wireguard conf
+
+Wireguard conf as plain text 
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getDeviceApi();
+final String deviceID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+
+try {
+    final response = api.getWireGuardConf(deviceID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DeviceApi->getWireGuardConf: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceID** | **String**|  | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

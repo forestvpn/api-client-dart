@@ -7,26 +7,23 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/api_util.dart';
 import 'package:forestvpn_api/src/model/error.dart';
-import 'package:forestvpn_api/src/model/ticket_category.dart';
+import 'package:forestvpn_api/src/model/media_response.dart';
 
-class SupportApi {
+class FilesApi {
 
   final Dio _dio;
 
   final Serializers _serializers;
 
-  const SupportApi(this._dio, this._serializers);
+  const FilesApi(this._dio, this._serializers);
 
-  /// Create support ticket
+  /// Upload a file
   /// 
   ///
   /// Parameters:
-  /// * [text] 
-  /// * [category] - Ticket category's slug
-  /// * [files] 
+  /// * [file] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -34,12 +31,10 @@ class SupportApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future]
+  /// Returns a [Future] containing a [Response] with a [MediaResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> createSupportTicket({ 
-    required String text,
-    required String category,
-    BuiltList<MultipartFile>? files,
+  Future<Response<MediaResponse>> fileUpload({ 
+    required MultipartFile file,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -47,7 +42,7 @@ class SupportApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/support/tickets/';
+    final _path = r'/files/';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -71,9 +66,7 @@ class SupportApi {
 
     try {
       _bodyData = FormData.fromMap(<String, dynamic>{
-        r'text': encodeFormParameter(_serializers, text, const FullType(String)),
-        r'category': encodeFormParameter(_serializers, category, const FullType(String)),
-        if (files != null) r'files': files.toList(),
+        r'file': file,
       });
 
     } catch(error, stackTrace) {
@@ -96,65 +89,14 @@ class SupportApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    return _response;
-  }
-
-  /// Get ticket categories
-  /// 
-  ///
-  /// Parameters:
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<TicketCategory>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<TicketCategory>>> getSupportTicketCategory({ 
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/support/ticket-categories/';
-    final _options = Options(
-      method: r'GET',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'bearerAuth',
-          },
-        ],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    BuiltList<TicketCategory> _responseData;
+    MediaResponse _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(TicketCategory)]);
+      const _responseType = FullType(MediaResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as BuiltList<TicketCategory>;
+      ) as MediaResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -165,7 +107,7 @@ class SupportApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<BuiltList<TicketCategory>>(
+    return Response<MediaResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

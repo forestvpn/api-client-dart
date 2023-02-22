@@ -18,6 +18,7 @@ import 'package:forestvpn_api/src/api/billing_api.dart';
 import 'package:forestvpn_api/src/api/checkout_api.dart';
 import 'package:forestvpn_api/src/api/device_api.dart';
 import 'package:forestvpn_api/src/api/fcm_api.dart';
+import 'package:forestvpn_api/src/api/files_api.dart';
 import 'package:forestvpn_api/src/api/friendship_api.dart';
 import 'package:forestvpn_api/src/api/geo_api.dart';
 import 'package:forestvpn_api/src/api/google_api.dart';
@@ -131,6 +132,12 @@ class ForestvpnApi {
   /// by doing that all interceptors will not be executed
   FcmApi getFcmApi() {
     return FcmApi(dio, serializers);
+  }
+
+  /// Get FilesApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  FilesApi getFilesApi() {
+    return FilesApi(dio, serializers);
   }
 
   /// Get FriendshipApi instance, base route and serializer can be overridden by a given but be careful,

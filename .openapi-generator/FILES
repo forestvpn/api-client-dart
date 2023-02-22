@@ -52,6 +52,7 @@ doc/Environment.md
 doc/Error.md
 doc/FCMDevice.md
 doc/FcmApi.md
+doc/FilesApi.md
 doc/Friendship.md
 doc/FriendshipApi.md
 doc/FriendshipInvitation.md
@@ -59,6 +60,7 @@ doc/GeoApi.md
 doc/GoogleApi.md
 doc/LegacyAuthMigrationToken.md
 doc/Location.md
+doc/Media.md
 doc/MediaResponse.md
 doc/NetworkService.md
 doc/Notification.md
@@ -97,6 +99,7 @@ doc/UserAgentDevice.md
 doc/UserAgentOs.md
 doc/UserDevice.md
 doc/UserPhoto.md
+doc/UserPhotoPhoto.md
 doc/WireGuard.md
 doc/WireGuardPeer.md
 doc/WireGuardPeerDevice.md
@@ -114,6 +117,7 @@ lib/src/api/billing_api.dart
 lib/src/api/checkout_api.dart
 lib/src/api/device_api.dart
 lib/src/api/fcm_api.dart
+lib/src/api/files_api.dart
 lib/src/api/friendship_api.dart
 lib/src/api/geo_api.dart
 lib/src/api/google_api.dart
@@ -175,6 +179,7 @@ lib/src/model/friendship.dart
 lib/src/model/friendship_invitation.dart
 lib/src/model/legacy_auth_migration_token.dart
 lib/src/model/location.dart
+lib/src/model/media.dart
 lib/src/model/media_response.dart
 lib/src/model/network_service.dart
 lib/src/model/notification.dart
@@ -211,6 +216,7 @@ lib/src/model/user_agent_device.dart
 lib/src/model/user_agent_os.dart
 lib/src/model/user_device.dart
 lib/src/model/user_photo.dart
+lib/src/model/user_photo_photo.dart
 lib/src/model/wire_guard.dart
 lib/src/model/wire_guard_peer.dart
 lib/src/model/wire_guard_peer_device.dart
@@ -218,8 +224,6 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/access_token_request_user_agent_test.dart
-test/billing_account_default_payment_method_test.dart
-test/media_response_test.dart
-test/subscription_item_price_test.dart
-test/user_photo_test.dart
+test/files_api_test.dart
+test/media_test.dart
+test/user_photo_photo_test.dart

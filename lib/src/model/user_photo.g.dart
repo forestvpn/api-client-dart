@@ -6,75 +6,16 @@ part of 'user_photo.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const UserPhotoPhotoTypeEnum _$userPhotoPhotoTypeEnum_firebase =
-    const UserPhotoPhotoTypeEnum._('firebase');
-const UserPhotoPhotoTypeEnum _$userPhotoPhotoTypeEnum_custom =
-    const UserPhotoPhotoTypeEnum._('custom');
-
-UserPhotoPhotoTypeEnum _$userPhotoPhotoTypeEnumValueOf(String name) {
-  switch (name) {
-    case 'firebase':
-      return _$userPhotoPhotoTypeEnum_firebase;
-    case 'custom':
-      return _$userPhotoPhotoTypeEnum_custom;
-    default:
-      throw new ArgumentError(name);
-  }
-}
-
-final BuiltSet<UserPhotoPhotoTypeEnum> _$userPhotoPhotoTypeEnumValues =
-    new BuiltSet<UserPhotoPhotoTypeEnum>(const <UserPhotoPhotoTypeEnum>[
-  _$userPhotoPhotoTypeEnum_firebase,
-  _$userPhotoPhotoTypeEnum_custom,
-]);
-
-Serializer<UserPhotoPhotoTypeEnum> _$userPhotoPhotoTypeEnumSerializer =
-    new _$UserPhotoPhotoTypeEnumSerializer();
-
-class _$UserPhotoPhotoTypeEnumSerializer
-    implements PrimitiveSerializer<UserPhotoPhotoTypeEnum> {
-  static const Map<String, Object> _toWire = const <String, Object>{
-    'firebase': 'firebase',
-    'custom': 'custom',
-  };
-  static const Map<Object, String> _fromWire = const <Object, String>{
-    'firebase': 'firebase',
-    'custom': 'custom',
-  };
-
-  @override
-  final Iterable<Type> types = const <Type>[UserPhotoPhotoTypeEnum];
-  @override
-  final String wireName = 'UserPhotoPhotoTypeEnum';
-
-  @override
-  Object serialize(Serializers serializers, UserPhotoPhotoTypeEnum object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      _toWire[object.name] ?? object.name;
-
-  @override
-  UserPhotoPhotoTypeEnum deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      UserPhotoPhotoTypeEnum.valueOf(
-          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
-}
-
 class _$UserPhoto extends UserPhoto {
   @override
-  final String id;
+  final UserPhotoPhoto? photo;
   @override
-  final String? photoUrl;
-  @override
-  final UserPhotoPhotoTypeEnum photoType;
+  final String? photoId;
 
   factory _$UserPhoto([void Function(UserPhotoBuilder)? updates]) =>
       (new UserPhotoBuilder()..update(updates))._build();
 
-  _$UserPhoto._({required this.id, this.photoUrl, required this.photoType})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'UserPhoto', 'id');
-    BuiltValueNullFieldError.checkNotNull(photoType, r'UserPhoto', 'photoType');
-  }
+  _$UserPhoto._({this.photo, this.photoId}) : super._();
 
   @override
   UserPhoto rebuild(void Function(UserPhotoBuilder) updates) =>
@@ -87,17 +28,15 @@ class _$UserPhoto extends UserPhoto {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is UserPhoto &&
-        id == other.id &&
-        photoUrl == other.photoUrl &&
-        photoType == other.photoType;
+        photo == other.photo &&
+        photoId == other.photoId;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, photoUrl.hashCode);
-    _$hash = $jc(_$hash, photoType.hashCode);
+    _$hash = $jc(_$hash, photo.hashCode);
+    _$hash = $jc(_$hash, photoId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -105,9 +44,8 @@ class _$UserPhoto extends UserPhoto {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'UserPhoto')
-          ..add('id', id)
-          ..add('photoUrl', photoUrl)
-          ..add('photoType', photoType))
+          ..add('photo', photo)
+          ..add('photoId', photoId))
         .toString();
   }
 }
@@ -115,18 +53,14 @@ class _$UserPhoto extends UserPhoto {
 class UserPhotoBuilder implements Builder<UserPhoto, UserPhotoBuilder> {
   _$UserPhoto? _$v;
 
-  String? _id;
-  String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  UserPhotoPhotoBuilder? _photo;
+  UserPhotoPhotoBuilder get photo =>
+      _$this._photo ??= new UserPhotoPhotoBuilder();
+  set photo(UserPhotoPhotoBuilder? photo) => _$this._photo = photo;
 
-  String? _photoUrl;
-  String? get photoUrl => _$this._photoUrl;
-  set photoUrl(String? photoUrl) => _$this._photoUrl = photoUrl;
-
-  UserPhotoPhotoTypeEnum? _photoType;
-  UserPhotoPhotoTypeEnum? get photoType => _$this._photoType;
-  set photoType(UserPhotoPhotoTypeEnum? photoType) =>
-      _$this._photoType = photoType;
+  String? _photoId;
+  String? get photoId => _$this._photoId;
+  set photoId(String? photoId) => _$this._photoId = photoId;
 
   UserPhotoBuilder() {
     UserPhoto._defaults(this);
@@ -135,9 +69,8 @@ class UserPhotoBuilder implements Builder<UserPhoto, UserPhotoBuilder> {
   UserPhotoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
-      _photoUrl = $v.photoUrl;
-      _photoType = $v.photoType;
+      _photo = $v.photo?.toBuilder();
+      _photoId = $v.photoId;
       _$v = null;
     }
     return this;
@@ -158,12 +91,21 @@ class UserPhotoBuilder implements Builder<UserPhoto, UserPhotoBuilder> {
   UserPhoto build() => _build();
 
   _$UserPhoto _build() {
-    final _$result = _$v ??
-        new _$UserPhoto._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'UserPhoto', 'id'),
-            photoUrl: photoUrl,
-            photoType: BuiltValueNullFieldError.checkNotNull(
-                photoType, r'UserPhoto', 'photoType'));
+    _$UserPhoto _$result;
+    try {
+      _$result =
+          _$v ?? new _$UserPhoto._(photo: _photo?.build(), photoId: photoId);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'photo';
+        _photo?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UserPhoto', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

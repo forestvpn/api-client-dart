@@ -2,7 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-import 'package:built_collection/built_collection.dart';
+import 'package:forestvpn_api/src/model/user_photo_photo.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,19 +11,14 @@ part 'user_photo.g.dart';
 /// UserPhoto
 ///
 /// Properties:
-/// * [id] 
-/// * [photoUrl] 
-/// * [photoType] 
+/// * [photo] 
+/// * [photoId] 
 abstract class UserPhoto implements Built<UserPhoto, UserPhotoBuilder> {
-    @BuiltValueField(wireName: r'id')
-    String get id;
+    @BuiltValueField(wireName: r'photo')
+    UserPhotoPhoto? get photo;
 
-    @BuiltValueField(wireName: r'photo_url')
-    String? get photoUrl;
-
-    @BuiltValueField(wireName: r'photo_type')
-    UserPhotoPhotoTypeEnum get photoType;
-    // enum photoTypeEnum {  firebase,  custom,  };
+    @BuiltValueField(wireName: r'photo_id')
+    String? get photoId;
 
     UserPhoto._();
 
@@ -47,20 +42,18 @@ class _$UserPhotoSerializer implements StructuredSerializer<UserPhoto> {
     Iterable<Object?> serialize(Serializers serializers, UserPhoto object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object?>[];
-        result
-            ..add(r'id')
-            ..add(serializers.serialize(object.id,
-                specifiedType: const FullType(String)));
-        if (object.photoUrl != null) {
+        if (object.photo != null) {
             result
-                ..add(r'photo_url')
-                ..add(serializers.serialize(object.photoUrl,
+                ..add(r'photo')
+                ..add(serializers.serialize(object.photo,
+                    specifiedType: const FullType(UserPhotoPhoto)));
+        }
+        if (object.photoId != null) {
+            result
+                ..add(r'photo_id')
+                ..add(serializers.serialize(object.photoId,
                     specifiedType: const FullType(String)));
         }
-        result
-            ..add(r'photo_type')
-            ..add(serializers.serialize(object.photoType,
-                specifiedType: const FullType(UserPhotoPhotoTypeEnum)));
         return result;
     }
 
@@ -76,39 +69,19 @@ class _$UserPhotoSerializer implements StructuredSerializer<UserPhoto> {
             final Object? value = iterator.current;
             
             switch (key) {
-                case r'id':
+                case r'photo':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(UserPhotoPhoto)) as UserPhotoPhoto;
+                    result.photo.replace(valueDes);
+                    break;
+                case r'photo_id':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
-                    result.id = valueDes;
-                    break;
-                case r'photo_url':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.photoUrl = valueDes;
-                    break;
-                case r'photo_type':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(UserPhotoPhotoTypeEnum)) as UserPhotoPhotoTypeEnum;
-                    result.photoType = valueDes;
+                    result.photoId = valueDes;
                     break;
             }
         }
         return result.build();
     }
-}
-
-class UserPhotoPhotoTypeEnum extends EnumClass {
-
-  @BuiltValueEnumConst(wireName: r'firebase')
-  static const UserPhotoPhotoTypeEnum firebase = _$userPhotoPhotoTypeEnum_firebase;
-  @BuiltValueEnumConst(wireName: r'custom')
-  static const UserPhotoPhotoTypeEnum custom = _$userPhotoPhotoTypeEnum_custom;
-
-  static Serializer<UserPhotoPhotoTypeEnum> get serializer => _$userPhotoPhotoTypeEnumSerializer;
-
-  const UserPhotoPhotoTypeEnum._(String name): super(name);
-
-  static BuiltSet<UserPhotoPhotoTypeEnum> get values => _$userPhotoPhotoTypeEnumValues;
-  static UserPhotoPhotoTypeEnum valueOf(String name) => _$userPhotoPhotoTypeEnumValueOf(name);
 }
 

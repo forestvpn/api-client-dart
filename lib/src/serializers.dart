@@ -59,6 +59,7 @@ import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
+import 'package:forestvpn_api/src/model/media.dart';
 import 'package:forestvpn_api/src/model/media_response.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
@@ -95,6 +96,7 @@ import 'package:forestvpn_api/src/model/user_agent_device.dart';
 import 'package:forestvpn_api/src/model/user_agent_os.dart';
 import 'package:forestvpn_api/src/model/user_device.dart';
 import 'package:forestvpn_api/src/model/user_photo.dart';
+import 'package:forestvpn_api/src/model/user_photo_photo.dart';
 import 'package:forestvpn_api/src/model/wire_guard.dart';
 import 'package:forestvpn_api/src/model/wire_guard_peer.dart';
 import 'package:forestvpn_api/src/model/wire_guard_peer_device.dart';
@@ -151,6 +153,7 @@ part 'serializers.g.dart';
   FriendshipInvitation,
   LegacyAuthMigrationToken,
   Location,
+  Media,
   MediaResponse,
   NetworkService,
   Notification,
@@ -187,6 +190,7 @@ part 'serializers.g.dart';
   UserAgentOs,
   UserDevice,
   UserPhoto,
+  UserPhotoPhoto,
   WireGuard,
   WireGuardPeer,
   WireGuardPeerDevice,
