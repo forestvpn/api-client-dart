@@ -3,13 +3,12 @@
 //
 
 import 'dart:typed_data';
-import 'package:forestvpn_api/src/model/file.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'user_photo_photo.g.dart';
+part 'file.g.dart';
 
-/// UserPhotoPhoto
+/// File
 ///
 /// Properties:
 /// * [id] - an unique file id which can be used for any goals
@@ -17,7 +16,7 @@ part 'user_photo_photo.g.dart';
 /// * [url] 
 /// * [mimetype] 
 /// * [size] 
-abstract class UserPhotoPhoto implements Built<UserPhotoPhoto, UserPhotoPhotoBuilder> {
+abstract class File implements Built<File, FileBuilder> {
     /// an unique file id which can be used for any goals
     @BuiltValueField(wireName: r'id')
     String get id;
@@ -34,26 +33,26 @@ abstract class UserPhotoPhoto implements Built<UserPhotoPhoto, UserPhotoPhotoBui
     @BuiltValueField(wireName: r'size')
     num get size;
 
-    UserPhotoPhoto._();
+    File._();
 
     @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(UserPhotoPhotoBuilder b) => b;
+    static void _defaults(FileBuilder b) => b;
 
-    factory UserPhotoPhoto([void updates(UserPhotoPhotoBuilder b)]) = _$UserPhotoPhoto;
+    factory File([void updates(FileBuilder b)]) = _$File;
 
     @BuiltValueSerializer(custom: true)
-    static Serializer<UserPhotoPhoto> get serializer => _$UserPhotoPhotoSerializer();
+    static Serializer<File> get serializer => _$FileSerializer();
 }
 
-class _$UserPhotoPhotoSerializer implements StructuredSerializer<UserPhotoPhoto> {
+class _$FileSerializer implements StructuredSerializer<File> {
     @override
-    final Iterable<Type> types = const [UserPhotoPhoto, _$UserPhotoPhoto];
+    final Iterable<Type> types = const [File, _$File];
 
     @override
-    final String wireName = r'UserPhotoPhoto';
+    final String wireName = r'File';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, UserPhotoPhoto object,
+    Iterable<Object?> serialize(Serializers serializers, File object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object?>[];
         result
@@ -82,9 +81,9 @@ class _$UserPhotoPhotoSerializer implements StructuredSerializer<UserPhotoPhoto>
     }
 
     @override
-    UserPhotoPhoto deserialize(Serializers serializers, Iterable<Object?> serialized,
+    File deserialize(Serializers serializers, Iterable<Object?> serialized,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = UserPhotoPhotoBuilder();
+        final result = FileBuilder();
 
         final iterator = serialized.iterator;
         while (iterator.moveNext()) {

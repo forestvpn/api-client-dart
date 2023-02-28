@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.7.6] - 2023-28-02
+
+### Changes
+
+- FilesApi
+- ProfilePhotoApi
+
+
 ## [3.7.4] - 2023-22-02
 
 ### Changes

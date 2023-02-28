@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_photo_photo.dart';
+part of 'file.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$UserPhotoPhoto extends UserPhotoPhoto {
+class _$File extends File {
   @override
   final String id;
   @override
@@ -18,35 +18,33 @@ class _$UserPhotoPhoto extends UserPhotoPhoto {
   @override
   final num size;
 
-  factory _$UserPhotoPhoto([void Function(UserPhotoPhotoBuilder)? updates]) =>
-      (new UserPhotoPhotoBuilder()..update(updates))._build();
+  factory _$File([void Function(FileBuilder)? updates]) =>
+      (new FileBuilder()..update(updates))._build();
 
-  _$UserPhotoPhoto._(
+  _$File._(
       {required this.id,
       required this.data,
       this.url,
       required this.mimetype,
       required this.size})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'UserPhotoPhoto', 'id');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserPhotoPhoto', 'data');
-    BuiltValueNullFieldError.checkNotNull(
-        mimetype, r'UserPhotoPhoto', 'mimetype');
-    BuiltValueNullFieldError.checkNotNull(size, r'UserPhotoPhoto', 'size');
+    BuiltValueNullFieldError.checkNotNull(id, r'File', 'id');
+    BuiltValueNullFieldError.checkNotNull(data, r'File', 'data');
+    BuiltValueNullFieldError.checkNotNull(mimetype, r'File', 'mimetype');
+    BuiltValueNullFieldError.checkNotNull(size, r'File', 'size');
   }
 
   @override
-  UserPhotoPhoto rebuild(void Function(UserPhotoPhotoBuilder) updates) =>
+  File rebuild(void Function(FileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserPhotoPhotoBuilder toBuilder() =>
-      new UserPhotoPhotoBuilder()..replace(this);
+  FileBuilder toBuilder() => new FileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserPhotoPhoto &&
+    return other is File &&
         id == other.id &&
         data == other.data &&
         url == other.url &&
@@ -68,7 +66,7 @@ class _$UserPhotoPhoto extends UserPhotoPhoto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserPhotoPhoto')
+    return (newBuiltValueToStringHelper(r'File')
           ..add('id', id)
           ..add('data', data)
           ..add('url', url)
@@ -78,9 +76,8 @@ class _$UserPhotoPhoto extends UserPhotoPhoto {
   }
 }
 
-class UserPhotoPhotoBuilder
-    implements Builder<UserPhotoPhoto, UserPhotoPhotoBuilder> {
-  _$UserPhotoPhoto? _$v;
+class FileBuilder implements Builder<File, FileBuilder> {
+  _$File? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -102,11 +99,11 @@ class UserPhotoPhotoBuilder
   num? get size => _$this._size;
   set size(num? size) => _$this._size = size;
 
-  UserPhotoPhotoBuilder() {
-    UserPhotoPhoto._defaults(this);
+  FileBuilder() {
+    File._defaults(this);
   }
 
-  UserPhotoPhotoBuilder get _$this {
+  FileBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -120,31 +117,28 @@ class UserPhotoPhotoBuilder
   }
 
   @override
-  void replace(UserPhotoPhoto other) {
+  void replace(File other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserPhotoPhoto;
+    _$v = other as _$File;
   }
 
   @override
-  void update(void Function(UserPhotoPhotoBuilder)? updates) {
+  void update(void Function(FileBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UserPhotoPhoto build() => _build();
+  File build() => _build();
 
-  _$UserPhotoPhoto _build() {
+  _$File _build() {
     final _$result = _$v ??
-        new _$UserPhotoPhoto._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'UserPhotoPhoto', 'id'),
-            data: BuiltValueNullFieldError.checkNotNull(
-                data, r'UserPhotoPhoto', 'data'),
+        new _$File._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'File', 'id'),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'File', 'data'),
             url: url,
             mimetype: BuiltValueNullFieldError.checkNotNull(
-                mimetype, r'UserPhotoPhoto', 'mimetype'),
-            size: BuiltValueNullFieldError.checkNotNull(
-                size, r'UserPhotoPhoto', 'size'));
+                mimetype, r'File', 'mimetype'),
+            size: BuiltValueNullFieldError.checkNotNull(size, r'File', 'size'));
     replace(_$result);
     return _$result;
   }

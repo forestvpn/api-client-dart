@@ -1,4 +1,4 @@
-# forestvpn_api.model.UserPhotoPhoto
+# forestvpn_api.model.File
 
 ## Load the model package
 ```dart

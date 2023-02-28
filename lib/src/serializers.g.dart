@@ -15,8 +15,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AdReward.serializer)
       ..add(AdUnit.serializer)
       ..add(AdUnitFormatEnum.serializer)
+      ..add(AdvertisedRoute.serializer)
       ..add(AggregatedDataUsageStats.serializer)
       ..add(AppStoreReceiptVerificationRequest.serializer)
+      ..add(Architecture.serializer)
       ..add(BillingAccount.serializer)
       ..add(BillingAccountDefaultPaymentMethod.serializer)
       ..add(BillingFeature.serializer)
@@ -28,6 +30,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(CloudPaymentsAuth.serializer)
       ..add(CloudPaymentsPost3ds.serializer)
       ..add(CloudPaymentsSecure3d.serializer)
+      ..add(Code.serializer)
       ..add(ConnectionMode.serializer)
       ..add(Constraint.serializer)
       ..add(Country.serializer)
@@ -54,12 +57,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Environment.serializer)
       ..add(Error.serializer)
       ..add(FCMDevice.serializer)
+      ..add(File.serializer)
       ..add(Friendship.serializer)
       ..add(FriendshipInvitation.serializer)
+      ..add(FunctionEnvironment.serializer)
       ..add(LegacyAuthMigrationToken.serializer)
       ..add(Location.serializer)
-      ..add(Media.serializer)
-      ..add(MediaResponse.serializer)
+      ..add(ModelFunction.serializer)
       ..add(NetworkService.serializer)
       ..add(NetworkServiceProtoEnum.serializer)
       ..add(Notification.serializer)
@@ -108,6 +112,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AdUnit)]),
           () => new ListBuilder<AdUnit>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Architecture)]),
+          () => new ListBuilder<Architecture>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(CheckoutSessionProduct)]),
@@ -158,6 +165,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(WireGuardPeer)]),
           () => new ListBuilder<WireGuardPeer>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(String)]),
+          () => new MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),

@@ -18,8 +18,10 @@ import 'package:forestvpn_api/src/model/ad_placement.dart';
 import 'package:forestvpn_api/src/model/ad_provider.dart';
 import 'package:forestvpn_api/src/model/ad_reward.dart';
 import 'package:forestvpn_api/src/model/ad_unit.dart';
+import 'package:forestvpn_api/src/model/advertised_route.dart';
 import 'package:forestvpn_api/src/model/aggregated_data_usage_stats.dart';
 import 'package:forestvpn_api/src/model/app_store_receipt_verification_request.dart';
+import 'package:forestvpn_api/src/model/architecture.dart';
 import 'package:forestvpn_api/src/model/billing_account.dart';
 import 'package:forestvpn_api/src/model/billing_account_default_payment_method.dart';
 import 'package:forestvpn_api/src/model/billing_feature.dart';
@@ -29,6 +31,7 @@ import 'package:forestvpn_api/src/model/checkout_session_product.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_auth.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_post3ds.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_secure3d.dart';
+import 'package:forestvpn_api/src/model/code.dart';
 import 'package:forestvpn_api/src/model/connection_mode.dart';
 import 'package:forestvpn_api/src/model/constraint.dart';
 import 'package:forestvpn_api/src/model/country.dart';
@@ -55,12 +58,13 @@ import 'package:forestvpn_api/src/model/discount.dart';
 import 'package:forestvpn_api/src/model/environment.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/fcm_device.dart';
+import 'package:forestvpn_api/src/model/file.dart';
 import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
+import 'package:forestvpn_api/src/model/function_environment.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
-import 'package:forestvpn_api/src/model/media.dart';
-import 'package:forestvpn_api/src/model/media_response.dart';
+import 'package:forestvpn_api/src/model/model_function.dart';
 import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_all_list.dart';
@@ -112,8 +116,10 @@ part 'serializers.g.dart';
   AdProvider,
   AdReward,
   AdUnit,
+  AdvertisedRoute,
   AggregatedDataUsageStats,
   AppStoreReceiptVerificationRequest,
+  Architecture,
   BillingAccount,
   BillingAccountDefaultPaymentMethod,
   BillingFeature,
@@ -123,6 +129,7 @@ part 'serializers.g.dart';
   CloudPaymentsAuth,
   CloudPaymentsPost3ds,
   CloudPaymentsSecure3d,
+  Code,
   ConnectionMode,
   Constraint,
   Country,
@@ -149,12 +156,13 @@ part 'serializers.g.dart';
   Environment,
   Error,
   FCMDevice,
+  File,
   Friendship,
   FriendshipInvitation,
+  FunctionEnvironment,
   LegacyAuthMigrationToken,
   Location,
-  Media,
-  MediaResponse,
+  ModelFunction,
   NetworkService,
   Notification,
   NotificationAllList,
@@ -285,6 +293,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(String)]),
         () => ListBuilder<String>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(AdvertisedRoute)]),
+        () => ListBuilder<AdvertisedRoute>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(WireGuardPeerInfo)]),

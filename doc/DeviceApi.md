@@ -10,6 +10,7 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createDevice**](DeviceApi.md#createdevice) | **POST** /devices/ | Create new device
+[**createDeviceAvdertisedRoute**](DeviceApi.md#createdeviceavdertisedroute) | **POST** /devices/{deviceID}/advertised-routes/ | Create new device advertised routes
 [**createDevicePortForwarding**](DeviceApi.md#createdeviceportforwarding) | **POST** /devices/{deviceID}/port-forwarding/ | Create new device port forwarding
 [**deleteDevice**](DeviceApi.md#deletedevice) | **DELETE** /devices/{deviceID}/ | Delete Device
 [**deleteDevicePortForwarding**](DeviceApi.md#deletedeviceportforwarding) | **DELETE** /devices/{deviceID}/port-forwarding/{portForwardingID}/ | Delete Device&#39;s Port Forwarding
@@ -17,6 +18,7 @@ Method | HTTP request | Description
 [**getDeviceStats**](DeviceApi.md#getdevicestats) | **GET** /devices/{deviceID}/stats/{statsID}/ | Device&#39;s stats detail
 [**getDeviceWireGuard**](DeviceApi.md#getdevicewireguard) | **GET** /devices/{deviceID}/wireguards/{wireGuardID}/ | Device&#39;s wireguard profile detail
 [**getWireGuardConf**](DeviceApi.md#getwireguardconf) | **GET** /devices/{deviceID}/wireguard.conf | Wireguard conf
+[**listDeviceAdvertisedRoutes**](DeviceApi.md#listdeviceadvertisedroutes) | **GET** /devices/{deviceID}/advertised-routes/ | Device advertised routes List
 [**listDeviceBindings**](DeviceApi.md#listdevicebindings) | **GET** /devices/{deviceID}/bindings/ | Device bindings
 [**listDeviceConnectionModes**](DeviceApi.md#listdeviceconnectionmodes) | **GET** /devices/{deviceID}/connection-modes/ | Device connection modes
 [**listDeviceDetailStats**](DeviceApi.md#listdevicedetailstats) | **GET** /devices/{deviceID}/detail-stats/ | Device&#39;s detail stats list
@@ -63,6 +65,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Device**](Device.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createDeviceAvdertisedRoute**
+> AdvertisedRoute createDeviceAvdertisedRoute(deviceID, advertisedRoute)
+
+Create new device advertised routes
+
+Create new device avdertised route 
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getDeviceApi();
+final String deviceID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final AdvertisedRoute advertisedRoute = ; // AdvertisedRoute | 
+
+try {
+    final response = api.createDeviceAvdertisedRoute(deviceID, advertisedRoute);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DeviceApi->createDeviceAvdertisedRoute: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceID** | **String**|  | 
+ **advertisedRoute** | [**AdvertisedRoute**](AdvertisedRoute.md)|  | [optional] 
+
+### Return type
+
+[**AdvertisedRoute**](AdvertisedRoute.md)
 
 ### Authorization
 
@@ -396,6 +446,56 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listDeviceAdvertisedRoutes**
+> BuiltList<AdvertisedRoute> listDeviceAdvertisedRoutes(deviceID, perPage, page)
+
+Device advertised routes List
+
+Retrieve device's advertised routes list 
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getDeviceApi();
+final String deviceID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
+
+try {
+    final response = api.listDeviceAdvertisedRoutes(deviceID, perPage, page);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DeviceApi->listDeviceAdvertisedRoutes: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceID** | **String**|  | 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
+
+### Return type
+
+[**BuiltList&lt;AdvertisedRoute&gt;**](AdvertisedRoute.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
