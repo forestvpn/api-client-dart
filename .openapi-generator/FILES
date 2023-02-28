@@ -232,10 +232,3 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/advertised_route_test.dart
-test/architecture_test.dart
-test/code_test.dart
-test/file_test.dart
-test/function_environment_test.dart
-test/media_api_test.dart
-test/model_function_test.dart
