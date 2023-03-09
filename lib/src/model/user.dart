@@ -24,6 +24,8 @@ part 'user.g.dart';
 /// * [country] 
 /// * [currencyCode] 
 /// * [environments] 
+/// * [ref] 
+/// * [registrationRef] 
 abstract class User implements Built<User, UserBuilder> {
     @BuiltValueField(wireName: r'id')
     String get id;
@@ -60,6 +62,12 @@ abstract class User implements Built<User, UserBuilder> {
 
     @BuiltValueField(wireName: r'environments')
     BuiltList<Environment>? get environments;
+
+    @BuiltValueField(wireName: r'ref')
+    String? get ref;
+
+    @BuiltValueField(wireName: r'registration_ref')
+    String? get registrationRef;
 
     User._();
 
@@ -151,6 +159,18 @@ class _$UserSerializer implements StructuredSerializer<User> {
                 ..add(serializers.serialize(object.environments,
                     specifiedType: const FullType.nullable(BuiltList, [FullType(Environment)])));
         }
+        if (object.ref != null) {
+            result
+                ..add(r'ref')
+                ..add(serializers.serialize(object.ref,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.registrationRef != null) {
+            result
+                ..add(r'registration_ref')
+                ..add(serializers.serialize(object.registrationRef,
+                    specifiedType: const FullType(String)));
+        }
         return result;
     }
 
@@ -226,6 +246,16 @@ class _$UserSerializer implements StructuredSerializer<User> {
                         specifiedType: const FullType.nullable(BuiltList, [FullType(Environment)])) as BuiltList<Environment>?;
                     if (valueDes == null) continue;
                     result.environments.replace(valueDes);
+                    break;
+                case r'ref':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.ref = valueDes;
+                    break;
+                case r'registration_ref':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.registrationRef = valueDes;
                     break;
             }
         }

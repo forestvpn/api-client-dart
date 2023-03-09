@@ -23,11 +23,7 @@ class MediaApi {
   /// 
   ///
   /// Parameters:
-  /// * [id] - an unique file id which can be used for any goals
   /// * [data] 
-  /// * [mimetype] 
-  /// * [size] 
-  /// * [url] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -38,11 +34,7 @@ class MediaApi {
   /// Returns a [Future] containing a [Response] with a [File] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<File>> fileUpload({ 
-    required String id,
     required MultipartFile data,
-    required String mimetype,
-    required num size,
-    String? url,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -74,11 +66,7 @@ class MediaApi {
 
     try {
       _bodyData = FormData.fromMap(<String, dynamic>{
-        r'id': encodeFormParameter(_serializers, id, const FullType(String)),
         r'data': data,
-        if (url != null) r'url': encodeFormParameter(_serializers, url, const FullType(String)),
-        r'mimetype': encodeFormParameter(_serializers, mimetype, const FullType(String)),
-        r'size': encodeFormParameter(_serializers, size, const FullType(num)),
       });
 
     } catch(error, stackTrace) {

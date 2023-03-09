@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.7.8] - 2023-09-03
+
+### Changes
+
+- LoyaltyProgramApi
+- NotificationsApi
+
+
 ## [3.7.6] - 2023-28-02
 
 ### Changes

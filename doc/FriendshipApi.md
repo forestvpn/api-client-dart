@@ -9,103 +9,12 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**acceptFriendshipInvitation**](FriendshipApi.md#acceptfriendshipinvitation) | **PATCH** /friendship/invitations/{code}/ | Accept friendship invitation
-[**createFriendshipInvitation**](FriendshipApi.md#createfriendshipinvitation) | **POST** /friendship/invitations/ | Create friendship invitation
 [**deleteFriend**](FriendshipApi.md#deletefriend) | **DELETE** /friendship/friends/{id}/ | Delete friend
 [**getFriend**](FriendshipApi.md#getfriend) | **GET** /friendship/friends/{id}/ | Friend details
-[**getFriendshipInvitation**](FriendshipApi.md#getfriendshipinvitation) | **GET** /friendship/invitations/{code}/ | Friendship invitation details
+[**getInvitation**](FriendshipApi.md#getinvitation) | **GET** /friendship/invitations/{invitationID}/ | Ivitation detail
 [**listFriends**](FriendshipApi.md#listfriends) | **GET** /friendship/friends/ | Get friends list
-[**rejectFriendshipInvitation**](FriendshipApi.md#rejectfriendshipinvitation) | **DELETE** /friendship/invitations/{code}/ | Reject friendship invitation
+[**listFriendshipInvitation**](FriendshipApi.md#listfriendshipinvitation) | **GET** /friendship/invitations/ | Friendship invitations list
 
-
-# **acceptFriendshipInvitation**
-> acceptFriendshipInvitation(code)
-
-Accept friendship invitation
-
-### Example
-```dart
-import 'package:forestvpn_api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-
-final api = ForestvpnApi().getFriendshipApi();
-final String code = code_example; // String | 
-
-try {
-    api.acceptFriendshipInvitation(code);
-} catch on DioError (e) {
-    print('Exception when calling FriendshipApi->acceptFriendshipInvitation: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **code** | **String**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **createFriendshipInvitation**
-> FriendshipInvitation createFriendshipInvitation(perPage, page)
-
-Create friendship invitation
-
-### Example
-```dart
-import 'package:forestvpn_api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-
-final api = ForestvpnApi().getFriendshipApi();
-final int perPage = 56; // int | 
-final int page = 56; // int | 
-
-try {
-    final response = api.createFriendshipInvitation(perPage, page);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling FriendshipApi->createFriendshipInvitation: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **perPage** | **int**|  | [optional] 
- **page** | **int**|  | [optional] 
-
-### Return type
-
-[**FriendshipInvitation**](FriendshipInvitation.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteFriend**
 > deleteFriend(id)
@@ -194,10 +103,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getFriendshipInvitation**
-> FriendshipInvitation getFriendshipInvitation(code)
+# **getInvitation**
+> FriendshipInvitation getInvitation(invitationID)
 
-Friendship invitation details
+Ivitation detail
 
 ### Example
 ```dart
@@ -207,13 +116,13 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getFriendshipApi();
-final String code = code_example; // String | 
+final String invitationID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 
 try {
-    final response = api.getFriendshipInvitation(code);
+    final response = api.getInvitation(invitationID);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling FriendshipApi->getFriendshipInvitation: $e\n');
+    print('Exception when calling FriendshipApi->getInvitation: $e\n');
 }
 ```
 
@@ -221,7 +130,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**|  | 
+ **invitationID** | **String**|  | 
 
 ### Return type
 
@@ -284,10 +193,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rejectFriendshipInvitation**
-> rejectFriendshipInvitation(code)
+# **listFriendshipInvitation**
+> FriendshipInvitation listFriendshipInvitation()
 
-Reject friendship invitation
+Friendship invitations list
 
 ### Example
 ```dart
@@ -297,24 +206,21 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getFriendshipApi();
-final String code = code_example; // String | 
 
 try {
-    api.rejectFriendshipInvitation(code);
+    final response = api.listFriendshipInvitation();
+    print(response);
 } catch on DioError (e) {
-    print('Exception when calling FriendshipApi->rejectFriendshipInvitation: $e\n');
+    print('Exception when calling FriendshipApi->listFriendshipInvitation: $e\n');
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **code** | **String**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**FriendshipInvitation**](FriendshipInvitation.md)
 
 ### Authorization
 
