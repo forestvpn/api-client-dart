@@ -59,6 +59,7 @@ doc/File.md
 doc/Friendship.md
 doc/FriendshipApi.md
 doc/FriendshipInvitation.md
+doc/FriendshipInvitationList.md
 doc/FunctionEnvironment.md
 doc/GeoApi.md
 doc/GoogleApi.md
@@ -185,6 +186,7 @@ lib/src/model/fcm_device.dart
 lib/src/model/file.dart
 lib/src/model/friendship.dart
 lib/src/model/friendship_invitation.dart
+lib/src/model/friendship_invitation_list.dart
 lib/src/model/function_environment.dart
 lib/src/model/legacy_auth_migration_token.dart
 lib/src/model/location.dart
@@ -232,3 +234,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/friendship_invitation_list_test.dart

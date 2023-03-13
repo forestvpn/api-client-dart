@@ -11,22 +11,30 @@ part 'friendship_invitation.g.dart';
 /// FriendshipInvitation
 ///
 /// Properties:
-/// * [code] 
+/// * [invitationId] 
 /// * [user] 
-/// * [shareText] 
+/// * [friend] 
+/// * [bundleId] 
+/// * [isAccepted] 
 /// * [createdAt] 
 abstract class FriendshipInvitation implements Built<FriendshipInvitation, FriendshipInvitationBuilder> {
-    @BuiltValueField(wireName: r'code')
-    String get code;
+    @BuiltValueField(wireName: r'invitation_id')
+    String? get invitationId;
 
     @BuiltValueField(wireName: r'user')
-    User get user;
+    User? get user;
 
-    @BuiltValueField(wireName: r'share_text')
-    String get shareText;
+    @BuiltValueField(wireName: r'friend')
+    User? get friend;
+
+    @BuiltValueField(wireName: r'bundle_id')
+    String? get bundleId;
+
+    @BuiltValueField(wireName: r'is_accepted')
+    bool? get isAccepted;
 
     @BuiltValueField(wireName: r'created_at')
-    DateTime get createdAt;
+    DateTime? get createdAt;
 
     FriendshipInvitation._();
 
@@ -50,22 +58,42 @@ class _$FriendshipInvitationSerializer implements StructuredSerializer<Friendshi
     Iterable<Object?> serialize(Serializers serializers, FriendshipInvitation object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object?>[];
-        result
-            ..add(r'code')
-            ..add(serializers.serialize(object.code,
-                specifiedType: const FullType(String)));
-        result
-            ..add(r'user')
-            ..add(serializers.serialize(object.user,
-                specifiedType: const FullType(User)));
-        result
-            ..add(r'share_text')
-            ..add(serializers.serialize(object.shareText,
-                specifiedType: const FullType(String)));
-        result
-            ..add(r'created_at')
-            ..add(serializers.serialize(object.createdAt,
-                specifiedType: const FullType(DateTime)));
+        if (object.invitationId != null) {
+            result
+                ..add(r'invitation_id')
+                ..add(serializers.serialize(object.invitationId,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.user != null) {
+            result
+                ..add(r'user')
+                ..add(serializers.serialize(object.user,
+                    specifiedType: const FullType(User)));
+        }
+        if (object.friend != null) {
+            result
+                ..add(r'friend')
+                ..add(serializers.serialize(object.friend,
+                    specifiedType: const FullType(User)));
+        }
+        if (object.bundleId != null) {
+            result
+                ..add(r'bundle_id')
+                ..add(serializers.serialize(object.bundleId,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.isAccepted != null) {
+            result
+                ..add(r'is_accepted')
+                ..add(serializers.serialize(object.isAccepted,
+                    specifiedType: const FullType(bool)));
+        }
+        if (object.createdAt != null) {
+            result
+                ..add(r'created_at')
+                ..add(serializers.serialize(object.createdAt,
+                    specifiedType: const FullType(DateTime)));
+        }
         return result;
     }
 
@@ -81,20 +109,30 @@ class _$FriendshipInvitationSerializer implements StructuredSerializer<Friendshi
             final Object? value = iterator.current;
             
             switch (key) {
-                case r'code':
+                case r'invitation_id':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
-                    result.code = valueDes;
+                    result.invitationId = valueDes;
                     break;
                 case r'user':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(User)) as User;
                     result.user.replace(valueDes);
                     break;
-                case r'share_text':
+                case r'friend':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(User)) as User;
+                    result.friend.replace(valueDes);
+                    break;
+                case r'bundle_id':
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
-                    result.shareText = valueDes;
+                    result.bundleId = valueDes;
+                    break;
+                case r'is_accepted':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(bool)) as bool;
+                    result.isAccepted = valueDes;
                     break;
                 case r'created_at':
                     final valueDes = serializers.deserialize(value,

@@ -75,6 +75,7 @@ export 'package:forestvpn_api/src/model/fcm_device.dart';
 export 'package:forestvpn_api/src/model/file.dart';
 export 'package:forestvpn_api/src/model/friendship.dart';
 export 'package:forestvpn_api/src/model/friendship_invitation.dart';
+export 'package:forestvpn_api/src/model/friendship_invitation_list.dart';
 export 'package:forestvpn_api/src/model/function_environment.dart';
 export 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 export 'package:forestvpn_api/src/model/location.dart';

@@ -61,6 +61,7 @@ import 'package:forestvpn_api/src/model/fcm_device.dart';
 import 'package:forestvpn_api/src/model/file.dart';
 import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
+import 'package:forestvpn_api/src/model/friendship_invitation_list.dart';
 import 'package:forestvpn_api/src/model/function_environment.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
@@ -159,6 +160,7 @@ part 'serializers.g.dart';
   File,
   Friendship,
   FriendshipInvitation,
+  FriendshipInvitationList,
   FunctionEnvironment,
   LegacyAuthMigrationToken,
   Location,

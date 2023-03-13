@@ -26,6 +26,8 @@ part 'user.g.dart';
 /// * [environments] 
 /// * [ref] 
 /// * [registrationRef] 
+/// * [invites] 
+/// * [acceptedInvites] 
 abstract class User implements Built<User, UserBuilder> {
     @BuiltValueField(wireName: r'id')
     String get id;
@@ -68,6 +70,12 @@ abstract class User implements Built<User, UserBuilder> {
 
     @BuiltValueField(wireName: r'registration_ref')
     String? get registrationRef;
+
+    @BuiltValueField(wireName: r'invites')
+    String? get invites;
+
+    @BuiltValueField(wireName: r'accepted_invites')
+    String? get acceptedInvites;
 
     User._();
 
@@ -171,6 +179,18 @@ class _$UserSerializer implements StructuredSerializer<User> {
                 ..add(serializers.serialize(object.registrationRef,
                     specifiedType: const FullType(String)));
         }
+        if (object.invites != null) {
+            result
+                ..add(r'invites')
+                ..add(serializers.serialize(object.invites,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.acceptedInvites != null) {
+            result
+                ..add(r'accepted_invites')
+                ..add(serializers.serialize(object.acceptedInvites,
+                    specifiedType: const FullType(String)));
+        }
         return result;
     }
 
@@ -256,6 +276,16 @@ class _$UserSerializer implements StructuredSerializer<User> {
                     final valueDes = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     result.registrationRef = valueDes;
+                    break;
+                case r'invites':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.invites = valueDes;
+                    break;
+                case r'accepted_invites':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.acceptedInvites = valueDes;
                     break;
             }
         }

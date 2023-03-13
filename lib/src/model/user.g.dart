@@ -35,6 +35,10 @@ class _$User extends User {
   final String? ref;
   @override
   final String? registrationRef;
+  @override
+  final String? invites;
+  @override
+  final String? acceptedInvites;
 
   factory _$User([void Function(UserBuilder)? updates]) =>
       (new UserBuilder()..update(updates))._build();
@@ -53,7 +57,9 @@ class _$User extends User {
       this.currencyCode,
       this.environments,
       this.ref,
-      this.registrationRef})
+      this.registrationRef,
+      this.invites,
+      this.acceptedInvites})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
     BuiltValueNullFieldError.checkNotNull(username, r'User', 'username');
@@ -83,7 +89,9 @@ class _$User extends User {
         currencyCode == other.currencyCode &&
         environments == other.environments &&
         ref == other.ref &&
-        registrationRef == other.registrationRef;
+        registrationRef == other.registrationRef &&
+        invites == other.invites &&
+        acceptedInvites == other.acceptedInvites;
   }
 
   @override
@@ -103,6 +111,8 @@ class _$User extends User {
     _$hash = $jc(_$hash, environments.hashCode);
     _$hash = $jc(_$hash, ref.hashCode);
     _$hash = $jc(_$hash, registrationRef.hashCode);
+    _$hash = $jc(_$hash, invites.hashCode);
+    _$hash = $jc(_$hash, acceptedInvites.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -123,7 +133,9 @@ class _$User extends User {
           ..add('currencyCode', currencyCode)
           ..add('environments', environments)
           ..add('ref', ref)
-          ..add('registrationRef', registrationRef))
+          ..add('registrationRef', registrationRef)
+          ..add('invites', invites)
+          ..add('acceptedInvites', acceptedInvites))
         .toString();
   }
 }
@@ -191,6 +203,15 @@ class UserBuilder implements Builder<User, UserBuilder> {
   set registrationRef(String? registrationRef) =>
       _$this._registrationRef = registrationRef;
 
+  String? _invites;
+  String? get invites => _$this._invites;
+  set invites(String? invites) => _$this._invites = invites;
+
+  String? _acceptedInvites;
+  String? get acceptedInvites => _$this._acceptedInvites;
+  set acceptedInvites(String? acceptedInvites) =>
+      _$this._acceptedInvites = acceptedInvites;
+
   UserBuilder() {
     User._defaults(this);
   }
@@ -212,6 +233,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _environments = $v.environments?.toBuilder();
       _ref = $v.ref;
       _registrationRef = $v.registrationRef;
+      _invites = $v.invites;
+      _acceptedInvites = $v.acceptedInvites;
       _$v = null;
     }
     return this;
@@ -250,7 +273,9 @@ class UserBuilder implements Builder<User, UserBuilder> {
               currencyCode: currencyCode,
               environments: _environments?.build(),
               ref: ref,
-              registrationRef: registrationRef);
+              registrationRef: registrationRef,
+              invites: invites,
+              acceptedInvites: acceptedInvites);
     } catch (_) {
       late String _$failedField;
       try {

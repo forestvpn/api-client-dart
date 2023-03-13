@@ -12,6 +12,7 @@ import 'package:forestvpn_api/src/api_util.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
+import 'package:forestvpn_api/src/model/friendship_invitation_list.dart';
 
 class FriendshipApi {
 
@@ -333,9 +334,9 @@ class FriendshipApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [FriendshipInvitation] as data
+  /// Returns a [Future] containing a [Response] with a [FriendshipInvitationList] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<FriendshipInvitation>> listFriendshipInvitation({ 
+  Future<Response<FriendshipInvitationList>> listFriendshipInvitation({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -370,14 +371,14 @@ class FriendshipApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FriendshipInvitation _responseData;
+    FriendshipInvitationList _responseData;
 
     try {
-      const _responseType = FullType(FriendshipInvitation);
+      const _responseType = FullType(FriendshipInvitationList);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as FriendshipInvitation;
+      ) as FriendshipInvitationList;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -388,7 +389,7 @@ class FriendshipApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<FriendshipInvitation>(
+    return Response<FriendshipInvitationList>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

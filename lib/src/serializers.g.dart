@@ -60,6 +60,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(File.serializer)
       ..add(Friendship.serializer)
       ..add(FriendshipInvitation.serializer)
+      ..add(FriendshipInvitationList.serializer)
       ..add(FunctionEnvironment.serializer)
       ..add(LegacyAuthMigrationToken.serializer)
       ..add(Location.serializer)
@@ -129,6 +130,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Environment)]),
           () => new ListBuilder<Environment>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(FriendshipInvitation)]),
+          () => new ListBuilder<FriendshipInvitation>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NetworkService)]),
           () => new ListBuilder<NetworkService>())

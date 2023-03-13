@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **fileUpload**
-> File fileUpload(data)
+> File fileUpload(id, data, mimetype, size, url)
 
 Upload a file
 
@@ -25,10 +25,14 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getMediaApi();
+final String id = id_example; // String | an unique file id which can be used for any goals
 final MultipartFile data = BINARY_DATA_HERE; // MultipartFile | 
+final String mimetype = mimetype_example; // String | 
+final num size = 8.14; // num | 
+final String url = url_example; // String | 
 
 try {
-    final response = api.fileUpload(data);
+    final response = api.fileUpload(id, data, mimetype, size, url);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling MediaApi->fileUpload: $e\n');
@@ -39,7 +43,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **String**| an unique file id which can be used for any goals | 
  **data** | **MultipartFile**|  | 
+ **mimetype** | **String**|  | 
+ **size** | **num**|  | 
+ **url** | **String**|  | [optional] 
 
 ### Return type
 
