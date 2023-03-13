@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.1] - 2023-03-13
+
+### Changes
+
+- Add new field `current_plan` to BillingApi
+
 ## [3.8.0] - 2023-03-13
 
 ### Changes

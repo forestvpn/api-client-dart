@@ -74,6 +74,7 @@ import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/payment_method_card.dart';
 import 'package:forestvpn_api/src/model/payment_method_type.dart';
 import 'package:forestvpn_api/src/model/payment_option.dart';
+import 'package:forestvpn_api/src/model/plan.dart';
 import 'package:forestvpn_api/src/model/play_store_purchase_verification_request.dart';
 import 'package:forestvpn_api/src/model/port_forwarding.dart';
 import 'package:forestvpn_api/src/model/price.dart';
@@ -169,6 +170,7 @@ part 'serializers.g.dart';
   PaymentMethodCard,
   PaymentMethodType,
   PaymentOption,
+  Plan,
   PlayStorePurchaseVerificationRequest,
   PortForwarding,
   Price,

@@ -13,6 +13,8 @@ class _$BillingAccount extends BillingAccount {
   final PaymentMethod defaultPaymentMethod;
   @override
   final String defaultPaymentMethodId;
+  @override
+  final Plan? currentPlan;
 
   factory _$BillingAccount([void Function(BillingAccountBuilder)? updates]) =>
       (new BillingAccountBuilder()..update(updates))._build();
@@ -20,7 +22,8 @@ class _$BillingAccount extends BillingAccount {
   _$BillingAccount._(
       {required this.id,
       required this.defaultPaymentMethod,
-      required this.defaultPaymentMethodId})
+      required this.defaultPaymentMethodId,
+      this.currentPlan})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'BillingAccount', 'id');
     BuiltValueNullFieldError.checkNotNull(
@@ -43,7 +46,8 @@ class _$BillingAccount extends BillingAccount {
     return other is BillingAccount &&
         id == other.id &&
         defaultPaymentMethod == other.defaultPaymentMethod &&
-        defaultPaymentMethodId == other.defaultPaymentMethodId;
+        defaultPaymentMethodId == other.defaultPaymentMethodId &&
+        currentPlan == other.currentPlan;
   }
 
   @override
@@ -52,6 +56,7 @@ class _$BillingAccount extends BillingAccount {
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, defaultPaymentMethod.hashCode);
     _$hash = $jc(_$hash, defaultPaymentMethodId.hashCode);
+    _$hash = $jc(_$hash, currentPlan.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -61,7 +66,8 @@ class _$BillingAccount extends BillingAccount {
     return (newBuiltValueToStringHelper(r'BillingAccount')
           ..add('id', id)
           ..add('defaultPaymentMethod', defaultPaymentMethod)
-          ..add('defaultPaymentMethodId', defaultPaymentMethodId))
+          ..add('defaultPaymentMethodId', defaultPaymentMethodId)
+          ..add('currentPlan', currentPlan))
         .toString();
   }
 }
@@ -85,6 +91,11 @@ class BillingAccountBuilder
   set defaultPaymentMethodId(String? defaultPaymentMethodId) =>
       _$this._defaultPaymentMethodId = defaultPaymentMethodId;
 
+  PlanBuilder? _currentPlan;
+  PlanBuilder get currentPlan => _$this._currentPlan ??= new PlanBuilder();
+  set currentPlan(PlanBuilder? currentPlan) =>
+      _$this._currentPlan = currentPlan;
+
   BillingAccountBuilder() {
     BillingAccount._defaults(this);
   }
@@ -95,6 +106,7 @@ class BillingAccountBuilder
       _id = $v.id;
       _defaultPaymentMethod = $v.defaultPaymentMethod.toBuilder();
       _defaultPaymentMethodId = $v.defaultPaymentMethodId;
+      _currentPlan = $v.currentPlan?.toBuilder();
       _$v = null;
     }
     return this;
@@ -125,12 +137,16 @@ class BillingAccountBuilder
               defaultPaymentMethodId: BuiltValueNullFieldError.checkNotNull(
                   defaultPaymentMethodId,
                   r'BillingAccount',
-                  'defaultPaymentMethodId'));
+                  'defaultPaymentMethodId'),
+              currentPlan: _currentPlan?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'defaultPaymentMethod';
         defaultPaymentMethod.build();
+
+        _$failedField = 'currentPlan';
+        _currentPlan?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'BillingAccount', _$failedField, e.toString());

@@ -75,6 +75,7 @@ doc/PaymentMethod.md
 doc/PaymentMethodCard.md
 doc/PaymentMethodType.md
 doc/PaymentOption.md
+doc/Plan.md
 doc/PlayStorePurchaseVerificationRequest.md
 doc/PortForwarding.md
 doc/Price.md
@@ -195,6 +196,7 @@ lib/src/model/payment_method.dart
 lib/src/model/payment_method_card.dart
 lib/src/model/payment_method_type.dart
 lib/src/model/payment_option.dart
+lib/src/model/plan.dart
 lib/src/model/play_store_purchase_verification_request.dart
 lib/src/model/port_forwarding.dart
 lib/src/model/price.dart
@@ -228,5 +230,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/cloud_api_test.dart
-test/friendship_invitation_list_test.dart
+test/plan_test.dart

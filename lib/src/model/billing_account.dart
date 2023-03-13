@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:forestvpn_api/src/model/payment_method.dart';
+import 'package:forestvpn_api/src/model/plan.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,6 +16,7 @@ part 'billing_account.g.dart';
 /// * [id] 
 /// * [defaultPaymentMethod] 
 /// * [defaultPaymentMethodId] 
+/// * [currentPlan] 
 @BuiltValue()
 abstract class BillingAccount implements Built<BillingAccount, BillingAccountBuilder> {
   @BuiltValueField(wireName: r'id')
@@ -25,6 +27,9 @@ abstract class BillingAccount implements Built<BillingAccount, BillingAccountBui
 
   @BuiltValueField(wireName: r'default_payment_method_id')
   String get defaultPaymentMethodId;
+
+  @BuiltValueField(wireName: r'current_plan')
+  Plan? get currentPlan;
 
   BillingAccount._();
 
@@ -64,6 +69,13 @@ class _$BillingAccountSerializer implements PrimitiveSerializer<BillingAccount> 
       object.defaultPaymentMethodId,
       specifiedType: const FullType(String),
     );
+    if (object.currentPlan != null) {
+      yield r'current_plan';
+      yield serializers.serialize(
+        object.currentPlan,
+        specifiedType: const FullType(Plan),
+      );
+    }
   }
 
   @override
@@ -107,6 +119,13 @@ class _$BillingAccountSerializer implements PrimitiveSerializer<BillingAccount> 
             specifiedType: const FullType(String),
           ) as String;
           result.defaultPaymentMethodId = valueDes;
+          break;
+        case r'current_plan':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Plan),
+          ) as Plan;
+          result.currentPlan.replace(valueDes);
           break;
         default:
           unhandled.add(key);

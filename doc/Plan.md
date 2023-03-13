@@ -1,4 +1,4 @@
-# forestvpn_api.model.BillingAccount
+# forestvpn_api.model.Plan
 
 ## Load the model package
 ```dart
@@ -8,10 +8,10 @@ import 'package:forestvpn_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**defaultPaymentMethod** | [**PaymentMethod**](PaymentMethod.md) |  | 
-**defaultPaymentMethodId** | **String** |  | 
-**currentPlan** | [**Plan**](Plan.md) |  | [optional] 
+**name** | **String** |  | 
+**description** | **String** |  | [optional] 
+**expiresAt** | [**DateTime**](DateTime.md) | Plan expires at. Date and time with timezone. | [optional] 
+**subscription** | [**Subscription**](Subscription.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
