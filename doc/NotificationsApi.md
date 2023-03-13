@@ -56,7 +56,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listNotifications**
-> BuiltList<NotificationAllList> listNotifications(limit, offset, type)
+> NotificationAllList listNotifications(limit, offset, type)
 
 Get notifications list
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;NotificationAllList&gt;**](NotificationAllList.md)
+[**NotificationAllList**](NotificationAllList.md)
 
 ### Authorization
 

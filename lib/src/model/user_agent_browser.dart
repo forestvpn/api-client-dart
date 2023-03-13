@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+// ignore_for_file: unused_element
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,77 +13,116 @@ part 'user_agent_browser.g.dart';
 /// Properties:
 /// * [family] - It might be \"Other\" in case if it can't be recognized
 /// * [version] - It might be empty string
+@BuiltValue()
 abstract class UserAgentBrowser implements Built<UserAgentBrowser, UserAgentBrowserBuilder> {
-    /// It might be \"Other\" in case if it can't be recognized
-    @BuiltValueField(wireName: r'family')
-    String? get family;
+  /// It might be \"Other\" in case if it can't be recognized
+  @BuiltValueField(wireName: r'family')
+  String? get family;
 
-    /// It might be empty string
-    @BuiltValueField(wireName: r'version')
-    String? get version;
+  /// It might be empty string
+  @BuiltValueField(wireName: r'version')
+  String? get version;
 
-    UserAgentBrowser._();
+  UserAgentBrowser._();
 
-    @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(UserAgentBrowserBuilder b) => b;
+  factory UserAgentBrowser([void updates(UserAgentBrowserBuilder b)]) = _$UserAgentBrowser;
 
-    factory UserAgentBrowser([void updates(UserAgentBrowserBuilder b)]) = _$UserAgentBrowser;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserAgentBrowserBuilder b) => b;
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<UserAgentBrowser> get serializer => _$UserAgentBrowserSerializer();
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserAgentBrowser> get serializer => _$UserAgentBrowserSerializer();
 }
 
-class _$UserAgentBrowserSerializer implements StructuredSerializer<UserAgentBrowser> {
-    @override
-    final Iterable<Type> types = const [UserAgentBrowser, _$UserAgentBrowser];
+class _$UserAgentBrowserSerializer implements PrimitiveSerializer<UserAgentBrowser> {
+  @override
+  final Iterable<Type> types = const [UserAgentBrowser, _$UserAgentBrowser];
 
-    @override
-    final String wireName = r'UserAgentBrowser';
+  @override
+  final String wireName = r'UserAgentBrowser';
 
-    @override
-    Iterable<Object?> serialize(Serializers serializers, UserAgentBrowser object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
-        if (object.family != null) {
-            result
-                ..add(r'family')
-                ..add(serializers.serialize(object.family,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.version != null) {
-            result
-                ..add(r'version')
-                ..add(serializers.serialize(object.version,
-                    specifiedType: const FullType(String)));
-        }
-        return result;
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    UserAgentBrowser object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    if (object.family != null) {
+      yield r'family';
+      yield serializers.serialize(
+        object.family,
+        specifiedType: const FullType(String),
+      );
     }
-
-    @override
-    UserAgentBrowser deserialize(Serializers serializers, Iterable<Object?> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = UserAgentBrowserBuilder();
-
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final Object? value = iterator.current;
-            
-            switch (key) {
-                case r'family':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.family = valueDes;
-                    break;
-                case r'version':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.version = valueDes;
-                    break;
-            }
-        }
-        return result.build();
+    if (object.version != null) {
+      yield r'version';
+      yield serializers.serialize(
+        object.version,
+        specifiedType: const FullType(String),
+      );
     }
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    UserAgentBrowser object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required UserAgentBrowserBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'family':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.family = valueDes;
+          break;
+        case r'version':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.version = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  UserAgentBrowser deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UserAgentBrowserBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

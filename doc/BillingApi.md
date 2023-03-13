@@ -558,13 +558,13 @@ Billing feature list
 ### Example
 ```dart
 import 'package:forestvpn_api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 // TODO Configure API key authorization: wireguardAuth
 //defaultApiClient.getAuthentication<ApiKeyAuth>('wireguardAuth').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('wireguardAuth').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getBillingApi();
 
@@ -585,7 +585,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth), [wireguardAuth](../README.md#wireguardAuth)
+[wireguardAuth](../README.md#wireguardAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

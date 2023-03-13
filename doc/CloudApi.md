@@ -1,4 +1,4 @@
-# forestvpn_api.api.FriendshipApi
+# forestvpn_api.api.CloudApi
 
 ## Load the API package
 ```dart
@@ -9,17 +9,17 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteFriend**](FriendshipApi.md#deletefriend) | **DELETE** /friendship/friends/{id}/ | Delete friend
-[**getFriend**](FriendshipApi.md#getfriend) | **GET** /friendship/friends/{id}/ | Friend details
-[**getInvitation**](FriendshipApi.md#getinvitation) | **GET** /friendship/invitations/{invitationID}/ | Ivitation detail
-[**listFriends**](FriendshipApi.md#listfriends) | **GET** /friendship/friends/ | Get friends list
-[**listFriendshipInvitation**](FriendshipApi.md#listfriendshipinvitation) | **GET** /friendship/invitations/ | Friendship invitations list
+[**createFunction**](CloudApi.md#createfunction) | **POST** /cloud/functions/ | Create function
+[**deleteFunction**](CloudApi.md#deletefunction) | **DELETE** /cloud/functions/{functionID}/ | Delete Function
+[**getFunction**](CloudApi.md#getfunction) | **GET** /cloud/functions/{functionID}/ | Function Info
+[**listFunctions**](CloudApi.md#listfunctions) | **GET** /cloud/functions/ | Functions List
+[**updateFunction**](CloudApi.md#updatefunction) | **PATCH** /cloud/functions/{functionID}/ | Update function properties
 
 
-# **deleteFriend**
-> deleteFriend(id)
+# **createFunction**
+> ModelFunction createFunction(modelFunction)
 
-Delete friend
+Create function
 
 ### Example
 ```dart
@@ -28,13 +28,14 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getFriendshipApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final api = ForestvpnApi().getCloudApi();
+final ModelFunction modelFunction = ; // ModelFunction | 
 
 try {
-    api.deleteFriend(id);
+    final response = api.createFunction(modelFunction);
+    print(response);
 } catch on DioError (e) {
-    print('Exception when calling FriendshipApi->deleteFriend: $e\n');
+    print('Exception when calling CloudApi->createFunction: $e\n');
 }
 ```
 
@@ -42,7 +43,50 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **modelFunction** | [**ModelFunction**](ModelFunction.md)|  | 
+
+### Return type
+
+[**ModelFunction**](ModelFunction.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteFunction**
+> deleteFunction(functionID)
+
+Delete Function
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getCloudApi();
+final String functionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+
+try {
+    api.deleteFunction(functionID);
+} catch on DioError (e) {
+    print('Exception when calling CloudApi->deleteFunction: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **functionID** | **String**|  | 
 
 ### Return type
 
@@ -59,10 +103,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getFriend**
-> Friendship getFriend(id)
+# **getFunction**
+> ModelFunction getFunction(functionID)
 
-Friend details
+Function Info
 
 ### Example
 ```dart
@@ -71,14 +115,14 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getFriendshipApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final api = ForestvpnApi().getCloudApi();
+final String functionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 
 try {
-    final response = api.getFriend(id);
+    final response = api.getFunction(functionID);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling FriendshipApi->getFriend: $e\n');
+    print('Exception when calling CloudApi->getFunction: $e\n');
 }
 ```
 
@@ -86,11 +130,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **functionID** | **String**|  | 
 
 ### Return type
 
-[**Friendship**](Friendship.md)
+[**ModelFunction**](ModelFunction.md)
 
 ### Authorization
 
@@ -103,54 +147,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getInvitation**
-> FriendshipInvitation getInvitation(invitationID)
+# **listFunctions**
+> BuiltList<File> listFunctions(perPage, page)
 
-Ivitation detail
+Functions List
 
-### Example
-```dart
-import 'package:forestvpn_api/api.dart';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-
-final api = ForestvpnApi().getFriendshipApi();
-final String invitationID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
-
-try {
-    final response = api.getInvitation(invitationID);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling FriendshipApi->getInvitation: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invitationID** | **String**|  | 
-
-### Return type
-
-[**FriendshipInvitation**](FriendshipInvitation.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **listFriends**
-> BuiltList<Friendship> listFriends(perPage, page)
-
-Get friends list
+Retrieve cloud functions list 
 
 ### Example
 ```dart
@@ -159,15 +161,15 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getFriendshipApi();
+final api = ForestvpnApi().getCloudApi();
 final int perPage = 56; // int | 
 final int page = 56; // int | 
 
 try {
-    final response = api.listFriends(perPage, page);
+    final response = api.listFunctions(perPage, page);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling FriendshipApi->listFriends: $e\n');
+    print('Exception when calling CloudApi->listFunctions: $e\n');
 }
 ```
 
@@ -180,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;Friendship&gt;**](Friendship.md)
+[**BuiltList&lt;File&gt;**](File.md)
 
 ### Authorization
 
@@ -193,10 +195,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **listFriendshipInvitation**
-> FriendshipInvitationList listFriendshipInvitation()
+# **updateFunction**
+> ModelFunction updateFunction(functionID, modelFunction)
 
-Friendship invitations list
+Update function properties
 
 ### Example
 ```dart
@@ -205,22 +207,28 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
-final api = ForestvpnApi().getFriendshipApi();
+final api = ForestvpnApi().getCloudApi();
+final String functionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final ModelFunction modelFunction = ; // ModelFunction | 
 
 try {
-    final response = api.listFriendshipInvitation();
+    final response = api.updateFunction(functionID, modelFunction);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling FriendshipApi->listFriendshipInvitation: $e\n');
+    print('Exception when calling CloudApi->updateFunction: $e\n');
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **functionID** | **String**|  | 
+ **modelFunction** | [**ModelFunction**](ModelFunction.md)|  | 
 
 ### Return type
 
-[**FriendshipInvitationList**](FriendshipInvitationList.md)
+[**ModelFunction**](ModelFunction.md)
 
 ### Authorization
 
@@ -228,7 +236,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

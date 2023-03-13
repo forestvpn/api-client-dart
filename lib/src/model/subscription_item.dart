@@ -2,7 +2,8 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-import 'package:forestvpn_api/src/model/subscription_item_price.dart';
+// ignore_for_file: unused_element
+import 'package:forestvpn_api/src/model/price.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,95 +16,140 @@ part 'subscription_item.g.dart';
 /// * [price] 
 /// * [priceId] 
 /// * [quantity] 
+@BuiltValue()
 abstract class SubscriptionItem implements Built<SubscriptionItem, SubscriptionItemBuilder> {
-    @BuiltValueField(wireName: r'id')
-    String get id;
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-    @BuiltValueField(wireName: r'price')
-    SubscriptionItemPrice get price;
+  @BuiltValueField(wireName: r'price')
+  Price get price;
 
-    @BuiltValueField(wireName: r'price_id')
-    String get priceId;
+  @BuiltValueField(wireName: r'price_id')
+  String get priceId;
 
-    @BuiltValueField(wireName: r'quantity')
-    int get quantity;
+  @BuiltValueField(wireName: r'quantity')
+  int get quantity;
 
-    SubscriptionItem._();
+  SubscriptionItem._();
 
-    @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(SubscriptionItemBuilder b) => b;
+  factory SubscriptionItem([void updates(SubscriptionItemBuilder b)]) = _$SubscriptionItem;
 
-    factory SubscriptionItem([void updates(SubscriptionItemBuilder b)]) = _$SubscriptionItem;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SubscriptionItemBuilder b) => b;
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<SubscriptionItem> get serializer => _$SubscriptionItemSerializer();
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SubscriptionItem> get serializer => _$SubscriptionItemSerializer();
 }
 
-class _$SubscriptionItemSerializer implements StructuredSerializer<SubscriptionItem> {
-    @override
-    final Iterable<Type> types = const [SubscriptionItem, _$SubscriptionItem];
+class _$SubscriptionItemSerializer implements PrimitiveSerializer<SubscriptionItem> {
+  @override
+  final Iterable<Type> types = const [SubscriptionItem, _$SubscriptionItem];
 
-    @override
-    final String wireName = r'SubscriptionItem';
+  @override
+  final String wireName = r'SubscriptionItem';
 
-    @override
-    Iterable<Object?> serialize(Serializers serializers, SubscriptionItem object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
-        result
-            ..add(r'id')
-            ..add(serializers.serialize(object.id,
-                specifiedType: const FullType(String)));
-        result
-            ..add(r'price')
-            ..add(serializers.serialize(object.price,
-                specifiedType: const FullType(SubscriptionItemPrice)));
-        result
-            ..add(r'price_id')
-            ..add(serializers.serialize(object.priceId,
-                specifiedType: const FullType(String)));
-        result
-            ..add(r'quantity')
-            ..add(serializers.serialize(object.quantity,
-                specifiedType: const FullType(int)));
-        return result;
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    SubscriptionItem object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    yield r'price';
+    yield serializers.serialize(
+      object.price,
+      specifiedType: const FullType(Price),
+    );
+    yield r'price_id';
+    yield serializers.serialize(
+      object.priceId,
+      specifiedType: const FullType(String),
+    );
+    yield r'quantity';
+    yield serializers.serialize(
+      object.quantity,
+      specifiedType: const FullType(int),
+    );
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SubscriptionItem object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required SubscriptionItemBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
+        case r'price':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Price),
+          ) as Price;
+          result.price.replace(valueDes);
+          break;
+        case r'price_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.priceId = valueDes;
+          break;
+        case r'quantity':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.quantity = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
     }
+  }
 
-    @override
-    SubscriptionItem deserialize(Serializers serializers, Iterable<Object?> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = SubscriptionItemBuilder();
-
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final Object? value = iterator.current;
-            
-            switch (key) {
-                case r'id':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.id = valueDes;
-                    break;
-                case r'price':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(SubscriptionItemPrice)) as SubscriptionItemPrice;
-                    result.price.replace(valueDes);
-                    break;
-                case r'price_id':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.priceId = valueDes;
-                    break;
-                case r'quantity':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
-                    result.quantity = valueDes;
-                    break;
-            }
-        }
-        return result.build();
-    }
+  @override
+  SubscriptionItem deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SubscriptionItemBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

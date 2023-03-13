@@ -10,7 +10,7 @@ class _$Code extends Code {
   @override
   final String id;
   @override
-  final UserPhotoPhoto file;
+  final File file;
   @override
   final String fileId;
 
@@ -67,10 +67,9 @@ class CodeBuilder implements Builder<Code, CodeBuilder> {
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  UserPhotoPhotoBuilder? _file;
-  UserPhotoPhotoBuilder get file =>
-      _$this._file ??= new UserPhotoPhotoBuilder();
-  set file(UserPhotoPhotoBuilder? file) => _$this._file = file;
+  FileBuilder? _file;
+  FileBuilder get file => _$this._file ??= new FileBuilder();
+  set file(FileBuilder? file) => _$this._file = file;
 
   String? _fileId;
   String? get fileId => _$this._fileId;

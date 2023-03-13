@@ -6,14 +6,14 @@ part of 'architecture.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const Architecture _$x8664 = const Architecture._('x8664');
+const Architecture _$amd64 = const Architecture._('amd64');
 const Architecture _$arm64 = const Architecture._('arm64');
 const Architecture _$arm32 = const Architecture._('arm32');
 
 Architecture _$valueOf(String name) {
   switch (name) {
-    case 'x8664':
-      return _$x8664;
+    case 'amd64':
+      return _$amd64;
     case 'arm64':
       return _$arm64;
     case 'arm32':
@@ -25,14 +25,14 @@ Architecture _$valueOf(String name) {
 
 final BuiltSet<Architecture> _$values =
     new BuiltSet<Architecture>(const <Architecture>[
-  _$x8664,
+  _$amd64,
   _$arm64,
   _$arm32,
 ]);
 
 class _$ArchitectureMeta {
   const _$ArchitectureMeta();
-  Architecture get x8664 => _$x8664;
+  Architecture get amd64 => _$amd64;
   Architecture get arm64 => _$arm64;
   Architecture get arm32 => _$arm32;
   Architecture valueOf(String name) => _$valueOf(name);
@@ -49,12 +49,12 @@ Serializer<Architecture> _$architectureSerializer =
 
 class _$ArchitectureSerializer implements PrimitiveSerializer<Architecture> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'x8664': 'x86_64',
+    'amd64': 'amd64',
     'arm64': 'arm64',
     'arm32': 'arm32',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'x86_64': 'x8664',
+    'amd64': 'amd64',
     'arm64': 'arm64',
     'arm32': 'arm32',
   };

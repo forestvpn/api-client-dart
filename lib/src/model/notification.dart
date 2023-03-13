@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+// ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -26,248 +27,326 @@ part 'notification.g.dart';
 /// * [public] 
 /// * [deleted] 
 /// * [data] 
+@BuiltValue()
 abstract class Notification implements Built<Notification, NotificationBuilder> {
-    @BuiltValueField(wireName: r'id')
-    int get id;
+  @BuiltValueField(wireName: r'id')
+  int get id;
 
-    @BuiltValueField(wireName: r'slug')
-    int get slug;
+  @BuiltValueField(wireName: r'slug')
+  int get slug;
 
-    @BuiltValueField(wireName: r'title')
-    String get title;
+  @BuiltValueField(wireName: r'title')
+  String get title;
 
-    @BuiltValueField(wireName: r'description')
-    String get description;
+  @BuiltValueField(wireName: r'description')
+  String get description;
 
-    @BuiltValueField(wireName: r'unread')
-    bool get unread;
+  @BuiltValueField(wireName: r'unread')
+  bool get unread;
 
-    @BuiltValueField(wireName: r'type')
-    NotificationTypeEnum get type;
-    // enum typeEnum {  system_update,  product_update,  non_paper,  };
+  @BuiltValueField(wireName: r'type')
+  NotificationTypeEnum get type;
+  // enum typeEnum {  system_update,  product_update,  non_paper,  };
 
-    @BuiltValueField(wireName: r'level')
-    NotificationLevelEnum? get level;
-    // enum levelEnum {  success,  info,  warning,  error,  };
+  @BuiltValueField(wireName: r'level')
+  NotificationLevelEnum? get level;
+  // enum levelEnum {  success,  info,  warning,  error,  };
 
-    @BuiltValueField(wireName: r'recipient')
-    String? get recipient;
+  @BuiltValueField(wireName: r'recipient')
+  String? get recipient;
 
-    @BuiltValueField(wireName: r'actor_content_type')
-    int? get actorContentType;
+  @BuiltValueField(wireName: r'actor_content_type')
+  int? get actorContentType;
 
-    @BuiltValueField(wireName: r'actor_object_id')
-    String? get actorObjectId;
+  @BuiltValueField(wireName: r'actor_object_id')
+  String? get actorObjectId;
 
-    @BuiltValueField(wireName: r'verb')
-    String? get verb;
+  @BuiltValueField(wireName: r'verb')
+  String? get verb;
 
-    @BuiltValueField(wireName: r'created_at')
-    DateTime? get createdAt;
+  @BuiltValueField(wireName: r'created_at')
+  DateTime? get createdAt;
 
-    @BuiltValueField(wireName: r'public')
-    bool? get public;
+  @BuiltValueField(wireName: r'public')
+  bool? get public;
 
-    @BuiltValueField(wireName: r'deleted')
-    bool? get deleted;
+  @BuiltValueField(wireName: r'deleted')
+  bool? get deleted;
 
-    @BuiltValueField(wireName: r'data')
-    String? get data;
+  @BuiltValueField(wireName: r'data')
+  String? get data;
 
-    Notification._();
+  Notification._();
 
-    @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(NotificationBuilder b) => b;
+  factory Notification([void updates(NotificationBuilder b)]) = _$Notification;
 
-    factory Notification([void updates(NotificationBuilder b)]) = _$Notification;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NotificationBuilder b) => b;
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<Notification> get serializer => _$NotificationSerializer();
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Notification> get serializer => _$NotificationSerializer();
 }
 
-class _$NotificationSerializer implements StructuredSerializer<Notification> {
-    @override
-    final Iterable<Type> types = const [Notification, _$Notification];
+class _$NotificationSerializer implements PrimitiveSerializer<Notification> {
+  @override
+  final Iterable<Type> types = const [Notification, _$Notification];
 
-    @override
-    final String wireName = r'Notification';
+  @override
+  final String wireName = r'Notification';
 
-    @override
-    Iterable<Object?> serialize(Serializers serializers, Notification object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
-        result
-            ..add(r'id')
-            ..add(serializers.serialize(object.id,
-                specifiedType: const FullType(int)));
-        result
-            ..add(r'slug')
-            ..add(serializers.serialize(object.slug,
-                specifiedType: const FullType(int)));
-        result
-            ..add(r'title')
-            ..add(serializers.serialize(object.title,
-                specifiedType: const FullType(String)));
-        result
-            ..add(r'description')
-            ..add(serializers.serialize(object.description,
-                specifiedType: const FullType(String)));
-        result
-            ..add(r'unread')
-            ..add(serializers.serialize(object.unread,
-                specifiedType: const FullType(bool)));
-        result
-            ..add(r'type')
-            ..add(serializers.serialize(object.type,
-                specifiedType: const FullType(NotificationTypeEnum)));
-        if (object.level != null) {
-            result
-                ..add(r'level')
-                ..add(serializers.serialize(object.level,
-                    specifiedType: const FullType(NotificationLevelEnum)));
-        }
-        if (object.recipient != null) {
-            result
-                ..add(r'recipient')
-                ..add(serializers.serialize(object.recipient,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.actorContentType != null) {
-            result
-                ..add(r'actor_content_type')
-                ..add(serializers.serialize(object.actorContentType,
-                    specifiedType: const FullType(int)));
-        }
-        if (object.actorObjectId != null) {
-            result
-                ..add(r'actor_object_id')
-                ..add(serializers.serialize(object.actorObjectId,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.verb != null) {
-            result
-                ..add(r'verb')
-                ..add(serializers.serialize(object.verb,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.createdAt != null) {
-            result
-                ..add(r'created_at')
-                ..add(serializers.serialize(object.createdAt,
-                    specifiedType: const FullType(DateTime)));
-        }
-        if (object.public != null) {
-            result
-                ..add(r'public')
-                ..add(serializers.serialize(object.public,
-                    specifiedType: const FullType(bool)));
-        }
-        if (object.deleted != null) {
-            result
-                ..add(r'deleted')
-                ..add(serializers.serialize(object.deleted,
-                    specifiedType: const FullType(bool)));
-        }
-        if (object.data != null) {
-            result
-                ..add(r'data')
-                ..add(serializers.serialize(object.data,
-                    specifiedType: const FullType(String)));
-        }
-        return result;
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    Notification object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(int),
+    );
+    yield r'slug';
+    yield serializers.serialize(
+      object.slug,
+      specifiedType: const FullType(int),
+    );
+    yield r'title';
+    yield serializers.serialize(
+      object.title,
+      specifiedType: const FullType(String),
+    );
+    yield r'description';
+    yield serializers.serialize(
+      object.description,
+      specifiedType: const FullType(String),
+    );
+    yield r'unread';
+    yield serializers.serialize(
+      object.unread,
+      specifiedType: const FullType(bool),
+    );
+    yield r'type';
+    yield serializers.serialize(
+      object.type,
+      specifiedType: const FullType(NotificationTypeEnum),
+    );
+    if (object.level != null) {
+      yield r'level';
+      yield serializers.serialize(
+        object.level,
+        specifiedType: const FullType(NotificationLevelEnum),
+      );
     }
-
-    @override
-    Notification deserialize(Serializers serializers, Iterable<Object?> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = NotificationBuilder();
-
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final Object? value = iterator.current;
-            
-            switch (key) {
-                case r'id':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
-                    result.id = valueDes;
-                    break;
-                case r'slug':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
-                    result.slug = valueDes;
-                    break;
-                case r'title':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.title = valueDes;
-                    break;
-                case r'description':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.description = valueDes;
-                    break;
-                case r'unread':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(bool)) as bool;
-                    result.unread = valueDes;
-                    break;
-                case r'type':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(NotificationTypeEnum)) as NotificationTypeEnum;
-                    result.type = valueDes;
-                    break;
-                case r'level':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(NotificationLevelEnum)) as NotificationLevelEnum;
-                    result.level = valueDes;
-                    break;
-                case r'recipient':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.recipient = valueDes;
-                    break;
-                case r'actor_content_type':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
-                    result.actorContentType = valueDes;
-                    break;
-                case r'actor_object_id':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.actorObjectId = valueDes;
-                    break;
-                case r'verb':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.verb = valueDes;
-                    break;
-                case r'created_at':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(DateTime)) as DateTime;
-                    result.createdAt = valueDes;
-                    break;
-                case r'public':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(bool)) as bool;
-                    result.public = valueDes;
-                    break;
-                case r'deleted':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(bool)) as bool;
-                    result.deleted = valueDes;
-                    break;
-                case r'data':
-                    final valueDes = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    result.data = valueDes;
-                    break;
-            }
-        }
-        return result.build();
+    if (object.recipient != null) {
+      yield r'recipient';
+      yield serializers.serialize(
+        object.recipient,
+        specifiedType: const FullType(String),
+      );
     }
+    if (object.actorContentType != null) {
+      yield r'actor_content_type';
+      yield serializers.serialize(
+        object.actorContentType,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.actorObjectId != null) {
+      yield r'actor_object_id';
+      yield serializers.serialize(
+        object.actorObjectId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.verb != null) {
+      yield r'verb';
+      yield serializers.serialize(
+        object.verb,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.createdAt != null) {
+      yield r'created_at';
+      yield serializers.serialize(
+        object.createdAt,
+        specifiedType: const FullType(DateTime),
+      );
+    }
+    if (object.public != null) {
+      yield r'public';
+      yield serializers.serialize(
+        object.public,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.deleted != null) {
+      yield r'deleted';
+      yield serializers.serialize(
+        object.deleted,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.data != null) {
+      yield r'data';
+      yield serializers.serialize(
+        object.data,
+        specifiedType: const FullType(String),
+      );
+    }
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Notification object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required NotificationBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.id = valueDes;
+          break;
+        case r'slug':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.slug = valueDes;
+          break;
+        case r'title':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.title = valueDes;
+          break;
+        case r'description':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.description = valueDes;
+          break;
+        case r'unread':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.unread = valueDes;
+          break;
+        case r'type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(NotificationTypeEnum),
+          ) as NotificationTypeEnum;
+          result.type = valueDes;
+          break;
+        case r'level':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(NotificationLevelEnum),
+          ) as NotificationLevelEnum;
+          result.level = valueDes;
+          break;
+        case r'recipient':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.recipient = valueDes;
+          break;
+        case r'actor_content_type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.actorContentType = valueDes;
+          break;
+        case r'actor_object_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.actorObjectId = valueDes;
+          break;
+        case r'verb':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.verb = valueDes;
+          break;
+        case r'created_at':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
+          result.createdAt = valueDes;
+          break;
+        case r'public':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.public = valueDes;
+          break;
+        case r'deleted':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.deleted = valueDes;
+          break;
+        case r'data':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.data = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  Notification deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NotificationBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 
 class NotificationTypeEnum extends EnumClass {

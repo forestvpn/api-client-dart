@@ -83,7 +83,7 @@ class _$AccessTokenRequest extends AccessTokenRequest {
   @override
   final String? name;
   @override
-  final AccessTokenRequestUserAgent userAgent;
+  final UserAgent userAgent;
   @override
   final String? accessToken;
   @override
@@ -179,11 +179,10 @@ class AccessTokenRequestBuilder
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
-  AccessTokenRequestUserAgentBuilder? _userAgent;
-  AccessTokenRequestUserAgentBuilder get userAgent =>
-      _$this._userAgent ??= new AccessTokenRequestUserAgentBuilder();
-  set userAgent(AccessTokenRequestUserAgentBuilder? userAgent) =>
-      _$this._userAgent = userAgent;
+  UserAgentBuilder? _userAgent;
+  UserAgentBuilder get userAgent =>
+      _$this._userAgent ??= new UserAgentBuilder();
+  set userAgent(UserAgentBuilder? userAgent) => _$this._userAgent = userAgent;
 
   String? _accessToken;
   String? get accessToken => _$this._accessToken;
