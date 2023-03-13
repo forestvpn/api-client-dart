@@ -20,6 +20,8 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
   @override
   final bool? randomServer;
   @override
+  final bool? routeGlobalNet;
+  @override
   final CreateOrUpdateDeviceRequestInfo? info;
 
   factory _$CreateOrUpdateDeviceRequest(
@@ -33,6 +35,7 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
       this.torOver,
       this.connectionMode,
       this.randomServer,
+      this.routeGlobalNet,
       this.info})
       : super._();
 
@@ -55,6 +58,7 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
         torOver == other.torOver &&
         connectionMode == other.connectionMode &&
         randomServer == other.randomServer &&
+        routeGlobalNet == other.routeGlobalNet &&
         info == other.info;
   }
 
@@ -67,6 +71,7 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
     _$hash = $jc(_$hash, torOver.hashCode);
     _$hash = $jc(_$hash, connectionMode.hashCode);
     _$hash = $jc(_$hash, randomServer.hashCode);
+    _$hash = $jc(_$hash, routeGlobalNet.hashCode);
     _$hash = $jc(_$hash, info.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -81,6 +86,7 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
           ..add('torOver', torOver)
           ..add('connectionMode', connectionMode)
           ..add('randomServer', randomServer)
+          ..add('routeGlobalNet', routeGlobalNet)
           ..add('info', info))
         .toString();
   }
@@ -117,6 +123,11 @@ class CreateOrUpdateDeviceRequestBuilder
   bool? get randomServer => _$this._randomServer;
   set randomServer(bool? randomServer) => _$this._randomServer = randomServer;
 
+  bool? _routeGlobalNet;
+  bool? get routeGlobalNet => _$this._routeGlobalNet;
+  set routeGlobalNet(bool? routeGlobalNet) =>
+      _$this._routeGlobalNet = routeGlobalNet;
+
   CreateOrUpdateDeviceRequestInfoBuilder? _info;
   CreateOrUpdateDeviceRequestInfoBuilder get info =>
       _$this._info ??= new CreateOrUpdateDeviceRequestInfoBuilder();
@@ -135,6 +146,7 @@ class CreateOrUpdateDeviceRequestBuilder
       _torOver = $v.torOver;
       _connectionMode = $v.connectionMode;
       _randomServer = $v.randomServer;
+      _routeGlobalNet = $v.routeGlobalNet;
       _info = $v.info?.toBuilder();
       _$v = null;
     }
@@ -166,6 +178,7 @@ class CreateOrUpdateDeviceRequestBuilder
               torOver: torOver,
               connectionMode: connectionMode,
               randomServer: randomServer,
+              routeGlobalNet: routeGlobalNet,
               info: _info?.build());
     } catch (_) {
       late String _$failedField;

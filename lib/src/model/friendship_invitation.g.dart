@@ -8,33 +8,30 @@ part of 'friendship_invitation.dart';
 
 class _$FriendshipInvitation extends FriendshipInvitation {
   @override
-  final String code;
+  final String? invitationId;
   @override
-  final User user;
+  final User? user;
   @override
-  final String shareText;
+  final User? friend;
   @override
-  final DateTime createdAt;
+  final String? bundleId;
+  @override
+  final bool? isAccepted;
+  @override
+  final DateTime? createdAt;
 
   factory _$FriendshipInvitation(
           [void Function(FriendshipInvitationBuilder)? updates]) =>
       (new FriendshipInvitationBuilder()..update(updates))._build();
 
   _$FriendshipInvitation._(
-      {required this.code,
-      required this.user,
-      required this.shareText,
-      required this.createdAt})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        code, r'FriendshipInvitation', 'code');
-    BuiltValueNullFieldError.checkNotNull(
-        user, r'FriendshipInvitation', 'user');
-    BuiltValueNullFieldError.checkNotNull(
-        shareText, r'FriendshipInvitation', 'shareText');
-    BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'FriendshipInvitation', 'createdAt');
-  }
+      {this.invitationId,
+      this.user,
+      this.friend,
+      this.bundleId,
+      this.isAccepted,
+      this.createdAt})
+      : super._();
 
   @override
   FriendshipInvitation rebuild(
@@ -49,18 +46,22 @@ class _$FriendshipInvitation extends FriendshipInvitation {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is FriendshipInvitation &&
-        code == other.code &&
+        invitationId == other.invitationId &&
         user == other.user &&
-        shareText == other.shareText &&
+        friend == other.friend &&
+        bundleId == other.bundleId &&
+        isAccepted == other.isAccepted &&
         createdAt == other.createdAt;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, code.hashCode);
+    _$hash = $jc(_$hash, invitationId.hashCode);
     _$hash = $jc(_$hash, user.hashCode);
-    _$hash = $jc(_$hash, shareText.hashCode);
+    _$hash = $jc(_$hash, friend.hashCode);
+    _$hash = $jc(_$hash, bundleId.hashCode);
+    _$hash = $jc(_$hash, isAccepted.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -69,9 +70,11 @@ class _$FriendshipInvitation extends FriendshipInvitation {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'FriendshipInvitation')
-          ..add('code', code)
+          ..add('invitationId', invitationId)
           ..add('user', user)
-          ..add('shareText', shareText)
+          ..add('friend', friend)
+          ..add('bundleId', bundleId)
+          ..add('isAccepted', isAccepted)
           ..add('createdAt', createdAt))
         .toString();
   }
@@ -81,17 +84,25 @@ class FriendshipInvitationBuilder
     implements Builder<FriendshipInvitation, FriendshipInvitationBuilder> {
   _$FriendshipInvitation? _$v;
 
-  String? _code;
-  String? get code => _$this._code;
-  set code(String? code) => _$this._code = code;
+  String? _invitationId;
+  String? get invitationId => _$this._invitationId;
+  set invitationId(String? invitationId) => _$this._invitationId = invitationId;
 
   UserBuilder? _user;
   UserBuilder get user => _$this._user ??= new UserBuilder();
   set user(UserBuilder? user) => _$this._user = user;
 
-  String? _shareText;
-  String? get shareText => _$this._shareText;
-  set shareText(String? shareText) => _$this._shareText = shareText;
+  UserBuilder? _friend;
+  UserBuilder get friend => _$this._friend ??= new UserBuilder();
+  set friend(UserBuilder? friend) => _$this._friend = friend;
+
+  String? _bundleId;
+  String? get bundleId => _$this._bundleId;
+  set bundleId(String? bundleId) => _$this._bundleId = bundleId;
+
+  bool? _isAccepted;
+  bool? get isAccepted => _$this._isAccepted;
+  set isAccepted(bool? isAccepted) => _$this._isAccepted = isAccepted;
 
   DateTime? _createdAt;
   DateTime? get createdAt => _$this._createdAt;
@@ -104,9 +115,11 @@ class FriendshipInvitationBuilder
   FriendshipInvitationBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _code = $v.code;
-      _user = $v.user.toBuilder();
-      _shareText = $v.shareText;
+      _invitationId = $v.invitationId;
+      _user = $v.user?.toBuilder();
+      _friend = $v.friend?.toBuilder();
+      _bundleId = $v.bundleId;
+      _isAccepted = $v.isAccepted;
       _createdAt = $v.createdAt;
       _$v = null;
     }
@@ -132,18 +145,19 @@ class FriendshipInvitationBuilder
     try {
       _$result = _$v ??
           new _$FriendshipInvitation._(
-              code: BuiltValueNullFieldError.checkNotNull(
-                  code, r'FriendshipInvitation', 'code'),
-              user: user.build(),
-              shareText: BuiltValueNullFieldError.checkNotNull(
-                  shareText, r'FriendshipInvitation', 'shareText'),
-              createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, r'FriendshipInvitation', 'createdAt'));
+              invitationId: invitationId,
+              user: _user?.build(),
+              friend: _friend?.build(),
+              bundleId: bundleId,
+              isAccepted: isAccepted,
+              createdAt: createdAt);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'user';
-        user.build();
+        _user?.build();
+        _$failedField = 'friend';
+        _friend?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'FriendshipInvitation', _$failedField, e.toString());

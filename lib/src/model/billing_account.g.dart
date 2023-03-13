@@ -10,7 +10,7 @@ class _$BillingAccount extends BillingAccount {
   @override
   final String id;
   @override
-  final BillingAccountDefaultPaymentMethod defaultPaymentMethod;
+  final PaymentMethod defaultPaymentMethod;
   @override
   final String defaultPaymentMethodId;
 
@@ -74,12 +74,10 @@ class BillingAccountBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  BillingAccountDefaultPaymentMethodBuilder? _defaultPaymentMethod;
-  BillingAccountDefaultPaymentMethodBuilder get defaultPaymentMethod =>
-      _$this._defaultPaymentMethod ??=
-          new BillingAccountDefaultPaymentMethodBuilder();
-  set defaultPaymentMethod(
-          BillingAccountDefaultPaymentMethodBuilder? defaultPaymentMethod) =>
+  PaymentMethodBuilder? _defaultPaymentMethod;
+  PaymentMethodBuilder get defaultPaymentMethod =>
+      _$this._defaultPaymentMethod ??= new PaymentMethodBuilder();
+  set defaultPaymentMethod(PaymentMethodBuilder? defaultPaymentMethod) =>
       _$this._defaultPaymentMethod = defaultPaymentMethod;
 
   String? _defaultPaymentMethodId;

@@ -20,6 +20,10 @@ Name | Type | Description | Notes
 **country** | **String** |  | [optional] 
 **currencyCode** | **String** |  | [optional] 
 **environments** | [**BuiltList&lt;Environment&gt;**](Environment.md) |  | [optional] 
+**ref** | **String** |  | [optional] 
+**registrationRef** | **String** |  | [optional] 
+**invites** | **String** |  | [optional] 
+**acceptedInvites** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,6 +20,8 @@ class _$Device extends Device {
   @override
   final bool? torOver;
   @override
+  final bool? routeGlobalNet;
+  @override
   final ConnectionMode? connectionMode;
   @override
   final WireGuard? wireguard;
@@ -42,6 +44,7 @@ class _$Device extends Device {
       this.ips,
       this.dns,
       this.torOver,
+      this.routeGlobalNet,
       this.connectionMode,
       this.wireguard,
       this.location,
@@ -69,6 +72,7 @@ class _$Device extends Device {
         ips == other.ips &&
         dns == other.dns &&
         torOver == other.torOver &&
+        routeGlobalNet == other.routeGlobalNet &&
         connectionMode == other.connectionMode &&
         wireguard == other.wireguard &&
         location == other.location &&
@@ -86,6 +90,7 @@ class _$Device extends Device {
     _$hash = $jc(_$hash, ips.hashCode);
     _$hash = $jc(_$hash, dns.hashCode);
     _$hash = $jc(_$hash, torOver.hashCode);
+    _$hash = $jc(_$hash, routeGlobalNet.hashCode);
     _$hash = $jc(_$hash, connectionMode.hashCode);
     _$hash = $jc(_$hash, wireguard.hashCode);
     _$hash = $jc(_$hash, location.hashCode);
@@ -105,6 +110,7 @@ class _$Device extends Device {
           ..add('ips', ips)
           ..add('dns', dns)
           ..add('torOver', torOver)
+          ..add('routeGlobalNet', routeGlobalNet)
           ..add('connectionMode', connectionMode)
           ..add('wireguard', wireguard)
           ..add('location', location)
@@ -141,6 +147,11 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
   bool? _torOver;
   bool? get torOver => _$this._torOver;
   set torOver(bool? torOver) => _$this._torOver = torOver;
+
+  bool? _routeGlobalNet;
+  bool? get routeGlobalNet => _$this._routeGlobalNet;
+  set routeGlobalNet(bool? routeGlobalNet) =>
+      _$this._routeGlobalNet = routeGlobalNet;
 
   ConnectionModeBuilder? _connectionMode;
   ConnectionModeBuilder get connectionMode =>
@@ -184,6 +195,7 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
       _ips = $v.ips?.toBuilder();
       _dns = $v.dns?.toBuilder();
       _torOver = $v.torOver;
+      _routeGlobalNet = $v.routeGlobalNet;
       _connectionMode = $v.connectionMode?.toBuilder();
       _wireguard = $v.wireguard?.toBuilder();
       _location = $v.location?.toBuilder();
@@ -220,6 +232,7 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
               ips: _ips?.build(),
               dns: _dns?.build(),
               torOver: torOver,
+              routeGlobalNet: routeGlobalNet,
               connectionMode: _connectionMode?.build(),
               wireguard: _wireguard?.build(),
               location: _location?.build(),

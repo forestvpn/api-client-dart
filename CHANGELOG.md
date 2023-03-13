@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [3.7.6] - 2023-28-02
+## [3.8.0] - 2023-03-13
+
+### Changes
+
+- Add new field `route_global_net` to DeviceApi: Is the device route global networks throughout.
+
+## [3.7.6] - 2023-02-28
 
 ### Changes
 
@@ -10,14 +16,14 @@ All notable changes to this project will be documented in this file.
 - ProfilePhotoApi
 
 
-## [3.7.4] - 2023-22-02
+## [3.7.4] - 2023-02-22
 
 ### Changes
 
 - FilesApi
 - ProfilePhotoApi
 
-## [3.7.2] - 2023-17-02
+## [3.7.2] - 2023-02-17
 
 ### Changes
 

@@ -16,6 +16,7 @@ import 'package:forestvpn_api/src/api/apple_api.dart';
 import 'package:forestvpn_api/src/api/auth_api.dart';
 import 'package:forestvpn_api/src/api/billing_api.dart';
 import 'package:forestvpn_api/src/api/checkout_api.dart';
+import 'package:forestvpn_api/src/api/cloud_api.dart';
 import 'package:forestvpn_api/src/api/device_api.dart';
 import 'package:forestvpn_api/src/api/fcm_api.dart';
 import 'package:forestvpn_api/src/api/friendship_api.dart';
@@ -41,8 +42,8 @@ class ForestvpnApi {
         this.dio = dio ??
             Dio(BaseOptions(
               baseUrl: basePathOverride ?? basePath,
-              connectTimeout: 5000,
-              receiveTimeout: 3000,
+              connectTimeout: const Duration(milliseconds: 5000),
+              receiveTimeout: const Duration(milliseconds: 3000),
             )) {
     if (interceptors == null) {
       this.dio.interceptors.addAll([
@@ -120,6 +121,12 @@ class ForestvpnApi {
   /// by doing that all interceptors will not be executed
   CheckoutApi getCheckoutApi() {
     return CheckoutApi(dio, serializers);
+  }
+
+  /// Get CloudApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  CloudApi getCloudApi() {
+    return CloudApi(dio, serializers);
   }
 
   /// Get DeviceApi instance, base route and serializer can be overridden by a given but be careful,

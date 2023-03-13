@@ -3,60 +3,61 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:forestvpn_api/src/model/cloud_payments_secure3d.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:forestvpn_api/src/model/friendship_invitation.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'cloud_payments_auth.g.dart';
+part 'friendship_invitation_list.g.dart';
 
-/// CloudPaymentsAuth
+/// FriendshipInvitationList
 ///
 /// Properties:
-/// * [transactionId] 
-/// * [secure3d] 
+/// * [ref] 
+/// * [invites] 
 @BuiltValue()
-abstract class CloudPaymentsAuth implements Built<CloudPaymentsAuth, CloudPaymentsAuthBuilder> {
-  @BuiltValueField(wireName: r'transaction_id')
-  int? get transactionId;
+abstract class FriendshipInvitationList implements Built<FriendshipInvitationList, FriendshipInvitationListBuilder> {
+  @BuiltValueField(wireName: r'ref')
+  String? get ref;
 
-  @BuiltValueField(wireName: r'secure3d')
-  CloudPaymentsSecure3d? get secure3d;
+  @BuiltValueField(wireName: r'invites')
+  BuiltList<FriendshipInvitation>? get invites;
 
-  CloudPaymentsAuth._();
+  FriendshipInvitationList._();
 
-  factory CloudPaymentsAuth([void updates(CloudPaymentsAuthBuilder b)]) = _$CloudPaymentsAuth;
+  factory FriendshipInvitationList([void updates(FriendshipInvitationListBuilder b)]) = _$FriendshipInvitationList;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CloudPaymentsAuthBuilder b) => b;
+  static void _defaults(FriendshipInvitationListBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CloudPaymentsAuth> get serializer => _$CloudPaymentsAuthSerializer();
+  static Serializer<FriendshipInvitationList> get serializer => _$FriendshipInvitationListSerializer();
 }
 
-class _$CloudPaymentsAuthSerializer implements PrimitiveSerializer<CloudPaymentsAuth> {
+class _$FriendshipInvitationListSerializer implements PrimitiveSerializer<FriendshipInvitationList> {
   @override
-  final Iterable<Type> types = const [CloudPaymentsAuth, _$CloudPaymentsAuth];
+  final Iterable<Type> types = const [FriendshipInvitationList, _$FriendshipInvitationList];
 
   @override
-  final String wireName = r'CloudPaymentsAuth';
+  final String wireName = r'FriendshipInvitationList';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    CloudPaymentsAuth object, {
+    FriendshipInvitationList object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.transactionId != null) {
-      yield r'transaction_id';
+    if (object.ref != null) {
+      yield r'ref';
       yield serializers.serialize(
-        object.transactionId,
-        specifiedType: const FullType(int),
+        object.ref,
+        specifiedType: const FullType(String),
       );
     }
-    if (object.secure3d != null) {
-      yield r'secure3d';
+    if (object.invites != null) {
+      yield r'invites';
       yield serializers.serialize(
-        object.secure3d,
-        specifiedType: const FullType(CloudPaymentsSecure3d),
+        object.invites,
+        specifiedType: const FullType(BuiltList, [FullType(FriendshipInvitation)]),
       );
     }
   }
@@ -64,7 +65,7 @@ class _$CloudPaymentsAuthSerializer implements PrimitiveSerializer<CloudPayments
   @override
   Object serialize(
     Serializers serializers,
-    CloudPaymentsAuth object, {
+    FriendshipInvitationList object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -75,26 +76,26 @@ class _$CloudPaymentsAuthSerializer implements PrimitiveSerializer<CloudPayments
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CloudPaymentsAuthBuilder result,
+    required FriendshipInvitationListBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'transaction_id':
+        case r'ref':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.transactionId = valueDes;
+            specifiedType: const FullType(String),
+          ) as String;
+          result.ref = valueDes;
           break;
-        case r'secure3d':
+        case r'invites':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(CloudPaymentsSecure3d),
-          ) as CloudPaymentsSecure3d;
-          result.secure3d.replace(valueDes);
+            specifiedType: const FullType(BuiltList, [FullType(FriendshipInvitation)]),
+          ) as BuiltList<FriendshipInvitation>;
+          result.invites.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -105,12 +106,12 @@ class _$CloudPaymentsAuthSerializer implements PrimitiveSerializer<CloudPayments
   }
 
   @override
-  CloudPaymentsAuth deserialize(
+  FriendshipInvitationList deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CloudPaymentsAuthBuilder();
+    final result = FriendshipInvitationListBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

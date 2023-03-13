@@ -7,7 +7,6 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/api_util.dart';
 import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/notification_all_list.dart';
@@ -82,9 +81,10 @@ class NotificationsApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<NotificationUnreadCount>(
@@ -113,9 +113,9 @@ class NotificationsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<NotificationAllList>] as data
+  /// Returns a [Future] containing a [Response] with a [NotificationAllList] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<NotificationAllList>>> listNotifications({ 
+  Future<Response<NotificationAllList>> listNotifications({ 
     int? limit,
     int? offset,
     String? type,
@@ -160,25 +160,26 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<NotificationAllList> _responseData;
+    NotificationAllList _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(NotificationAllList)]);
+      const _responseType = FullType(NotificationAllList);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as BuiltList<NotificationAllList>;
+      ) as NotificationAllList;
 
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
-    return Response<BuiltList<NotificationAllList>>(
+    return Response<NotificationAllList>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

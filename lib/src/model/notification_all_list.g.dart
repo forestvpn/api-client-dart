@@ -8,7 +8,7 @@ part of 'notification_all_list.dart';
 
 class _$NotificationAllList extends NotificationAllList {
   @override
-  final int? unreadCount;
+  final int allCount;
   @override
   final BuiltList<Notification> allList;
 
@@ -16,8 +16,10 @@ class _$NotificationAllList extends NotificationAllList {
           [void Function(NotificationAllListBuilder)? updates]) =>
       (new NotificationAllListBuilder()..update(updates))._build();
 
-  _$NotificationAllList._({this.unreadCount, required this.allList})
+  _$NotificationAllList._({required this.allCount, required this.allList})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        allCount, r'NotificationAllList', 'allCount');
     BuiltValueNullFieldError.checkNotNull(
         allList, r'NotificationAllList', 'allList');
   }
@@ -35,14 +37,14 @@ class _$NotificationAllList extends NotificationAllList {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is NotificationAllList &&
-        unreadCount == other.unreadCount &&
+        allCount == other.allCount &&
         allList == other.allList;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, unreadCount.hashCode);
+    _$hash = $jc(_$hash, allCount.hashCode);
     _$hash = $jc(_$hash, allList.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -51,7 +53,7 @@ class _$NotificationAllList extends NotificationAllList {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'NotificationAllList')
-          ..add('unreadCount', unreadCount)
+          ..add('allCount', allCount)
           ..add('allList', allList))
         .toString();
   }
@@ -61,9 +63,9 @@ class NotificationAllListBuilder
     implements Builder<NotificationAllList, NotificationAllListBuilder> {
   _$NotificationAllList? _$v;
 
-  int? _unreadCount;
-  int? get unreadCount => _$this._unreadCount;
-  set unreadCount(int? unreadCount) => _$this._unreadCount = unreadCount;
+  int? _allCount;
+  int? get allCount => _$this._allCount;
+  set allCount(int? allCount) => _$this._allCount = allCount;
 
   ListBuilder<Notification>? _allList;
   ListBuilder<Notification> get allList =>
@@ -77,7 +79,7 @@ class NotificationAllListBuilder
   NotificationAllListBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _unreadCount = $v.unreadCount;
+      _allCount = $v.allCount;
       _allList = $v.allList.toBuilder();
       _$v = null;
     }
@@ -103,7 +105,9 @@ class NotificationAllListBuilder
     try {
       _$result = _$v ??
           new _$NotificationAllList._(
-              unreadCount: unreadCount, allList: allList.build());
+              allCount: BuiltValueNullFieldError.checkNotNull(
+                  allCount, r'NotificationAllList', 'allCount'),
+              allList: allList.build());
     } catch (_) {
       late String _$failedField;
       try {

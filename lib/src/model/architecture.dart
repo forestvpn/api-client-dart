@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+// ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -10,8 +11,8 @@ part 'architecture.g.dart';
 
 class Architecture extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'x86_64')
-  static const Architecture x8664 = _$x8664;
+  @BuiltValueEnumConst(wireName: r'amd64')
+  static const Architecture amd64 = _$amd64;
   @BuiltValueEnumConst(wireName: r'arm64')
   static const Architecture arm64 = _$arm64;
   @BuiltValueEnumConst(wireName: r'arm32')

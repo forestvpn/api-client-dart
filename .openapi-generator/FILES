@@ -1,7 +1,6 @@
 .gitignore
 analysis_options.yaml
 doc/AccessTokenRequest.md
-doc/AccessTokenRequestUserAgent.md
 doc/AdPlacement.md
 doc/AdProvider.md
 doc/AdReward.md
@@ -16,13 +15,13 @@ doc/AppleApi.md
 doc/Architecture.md
 doc/AuthApi.md
 doc/BillingAccount.md
-doc/BillingAccountDefaultPaymentMethod.md
 doc/BillingApi.md
 doc/BillingFeature.md
 doc/Bundle.md
 doc/CheckoutApi.md
 doc/CheckoutSession.md
 doc/CheckoutSessionProduct.md
+doc/CloudApi.md
 doc/CloudPaymentsAuth.md
 doc/CloudPaymentsPost3ds.md
 doc/CloudPaymentsSecure3d.md
@@ -59,6 +58,7 @@ doc/File.md
 doc/Friendship.md
 doc/FriendshipApi.md
 doc/FriendshipInvitation.md
+doc/FriendshipInvitationList.md
 doc/FunctionEnvironment.md
 doc/GeoApi.md
 doc/GoogleApi.md
@@ -87,7 +87,6 @@ doc/StripePaymentIntent.md
 doc/StripeSetupIntent.md
 doc/Subscription.md
 doc/SubscriptionItem.md
-doc/SubscriptionItemPrice.md
 doc/SubscriptionSource.md
 doc/SubscriptionStatus.md
 doc/SupportApi.md
@@ -103,7 +102,6 @@ doc/UserAgentDevice.md
 doc/UserAgentOs.md
 doc/UserDevice.md
 doc/UserPhoto.md
-doc/UserPhotoPhoto.md
 doc/WireGuard.md
 doc/WireGuardPeer.md
 doc/WireGuardPeerDevice.md
@@ -119,6 +117,7 @@ lib/src/api/apple_api.dart
 lib/src/api/auth_api.dart
 lib/src/api/billing_api.dart
 lib/src/api/checkout_api.dart
+lib/src/api/cloud_api.dart
 lib/src/api/device_api.dart
 lib/src/api/fcm_api.dart
 lib/src/api/friendship_api.dart
@@ -136,7 +135,6 @@ lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
 lib/src/model/access_token_request.dart
-lib/src/model/access_token_request_user_agent.dart
 lib/src/model/ad_placement.dart
 lib/src/model/ad_provider.dart
 lib/src/model/ad_reward.dart
@@ -146,7 +144,6 @@ lib/src/model/aggregated_data_usage_stats.dart
 lib/src/model/app_store_receipt_verification_request.dart
 lib/src/model/architecture.dart
 lib/src/model/billing_account.dart
-lib/src/model/billing_account_default_payment_method.dart
 lib/src/model/billing_feature.dart
 lib/src/model/bundle.dart
 lib/src/model/checkout_session.dart
@@ -185,6 +182,7 @@ lib/src/model/fcm_device.dart
 lib/src/model/file.dart
 lib/src/model/friendship.dart
 lib/src/model/friendship_invitation.dart
+lib/src/model/friendship_invitation_list.dart
 lib/src/model/function_environment.dart
 lib/src/model/legacy_auth_migration_token.dart
 lib/src/model/location.dart
@@ -209,7 +207,6 @@ lib/src/model/stripe_payment_intent.dart
 lib/src/model/stripe_setup_intent.dart
 lib/src/model/subscription.dart
 lib/src/model/subscription_item.dart
-lib/src/model/subscription_item_price.dart
 lib/src/model/subscription_source.dart
 lib/src/model/subscription_status.dart
 lib/src/model/ticket_category.dart
@@ -224,7 +221,6 @@ lib/src/model/user_agent_device.dart
 lib/src/model/user_agent_os.dart
 lib/src/model/user_device.dart
 lib/src/model/user_photo.dart
-lib/src/model/user_photo_photo.dart
 lib/src/model/wire_guard.dart
 lib/src/model/wire_guard_peer.dart
 lib/src/model/wire_guard_peer_device.dart
@@ -232,3 +228,5 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/cloud_api_test.dart
+test/friendship_invitation_list_test.dart
