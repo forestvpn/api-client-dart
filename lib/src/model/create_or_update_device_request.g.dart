@@ -22,6 +22,10 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
   @override
   final bool? routeGlobalNet;
   @override
+  final bool? adBlocker;
+  @override
+  final bool? malwareBlocker;
+  @override
   final CreateOrUpdateDeviceRequestInfo? info;
 
   factory _$CreateOrUpdateDeviceRequest(
@@ -36,6 +40,8 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
       this.connectionMode,
       this.randomServer,
       this.routeGlobalNet,
+      this.adBlocker,
+      this.malwareBlocker,
       this.info})
       : super._();
 
@@ -59,6 +65,8 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
         connectionMode == other.connectionMode &&
         randomServer == other.randomServer &&
         routeGlobalNet == other.routeGlobalNet &&
+        adBlocker == other.adBlocker &&
+        malwareBlocker == other.malwareBlocker &&
         info == other.info;
   }
 
@@ -72,6 +80,8 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
     _$hash = $jc(_$hash, connectionMode.hashCode);
     _$hash = $jc(_$hash, randomServer.hashCode);
     _$hash = $jc(_$hash, routeGlobalNet.hashCode);
+    _$hash = $jc(_$hash, adBlocker.hashCode);
+    _$hash = $jc(_$hash, malwareBlocker.hashCode);
     _$hash = $jc(_$hash, info.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -87,6 +97,8 @@ class _$CreateOrUpdateDeviceRequest extends CreateOrUpdateDeviceRequest {
           ..add('connectionMode', connectionMode)
           ..add('randomServer', randomServer)
           ..add('routeGlobalNet', routeGlobalNet)
+          ..add('adBlocker', adBlocker)
+          ..add('malwareBlocker', malwareBlocker)
           ..add('info', info))
         .toString();
   }
@@ -128,6 +140,15 @@ class CreateOrUpdateDeviceRequestBuilder
   set routeGlobalNet(bool? routeGlobalNet) =>
       _$this._routeGlobalNet = routeGlobalNet;
 
+  bool? _adBlocker;
+  bool? get adBlocker => _$this._adBlocker;
+  set adBlocker(bool? adBlocker) => _$this._adBlocker = adBlocker;
+
+  bool? _malwareBlocker;
+  bool? get malwareBlocker => _$this._malwareBlocker;
+  set malwareBlocker(bool? malwareBlocker) =>
+      _$this._malwareBlocker = malwareBlocker;
+
   CreateOrUpdateDeviceRequestInfoBuilder? _info;
   CreateOrUpdateDeviceRequestInfoBuilder get info =>
       _$this._info ??= new CreateOrUpdateDeviceRequestInfoBuilder();
@@ -147,6 +168,8 @@ class CreateOrUpdateDeviceRequestBuilder
       _connectionMode = $v.connectionMode;
       _randomServer = $v.randomServer;
       _routeGlobalNet = $v.routeGlobalNet;
+      _adBlocker = $v.adBlocker;
+      _malwareBlocker = $v.malwareBlocker;
       _info = $v.info?.toBuilder();
       _$v = null;
     }
@@ -179,6 +202,8 @@ class CreateOrUpdateDeviceRequestBuilder
               connectionMode: connectionMode,
               randomServer: randomServer,
               routeGlobalNet: routeGlobalNet,
+              adBlocker: adBlocker,
+              malwareBlocker: malwareBlocker,
               info: _info?.build());
     } catch (_) {
       late String _$failedField;

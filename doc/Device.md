@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **ips** | **BuiltList&lt;String&gt;** |  | [optional] 
 **dns** | **BuiltList&lt;String&gt;** |  | [optional] 
 **torOver** | **bool** |  | [optional] [default to false]
+**adBlocker** | **bool** |  | [optional] 
+**malwareBlocker** | **bool** |  | [optional] 
 **routeGlobalNet** | **bool** | Is the device route global networks throughout. | [optional] [default to true]
 **connectionMode** | [**ConnectionMode**](ConnectionMode.md) |  | [optional] 
 **wireguard** | [**WireGuard**](WireGuard.md) |  | [optional] 

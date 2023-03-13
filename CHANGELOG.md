@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.2] - 2023-03-13
+
+### Changes
+
+- Add new field `ad_blocker` & `malware_blocker` to DeviceApi
+
 ## [3.8.1] - 2023-03-13
 
 ### Changes

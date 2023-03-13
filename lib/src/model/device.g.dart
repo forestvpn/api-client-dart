@@ -20,6 +20,10 @@ class _$Device extends Device {
   @override
   final bool? torOver;
   @override
+  final bool? adBlocker;
+  @override
+  final bool? malwareBlocker;
+  @override
   final bool? routeGlobalNet;
   @override
   final ConnectionMode? connectionMode;
@@ -44,6 +48,8 @@ class _$Device extends Device {
       this.ips,
       this.dns,
       this.torOver,
+      this.adBlocker,
+      this.malwareBlocker,
       this.routeGlobalNet,
       this.connectionMode,
       this.wireguard,
@@ -72,6 +78,8 @@ class _$Device extends Device {
         ips == other.ips &&
         dns == other.dns &&
         torOver == other.torOver &&
+        adBlocker == other.adBlocker &&
+        malwareBlocker == other.malwareBlocker &&
         routeGlobalNet == other.routeGlobalNet &&
         connectionMode == other.connectionMode &&
         wireguard == other.wireguard &&
@@ -90,6 +98,8 @@ class _$Device extends Device {
     _$hash = $jc(_$hash, ips.hashCode);
     _$hash = $jc(_$hash, dns.hashCode);
     _$hash = $jc(_$hash, torOver.hashCode);
+    _$hash = $jc(_$hash, adBlocker.hashCode);
+    _$hash = $jc(_$hash, malwareBlocker.hashCode);
     _$hash = $jc(_$hash, routeGlobalNet.hashCode);
     _$hash = $jc(_$hash, connectionMode.hashCode);
     _$hash = $jc(_$hash, wireguard.hashCode);
@@ -110,6 +120,8 @@ class _$Device extends Device {
           ..add('ips', ips)
           ..add('dns', dns)
           ..add('torOver', torOver)
+          ..add('adBlocker', adBlocker)
+          ..add('malwareBlocker', malwareBlocker)
           ..add('routeGlobalNet', routeGlobalNet)
           ..add('connectionMode', connectionMode)
           ..add('wireguard', wireguard)
@@ -147,6 +159,15 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
   bool? _torOver;
   bool? get torOver => _$this._torOver;
   set torOver(bool? torOver) => _$this._torOver = torOver;
+
+  bool? _adBlocker;
+  bool? get adBlocker => _$this._adBlocker;
+  set adBlocker(bool? adBlocker) => _$this._adBlocker = adBlocker;
+
+  bool? _malwareBlocker;
+  bool? get malwareBlocker => _$this._malwareBlocker;
+  set malwareBlocker(bool? malwareBlocker) =>
+      _$this._malwareBlocker = malwareBlocker;
 
   bool? _routeGlobalNet;
   bool? get routeGlobalNet => _$this._routeGlobalNet;
@@ -195,6 +216,8 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
       _ips = $v.ips?.toBuilder();
       _dns = $v.dns?.toBuilder();
       _torOver = $v.torOver;
+      _adBlocker = $v.adBlocker;
+      _malwareBlocker = $v.malwareBlocker;
       _routeGlobalNet = $v.routeGlobalNet;
       _connectionMode = $v.connectionMode?.toBuilder();
       _wireguard = $v.wireguard?.toBuilder();
@@ -232,6 +255,8 @@ class DeviceBuilder implements Builder<Device, DeviceBuilder> {
               ips: _ips?.build(),
               dns: _dns?.build(),
               torOver: torOver,
+              adBlocker: adBlocker,
+              malwareBlocker: malwareBlocker,
               routeGlobalNet: routeGlobalNet,
               connectionMode: _connectionMode?.build(),
               wireguard: _wireguard?.build(),

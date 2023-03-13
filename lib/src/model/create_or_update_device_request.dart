@@ -19,6 +19,8 @@ part 'create_or_update_device_request.g.dart';
 /// * [connectionMode] 
 /// * [randomServer] 
 /// * [routeGlobalNet] - Is the device route global networks throughout.
+/// * [adBlocker] 
+/// * [malwareBlocker] 
 /// * [info] 
 @BuiltValue()
 abstract class CreateOrUpdateDeviceRequest implements Built<CreateOrUpdateDeviceRequest, CreateOrUpdateDeviceRequestBuilder> {
@@ -43,6 +45,12 @@ abstract class CreateOrUpdateDeviceRequest implements Built<CreateOrUpdateDevice
   /// Is the device route global networks throughout.
   @BuiltValueField(wireName: r'route_global_net')
   bool? get routeGlobalNet;
+
+  @BuiltValueField(wireName: r'ad_blocker')
+  bool? get adBlocker;
+
+  @BuiltValueField(wireName: r'malware_blocker')
+  bool? get malwareBlocker;
 
   @BuiltValueField(wireName: r'info')
   CreateOrUpdateDeviceRequestInfo? get info;
@@ -118,6 +126,20 @@ class _$CreateOrUpdateDeviceRequestSerializer implements PrimitiveSerializer<Cre
       yield r'route_global_net';
       yield serializers.serialize(
         object.routeGlobalNet,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.adBlocker != null) {
+      yield r'ad_blocker';
+      yield serializers.serialize(
+        object.adBlocker,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.malwareBlocker != null) {
+      yield r'malware_blocker';
+      yield serializers.serialize(
+        object.malwareBlocker,
         specifiedType: const FullType.nullable(bool),
       );
     }
@@ -203,6 +225,22 @@ class _$CreateOrUpdateDeviceRequestSerializer implements PrimitiveSerializer<Cre
           ) as bool?;
           if (valueDes == null) continue;
           result.routeGlobalNet = valueDes;
+          break;
+        case r'ad_blocker':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.adBlocker = valueDes;
+          break;
+        case r'malware_blocker':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.malwareBlocker = valueDes;
           break;
         case r'info':
           final valueDes = serializers.deserialize(
