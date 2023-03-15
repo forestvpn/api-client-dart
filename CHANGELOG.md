@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.4] - 2023-03-15
+
+### Changes
+
+- Updated dio to 5.0.0
+
 ## [3.8.3] - 2023-03-15
 
 ### Changes

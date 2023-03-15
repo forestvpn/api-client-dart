@@ -8,7 +8,7 @@ part of 'user_photo.dart';
 
 class _$UserPhoto extends UserPhoto {
   @override
-  final UserPhotoPhoto? photo;
+  final File? photo;
   @override
   final String? photoId;
 
@@ -53,10 +53,9 @@ class _$UserPhoto extends UserPhoto {
 class UserPhotoBuilder implements Builder<UserPhoto, UserPhotoBuilder> {
   _$UserPhoto? _$v;
 
-  UserPhotoPhotoBuilder? _photo;
-  UserPhotoPhotoBuilder get photo =>
-      _$this._photo ??= new UserPhotoPhotoBuilder();
-  set photo(UserPhotoPhotoBuilder? photo) => _$this._photo = photo;
+  FileBuilder? _photo;
+  FileBuilder get photo => _$this._photo ??= new FileBuilder();
+  set photo(FileBuilder? photo) => _$this._photo = photo;
 
   String? _photoId;
   String? get photoId => _$this._photoId;

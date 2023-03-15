@@ -9,9 +9,9 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**defaultPaymentMethod** | [**BillingAccountDefaultPaymentMethod**](BillingAccountDefaultPaymentMethod.md) |  | 
+**defaultPaymentMethod** | [**PaymentMethod**](PaymentMethod.md) |  | 
 **defaultPaymentMethodId** | **String** |  | 
-**currentPlan** | [**BillingAccountCurrentPlan**](BillingAccountCurrentPlan.md) |  | [optional] 
+**currentPlan** | [**Plan**](Plan.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

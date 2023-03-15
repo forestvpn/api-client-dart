@@ -10,7 +10,7 @@ class _$SubscriptionItem extends SubscriptionItem {
   @override
   final String id;
   @override
-  final SubscriptionItemPrice price;
+  final Price price;
   @override
   final String priceId;
   @override
@@ -82,10 +82,9 @@ class SubscriptionItemBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  SubscriptionItemPriceBuilder? _price;
-  SubscriptionItemPriceBuilder get price =>
-      _$this._price ??= new SubscriptionItemPriceBuilder();
-  set price(SubscriptionItemPriceBuilder? price) => _$this._price = price;
+  PriceBuilder? _price;
+  PriceBuilder get price => _$this._price ??= new PriceBuilder();
+  set price(PriceBuilder? price) => _$this._price = price;
 
   String? _priceId;
   String? get priceId => _$this._priceId;
