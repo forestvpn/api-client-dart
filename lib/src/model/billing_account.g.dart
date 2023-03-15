@@ -10,11 +10,11 @@ class _$BillingAccount extends BillingAccount {
   @override
   final String id;
   @override
-  final PaymentMethod defaultPaymentMethod;
+  final BillingAccountDefaultPaymentMethod defaultPaymentMethod;
   @override
   final String defaultPaymentMethodId;
   @override
-  final Plan? currentPlan;
+  final BillingAccountCurrentPlan? currentPlan;
 
   factory _$BillingAccount([void Function(BillingAccountBuilder)? updates]) =>
       (new BillingAccountBuilder()..update(updates))._build();
@@ -80,10 +80,12 @@ class BillingAccountBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  PaymentMethodBuilder? _defaultPaymentMethod;
-  PaymentMethodBuilder get defaultPaymentMethod =>
-      _$this._defaultPaymentMethod ??= new PaymentMethodBuilder();
-  set defaultPaymentMethod(PaymentMethodBuilder? defaultPaymentMethod) =>
+  BillingAccountDefaultPaymentMethodBuilder? _defaultPaymentMethod;
+  BillingAccountDefaultPaymentMethodBuilder get defaultPaymentMethod =>
+      _$this._defaultPaymentMethod ??=
+          new BillingAccountDefaultPaymentMethodBuilder();
+  set defaultPaymentMethod(
+          BillingAccountDefaultPaymentMethodBuilder? defaultPaymentMethod) =>
       _$this._defaultPaymentMethod = defaultPaymentMethod;
 
   String? _defaultPaymentMethodId;
@@ -91,9 +93,10 @@ class BillingAccountBuilder
   set defaultPaymentMethodId(String? defaultPaymentMethodId) =>
       _$this._defaultPaymentMethodId = defaultPaymentMethodId;
 
-  PlanBuilder? _currentPlan;
-  PlanBuilder get currentPlan => _$this._currentPlan ??= new PlanBuilder();
-  set currentPlan(PlanBuilder? currentPlan) =>
+  BillingAccountCurrentPlanBuilder? _currentPlan;
+  BillingAccountCurrentPlanBuilder get currentPlan =>
+      _$this._currentPlan ??= new BillingAccountCurrentPlanBuilder();
+  set currentPlan(BillingAccountCurrentPlanBuilder? currentPlan) =>
       _$this._currentPlan = currentPlan;
 
   BillingAccountBuilder() {

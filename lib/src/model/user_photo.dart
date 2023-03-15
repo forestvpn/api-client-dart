@@ -2,8 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-// ignore_for_file: unused_element
-import 'package:forestvpn_api/src/model/file.dart';
+import 'package:forestvpn_api/src/model/user_photo_photo.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,114 +13,75 @@ part 'user_photo.g.dart';
 /// Properties:
 /// * [photo] 
 /// * [photoId] 
-@BuiltValue()
 abstract class UserPhoto implements Built<UserPhoto, UserPhotoBuilder> {
-  @BuiltValueField(wireName: r'photo')
-  File? get photo;
+    @BuiltValueField(wireName: r'photo')
+    UserPhotoPhoto? get photo;
 
-  @BuiltValueField(wireName: r'photo_id')
-  String? get photoId;
+    @BuiltValueField(wireName: r'photo_id')
+    String? get photoId;
 
-  UserPhoto._();
+    UserPhoto._();
 
-  factory UserPhoto([void updates(UserPhotoBuilder b)]) = _$UserPhoto;
+    @BuiltValueHook(initializeBuilder: true)
+    static void _defaults(UserPhotoBuilder b) => b;
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserPhotoBuilder b) => b;
+    factory UserPhoto([void updates(UserPhotoBuilder b)]) = _$UserPhoto;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserPhoto> get serializer => _$UserPhotoSerializer();
+    @BuiltValueSerializer(custom: true)
+    static Serializer<UserPhoto> get serializer => _$UserPhotoSerializer();
 }
 
-class _$UserPhotoSerializer implements PrimitiveSerializer<UserPhoto> {
-  @override
-  final Iterable<Type> types = const [UserPhoto, _$UserPhoto];
+class _$UserPhotoSerializer implements StructuredSerializer<UserPhoto> {
+    @override
+    final Iterable<Type> types = const [UserPhoto, _$UserPhoto];
 
-  @override
-  final String wireName = r'UserPhoto';
+    @override
+    final String wireName = r'UserPhoto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    UserPhoto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.photo != null) {
-      yield r'photo';
-      yield serializers.serialize(
-        object.photo,
-        specifiedType: const FullType(File),
-      );
+    @override
+    Iterable<Object?> serialize(Serializers serializers, UserPhoto object,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = <Object?>[];
+        if (object.photo != null) {
+            result
+                ..add(r'photo')
+                ..add(serializers.serialize(object.photo,
+                    specifiedType: const FullType(UserPhotoPhoto)));
+        }
+        if (object.photoId != null) {
+            result
+                ..add(r'photo_id')
+                ..add(serializers.serialize(object.photoId,
+                    specifiedType: const FullType(String)));
+        }
+        return result;
     }
-    if (object.photoId != null) {
-      yield r'photo_id';
-      yield serializers.serialize(
-        object.photoId,
-        specifiedType: const FullType(String),
-      );
+
+    @override
+    UserPhoto deserialize(Serializers serializers, Iterable<Object?> serialized,
+        {FullType specifiedType = FullType.unspecified}) {
+        final result = UserPhotoBuilder();
+
+        final iterator = serialized.iterator;
+        while (iterator.moveNext()) {
+            final key = iterator.current as String;
+            iterator.moveNext();
+            final Object? value = iterator.current;
+            
+            switch (key) {
+                case r'photo':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(UserPhotoPhoto)) as UserPhotoPhoto;
+                    result.photo.replace(valueDes);
+                    break;
+                case r'photo_id':
+                    final valueDes = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    result.photoId = valueDes;
+                    break;
+            }
+        }
+        return result.build();
     }
-  }
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    UserPhoto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required UserPhotoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'photo':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(File),
-          ) as File;
-          result.photo.replace(valueDes);
-          break;
-        case r'photo_id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.photoId = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
-
-  @override
-  UserPhoto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserPhotoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
 }
 

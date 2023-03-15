@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **environments** | [**BuiltList&lt;Environment&gt;**](Environment.md) |  | [optional] 
 **ref** | **String** |  | [optional] 
 **registrationRef** | **String** |  | [optional] 
-**invites** | **String** |  | [optional] 
-**acceptedInvites** | **String** |  | [optional] 
+**invites** | **int** |  | [optional] 
+**acceptedInvites** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

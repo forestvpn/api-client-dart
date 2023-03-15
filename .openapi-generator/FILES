@@ -1,6 +1,7 @@
 .gitignore
 analysis_options.yaml
 doc/AccessTokenRequest.md
+doc/AccessTokenRequestUserAgent.md
 doc/AdPlacement.md
 doc/AdProvider.md
 doc/AdReward.md
@@ -15,6 +16,8 @@ doc/AppleApi.md
 doc/Architecture.md
 doc/AuthApi.md
 doc/BillingAccount.md
+doc/BillingAccountCurrentPlan.md
+doc/BillingAccountDefaultPaymentMethod.md
 doc/BillingApi.md
 doc/BillingFeature.md
 doc/Bundle.md
@@ -88,6 +91,7 @@ doc/StripePaymentIntent.md
 doc/StripeSetupIntent.md
 doc/Subscription.md
 doc/SubscriptionItem.md
+doc/SubscriptionItemPrice.md
 doc/SubscriptionSource.md
 doc/SubscriptionStatus.md
 doc/SupportApi.md
@@ -103,6 +107,7 @@ doc/UserAgentDevice.md
 doc/UserAgentOs.md
 doc/UserDevice.md
 doc/UserPhoto.md
+doc/UserPhotoPhoto.md
 doc/WireGuard.md
 doc/WireGuardPeer.md
 doc/WireGuardPeerDevice.md
@@ -136,6 +141,7 @@ lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
 lib/src/model/access_token_request.dart
+lib/src/model/access_token_request_user_agent.dart
 lib/src/model/ad_placement.dart
 lib/src/model/ad_provider.dart
 lib/src/model/ad_reward.dart
@@ -145,6 +151,8 @@ lib/src/model/aggregated_data_usage_stats.dart
 lib/src/model/app_store_receipt_verification_request.dart
 lib/src/model/architecture.dart
 lib/src/model/billing_account.dart
+lib/src/model/billing_account_current_plan.dart
+lib/src/model/billing_account_default_payment_method.dart
 lib/src/model/billing_feature.dart
 lib/src/model/bundle.dart
 lib/src/model/checkout_session.dart
@@ -209,6 +217,7 @@ lib/src/model/stripe_payment_intent.dart
 lib/src/model/stripe_setup_intent.dart
 lib/src/model/subscription.dart
 lib/src/model/subscription_item.dart
+lib/src/model/subscription_item_price.dart
 lib/src/model/subscription_source.dart
 lib/src/model/subscription_status.dart
 lib/src/model/ticket_category.dart
@@ -223,6 +232,7 @@ lib/src/model/user_agent_device.dart
 lib/src/model/user_agent_os.dart
 lib/src/model/user_device.dart
 lib/src/model/user_photo.dart
+lib/src/model/user_photo_photo.dart
 lib/src/model/wire_guard.dart
 lib/src/model/wire_guard_peer.dart
 lib/src/model/wire_guard_peer_device.dart
@@ -230,3 +240,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/billing_account_current_plan_test.dart

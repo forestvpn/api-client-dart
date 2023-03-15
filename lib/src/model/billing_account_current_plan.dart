@@ -2,20 +2,21 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+import 'package:forestvpn_api/src/model/plan.dart';
 import 'package:forestvpn_api/src/model/subscription.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'plan.g.dart';
+part 'billing_account_current_plan.g.dart';
 
-/// Plan
+/// BillingAccountCurrentPlan
 ///
 /// Properties:
 /// * [name] 
 /// * [description] 
 /// * [expiresAt] - Plan expires at. Date and time with timezone.
 /// * [subscription] 
-abstract class Plan implements Built<Plan, PlanBuilder> {
+abstract class BillingAccountCurrentPlan implements Built<BillingAccountCurrentPlan, BillingAccountCurrentPlanBuilder> {
     @BuiltValueField(wireName: r'name')
     String get name;
 
@@ -29,26 +30,26 @@ abstract class Plan implements Built<Plan, PlanBuilder> {
     @BuiltValueField(wireName: r'subscription')
     Subscription? get subscription;
 
-    Plan._();
+    BillingAccountCurrentPlan._();
 
     @BuiltValueHook(initializeBuilder: true)
-    static void _defaults(PlanBuilder b) => b;
+    static void _defaults(BillingAccountCurrentPlanBuilder b) => b;
 
-    factory Plan([void updates(PlanBuilder b)]) = _$Plan;
+    factory BillingAccountCurrentPlan([void updates(BillingAccountCurrentPlanBuilder b)]) = _$BillingAccountCurrentPlan;
 
     @BuiltValueSerializer(custom: true)
-    static Serializer<Plan> get serializer => _$PlanSerializer();
+    static Serializer<BillingAccountCurrentPlan> get serializer => _$BillingAccountCurrentPlanSerializer();
 }
 
-class _$PlanSerializer implements StructuredSerializer<Plan> {
+class _$BillingAccountCurrentPlanSerializer implements StructuredSerializer<BillingAccountCurrentPlan> {
     @override
-    final Iterable<Type> types = const [Plan, _$Plan];
+    final Iterable<Type> types = const [BillingAccountCurrentPlan, _$BillingAccountCurrentPlan];
 
     @override
-    final String wireName = r'Plan';
+    final String wireName = r'BillingAccountCurrentPlan';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, Plan object,
+    Iterable<Object?> serialize(Serializers serializers, BillingAccountCurrentPlan object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object?>[];
         result
@@ -77,9 +78,9 @@ class _$PlanSerializer implements StructuredSerializer<Plan> {
     }
 
     @override
-    Plan deserialize(Serializers serializers, Iterable<Object?> serialized,
+    BillingAccountCurrentPlan deserialize(Serializers serializers, Iterable<Object?> serialized,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = PlanBuilder();
+        final result = BillingAccountCurrentPlanBuilder();
 
         final iterator = serialized.iterator;
         while (iterator.moveNext()) {

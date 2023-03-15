@@ -36,9 +36,9 @@ class _$User extends User {
   @override
   final String? registrationRef;
   @override
-  final String? invites;
+  final int? invites;
   @override
-  final String? acceptedInvites;
+  final int? acceptedInvites;
 
   factory _$User([void Function(UserBuilder)? updates]) =>
       (new UserBuilder()..update(updates))._build();
@@ -203,13 +203,13 @@ class UserBuilder implements Builder<User, UserBuilder> {
   set registrationRef(String? registrationRef) =>
       _$this._registrationRef = registrationRef;
 
-  String? _invites;
-  String? get invites => _$this._invites;
-  set invites(String? invites) => _$this._invites = invites;
+  int? _invites;
+  int? get invites => _$this._invites;
+  set invites(int? invites) => _$this._invites = invites;
 
-  String? _acceptedInvites;
-  String? get acceptedInvites => _$this._acceptedInvites;
-  set acceptedInvites(String? acceptedInvites) =>
+  int? _acceptedInvites;
+  int? get acceptedInvites => _$this._acceptedInvites;
+  set acceptedInvites(int? acceptedInvites) =>
       _$this._acceptedInvites = acceptedInvites;
 
   UserBuilder() {

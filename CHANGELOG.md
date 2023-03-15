@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.3] - 2023-03-15
+
+### Changes
+
+- Fixed fields `invites` & `accepted_invites` to InvitesApi
+
 ## [3.8.2] - 2023-03-13
 
 ### Changes
