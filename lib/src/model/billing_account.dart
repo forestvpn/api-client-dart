@@ -23,10 +23,10 @@ abstract class BillingAccount implements Built<BillingAccount, BillingAccountBui
   String get id;
 
   @BuiltValueField(wireName: r'default_payment_method')
-  PaymentMethod get defaultPaymentMethod;
+  PaymentMethod? get defaultPaymentMethod;
 
   @BuiltValueField(wireName: r'default_payment_method_id')
-  String get defaultPaymentMethodId;
+  String? get defaultPaymentMethodId;
 
   @BuiltValueField(wireName: r'current_plan')
   Plan? get currentPlan;
@@ -59,16 +59,20 @@ class _$BillingAccountSerializer implements PrimitiveSerializer<BillingAccount> 
       object.id,
       specifiedType: const FullType(String),
     );
-    yield r'default_payment_method';
-    yield serializers.serialize(
-      object.defaultPaymentMethod,
-      specifiedType: const FullType(PaymentMethod),
-    );
-    yield r'default_payment_method_id';
-    yield serializers.serialize(
-      object.defaultPaymentMethodId,
-      specifiedType: const FullType(String),
-    );
+    if (object.defaultPaymentMethod != null) {
+      yield r'default_payment_method';
+      yield serializers.serialize(
+        object.defaultPaymentMethod,
+        specifiedType: const FullType(PaymentMethod),
+      );
+    }
+    if (object.defaultPaymentMethodId != null) {
+      yield r'default_payment_method_id';
+      yield serializers.serialize(
+        object.defaultPaymentMethodId,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.currentPlan != null) {
       yield r'current_plan';
       yield serializers.serialize(

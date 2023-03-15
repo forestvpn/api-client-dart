@@ -10,9 +10,9 @@ class _$BillingAccount extends BillingAccount {
   @override
   final String id;
   @override
-  final PaymentMethod defaultPaymentMethod;
+  final PaymentMethod? defaultPaymentMethod;
   @override
-  final String defaultPaymentMethodId;
+  final String? defaultPaymentMethodId;
   @override
   final Plan? currentPlan;
 
@@ -21,15 +21,11 @@ class _$BillingAccount extends BillingAccount {
 
   _$BillingAccount._(
       {required this.id,
-      required this.defaultPaymentMethod,
-      required this.defaultPaymentMethodId,
+      this.defaultPaymentMethod,
+      this.defaultPaymentMethodId,
       this.currentPlan})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'BillingAccount', 'id');
-    BuiltValueNullFieldError.checkNotNull(
-        defaultPaymentMethod, r'BillingAccount', 'defaultPaymentMethod');
-    BuiltValueNullFieldError.checkNotNull(
-        defaultPaymentMethodId, r'BillingAccount', 'defaultPaymentMethodId');
   }
 
   @override
@@ -104,7 +100,7 @@ class BillingAccountBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _defaultPaymentMethod = $v.defaultPaymentMethod.toBuilder();
+      _defaultPaymentMethod = $v.defaultPaymentMethod?.toBuilder();
       _defaultPaymentMethodId = $v.defaultPaymentMethodId;
       _currentPlan = $v.currentPlan?.toBuilder();
       _$v = null;
@@ -133,17 +129,14 @@ class BillingAccountBuilder
           new _$BillingAccount._(
               id: BuiltValueNullFieldError.checkNotNull(
                   id, r'BillingAccount', 'id'),
-              defaultPaymentMethod: defaultPaymentMethod.build(),
-              defaultPaymentMethodId: BuiltValueNullFieldError.checkNotNull(
-                  defaultPaymentMethodId,
-                  r'BillingAccount',
-                  'defaultPaymentMethodId'),
+              defaultPaymentMethod: _defaultPaymentMethod?.build(),
+              defaultPaymentMethodId: defaultPaymentMethodId,
               currentPlan: _currentPlan?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'defaultPaymentMethod';
-        defaultPaymentMethod.build();
+        _defaultPaymentMethod?.build();
 
         _$failedField = 'currentPlan';
         _currentPlan?.build();
