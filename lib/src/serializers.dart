@@ -31,7 +31,6 @@ import 'package:forestvpn_api/src/model/checkout_session_product.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_auth.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_post3ds.dart';
 import 'package:forestvpn_api/src/model/cloud_payments_secure3d.dart';
-import 'package:forestvpn_api/src/model/code.dart';
 import 'package:forestvpn_api/src/model/connection_mode.dart';
 import 'package:forestvpn_api/src/model/constraint.dart';
 import 'package:forestvpn_api/src/model/country.dart';
@@ -82,6 +81,7 @@ import 'package:forestvpn_api/src/model/product.dart';
 import 'package:forestvpn_api/src/model/product_without_price.dart';
 import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:forestvpn_api/src/model/server.dart';
+import 'package:forestvpn_api/src/model/source_code.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
 import 'package:forestvpn_api/src/model/stripe_payment_intent.dart';
 import 'package:forestvpn_api/src/model/stripe_setup_intent.dart';
@@ -127,7 +127,6 @@ part 'serializers.g.dart';
   CloudPaymentsAuth,
   CloudPaymentsPost3ds,
   CloudPaymentsSecure3d,
-  Code,
   ConnectionMode,
   Constraint,
   Country,
@@ -178,6 +177,7 @@ part 'serializers.g.dart';
   ProductWithoutPrice,
   Recurring,
   Server,
+  SourceCode,
   StripeCheckoutSession,
   StripePaymentIntent,
   StripeSetupIntent,
@@ -249,10 +249,6 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Product>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(File)]),
-        () => ListBuilder<File>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ConnectionMode)]),
         () => ListBuilder<ConnectionMode>(),
       )
@@ -291,6 +287,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(String)]),
         () => ListBuilder<String>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ModelFunction)]),
+        () => ListBuilder<ModelFunction>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AdvertisedRoute)]),

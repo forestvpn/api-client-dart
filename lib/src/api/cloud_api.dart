@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/api_util.dart';
 import 'package:forestvpn_api/src/model/error.dart';
-import 'package:forestvpn_api/src/model/file.dart';
 import 'package:forestvpn_api/src/model/model_function.dart';
 
 class CloudApi {
@@ -269,9 +268,9 @@ class CloudApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<File>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ModelFunction>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<File>>> listFunctions({ 
+  Future<Response<BuiltList<ModelFunction>>> listFunctions({ 
     int? perPage,
     int? page,
     CancelToken? cancelToken,
@@ -314,14 +313,14 @@ class CloudApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<File> _responseData;
+    BuiltList<ModelFunction> _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(File)]);
+      const _responseType = FullType(BuiltList, [FullType(ModelFunction)]);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as BuiltList<File>;
+      ) as BuiltList<ModelFunction>;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -333,7 +332,7 @@ class CloudApi {
       );
     }
 
-    return Response<BuiltList<File>>(
+    return Response<BuiltList<ModelFunction>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

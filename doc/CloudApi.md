@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listFunctions**
-> BuiltList<File> listFunctions(perPage, page)
+> BuiltList<ModelFunction> listFunctions(perPage, page)
 
 Functions List
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;File&gt;**](File.md)
+[**BuiltList&lt;ModelFunction&gt;**](ModelFunction.md)
 
 ### Authorization
 

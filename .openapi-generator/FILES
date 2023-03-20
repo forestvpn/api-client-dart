@@ -25,7 +25,6 @@ doc/CloudApi.md
 doc/CloudPaymentsAuth.md
 doc/CloudPaymentsPost3ds.md
 doc/CloudPaymentsSecure3d.md
-doc/Code.md
 doc/ConnectionMode.md
 doc/Constraint.md
 doc/Country.md
@@ -83,6 +82,7 @@ doc/Product.md
 doc/ProductWithoutPrice.md
 doc/Recurring.md
 doc/Server.md
+doc/SourceCode.md
 doc/StripeCheckoutSession.md
 doc/StripePaymentIntent.md
 doc/StripeSetupIntent.md
@@ -152,7 +152,6 @@ lib/src/model/checkout_session_product.dart
 lib/src/model/cloud_payments_auth.dart
 lib/src/model/cloud_payments_post3ds.dart
 lib/src/model/cloud_payments_secure3d.dart
-lib/src/model/code.dart
 lib/src/model/connection_mode.dart
 lib/src/model/constraint.dart
 lib/src/model/country.dart
@@ -204,6 +203,7 @@ lib/src/model/product.dart
 lib/src/model/product_without_price.dart
 lib/src/model/recurring.dart
 lib/src/model/server.dart
+lib/src/model/source_code.dart
 lib/src/model/stripe_checkout_session.dart
 lib/src/model/stripe_payment_intent.dart
 lib/src/model/stripe_setup_intent.dart
@@ -230,3 +230,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/source_code_test.dart

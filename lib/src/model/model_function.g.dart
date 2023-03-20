@@ -8,9 +8,9 @@ part of 'model_function.dart';
 
 class _$ModelFunction extends ModelFunction {
   @override
-  final String id;
+  final String? id;
   @override
-  final String? name;
+  final String name;
   @override
   final String? description;
   @override
@@ -22,28 +22,30 @@ class _$ModelFunction extends ModelFunction {
   @override
   final BuiltList<Architecture>? architectures;
   @override
-  final Code? code;
+  final File? source_;
+  @override
+  final String sourceId;
   @override
   final FunctionEnvironment? environment;
-  @override
-  final num? size;
 
   factory _$ModelFunction([void Function(ModelFunctionBuilder)? updates]) =>
       (new ModelFunctionBuilder()..update(updates))._build();
 
   _$ModelFunction._(
-      {required this.id,
-      this.name,
+      {this.id,
+      required this.name,
       this.description,
       this.handler,
       this.timeout,
       this.memorySize,
       this.architectures,
-      this.code,
-      this.environment,
-      this.size})
+      this.source_,
+      required this.sourceId,
+      this.environment})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'ModelFunction', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'ModelFunction', 'name');
+    BuiltValueNullFieldError.checkNotNull(
+        sourceId, r'ModelFunction', 'sourceId');
   }
 
   @override
@@ -64,9 +66,9 @@ class _$ModelFunction extends ModelFunction {
         timeout == other.timeout &&
         memorySize == other.memorySize &&
         architectures == other.architectures &&
-        code == other.code &&
-        environment == other.environment &&
-        size == other.size;
+        source_ == other.source_ &&
+        sourceId == other.sourceId &&
+        environment == other.environment;
   }
 
   @override
@@ -79,9 +81,9 @@ class _$ModelFunction extends ModelFunction {
     _$hash = $jc(_$hash, timeout.hashCode);
     _$hash = $jc(_$hash, memorySize.hashCode);
     _$hash = $jc(_$hash, architectures.hashCode);
-    _$hash = $jc(_$hash, code.hashCode);
+    _$hash = $jc(_$hash, source_.hashCode);
+    _$hash = $jc(_$hash, sourceId.hashCode);
     _$hash = $jc(_$hash, environment.hashCode);
-    _$hash = $jc(_$hash, size.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -96,9 +98,9 @@ class _$ModelFunction extends ModelFunction {
           ..add('timeout', timeout)
           ..add('memorySize', memorySize)
           ..add('architectures', architectures)
-          ..add('code', code)
-          ..add('environment', environment)
-          ..add('size', size))
+          ..add('source_', source_)
+          ..add('sourceId', sourceId)
+          ..add('environment', environment))
         .toString();
   }
 }
@@ -137,19 +139,19 @@ class ModelFunctionBuilder
   set architectures(ListBuilder<Architecture>? architectures) =>
       _$this._architectures = architectures;
 
-  CodeBuilder? _code;
-  CodeBuilder get code => _$this._code ??= new CodeBuilder();
-  set code(CodeBuilder? code) => _$this._code = code;
+  FileBuilder? _source_;
+  FileBuilder get source_ => _$this._source_ ??= new FileBuilder();
+  set source_(FileBuilder? source_) => _$this._source_ = source_;
+
+  String? _sourceId;
+  String? get sourceId => _$this._sourceId;
+  set sourceId(String? sourceId) => _$this._sourceId = sourceId;
 
   FunctionEnvironmentBuilder? _environment;
   FunctionEnvironmentBuilder get environment =>
       _$this._environment ??= new FunctionEnvironmentBuilder();
   set environment(FunctionEnvironmentBuilder? environment) =>
       _$this._environment = environment;
-
-  num? _size;
-  num? get size => _$this._size;
-  set size(num? size) => _$this._size = size;
 
   ModelFunctionBuilder() {
     ModelFunction._defaults(this);
@@ -165,9 +167,9 @@ class ModelFunctionBuilder
       _timeout = $v.timeout;
       _memorySize = $v.memorySize;
       _architectures = $v.architectures?.toBuilder();
-      _code = $v.code?.toBuilder();
+      _source_ = $v.source_?.toBuilder();
+      _sourceId = $v.sourceId;
       _environment = $v.environment?.toBuilder();
-      _size = $v.size;
       _$v = null;
     }
     return this;
@@ -192,24 +194,26 @@ class ModelFunctionBuilder
     try {
       _$result = _$v ??
           new _$ModelFunction._(
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'ModelFunction', 'id'),
-              name: name,
+              id: id,
+              name: BuiltValueNullFieldError.checkNotNull(
+                  name, r'ModelFunction', 'name'),
               description: description,
               handler: handler,
               timeout: timeout,
               memorySize: memorySize,
               architectures: _architectures?.build(),
-              code: _code?.build(),
-              environment: _environment?.build(),
-              size: size);
+              source_: _source_?.build(),
+              sourceId: BuiltValueNullFieldError.checkNotNull(
+                  sourceId, r'ModelFunction', 'sourceId'),
+              environment: _environment?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'architectures';
         _architectures?.build();
-        _$failedField = 'code';
-        _code?.build();
+        _$failedField = 'source_';
+        _source_?.build();
+
         _$failedField = 'environment';
         _environment?.build();
       } catch (e) {

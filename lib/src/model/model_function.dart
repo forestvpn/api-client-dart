@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:forestvpn_api/src/model/code.dart';
 import 'package:forestvpn_api/src/model/architecture.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/model/function_environment.dart';
+import 'package:forestvpn_api/src/model/file.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -22,16 +22,16 @@ part 'model_function.g.dart';
 /// * [timeout] - The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds and minimum is 1 second.
 /// * [memorySize] - The amount of memory available to the function at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
 /// * [architectures] 
-/// * [code] 
+/// * [source_] 
+/// * [sourceId] 
 /// * [environment] 
-/// * [size] 
 @BuiltValue()
 abstract class ModelFunction implements Built<ModelFunction, ModelFunctionBuilder> {
   @BuiltValueField(wireName: r'id')
-  String get id;
+  String? get id;
 
   @BuiltValueField(wireName: r'name')
-  String? get name;
+  String get name;
 
   @BuiltValueField(wireName: r'description')
   String? get description;
@@ -50,14 +50,14 @@ abstract class ModelFunction implements Built<ModelFunction, ModelFunctionBuilde
   @BuiltValueField(wireName: r'architectures')
   BuiltList<Architecture>? get architectures;
 
-  @BuiltValueField(wireName: r'code')
-  Code? get code;
+  @BuiltValueField(wireName: r'source')
+  File? get source_;
+
+  @BuiltValueField(wireName: r'source_id')
+  String get sourceId;
 
   @BuiltValueField(wireName: r'environment')
   FunctionEnvironment? get environment;
-
-  @BuiltValueField(wireName: r'size')
-  num? get size;
 
   ModelFunction._();
 
@@ -82,18 +82,18 @@ class _$ModelFunctionSerializer implements PrimitiveSerializer<ModelFunction> {
     ModelFunction object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(String),
-    );
-    if (object.name != null) {
-      yield r'name';
+    if (object.id != null) {
+      yield r'id';
       yield serializers.serialize(
-        object.name,
+        object.id,
         specifiedType: const FullType(String),
       );
     }
+    yield r'name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
     if (object.description != null) {
       yield r'description';
       yield serializers.serialize(
@@ -129,25 +129,23 @@ class _$ModelFunctionSerializer implements PrimitiveSerializer<ModelFunction> {
         specifiedType: const FullType(BuiltList, [FullType(Architecture)]),
       );
     }
-    if (object.code != null) {
-      yield r'code';
+    if (object.source_ != null) {
+      yield r'source';
       yield serializers.serialize(
-        object.code,
-        specifiedType: const FullType(Code),
+        object.source_,
+        specifiedType: const FullType(File),
       );
     }
+    yield r'source_id';
+    yield serializers.serialize(
+      object.sourceId,
+      specifiedType: const FullType(String),
+    );
     if (object.environment != null) {
       yield r'environment';
       yield serializers.serialize(
         object.environment,
         specifiedType: const FullType(FunctionEnvironment),
-      );
-    }
-    if (object.size != null) {
-      yield r'size';
-      yield serializers.serialize(
-        object.size,
-        specifiedType: const FullType(num),
       );
     }
   }
@@ -222,12 +220,19 @@ class _$ModelFunctionSerializer implements PrimitiveSerializer<ModelFunction> {
           ) as BuiltList<Architecture>;
           result.architectures.replace(valueDes);
           break;
-        case r'code':
+        case r'source':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Code),
-          ) as Code;
-          result.code.replace(valueDes);
+            specifiedType: const FullType(File),
+          ) as File;
+          result.source_.replace(valueDes);
+          break;
+        case r'source_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.sourceId = valueDes;
           break;
         case r'environment':
           final valueDes = serializers.deserialize(
@@ -235,13 +240,6 @@ class _$ModelFunctionSerializer implements PrimitiveSerializer<ModelFunction> {
             specifiedType: const FullType(FunctionEnvironment),
           ) as FunctionEnvironment;
           result.environment.replace(valueDes);
-          break;
-        case r'size':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.size = valueDes;
           break;
         default:
           unhandled.add(key);
