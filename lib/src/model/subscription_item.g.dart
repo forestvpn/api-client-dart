@@ -12,7 +12,7 @@ class _$SubscriptionItem extends SubscriptionItem {
   @override
   final Price price;
   @override
-  final String priceId;
+  final String? priceId;
   @override
   final int quantity;
 
@@ -23,13 +23,11 @@ class _$SubscriptionItem extends SubscriptionItem {
   _$SubscriptionItem._(
       {required this.id,
       required this.price,
-      required this.priceId,
+      this.priceId,
       required this.quantity})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'SubscriptionItem', 'id');
     BuiltValueNullFieldError.checkNotNull(price, r'SubscriptionItem', 'price');
-    BuiltValueNullFieldError.checkNotNull(
-        priceId, r'SubscriptionItem', 'priceId');
     BuiltValueNullFieldError.checkNotNull(
         quantity, r'SubscriptionItem', 'quantity');
   }
@@ -132,8 +130,7 @@ class SubscriptionItemBuilder
               id: BuiltValueNullFieldError.checkNotNull(
                   id, r'SubscriptionItem', 'id'),
               price: price.build(),
-              priceId: BuiltValueNullFieldError.checkNotNull(
-                  priceId, r'SubscriptionItem', 'priceId'),
+              priceId: priceId,
               quantity: BuiltValueNullFieldError.checkNotNull(
                   quantity, r'SubscriptionItem', 'quantity'));
     } catch (_) {

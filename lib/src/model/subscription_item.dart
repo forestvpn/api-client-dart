@@ -25,7 +25,7 @@ abstract class SubscriptionItem implements Built<SubscriptionItem, SubscriptionI
   Price get price;
 
   @BuiltValueField(wireName: r'price_id')
-  String get priceId;
+  String? get priceId;
 
   @BuiltValueField(wireName: r'quantity')
   int get quantity;
@@ -64,9 +64,9 @@ class _$SubscriptionItemSerializer implements PrimitiveSerializer<SubscriptionIt
       specifiedType: const FullType(Price),
     );
     yield r'price_id';
-    yield serializers.serialize(
+    yield object.priceId == null ? null : serializers.serialize(
       object.priceId,
-      specifiedType: const FullType(String),
+      specifiedType: const FullType.nullable(String),
     );
     yield r'quantity';
     yield serializers.serialize(
@@ -113,8 +113,9 @@ class _$SubscriptionItemSerializer implements PrimitiveSerializer<SubscriptionIt
         case r'price_id':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.priceId = valueDes;
           break;
         case r'quantity':
