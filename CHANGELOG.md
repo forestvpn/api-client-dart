@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.8] - 2023-03-23
+
+### Changes
+
+- Computing stats
+
 ## [3.8.7] - 2023-03-22
 
 ### Changes

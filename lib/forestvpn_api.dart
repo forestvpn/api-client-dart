@@ -102,6 +102,7 @@ export 'package:forestvpn_api/src/model/subscription.dart';
 export 'package:forestvpn_api/src/model/subscription_item.dart';
 export 'package:forestvpn_api/src/model/subscription_source.dart';
 export 'package:forestvpn_api/src/model/subscription_status.dart';
+export 'package:forestvpn_api/src/model/task.dart';
 export 'package:forestvpn_api/src/model/ticket_category.dart';
 export 'package:forestvpn_api/src/model/token_login.dart';
 export 'package:forestvpn_api/src/model/token_obtain.dart';

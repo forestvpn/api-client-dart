@@ -10,28 +10,20 @@ class _$File extends File {
   @override
   final String id;
   @override
-  final Uint8List data;
+  final Uint8List? data;
   @override
   final String? url;
   @override
-  final String mimetype;
+  final String? mimetype;
   @override
-  final num size;
+  final num? size;
 
   factory _$File([void Function(FileBuilder)? updates]) =>
       (new FileBuilder()..update(updates))._build();
 
-  _$File._(
-      {required this.id,
-      required this.data,
-      this.url,
-      required this.mimetype,
-      required this.size})
+  _$File._({required this.id, this.data, this.url, this.mimetype, this.size})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'File', 'id');
-    BuiltValueNullFieldError.checkNotNull(data, r'File', 'data');
-    BuiltValueNullFieldError.checkNotNull(mimetype, r'File', 'mimetype');
-    BuiltValueNullFieldError.checkNotNull(size, r'File', 'size');
   }
 
   @override
@@ -134,11 +126,10 @@ class FileBuilder implements Builder<File, FileBuilder> {
     final _$result = _$v ??
         new _$File._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'File', 'id'),
-            data: BuiltValueNullFieldError.checkNotNull(data, r'File', 'data'),
+            data: data,
             url: url,
-            mimetype: BuiltValueNullFieldError.checkNotNull(
-                mimetype, r'File', 'mimetype'),
-            size: BuiltValueNullFieldError.checkNotNull(size, r'File', 'size'));
+            mimetype: mimetype,
+            size: size);
     replace(_$result);
     return _$result;
   }

@@ -24,16 +24,16 @@ abstract class File implements Built<File, FileBuilder> {
   String get id;
 
   @BuiltValueField(wireName: r'data')
-  Uint8List get data;
+  Uint8List? get data;
 
   @BuiltValueField(wireName: r'url')
   String? get url;
 
   @BuiltValueField(wireName: r'mimetype')
-  String get mimetype;
+  String? get mimetype;
 
   @BuiltValueField(wireName: r'size')
-  num get size;
+  num? get size;
 
   File._();
 
@@ -64,26 +64,26 @@ class _$FileSerializer implements PrimitiveSerializer<File> {
       specifiedType: const FullType(String),
     );
     yield r'data';
-    yield serializers.serialize(
+    yield object.data == null ? null : serializers.serialize(
       object.data,
-      specifiedType: const FullType(Uint8List),
+      specifiedType: const FullType.nullable(Uint8List),
     );
     if (object.url != null) {
       yield r'url';
       yield serializers.serialize(
         object.url,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
     yield r'mimetype';
-    yield serializers.serialize(
+    yield object.mimetype == null ? null : serializers.serialize(
       object.mimetype,
-      specifiedType: const FullType(String),
+      specifiedType: const FullType.nullable(String),
     );
     yield r'size';
-    yield serializers.serialize(
+    yield object.size == null ? null : serializers.serialize(
       object.size,
-      specifiedType: const FullType(num),
+      specifiedType: const FullType.nullable(num),
     );
   }
 
@@ -118,29 +118,33 @@ class _$FileSerializer implements PrimitiveSerializer<File> {
         case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Uint8List),
-          ) as Uint8List;
+            specifiedType: const FullType.nullable(Uint8List),
+          ) as Uint8List?;
+          if (valueDes == null) continue;
           result.data = valueDes;
           break;
         case r'url':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.url = valueDes;
           break;
         case r'mimetype':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.mimetype = valueDes;
           break;
         case r'size':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(num),
-          ) as num;
+            specifiedType: const FullType.nullable(num),
+          ) as num?;
+          if (valueDes == null) continue;
           result.size = valueDes;
           break;
         default:

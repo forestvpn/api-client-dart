@@ -89,6 +89,7 @@ import 'package:forestvpn_api/src/model/subscription.dart';
 import 'package:forestvpn_api/src/model/subscription_item.dart';
 import 'package:forestvpn_api/src/model/subscription_source.dart';
 import 'package:forestvpn_api/src/model/subscription_status.dart';
+import 'package:forestvpn_api/src/model/task.dart';
 import 'package:forestvpn_api/src/model/ticket_category.dart';
 import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
@@ -185,6 +186,7 @@ part 'serializers.g.dart';
   SubscriptionItem,
   SubscriptionSource,
   SubscriptionStatus,
+  Task,
   TicketCategory,
   TokenLogin,
   TokenObtain,

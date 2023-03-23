@@ -27,6 +27,8 @@ class _$ModelFunction extends ModelFunction {
   final String sourceId;
   @override
   final FunctionEnvironment? environment;
+  @override
+  final Task? task;
 
   factory _$ModelFunction([void Function(ModelFunctionBuilder)? updates]) =>
       (new ModelFunctionBuilder()..update(updates))._build();
@@ -41,7 +43,8 @@ class _$ModelFunction extends ModelFunction {
       this.architectures,
       this.source_,
       required this.sourceId,
-      this.environment})
+      this.environment,
+      this.task})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'ModelFunction', 'name');
     BuiltValueNullFieldError.checkNotNull(
@@ -68,7 +71,8 @@ class _$ModelFunction extends ModelFunction {
         architectures == other.architectures &&
         source_ == other.source_ &&
         sourceId == other.sourceId &&
-        environment == other.environment;
+        environment == other.environment &&
+        task == other.task;
   }
 
   @override
@@ -84,6 +88,7 @@ class _$ModelFunction extends ModelFunction {
     _$hash = $jc(_$hash, source_.hashCode);
     _$hash = $jc(_$hash, sourceId.hashCode);
     _$hash = $jc(_$hash, environment.hashCode);
+    _$hash = $jc(_$hash, task.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -100,7 +105,8 @@ class _$ModelFunction extends ModelFunction {
           ..add('architectures', architectures)
           ..add('source_', source_)
           ..add('sourceId', sourceId)
-          ..add('environment', environment))
+          ..add('environment', environment)
+          ..add('task', task))
         .toString();
   }
 }
@@ -153,6 +159,10 @@ class ModelFunctionBuilder
   set environment(FunctionEnvironmentBuilder? environment) =>
       _$this._environment = environment;
 
+  TaskBuilder? _task;
+  TaskBuilder get task => _$this._task ??= new TaskBuilder();
+  set task(TaskBuilder? task) => _$this._task = task;
+
   ModelFunctionBuilder() {
     ModelFunction._defaults(this);
   }
@@ -170,6 +180,7 @@ class ModelFunctionBuilder
       _source_ = $v.source_?.toBuilder();
       _sourceId = $v.sourceId;
       _environment = $v.environment?.toBuilder();
+      _task = $v.task?.toBuilder();
       _$v = null;
     }
     return this;
@@ -205,7 +216,8 @@ class ModelFunctionBuilder
               source_: _source_?.build(),
               sourceId: BuiltValueNullFieldError.checkNotNull(
                   sourceId, r'ModelFunction', 'sourceId'),
-              environment: _environment?.build());
+              environment: _environment?.build(),
+              task: _task?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -216,6 +228,8 @@ class ModelFunctionBuilder
 
         _$failedField = 'environment';
         _environment?.build();
+        _$failedField = 'task';
+        _task?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ModelFunction', _$failedField, e.toString());
