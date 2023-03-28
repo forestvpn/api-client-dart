@@ -25,6 +25,7 @@ import 'package:forestvpn_api/src/api/google_api.dart';
 import 'package:forestvpn_api/src/api/media_api.dart';
 import 'package:forestvpn_api/src/api/notifications_api.dart';
 import 'package:forestvpn_api/src/api/support_api.dart';
+import 'package:forestvpn_api/src/api/user_api.dart';
 import 'package:forestvpn_api/src/api/wireguard_api.dart';
 
 class ForestvpnApi {
@@ -175,6 +176,12 @@ class ForestvpnApi {
   /// by doing that all interceptors will not be executed
   SupportApi getSupportApi() {
     return SupportApi(dio, serializers);
+  }
+
+  /// Get UserApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  UserApi getUserApi() {
+    return UserApi(dio, serializers);
   }
 
   /// Get WireguardApi instance, base route and serializer can be overridden by a given but be careful,

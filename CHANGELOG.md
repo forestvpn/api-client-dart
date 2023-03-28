@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [3.9.0] - 2023-03-28
+
+### Changes
+
+- Added UserApi: retrieve account details and account deletion features
 
 ## [3.8.8] - 2023-03-23
 
