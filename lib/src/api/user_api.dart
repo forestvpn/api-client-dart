@@ -39,7 +39,7 @@ class UserApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/user/me/';
+    final _path = r'/users/me/';
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -90,7 +90,7 @@ class UserApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/user/me/';
+    final _path = r'/users/me/';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{

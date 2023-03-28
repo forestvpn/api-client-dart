@@ -1,6 +1,12 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [3.9.1] - 2023-03-28
+
+### Changes
+
+- Typo fix in userApi url endpoint
+
 ## [3.9.0] - 2023-03-28
 
 ### Changes

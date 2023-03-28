@@ -9,8 +9,8 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteMyAccount**](UserApi.md#deletemyaccount) | **DELETE** /user/me/ | Delete my account permanently
-[**getMyAccount**](UserApi.md#getmyaccount) | **GET** /user/me/ | Get my account details
+[**deleteMyAccount**](UserApi.md#deletemyaccount) | **DELETE** /users/me/ | Delete my account permanently
+[**getMyAccount**](UserApi.md#getmyaccount) | **GET** /users/me/ | Get my account details
 
 
 # **deleteMyAccount**
