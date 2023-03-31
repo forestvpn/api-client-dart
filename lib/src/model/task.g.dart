@@ -18,11 +18,9 @@ class _$Task extends Task {
   @override
   final int? storageUsed;
   @override
-  final Uint8List? stdout;
+  final File? std;
   @override
-  final Uint8List? stderr;
-  @override
-  final Uint8List? response;
+  final File? response;
 
   factory _$Task([void Function(TaskBuilder)? updates]) =>
       (new TaskBuilder()..update(updates))._build();
@@ -33,8 +31,7 @@ class _$Task extends Task {
       this.resourcesUsed,
       this.dataUsed,
       this.storageUsed,
-      this.stdout,
-      this.stderr,
+      this.std,
       this.response})
       : super._();
 
@@ -54,8 +51,7 @@ class _$Task extends Task {
         resourcesUsed == other.resourcesUsed &&
         dataUsed == other.dataUsed &&
         storageUsed == other.storageUsed &&
-        stdout == other.stdout &&
-        stderr == other.stderr &&
+        std == other.std &&
         response == other.response;
   }
 
@@ -67,8 +63,7 @@ class _$Task extends Task {
     _$hash = $jc(_$hash, resourcesUsed.hashCode);
     _$hash = $jc(_$hash, dataUsed.hashCode);
     _$hash = $jc(_$hash, storageUsed.hashCode);
-    _$hash = $jc(_$hash, stdout.hashCode);
-    _$hash = $jc(_$hash, stderr.hashCode);
+    _$hash = $jc(_$hash, std.hashCode);
     _$hash = $jc(_$hash, response.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -82,8 +77,7 @@ class _$Task extends Task {
           ..add('resourcesUsed', resourcesUsed)
           ..add('dataUsed', dataUsed)
           ..add('storageUsed', storageUsed)
-          ..add('stdout', stdout)
-          ..add('stderr', stderr)
+          ..add('std', std)
           ..add('response', response))
         .toString();
   }
@@ -115,17 +109,13 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
   int? get storageUsed => _$this._storageUsed;
   set storageUsed(int? storageUsed) => _$this._storageUsed = storageUsed;
 
-  Uint8List? _stdout;
-  Uint8List? get stdout => _$this._stdout;
-  set stdout(Uint8List? stdout) => _$this._stdout = stdout;
+  FileBuilder? _std;
+  FileBuilder get std => _$this._std ??= new FileBuilder();
+  set std(FileBuilder? std) => _$this._std = std;
 
-  Uint8List? _stderr;
-  Uint8List? get stderr => _$this._stderr;
-  set stderr(Uint8List? stderr) => _$this._stderr = stderr;
-
-  Uint8List? _response;
-  Uint8List? get response => _$this._response;
-  set response(Uint8List? response) => _$this._response = response;
+  FileBuilder? _response;
+  FileBuilder get response => _$this._response ??= new FileBuilder();
+  set response(FileBuilder? response) => _$this._response = response;
 
   TaskBuilder() {
     Task._defaults(this);
@@ -139,9 +129,8 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
       _resourcesUsed = $v.resourcesUsed;
       _dataUsed = $v.dataUsed;
       _storageUsed = $v.storageUsed;
-      _stdout = $v.stdout;
-      _stderr = $v.stderr;
-      _response = $v.response;
+      _std = $v.std?.toBuilder();
+      _response = $v.response?.toBuilder();
       _$v = null;
     }
     return this;
@@ -162,16 +151,30 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
   Task build() => _build();
 
   _$Task _build() {
-    final _$result = _$v ??
-        new _$Task._(
-            assignmentDate: assignmentDate,
-            executionDate: executionDate,
-            resourcesUsed: resourcesUsed,
-            dataUsed: dataUsed,
-            storageUsed: storageUsed,
-            stdout: stdout,
-            stderr: stderr,
-            response: response);
+    _$Task _$result;
+    try {
+      _$result = _$v ??
+          new _$Task._(
+              assignmentDate: assignmentDate,
+              executionDate: executionDate,
+              resourcesUsed: resourcesUsed,
+              dataUsed: dataUsed,
+              storageUsed: storageUsed,
+              std: _std?.build(),
+              response: _response?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'std';
+        _std?.build();
+        _$failedField = 'response';
+        _response?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'Task', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

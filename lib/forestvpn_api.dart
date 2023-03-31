@@ -25,6 +25,7 @@ export 'package:forestvpn_api/src/api/google_api.dart';
 export 'package:forestvpn_api/src/api/media_api.dart';
 export 'package:forestvpn_api/src/api/notifications_api.dart';
 export 'package:forestvpn_api/src/api/support_api.dart';
+export 'package:forestvpn_api/src/api/user_api.dart';
 export 'package:forestvpn_api/src/api/wireguard_api.dart';
 
 export 'package:forestvpn_api/src/model/access_token_request.dart';

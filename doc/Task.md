@@ -13,9 +13,8 @@ Name | Type | Description | Notes
 **resourcesUsed** | **int** |  | [optional] 
 **dataUsed** | **int** |  | [optional] 
 **storageUsed** | **int** |  | [optional] 
-**stdout** | [**Uint8List**](Uint8List.md) |  | [optional] 
-**stderr** | [**Uint8List**](Uint8List.md) |  | [optional] 
-**response** | [**Uint8List**](Uint8List.md) |  | [optional] 
+**std** | [**File**](File.md) |  | [optional] 
+**response** | [**File**](File.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

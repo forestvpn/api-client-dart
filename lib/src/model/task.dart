@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'dart:typed_data';
+import 'package:forestvpn_api/src/model/file.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,8 +17,7 @@ part 'task.g.dart';
 /// * [resourcesUsed] 
 /// * [dataUsed] 
 /// * [storageUsed] 
-/// * [stdout] 
-/// * [stderr] 
+/// * [std] 
 /// * [response] 
 @BuiltValue()
 abstract class Task implements Built<Task, TaskBuilder> {
@@ -37,14 +36,11 @@ abstract class Task implements Built<Task, TaskBuilder> {
   @BuiltValueField(wireName: r'storage_used')
   int? get storageUsed;
 
-  @BuiltValueField(wireName: r'stdout')
-  Uint8List? get stdout;
-
-  @BuiltValueField(wireName: r'stderr')
-  Uint8List? get stderr;
+  @BuiltValueField(wireName: r'std')
+  File? get std;
 
   @BuiltValueField(wireName: r'response')
-  Uint8List? get response;
+  File? get response;
 
   Task._();
 
@@ -104,25 +100,18 @@ class _$TaskSerializer implements PrimitiveSerializer<Task> {
         specifiedType: const FullType(int),
       );
     }
-    if (object.stdout != null) {
-      yield r'stdout';
+    if (object.std != null) {
+      yield r'std';
       yield serializers.serialize(
-        object.stdout,
-        specifiedType: const FullType(Uint8List),
-      );
-    }
-    if (object.stderr != null) {
-      yield r'stderr';
-      yield serializers.serialize(
-        object.stderr,
-        specifiedType: const FullType(Uint8List),
+        object.std,
+        specifiedType: const FullType.nullable(File),
       );
     }
     if (object.response != null) {
       yield r'response';
       yield serializers.serialize(
         object.response,
-        specifiedType: const FullType(Uint8List),
+        specifiedType: const FullType.nullable(File),
       );
     }
   }
@@ -183,26 +172,21 @@ class _$TaskSerializer implements PrimitiveSerializer<Task> {
           ) as int;
           result.storageUsed = valueDes;
           break;
-        case r'stdout':
+        case r'std':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Uint8List),
-          ) as Uint8List;
-          result.stdout = valueDes;
-          break;
-        case r'stderr':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(Uint8List),
-          ) as Uint8List;
-          result.stderr = valueDes;
+            specifiedType: const FullType.nullable(File),
+          ) as File?;
+          if (valueDes == null) continue;
+          result.std.replace(valueDes);
           break;
         case r'response':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Uint8List),
-          ) as Uint8List;
-          result.response = valueDes;
+            specifiedType: const FullType.nullable(File),
+          ) as File?;
+          if (valueDes == null) continue;
+          result.response.replace(valueDes);
           break;
         default:
           unhandled.add(key);

@@ -102,6 +102,7 @@ doc/UserAgent.md
 doc/UserAgentBrowser.md
 doc/UserAgentDevice.md
 doc/UserAgentOs.md
+doc/UserApi.md
 doc/UserDevice.md
 doc/UserPhoto.md
 doc/WireGuard.md
@@ -128,6 +129,7 @@ lib/src/api/google_api.dart
 lib/src/api/media_api.dart
 lib/src/api/notifications_api.dart
 lib/src/api/support_api.dart
+lib/src/api/user_api.dart
 lib/src/api/wireguard_api.dart
 lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
@@ -232,4 +234,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/task_test.dart
+test/user_api_test.dart
