@@ -97,6 +97,8 @@ doc/TokenLogin.md
 doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
 doc/UpdateUserDeviceRequest.md
+doc/UsageIssue.md
+doc/UsageReport.md
 doc/User.md
 doc/UserAgent.md
 doc/UserAgentBrowser.md
@@ -220,6 +222,8 @@ lib/src/model/token_login.dart
 lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
 lib/src/model/update_user_device_request.dart
+lib/src/model/usage_issue.dart
+lib/src/model/usage_report.dart
 lib/src/model/user.dart
 lib/src/model/user_agent.dart
 lib/src/model/user_agent_browser.dart
@@ -234,4 +238,5 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/user_api_test.dart
+test/usage_issue_test.dart
+test/usage_report_test.dart

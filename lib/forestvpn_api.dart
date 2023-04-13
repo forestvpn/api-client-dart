@@ -109,6 +109,8 @@ export 'package:forestvpn_api/src/model/token_login.dart';
 export 'package:forestvpn_api/src/model/token_obtain.dart';
 export 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
 export 'package:forestvpn_api/src/model/update_user_device_request.dart';
+export 'package:forestvpn_api/src/model/usage_issue.dart';
+export 'package:forestvpn_api/src/model/usage_report.dart';
 export 'package:forestvpn_api/src/model/user.dart';
 export 'package:forestvpn_api/src/model/user_agent.dart';
 export 'package:forestvpn_api/src/model/user_agent_browser.dart';

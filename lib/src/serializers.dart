@@ -95,6 +95,8 @@ import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/update_user_device_request.dart';
+import 'package:forestvpn_api/src/model/usage_issue.dart';
+import 'package:forestvpn_api/src/model/usage_report.dart';
 import 'package:forestvpn_api/src/model/user.dart';
 import 'package:forestvpn_api/src/model/user_agent.dart';
 import 'package:forestvpn_api/src/model/user_agent_browser.dart';
@@ -192,6 +194,8 @@ part 'serializers.g.dart';
   TokenObtain,
   UpdateFCMDeviceRequest,
   UpdateUserDeviceRequest,
+  UsageIssue,
+  UsageReport,
   User,
   UserAgent,
   UserAgentBrowser,
@@ -223,14 +227,6 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Country>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(BillingFeature)]),
-        () => ListBuilder<BillingFeature>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(DeviceStats)]),
-        () => ListBuilder<DeviceStats>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Subscription)]),
         () => ListBuilder<Subscription>(),
       )
@@ -239,12 +235,40 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Location>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(Currency)]),
-        () => ListBuilder<Currency>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PaymentOption)]),
         () => ListBuilder<PaymentOption>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(UsageIssue)]),
+        () => ListBuilder<UsageIssue>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(WireGuardPeer)]),
+        () => ListBuilder<WireGuardPeer>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(UsageReport)]),
+        () => ListBuilder<UsageReport>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PaymentMethod)]),
+        () => ListBuilder<PaymentMethod>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ModelFunction)]),
+        () => ListBuilder<ModelFunction>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(BillingFeature)]),
+        () => ListBuilder<BillingFeature>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(DeviceStats)]),
+        () => ListBuilder<DeviceStats>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Currency)]),
+        () => ListBuilder<Currency>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Product)]),
@@ -271,16 +295,8 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PortForwarding>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(WireGuardPeer)]),
-        () => ListBuilder<WireGuardPeer>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Bundle)]),
         () => ListBuilder<Bundle>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PaymentMethod)]),
-        () => ListBuilder<PaymentMethod>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Friendship)]),
@@ -289,10 +305,6 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(String)]),
         () => ListBuilder<String>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ModelFunction)]),
-        () => ListBuilder<ModelFunction>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AdvertisedRoute)]),
