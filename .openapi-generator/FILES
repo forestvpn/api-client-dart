@@ -238,5 +238,3 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/usage_issue_test.dart
-test/usage_report_test.dart

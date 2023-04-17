@@ -13,6 +13,7 @@ part 'usage_issue.g.dart';
 /// Properties:
 /// * [id] 
 /// * [name] 
+/// * [isTextRequired] 
 @BuiltValue()
 abstract class UsageIssue implements Built<UsageIssue, UsageIssueBuilder> {
   @BuiltValueField(wireName: r'id')
@@ -20,6 +21,9 @@ abstract class UsageIssue implements Built<UsageIssue, UsageIssueBuilder> {
 
   @BuiltValueField(wireName: r'name')
   String? get name;
+
+  @BuiltValueField(wireName: r'is_text_required')
+  bool? get isTextRequired;
 
   UsageIssue._();
 
@@ -58,6 +62,13 @@ class _$UsageIssueSerializer implements PrimitiveSerializer<UsageIssue> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.isTextRequired != null) {
+      yield r'is_text_required';
+      yield serializers.serialize(
+        object.isTextRequired,
+        specifiedType: const FullType(bool),
+      );
+    }
   }
 
   @override
@@ -94,6 +105,13 @@ class _$UsageIssueSerializer implements PrimitiveSerializer<UsageIssue> {
             specifiedType: const FullType(String),
           ) as String;
           result.name = valueDes;
+          break;
+        case r'is_text_required':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isTextRequired = valueDes;
           break;
         default:
           unhandled.add(key);

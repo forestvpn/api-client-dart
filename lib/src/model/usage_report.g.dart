@@ -12,12 +12,12 @@ class _$UsageReport extends UsageReport {
   @override
   final String? text;
   @override
-  final UsageIssue? issue;
+  final BuiltList<UsageIssue>? issues;
 
   factory _$UsageReport([void Function(UsageReportBuilder)? updates]) =>
       (new UsageReportBuilder()..update(updates))._build();
 
-  _$UsageReport._({this.id, this.text, this.issue}) : super._();
+  _$UsageReport._({this.id, this.text, this.issues}) : super._();
 
   @override
   UsageReport rebuild(void Function(UsageReportBuilder) updates) =>
@@ -32,7 +32,7 @@ class _$UsageReport extends UsageReport {
     return other is UsageReport &&
         id == other.id &&
         text == other.text &&
-        issue == other.issue;
+        issues == other.issues;
   }
 
   @override
@@ -40,7 +40,7 @@ class _$UsageReport extends UsageReport {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, text.hashCode);
-    _$hash = $jc(_$hash, issue.hashCode);
+    _$hash = $jc(_$hash, issues.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -50,7 +50,7 @@ class _$UsageReport extends UsageReport {
     return (newBuiltValueToStringHelper(r'UsageReport')
           ..add('id', id)
           ..add('text', text)
-          ..add('issue', issue))
+          ..add('issues', issues))
         .toString();
   }
 }
@@ -66,9 +66,10 @@ class UsageReportBuilder implements Builder<UsageReport, UsageReportBuilder> {
   String? get text => _$this._text;
   set text(String? text) => _$this._text = text;
 
-  UsageIssueBuilder? _issue;
-  UsageIssueBuilder get issue => _$this._issue ??= new UsageIssueBuilder();
-  set issue(UsageIssueBuilder? issue) => _$this._issue = issue;
+  ListBuilder<UsageIssue>? _issues;
+  ListBuilder<UsageIssue> get issues =>
+      _$this._issues ??= new ListBuilder<UsageIssue>();
+  set issues(ListBuilder<UsageIssue>? issues) => _$this._issues = issues;
 
   UsageReportBuilder() {
     UsageReport._defaults(this);
@@ -79,7 +80,7 @@ class UsageReportBuilder implements Builder<UsageReport, UsageReportBuilder> {
     if ($v != null) {
       _id = $v.id;
       _text = $v.text;
-      _issue = $v.issue?.toBuilder();
+      _issues = $v.issues?.toBuilder();
       _$v = null;
     }
     return this;
@@ -103,12 +104,12 @@ class UsageReportBuilder implements Builder<UsageReport, UsageReportBuilder> {
     _$UsageReport _$result;
     try {
       _$result = _$v ??
-          new _$UsageReport._(id: id, text: text, issue: _issue?.build());
+          new _$UsageReport._(id: id, text: text, issues: _issues?.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'issue';
-        _issue?.build();
+        _$failedField = 'issues';
+        _issues?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UsageReport', _$failedField, e.toString());

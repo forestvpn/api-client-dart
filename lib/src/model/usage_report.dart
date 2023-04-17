@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/model/usage_issue.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -14,7 +15,7 @@ part 'usage_report.g.dart';
 /// Properties:
 /// * [id] 
 /// * [text] 
-/// * [issue] 
+/// * [issues] 
 @BuiltValue()
 abstract class UsageReport implements Built<UsageReport, UsageReportBuilder> {
   @BuiltValueField(wireName: r'id')
@@ -23,8 +24,8 @@ abstract class UsageReport implements Built<UsageReport, UsageReportBuilder> {
   @BuiltValueField(wireName: r'text')
   String? get text;
 
-  @BuiltValueField(wireName: r'issue')
-  UsageIssue? get issue;
+  @BuiltValueField(wireName: r'issues')
+  BuiltList<UsageIssue>? get issues;
 
   UsageReport._();
 
@@ -63,11 +64,11 @@ class _$UsageReportSerializer implements PrimitiveSerializer<UsageReport> {
         specifiedType: const FullType(String),
       );
     }
-    if (object.issue != null) {
-      yield r'issue';
+    if (object.issues != null) {
+      yield r'issues';
       yield serializers.serialize(
-        object.issue,
-        specifiedType: const FullType(UsageIssue),
+        object.issues,
+        specifiedType: const FullType(BuiltList, [FullType(UsageIssue)]),
       );
     }
   }
@@ -107,12 +108,12 @@ class _$UsageReportSerializer implements PrimitiveSerializer<UsageReport> {
           ) as String;
           result.text = valueDes;
           break;
-        case r'issue':
+        case r'issues':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(UsageIssue),
-          ) as UsageIssue;
-          result.issue.replace(valueDes);
+            specifiedType: const FullType(BuiltList, [FullType(UsageIssue)]),
+          ) as BuiltList<UsageIssue>;
+          result.issues.replace(valueDes);
           break;
         default:
           unhandled.add(key);

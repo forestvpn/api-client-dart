@@ -107,7 +107,7 @@ class SupportApi {
   ///
   /// Parameters:
   /// * [text] 
-  /// * [issue] - Usage issue ID
+  /// * [issues] - Usage issue ID list
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -119,7 +119,7 @@ class SupportApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> createUsageReport({ 
     required String text,
-    required String issue,
+    required BuiltList<String> issues,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -152,7 +152,7 @@ class SupportApi {
     try {
       _bodyData = FormData.fromMap(<String, dynamic>{
         r'text': encodeFormParameter(_serializers, text, const FullType(String)),
-        r'issue': encodeFormParameter(_serializers, issue, const FullType(String)),
+        r'issues': encodeFormParameter(_serializers, issues, const FullType(BuiltList, [FullType(String)])),
       });
 
     } catch(error, stackTrace) {

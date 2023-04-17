@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.9.5] - 2023-04-17
+
+### Changes
+
+- Usage reports. Optional text
+
 ## [3.9.4] - 2023-04-13
 
 ### Changes

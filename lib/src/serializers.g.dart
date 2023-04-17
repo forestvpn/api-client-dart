@@ -168,6 +168,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(SubscriptionItem)]),
           () => new ListBuilder<SubscriptionItem>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(UsageIssue)]),
+          () => new ListBuilder<UsageIssue>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(WireGuardPeer)]),
           () => new ListBuilder<WireGuardPeer>())
       ..addBuilderFactory(

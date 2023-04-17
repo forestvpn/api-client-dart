@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
 **text** | **String** |  | [optional] 
-**issue** | [**UsageIssue**](UsageIssue.md) |  | [optional] 
+**issues** | [**BuiltList&lt;UsageIssue&gt;**](UsageIssue.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

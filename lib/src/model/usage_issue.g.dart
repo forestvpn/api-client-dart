@@ -11,11 +11,13 @@ class _$UsageIssue extends UsageIssue {
   final String? id;
   @override
   final String? name;
+  @override
+  final bool? isTextRequired;
 
   factory _$UsageIssue([void Function(UsageIssueBuilder)? updates]) =>
       (new UsageIssueBuilder()..update(updates))._build();
 
-  _$UsageIssue._({this.id, this.name}) : super._();
+  _$UsageIssue._({this.id, this.name, this.isTextRequired}) : super._();
 
   @override
   UsageIssue rebuild(void Function(UsageIssueBuilder) updates) =>
@@ -27,7 +29,10 @@ class _$UsageIssue extends UsageIssue {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UsageIssue && id == other.id && name == other.name;
+    return other is UsageIssue &&
+        id == other.id &&
+        name == other.name &&
+        isTextRequired == other.isTextRequired;
   }
 
   @override
@@ -35,6 +40,7 @@ class _$UsageIssue extends UsageIssue {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, isTextRequired.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -43,7 +49,8 @@ class _$UsageIssue extends UsageIssue {
   String toString() {
     return (newBuiltValueToStringHelper(r'UsageIssue')
           ..add('id', id)
-          ..add('name', name))
+          ..add('name', name)
+          ..add('isTextRequired', isTextRequired))
         .toString();
   }
 }
@@ -59,6 +66,11 @@ class UsageIssueBuilder implements Builder<UsageIssue, UsageIssueBuilder> {
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
+  bool? _isTextRequired;
+  bool? get isTextRequired => _$this._isTextRequired;
+  set isTextRequired(bool? isTextRequired) =>
+      _$this._isTextRequired = isTextRequired;
+
   UsageIssueBuilder() {
     UsageIssue._defaults(this);
   }
@@ -68,6 +80,7 @@ class UsageIssueBuilder implements Builder<UsageIssue, UsageIssueBuilder> {
     if ($v != null) {
       _id = $v.id;
       _name = $v.name;
+      _isTextRequired = $v.isTextRequired;
       _$v = null;
     }
     return this;
@@ -88,7 +101,8 @@ class UsageIssueBuilder implements Builder<UsageIssue, UsageIssueBuilder> {
   UsageIssue build() => _build();
 
   _$UsageIssue _build() {
-    final _$result = _$v ?? new _$UsageIssue._(id: id, name: name);
+    final _$result = _$v ??
+        new _$UsageIssue._(id: id, name: name, isTextRequired: isTextRequired);
     replace(_$result);
     return _$result;
   }

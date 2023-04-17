@@ -64,7 +64,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createUsageReport**
-> createUsageReport(text, issue)
+> createUsageReport(text, issues)
 
 Create usage report
 
@@ -77,10 +77,10 @@ import 'package:forestvpn_api/api.dart';
 
 final api = ForestvpnApi().getSupportApi();
 final String text = text_example; // String | 
-final String issue = issue_example; // String | Usage issue ID
+final BuiltList<String> issues = ; // BuiltList<String> | Usage issue ID list
 
 try {
-    api.createUsageReport(text, issue);
+    api.createUsageReport(text, issues);
 } catch on DioError (e) {
     print('Exception when calling SupportApi->createUsageReport: $e\n');
 }
@@ -91,7 +91,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **text** | **String**|  | 
- **issue** | **String**| Usage issue ID | 
+ **issues** | [**BuiltList&lt;String&gt;**](String.md)| Usage issue ID list | 
 
 ### Return type
 
