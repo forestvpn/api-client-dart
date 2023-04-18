@@ -1,6 +1,13 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## [3.10.0] - 2023-04-18
+
+### Changes
+
+- Referral Api: profile, referrals & transactions
+
 ## [3.9.1] - 2023-03-28
 
 ### Changes

@@ -61,6 +61,8 @@ doc/FriendshipInvitationList.md
 doc/FunctionEnvironment.md
 doc/GeoApi.md
 doc/GoogleApi.md
+doc/ICOLanding.md
+doc/IcoApi.md
 doc/LegacyAuthMigrationToken.md
 doc/Location.md
 doc/MediaApi.md
@@ -80,7 +82,13 @@ doc/PortForwarding.md
 doc/Price.md
 doc/Product.md
 doc/ProductWithoutPrice.md
+doc/PublicUser.md
 doc/Recurring.md
+doc/Referral.md
+doc/ReferralApi.md
+doc/ReferralBalanceItem.md
+doc/ReferralProfile.md
+doc/ReferralTransaction.md
 doc/Server.md
 doc/SourceCode.md
 doc/StripeCheckoutSession.md
@@ -97,6 +105,8 @@ doc/TokenLogin.md
 doc/TokenObtain.md
 doc/UpdateFCMDeviceRequest.md
 doc/UpdateUserDeviceRequest.md
+doc/UsageIssue.md
+doc/UsageReport.md
 doc/User.md
 doc/UserAgent.md
 doc/UserAgentBrowser.md
@@ -126,8 +136,10 @@ lib/src/api/fcm_api.dart
 lib/src/api/friendship_api.dart
 lib/src/api/geo_api.dart
 lib/src/api/google_api.dart
+lib/src/api/ico_api.dart
 lib/src/api/media_api.dart
 lib/src/api/notifications_api.dart
+lib/src/api/referral_api.dart
 lib/src/api/support_api.dart
 lib/src/api/user_api.dart
 lib/src/api/wireguard_api.dart
@@ -187,6 +199,7 @@ lib/src/model/friendship.dart
 lib/src/model/friendship_invitation.dart
 lib/src/model/friendship_invitation_list.dart
 lib/src/model/function_environment.dart
+lib/src/model/ico_landing.dart
 lib/src/model/legacy_auth_migration_token.dart
 lib/src/model/location.dart
 lib/src/model/model_function.dart
@@ -204,7 +217,12 @@ lib/src/model/port_forwarding.dart
 lib/src/model/price.dart
 lib/src/model/product.dart
 lib/src/model/product_without_price.dart
+lib/src/model/public_user.dart
 lib/src/model/recurring.dart
+lib/src/model/referral.dart
+lib/src/model/referral_balance_item.dart
+lib/src/model/referral_profile.dart
+lib/src/model/referral_transaction.dart
 lib/src/model/server.dart
 lib/src/model/source_code.dart
 lib/src/model/stripe_checkout_session.dart
@@ -220,6 +238,8 @@ lib/src/model/token_login.dart
 lib/src/model/token_obtain.dart
 lib/src/model/update_fcm_device_request.dart
 lib/src/model/update_user_device_request.dart
+lib/src/model/usage_issue.dart
+lib/src/model/usage_report.dart
 lib/src/model/user.dart
 lib/src/model/user_agent.dart
 lib/src/model/user_agent_browser.dart
@@ -234,3 +254,13 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/ico_api_test.dart
+test/ico_landing_test.dart
+test/public_user_test.dart
+test/referral_api_test.dart
+test/referral_balance_item_test.dart
+test/referral_profile_test.dart
+test/referral_test.dart
+test/referral_transaction_test.dart
+test/usage_issue_test.dart
+test/usage_report_test.dart

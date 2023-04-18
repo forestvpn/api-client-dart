@@ -10,8 +10,6 @@ class _$User extends User {
   @override
   final String id;
   @override
-  final String? promoCode;
-  @override
   final String username;
   @override
   final String? firstName;
@@ -24,45 +22,36 @@ class _$User extends User {
   @override
   final String? photoUrl;
   @override
-  final DateTime? dateJoined;
+  final DateTime dateJoined;
   @override
   final String? country;
   @override
   final String? currencyCode;
   @override
-  final BuiltList<Environment>? environments;
+  final String? language;
   @override
-  final String? ref;
-  @override
-  final String? registrationRef;
-  @override
-  final int? invites;
-  @override
-  final int? acceptedInvites;
+  final String? timezone;
 
   factory _$User([void Function(UserBuilder)? updates]) =>
       (new UserBuilder()..update(updates))._build();
 
   _$User._(
       {required this.id,
-      this.promoCode,
       required this.username,
       this.firstName,
       this.lastName,
       this.email,
       this.emailVerified,
       this.photoUrl,
-      this.dateJoined,
+      required this.dateJoined,
       this.country,
       this.currencyCode,
-      this.environments,
-      this.ref,
-      this.registrationRef,
-      this.invites,
-      this.acceptedInvites})
+      this.language,
+      this.timezone})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
     BuiltValueNullFieldError.checkNotNull(username, r'User', 'username');
+    BuiltValueNullFieldError.checkNotNull(dateJoined, r'User', 'dateJoined');
   }
 
   @override
@@ -77,7 +66,6 @@ class _$User extends User {
     if (identical(other, this)) return true;
     return other is User &&
         id == other.id &&
-        promoCode == other.promoCode &&
         username == other.username &&
         firstName == other.firstName &&
         lastName == other.lastName &&
@@ -87,18 +75,14 @@ class _$User extends User {
         dateJoined == other.dateJoined &&
         country == other.country &&
         currencyCode == other.currencyCode &&
-        environments == other.environments &&
-        ref == other.ref &&
-        registrationRef == other.registrationRef &&
-        invites == other.invites &&
-        acceptedInvites == other.acceptedInvites;
+        language == other.language &&
+        timezone == other.timezone;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, promoCode.hashCode);
     _$hash = $jc(_$hash, username.hashCode);
     _$hash = $jc(_$hash, firstName.hashCode);
     _$hash = $jc(_$hash, lastName.hashCode);
@@ -108,11 +92,8 @@ class _$User extends User {
     _$hash = $jc(_$hash, dateJoined.hashCode);
     _$hash = $jc(_$hash, country.hashCode);
     _$hash = $jc(_$hash, currencyCode.hashCode);
-    _$hash = $jc(_$hash, environments.hashCode);
-    _$hash = $jc(_$hash, ref.hashCode);
-    _$hash = $jc(_$hash, registrationRef.hashCode);
-    _$hash = $jc(_$hash, invites.hashCode);
-    _$hash = $jc(_$hash, acceptedInvites.hashCode);
+    _$hash = $jc(_$hash, language.hashCode);
+    _$hash = $jc(_$hash, timezone.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -121,7 +102,6 @@ class _$User extends User {
   String toString() {
     return (newBuiltValueToStringHelper(r'User')
           ..add('id', id)
-          ..add('promoCode', promoCode)
           ..add('username', username)
           ..add('firstName', firstName)
           ..add('lastName', lastName)
@@ -131,11 +111,8 @@ class _$User extends User {
           ..add('dateJoined', dateJoined)
           ..add('country', country)
           ..add('currencyCode', currencyCode)
-          ..add('environments', environments)
-          ..add('ref', ref)
-          ..add('registrationRef', registrationRef)
-          ..add('invites', invites)
-          ..add('acceptedInvites', acceptedInvites))
+          ..add('language', language)
+          ..add('timezone', timezone))
         .toString();
   }
 }
@@ -146,10 +123,6 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String? _id;
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
-
-  String? _promoCode;
-  String? get promoCode => _$this._promoCode;
-  set promoCode(String? promoCode) => _$this._promoCode = promoCode;
 
   String? _username;
   String? get username => _$this._username;
@@ -188,29 +161,13 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String? get currencyCode => _$this._currencyCode;
   set currencyCode(String? currencyCode) => _$this._currencyCode = currencyCode;
 
-  ListBuilder<Environment>? _environments;
-  ListBuilder<Environment> get environments =>
-      _$this._environments ??= new ListBuilder<Environment>();
-  set environments(ListBuilder<Environment>? environments) =>
-      _$this._environments = environments;
+  String? _language;
+  String? get language => _$this._language;
+  set language(String? language) => _$this._language = language;
 
-  String? _ref;
-  String? get ref => _$this._ref;
-  set ref(String? ref) => _$this._ref = ref;
-
-  String? _registrationRef;
-  String? get registrationRef => _$this._registrationRef;
-  set registrationRef(String? registrationRef) =>
-      _$this._registrationRef = registrationRef;
-
-  int? _invites;
-  int? get invites => _$this._invites;
-  set invites(int? invites) => _$this._invites = invites;
-
-  int? _acceptedInvites;
-  int? get acceptedInvites => _$this._acceptedInvites;
-  set acceptedInvites(int? acceptedInvites) =>
-      _$this._acceptedInvites = acceptedInvites;
+  String? _timezone;
+  String? get timezone => _$this._timezone;
+  set timezone(String? timezone) => _$this._timezone = timezone;
 
   UserBuilder() {
     User._defaults(this);
@@ -220,7 +177,6 @@ class UserBuilder implements Builder<User, UserBuilder> {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _promoCode = $v.promoCode;
       _username = $v.username;
       _firstName = $v.firstName;
       _lastName = $v.lastName;
@@ -230,11 +186,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _dateJoined = $v.dateJoined;
       _country = $v.country;
       _currencyCode = $v.currencyCode;
-      _environments = $v.environments?.toBuilder();
-      _ref = $v.ref;
-      _registrationRef = $v.registrationRef;
-      _invites = $v.invites;
-      _acceptedInvites = $v.acceptedInvites;
+      _language = $v.language;
+      _timezone = $v.timezone;
       _$v = null;
     }
     return this;
@@ -255,38 +208,22 @@ class UserBuilder implements Builder<User, UserBuilder> {
   User build() => _build();
 
   _$User _build() {
-    _$User _$result;
-    try {
-      _$result = _$v ??
-          new _$User._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
-              promoCode: promoCode,
-              username: BuiltValueNullFieldError.checkNotNull(
-                  username, r'User', 'username'),
-              firstName: firstName,
-              lastName: lastName,
-              email: email,
-              emailVerified: emailVerified,
-              photoUrl: photoUrl,
-              dateJoined: dateJoined,
-              country: country,
-              currencyCode: currencyCode,
-              environments: _environments?.build(),
-              ref: ref,
-              registrationRef: registrationRef,
-              invites: invites,
-              acceptedInvites: acceptedInvites);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'environments';
-        _environments?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'User', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$User._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
+            username: BuiltValueNullFieldError.checkNotNull(
+                username, r'User', 'username'),
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            emailVerified: emailVerified,
+            photoUrl: photoUrl,
+            dateJoined: BuiltValueNullFieldError.checkNotNull(
+                dateJoined, r'User', 'dateJoined'),
+            country: country,
+            currencyCode: currencyCode,
+            language: language,
+            timezone: timezone);
     replace(_$result);
     return _$result;
   }

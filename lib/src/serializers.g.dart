@@ -59,6 +59,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(FriendshipInvitation.serializer)
       ..add(FriendshipInvitationList.serializer)
       ..add(FunctionEnvironment.serializer)
+      ..add(ICOLanding.serializer)
       ..add(LegacyAuthMigrationToken.serializer)
       ..add(Location.serializer)
       ..add(ModelFunction.serializer)
@@ -79,7 +80,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Price.serializer)
       ..add(Product.serializer)
       ..add(ProductWithoutPrice.serializer)
+      ..add(PublicUser.serializer)
       ..add(Recurring.serializer)
+      ..add(Referral.serializer)
+      ..add(ReferralBalanceItem.serializer)
+      ..add(ReferralProfile.serializer)
+      ..add(ReferralTransaction.serializer)
       ..add(Server.serializer)
       ..add(SourceCode.serializer)
       ..add(StripeCheckoutSession.serializer)
@@ -95,6 +101,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TokenObtain.serializer)
       ..add(UpdateFCMDeviceRequest.serializer)
       ..add(UpdateUserDeviceRequest.serializer)
+      ..add(UsageIssue.serializer)
+      ..add(UsageReport.serializer)
       ..add(User.serializer)
       ..add(UserAgent.serializer)
       ..add(UserAgentBrowser.serializer)
@@ -115,6 +123,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(Architecture)]),
           () => new ListBuilder<Architecture>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Task)]),
+          () => new ListBuilder<Task>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(CheckoutSessionProduct)]),
           () => new ListBuilder<CheckoutSessionProduct>())
@@ -125,9 +136,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(CreateCheckoutSessionProduct)]),
           () => new ListBuilder<CreateCheckoutSessionProduct>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Environment)]),
-          () => new ListBuilder<Environment>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(FriendshipInvitation)]),
@@ -141,6 +149,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Product)]),
           () => new ListBuilder<Product>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(ReferralBalanceItem)]),
+          () => new ListBuilder<ReferralBalanceItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
@@ -165,6 +177,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SubscriptionItem)]),
           () => new ListBuilder<SubscriptionItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(UsageIssue)]),
+          () => new ListBuilder<UsageIssue>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(WireGuardPeer)]),
           () => new ListBuilder<WireGuardPeer>())

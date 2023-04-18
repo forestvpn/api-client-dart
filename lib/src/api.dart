@@ -22,8 +22,10 @@ import 'package:forestvpn_api/src/api/fcm_api.dart';
 import 'package:forestvpn_api/src/api/friendship_api.dart';
 import 'package:forestvpn_api/src/api/geo_api.dart';
 import 'package:forestvpn_api/src/api/google_api.dart';
+import 'package:forestvpn_api/src/api/ico_api.dart';
 import 'package:forestvpn_api/src/api/media_api.dart';
 import 'package:forestvpn_api/src/api/notifications_api.dart';
+import 'package:forestvpn_api/src/api/referral_api.dart';
 import 'package:forestvpn_api/src/api/support_api.dart';
 import 'package:forestvpn_api/src/api/user_api.dart';
 import 'package:forestvpn_api/src/api/wireguard_api.dart';
@@ -160,6 +162,12 @@ class ForestvpnApi {
     return GoogleApi(dio, serializers);
   }
 
+  /// Get IcoApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  IcoApi getIcoApi() {
+    return IcoApi(dio, serializers);
+  }
+
   /// Get MediaApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   MediaApi getMediaApi() {
@@ -170,6 +178,12 @@ class ForestvpnApi {
   /// by doing that all interceptors will not be executed
   NotificationsApi getNotificationsApi() {
     return NotificationsApi(dio, serializers);
+  }
+
+  /// Get ReferralApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  ReferralApi getReferralApi() {
+    return ReferralApi(dio, serializers);
   }
 
   /// Get SupportApi instance, base route and serializer can be overridden by a given but be careful,

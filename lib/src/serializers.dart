@@ -62,6 +62,7 @@ import 'package:forestvpn_api/src/model/friendship.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation.dart';
 import 'package:forestvpn_api/src/model/friendship_invitation_list.dart';
 import 'package:forestvpn_api/src/model/function_environment.dart';
+import 'package:forestvpn_api/src/model/ico_landing.dart';
 import 'package:forestvpn_api/src/model/legacy_auth_migration_token.dart';
 import 'package:forestvpn_api/src/model/location.dart';
 import 'package:forestvpn_api/src/model/model_function.dart';
@@ -79,7 +80,12 @@ import 'package:forestvpn_api/src/model/port_forwarding.dart';
 import 'package:forestvpn_api/src/model/price.dart';
 import 'package:forestvpn_api/src/model/product.dart';
 import 'package:forestvpn_api/src/model/product_without_price.dart';
+import 'package:forestvpn_api/src/model/public_user.dart';
 import 'package:forestvpn_api/src/model/recurring.dart';
+import 'package:forestvpn_api/src/model/referral.dart';
+import 'package:forestvpn_api/src/model/referral_balance_item.dart';
+import 'package:forestvpn_api/src/model/referral_profile.dart';
+import 'package:forestvpn_api/src/model/referral_transaction.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/source_code.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
@@ -95,6 +101,8 @@ import 'package:forestvpn_api/src/model/token_login.dart';
 import 'package:forestvpn_api/src/model/token_obtain.dart';
 import 'package:forestvpn_api/src/model/update_fcm_device_request.dart';
 import 'package:forestvpn_api/src/model/update_user_device_request.dart';
+import 'package:forestvpn_api/src/model/usage_issue.dart';
+import 'package:forestvpn_api/src/model/usage_report.dart';
 import 'package:forestvpn_api/src/model/user.dart';
 import 'package:forestvpn_api/src/model/user_agent.dart';
 import 'package:forestvpn_api/src/model/user_agent_browser.dart';
@@ -159,6 +167,7 @@ part 'serializers.g.dart';
   FriendshipInvitation,
   FriendshipInvitationList,
   FunctionEnvironment,
+  ICOLanding,
   LegacyAuthMigrationToken,
   Location,
   ModelFunction,
@@ -176,7 +185,12 @@ part 'serializers.g.dart';
   Price,
   Product,
   ProductWithoutPrice,
+  PublicUser,
   Recurring,
+  Referral,
+  ReferralBalanceItem,
+  ReferralProfile,
+  ReferralTransaction,
   Server,
   SourceCode,
   StripeCheckoutSession,
@@ -192,6 +206,8 @@ part 'serializers.g.dart';
   TokenObtain,
   UpdateFCMDeviceRequest,
   UpdateUserDeviceRequest,
+  UsageIssue,
+  UsageReport,
   User,
   UserAgent,
   UserAgentBrowser,
@@ -223,14 +239,6 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Country>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(BillingFeature)]),
-        () => ListBuilder<BillingFeature>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(DeviceStats)]),
-        () => ListBuilder<DeviceStats>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Subscription)]),
         () => ListBuilder<Subscription>(),
       )
@@ -239,12 +247,48 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<Location>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(Currency)]),
-        () => ListBuilder<Currency>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PaymentOption)]),
         () => ListBuilder<PaymentOption>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ReferralTransaction)]),
+        () => ListBuilder<ReferralTransaction>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Referral)]),
+        () => ListBuilder<Referral>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(UsageIssue)]),
+        () => ListBuilder<UsageIssue>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(WireGuardPeer)]),
+        () => ListBuilder<WireGuardPeer>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(UsageReport)]),
+        () => ListBuilder<UsageReport>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PaymentMethod)]),
+        () => ListBuilder<PaymentMethod>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ModelFunction)]),
+        () => ListBuilder<ModelFunction>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(BillingFeature)]),
+        () => ListBuilder<BillingFeature>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(DeviceStats)]),
+        () => ListBuilder<DeviceStats>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Currency)]),
+        () => ListBuilder<Currency>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Product)]),
@@ -271,16 +315,8 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PortForwarding>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(WireGuardPeer)]),
-        () => ListBuilder<WireGuardPeer>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Bundle)]),
         () => ListBuilder<Bundle>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PaymentMethod)]),
-        () => ListBuilder<PaymentMethod>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Friendship)]),
@@ -289,10 +325,6 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(String)]),
         () => ListBuilder<String>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ModelFunction)]),
-        () => ListBuilder<ModelFunction>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AdvertisedRoute)]),

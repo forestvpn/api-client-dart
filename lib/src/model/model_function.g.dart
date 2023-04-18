@@ -28,7 +28,7 @@ class _$ModelFunction extends ModelFunction {
   @override
   final FunctionEnvironment? environment;
   @override
-  final Task? task;
+  final BuiltList<Task>? tasks;
 
   factory _$ModelFunction([void Function(ModelFunctionBuilder)? updates]) =>
       (new ModelFunctionBuilder()..update(updates))._build();
@@ -44,7 +44,7 @@ class _$ModelFunction extends ModelFunction {
       this.source_,
       required this.sourceId,
       this.environment,
-      this.task})
+      this.tasks})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'ModelFunction', 'name');
     BuiltValueNullFieldError.checkNotNull(
@@ -72,7 +72,7 @@ class _$ModelFunction extends ModelFunction {
         source_ == other.source_ &&
         sourceId == other.sourceId &&
         environment == other.environment &&
-        task == other.task;
+        tasks == other.tasks;
   }
 
   @override
@@ -88,7 +88,7 @@ class _$ModelFunction extends ModelFunction {
     _$hash = $jc(_$hash, source_.hashCode);
     _$hash = $jc(_$hash, sourceId.hashCode);
     _$hash = $jc(_$hash, environment.hashCode);
-    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jc(_$hash, tasks.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -106,7 +106,7 @@ class _$ModelFunction extends ModelFunction {
           ..add('source_', source_)
           ..add('sourceId', sourceId)
           ..add('environment', environment)
-          ..add('task', task))
+          ..add('tasks', tasks))
         .toString();
   }
 }
@@ -159,9 +159,9 @@ class ModelFunctionBuilder
   set environment(FunctionEnvironmentBuilder? environment) =>
       _$this._environment = environment;
 
-  TaskBuilder? _task;
-  TaskBuilder get task => _$this._task ??= new TaskBuilder();
-  set task(TaskBuilder? task) => _$this._task = task;
+  ListBuilder<Task>? _tasks;
+  ListBuilder<Task> get tasks => _$this._tasks ??= new ListBuilder<Task>();
+  set tasks(ListBuilder<Task>? tasks) => _$this._tasks = tasks;
 
   ModelFunctionBuilder() {
     ModelFunction._defaults(this);
@@ -180,7 +180,7 @@ class ModelFunctionBuilder
       _source_ = $v.source_?.toBuilder();
       _sourceId = $v.sourceId;
       _environment = $v.environment?.toBuilder();
-      _task = $v.task?.toBuilder();
+      _tasks = $v.tasks?.toBuilder();
       _$v = null;
     }
     return this;
@@ -217,7 +217,7 @@ class ModelFunctionBuilder
               sourceId: BuiltValueNullFieldError.checkNotNull(
                   sourceId, r'ModelFunction', 'sourceId'),
               environment: _environment?.build(),
-              task: _task?.build());
+              tasks: _tasks?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -228,8 +228,8 @@ class ModelFunctionBuilder
 
         _$failedField = 'environment';
         _environment?.build();
-        _$failedField = 'task';
-        _task?.build();
+        _$failedField = 'tasks';
+        _tasks?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ModelFunction', _$failedField, e.toString());

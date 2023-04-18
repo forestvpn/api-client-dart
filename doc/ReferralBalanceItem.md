@@ -1,4 +1,4 @@
-# forestvpn_api.model.Task
+# forestvpn_api.model.ReferralBalanceItem
 
 ## Load the model package
 ```dart
@@ -8,13 +8,8 @@ import 'package:forestvpn_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assignmentDate** | **String** |  | [optional] 
-**executionDate** | **String** |  | [optional] 
-**resourcesUsed** | **int** |  | [optional] 
-**dataUsed** | **int** |  | [optional] 
-**storageUsed** | **int** |  | [optional] 
-**std** | [**File**](File.md) |  | [optional] 
-**response** | [**File**](File.md) |  | [optional] 
+**currency** | **String** |  | 
+**totalAmount** | **double** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

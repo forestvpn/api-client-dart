@@ -6,25 +6,21 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'user.g.dart';
+part 'public_user.g.dart';
 
-/// User
+/// PublicUser
 ///
 /// Properties:
 /// * [id] 
 /// * [username] 
 /// * [firstName] 
 /// * [lastName] 
-/// * [email] 
-/// * [emailVerified] 
+/// * [displayName] 
 /// * [photoUrl] 
 /// * [dateJoined] 
-/// * [country] 
-/// * [currencyCode] 
-/// * [language] 
-/// * [timezone] 
+/// * [isPremium] 
 @BuiltValue()
-abstract class User implements Built<User, UserBuilder> {
+abstract class PublicUser implements Built<PublicUser, PublicUserBuilder> {
   @BuiltValueField(wireName: r'id')
   String get id;
 
@@ -37,11 +33,8 @@ abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: r'last_name')
   String? get lastName;
 
-  @BuiltValueField(wireName: r'email')
-  String? get email;
-
-  @BuiltValueField(wireName: r'email_verified')
-  bool? get emailVerified;
+  @BuiltValueField(wireName: r'display_name')
+  String get displayName;
 
   @BuiltValueField(wireName: r'photo_url')
   String? get photoUrl;
@@ -49,39 +42,30 @@ abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: r'date_joined')
   DateTime get dateJoined;
 
-  @BuiltValueField(wireName: r'country')
-  String? get country;
+  @BuiltValueField(wireName: r'is_premium')
+  bool get isPremium;
 
-  @BuiltValueField(wireName: r'currency_code')
-  String? get currencyCode;
+  PublicUser._();
 
-  @BuiltValueField(wireName: r'language')
-  String? get language;
-
-  @BuiltValueField(wireName: r'timezone')
-  String? get timezone;
-
-  User._();
-
-  factory User([void updates(UserBuilder b)]) = _$User;
+  factory PublicUser([void updates(PublicUserBuilder b)]) = _$PublicUser;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserBuilder b) => b;
+  static void _defaults(PublicUserBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<User> get serializer => _$UserSerializer();
+  static Serializer<PublicUser> get serializer => _$PublicUserSerializer();
 }
 
-class _$UserSerializer implements PrimitiveSerializer<User> {
+class _$PublicUserSerializer implements PrimitiveSerializer<PublicUser> {
   @override
-  final Iterable<Type> types = const [User, _$User];
+  final Iterable<Type> types = const [PublicUser, _$PublicUser];
 
   @override
-  final String wireName = r'User';
+  final String wireName = r'PublicUser';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    User object, {
+    PublicUser object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'id';
@@ -108,20 +92,11 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
         specifiedType: const FullType(String),
       );
     }
-    if (object.email != null) {
-      yield r'email';
-      yield serializers.serialize(
-        object.email,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.emailVerified != null) {
-      yield r'email_verified';
-      yield serializers.serialize(
-        object.emailVerified,
-        specifiedType: const FullType(bool),
-      );
-    }
+    yield r'display_name';
+    yield serializers.serialize(
+      object.displayName,
+      specifiedType: const FullType(String),
+    );
     if (object.photoUrl != null) {
       yield r'photo_url';
       yield serializers.serialize(
@@ -134,40 +109,17 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
       object.dateJoined,
       specifiedType: const FullType(DateTime),
     );
-    if (object.country != null) {
-      yield r'country';
-      yield serializers.serialize(
-        object.country,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.currencyCode != null) {
-      yield r'currency_code';
-      yield serializers.serialize(
-        object.currencyCode,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.language != null) {
-      yield r'language';
-      yield serializers.serialize(
-        object.language,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.timezone != null) {
-      yield r'timezone';
-      yield serializers.serialize(
-        object.timezone,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'is_premium';
+    yield serializers.serialize(
+      object.isPremium,
+      specifiedType: const FullType(bool),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    User object, {
+    PublicUser object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -178,7 +130,7 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required UserBuilder result,
+    required PublicUserBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -213,19 +165,12 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
           ) as String;
           result.lastName = valueDes;
           break;
-        case r'email':
+        case r'display_name':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.email = valueDes;
-          break;
-        case r'email_verified':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.emailVerified = valueDes;
+          result.displayName = valueDes;
           break;
         case r'photo_url':
           final valueDes = serializers.deserialize(
@@ -241,33 +186,12 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
           ) as DateTime;
           result.dateJoined = valueDes;
           break;
-        case r'country':
+        case r'is_premium':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.country = valueDes;
-          break;
-        case r'currency_code':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.currencyCode = valueDes;
-          break;
-        case r'language':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.language = valueDes;
-          break;
-        case r'timezone':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.timezone = valueDes;
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isPremium = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -278,12 +202,12 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
   }
 
   @override
-  User deserialize(
+  PublicUser deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = UserBuilder();
+    final result = PublicUserBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

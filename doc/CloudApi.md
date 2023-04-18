@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**createFunction**](CloudApi.md#createfunction) | **POST** /cloud/functions/ | Create function
 [**deleteFunction**](CloudApi.md#deletefunction) | **DELETE** /cloud/functions/{functionID}/ | Delete Function
 [**getFunction**](CloudApi.md#getfunction) | **GET** /cloud/functions/{functionID}/ | Function Info
+[**getFunctionStdDataCache**](CloudApi.md#getfunctionstddatacache) | **GET** /cloud/functions/stream_data_cache/{functionID}/ | Std data
 [**listFunctions**](CloudApi.md#listfunctions) | **GET** /cloud/functions/ | Functions List
 [**updateFunction**](CloudApi.md#updatefunction) | **PATCH** /cloud/functions/{functionID}/ | Update function properties
 
@@ -135,6 +136,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ModelFunction**](ModelFunction.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getFunctionStdDataCache**
+> BuiltList<String> getFunctionStdDataCache(functionID)
+
+Std data
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getCloudApi();
+final String functionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+
+try {
+    final response = api.getFunctionStdDataCache(functionID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling CloudApi->getFunctionStdDataCache: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **functionID** | **String**|  | 
+
+### Return type
+
+**BuiltList&lt;String&gt;**
 
 ### Authorization
 

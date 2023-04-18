@@ -1,4 +1,4 @@
-# forestvpn_api.model.User
+# forestvpn_api.model.PublicUser
 
 ## Load the model package
 ```dart
@@ -12,14 +12,10 @@ Name | Type | Description | Notes
 **username** | **String** |  | 
 **firstName** | **String** |  | [optional] 
 **lastName** | **String** |  | [optional] 
-**email** | **String** |  | [optional] 
-**emailVerified** | **bool** |  | [optional] 
+**displayName** | **String** |  | 
 **photoUrl** | **String** |  | [optional] 
 **dateJoined** | [**DateTime**](DateTime.md) |  | 
-**country** | **String** |  | [optional] 
-**currencyCode** | **String** |  | [optional] 
-**language** | **String** |  | [optional] 
-**timezone** | **String** |  | [optional] 
+**isPremium** | **bool** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
