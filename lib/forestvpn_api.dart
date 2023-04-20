@@ -37,6 +37,7 @@ export 'package:forestvpn_api/src/model/ad_reward.dart';
 export 'package:forestvpn_api/src/model/ad_unit.dart';
 export 'package:forestvpn_api/src/model/advertised_route.dart';
 export 'package:forestvpn_api/src/model/aggregated_data_usage_stats.dart';
+export 'package:forestvpn_api/src/model/amount_rate.dart';
 export 'package:forestvpn_api/src/model/app_store_receipt_verification_request.dart';
 export 'package:forestvpn_api/src/model/architecture.dart';
 export 'package:forestvpn_api/src/model/billing_account.dart';

@@ -8,6 +8,7 @@ doc/AdUnit.md
 doc/AdsApi.md
 doc/AdvertisedRoute.md
 doc/AggregatedDataUsageStats.md
+doc/AmountRate.md
 doc/AnalyticsApi.md
 doc/AppApi.md
 doc/AppStoreReceiptVerificationRequest.md
@@ -157,6 +158,7 @@ lib/src/model/ad_reward.dart
 lib/src/model/ad_unit.dart
 lib/src/model/advertised_route.dart
 lib/src/model/aggregated_data_usage_stats.dart
+lib/src/model/amount_rate.dart
 lib/src/model/app_store_receipt_verification_request.dart
 lib/src/model/architecture.dart
 lib/src/model/billing_account.dart
@@ -254,13 +256,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/ico_api_test.dart
-test/ico_landing_test.dart
-test/public_user_test.dart
-test/referral_api_test.dart
-test/referral_balance_item_test.dart
-test/referral_profile_test.dart
-test/referral_test.dart
-test/referral_transaction_test.dart
-test/usage_issue_test.dart
-test/usage_report_test.dart
+test/amount_rate_test.dart

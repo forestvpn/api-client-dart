@@ -9,8 +9,9 @@ import 'package:forestvpn_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**amount** | **double** |  | 
 **currency** | **String** |  | 
+**amount** | **double** |  | 
+**rates** | [**BuiltList&lt;AmountRate&gt;**](AmountRate.md) |  | 
 **createdAt** | [**DateTime**](DateTime.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

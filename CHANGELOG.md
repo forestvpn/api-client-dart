@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.1] - 2023-04-20
+
+### Changes
+
+- Fix Referral Api: profile balance fields
+- New field in Referral Api: transaction rates
+
 ## [3.10.0] - 2023-04-18
 
 ### Changes

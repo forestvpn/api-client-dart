@@ -8,7 +8,11 @@ part of 'referral_profile.dart';
 
 class _$ReferralProfile extends ReferralProfile {
   @override
-  final String? id;
+  final String id;
+  @override
+  final String referralCode;
+  @override
+  final String referralLink;
   @override
   final BuiltList<ReferralBalanceItem>? balance;
   @override
@@ -17,7 +21,19 @@ class _$ReferralProfile extends ReferralProfile {
   factory _$ReferralProfile([void Function(ReferralProfileBuilder)? updates]) =>
       (new ReferralProfileBuilder()..update(updates))._build();
 
-  _$ReferralProfile._({this.id, this.balance, this.invitedBy}) : super._();
+  _$ReferralProfile._(
+      {required this.id,
+      required this.referralCode,
+      required this.referralLink,
+      this.balance,
+      this.invitedBy})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'ReferralProfile', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        referralCode, r'ReferralProfile', 'referralCode');
+    BuiltValueNullFieldError.checkNotNull(
+        referralLink, r'ReferralProfile', 'referralLink');
+  }
 
   @override
   ReferralProfile rebuild(void Function(ReferralProfileBuilder) updates) =>
@@ -32,6 +48,8 @@ class _$ReferralProfile extends ReferralProfile {
     if (identical(other, this)) return true;
     return other is ReferralProfile &&
         id == other.id &&
+        referralCode == other.referralCode &&
+        referralLink == other.referralLink &&
         balance == other.balance &&
         invitedBy == other.invitedBy;
   }
@@ -40,6 +58,8 @@ class _$ReferralProfile extends ReferralProfile {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, referralCode.hashCode);
+    _$hash = $jc(_$hash, referralLink.hashCode);
     _$hash = $jc(_$hash, balance.hashCode);
     _$hash = $jc(_$hash, invitedBy.hashCode);
     _$hash = $jf(_$hash);
@@ -50,6 +70,8 @@ class _$ReferralProfile extends ReferralProfile {
   String toString() {
     return (newBuiltValueToStringHelper(r'ReferralProfile')
           ..add('id', id)
+          ..add('referralCode', referralCode)
+          ..add('referralLink', referralLink)
           ..add('balance', balance)
           ..add('invitedBy', invitedBy))
         .toString();
@@ -63,6 +85,14 @@ class ReferralProfileBuilder
   String? _id;
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
+
+  String? _referralCode;
+  String? get referralCode => _$this._referralCode;
+  set referralCode(String? referralCode) => _$this._referralCode = referralCode;
+
+  String? _referralLink;
+  String? get referralLink => _$this._referralLink;
+  set referralLink(String? referralLink) => _$this._referralLink = referralLink;
 
   ListBuilder<ReferralBalanceItem>? _balance;
   ListBuilder<ReferralBalanceItem> get balance =>
@@ -83,6 +113,8 @@ class ReferralProfileBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
+      _referralCode = $v.referralCode;
+      _referralLink = $v.referralLink;
       _balance = $v.balance?.toBuilder();
       _invitedBy = $v.invitedBy?.toBuilder();
       _$v = null;
@@ -109,7 +141,12 @@ class ReferralProfileBuilder
     try {
       _$result = _$v ??
           new _$ReferralProfile._(
-              id: id,
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, r'ReferralProfile', 'id'),
+              referralCode: BuiltValueNullFieldError.checkNotNull(
+                  referralCode, r'ReferralProfile', 'referralCode'),
+              referralLink: BuiltValueNullFieldError.checkNotNull(
+                  referralLink, r'ReferralProfile', 'referralLink'),
               balance: _balance?.build(),
               invitedBy: _invitedBy?.build());
     } catch (_) {

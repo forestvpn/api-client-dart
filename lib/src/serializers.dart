@@ -21,6 +21,7 @@ import 'package:forestvpn_api/src/model/ad_reward.dart';
 import 'package:forestvpn_api/src/model/ad_unit.dart';
 import 'package:forestvpn_api/src/model/advertised_route.dart';
 import 'package:forestvpn_api/src/model/aggregated_data_usage_stats.dart';
+import 'package:forestvpn_api/src/model/amount_rate.dart';
 import 'package:forestvpn_api/src/model/app_store_receipt_verification_request.dart';
 import 'package:forestvpn_api/src/model/architecture.dart';
 import 'package:forestvpn_api/src/model/billing_account.dart';
@@ -126,6 +127,7 @@ part 'serializers.g.dart';
   AdUnit,
   AdvertisedRoute,
   AggregatedDataUsageStats,
+  AmountRate,
   AppStoreReceiptVerificationRequest,
   Architecture,
   BillingAccount,

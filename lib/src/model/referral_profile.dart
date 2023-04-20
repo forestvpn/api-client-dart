@@ -15,12 +15,20 @@ part 'referral_profile.g.dart';
 ///
 /// Properties:
 /// * [id] 
+/// * [referralCode] 
+/// * [referralLink] 
 /// * [balance] 
 /// * [invitedBy] 
 @BuiltValue()
 abstract class ReferralProfile implements Built<ReferralProfile, ReferralProfileBuilder> {
   @BuiltValueField(wireName: r'id')
-  String? get id;
+  String get id;
+
+  @BuiltValueField(wireName: r'referral_code')
+  String get referralCode;
+
+  @BuiltValueField(wireName: r'referral_link')
+  String get referralLink;
 
   @BuiltValueField(wireName: r'balance')
   BuiltList<ReferralBalanceItem>? get balance;
@@ -51,13 +59,21 @@ class _$ReferralProfileSerializer implements PrimitiveSerializer<ReferralProfile
     ReferralProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.id != null) {
-      yield r'id';
-      yield serializers.serialize(
-        object.id,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    yield r'referral_code';
+    yield serializers.serialize(
+      object.referralCode,
+      specifiedType: const FullType(String),
+    );
+    yield r'referral_link';
+    yield serializers.serialize(
+      object.referralLink,
+      specifiedType: const FullType(String),
+    );
     if (object.balance != null) {
       yield r'balance';
       yield serializers.serialize(
@@ -101,6 +117,20 @@ class _$ReferralProfileSerializer implements PrimitiveSerializer<ReferralProfile
             specifiedType: const FullType(String),
           ) as String;
           result.id = valueDes;
+          break;
+        case r'referral_code':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.referralCode = valueDes;
+          break;
+        case r'referral_link':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.referralLink = valueDes;
           break;
         case r'balance':
           final valueDes = serializers.deserialize(

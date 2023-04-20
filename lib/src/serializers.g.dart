@@ -16,6 +16,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AdUnitFormatEnum.serializer)
       ..add(AdvertisedRoute.serializer)
       ..add(AggregatedDataUsageStats.serializer)
+      ..add(AmountRate.serializer)
       ..add(AppStoreReceiptVerificationRequest.serializer)
       ..add(Architecture.serializer)
       ..add(BillingAccount.serializer)
@@ -119,6 +120,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AdUnit)]),
           () => new ListBuilder<AdUnit>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(AmountRate)]),
+          () => new ListBuilder<AmountRate>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Architecture)]),
           () => new ListBuilder<Architecture>())

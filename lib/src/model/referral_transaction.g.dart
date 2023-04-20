@@ -10,9 +10,11 @@ class _$ReferralTransaction extends ReferralTransaction {
   @override
   final String id;
   @override
+  final String currency;
+  @override
   final double amount;
   @override
-  final String currency;
+  final BuiltList<AmountRate> rates;
   @override
   final DateTime createdAt;
 
@@ -22,15 +24,18 @@ class _$ReferralTransaction extends ReferralTransaction {
 
   _$ReferralTransaction._(
       {required this.id,
-      required this.amount,
       required this.currency,
+      required this.amount,
+      required this.rates,
       required this.createdAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'ReferralTransaction', 'id');
     BuiltValueNullFieldError.checkNotNull(
+        currency, r'ReferralTransaction', 'currency');
+    BuiltValueNullFieldError.checkNotNull(
         amount, r'ReferralTransaction', 'amount');
     BuiltValueNullFieldError.checkNotNull(
-        currency, r'ReferralTransaction', 'currency');
+        rates, r'ReferralTransaction', 'rates');
     BuiltValueNullFieldError.checkNotNull(
         createdAt, r'ReferralTransaction', 'createdAt');
   }
@@ -49,8 +54,9 @@ class _$ReferralTransaction extends ReferralTransaction {
     if (identical(other, this)) return true;
     return other is ReferralTransaction &&
         id == other.id &&
-        amount == other.amount &&
         currency == other.currency &&
+        amount == other.amount &&
+        rates == other.rates &&
         createdAt == other.createdAt;
   }
 
@@ -58,8 +64,9 @@ class _$ReferralTransaction extends ReferralTransaction {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, amount.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
+    _$hash = $jc(_$hash, amount.hashCode);
+    _$hash = $jc(_$hash, rates.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -69,8 +76,9 @@ class _$ReferralTransaction extends ReferralTransaction {
   String toString() {
     return (newBuiltValueToStringHelper(r'ReferralTransaction')
           ..add('id', id)
-          ..add('amount', amount)
           ..add('currency', currency)
+          ..add('amount', amount)
+          ..add('rates', rates)
           ..add('createdAt', createdAt))
         .toString();
   }
@@ -84,13 +92,18 @@ class ReferralTransactionBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
+  String? _currency;
+  String? get currency => _$this._currency;
+  set currency(String? currency) => _$this._currency = currency;
+
   double? _amount;
   double? get amount => _$this._amount;
   set amount(double? amount) => _$this._amount = amount;
 
-  String? _currency;
-  String? get currency => _$this._currency;
-  set currency(String? currency) => _$this._currency = currency;
+  ListBuilder<AmountRate>? _rates;
+  ListBuilder<AmountRate> get rates =>
+      _$this._rates ??= new ListBuilder<AmountRate>();
+  set rates(ListBuilder<AmountRate>? rates) => _$this._rates = rates;
 
   DateTime? _createdAt;
   DateTime? get createdAt => _$this._createdAt;
@@ -104,8 +117,9 @@ class ReferralTransactionBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _amount = $v.amount;
       _currency = $v.currency;
+      _amount = $v.amount;
+      _rates = $v.rates.toBuilder();
       _createdAt = $v.createdAt;
       _$v = null;
     }
@@ -127,16 +141,30 @@ class ReferralTransactionBuilder
   ReferralTransaction build() => _build();
 
   _$ReferralTransaction _build() {
-    final _$result = _$v ??
-        new _$ReferralTransaction._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'ReferralTransaction', 'id'),
-            amount: BuiltValueNullFieldError.checkNotNull(
-                amount, r'ReferralTransaction', 'amount'),
-            currency: BuiltValueNullFieldError.checkNotNull(
-                currency, r'ReferralTransaction', 'currency'),
-            createdAt: BuiltValueNullFieldError.checkNotNull(
-                createdAt, r'ReferralTransaction', 'createdAt'));
+    _$ReferralTransaction _$result;
+    try {
+      _$result = _$v ??
+          new _$ReferralTransaction._(
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, r'ReferralTransaction', 'id'),
+              currency: BuiltValueNullFieldError.checkNotNull(
+                  currency, r'ReferralTransaction', 'currency'),
+              amount: BuiltValueNullFieldError.checkNotNull(
+                  amount, r'ReferralTransaction', 'amount'),
+              rates: rates.build(),
+              createdAt: BuiltValueNullFieldError.checkNotNull(
+                  createdAt, r'ReferralTransaction', 'createdAt'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'rates';
+        rates.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'ReferralTransaction', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

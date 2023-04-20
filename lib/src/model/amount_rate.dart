@@ -3,66 +3,47 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:forestvpn_api/src/model/amount_rate.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'referral_transaction.g.dart';
+part 'amount_rate.g.dart';
 
-/// ReferralTransaction
+/// AmountRate
 ///
 /// Properties:
-/// * [id] 
 /// * [currency] 
 /// * [amount] 
-/// * [rates] 
-/// * [createdAt] 
 @BuiltValue()
-abstract class ReferralTransaction implements Built<ReferralTransaction, ReferralTransactionBuilder> {
-  @BuiltValueField(wireName: r'id')
-  String get id;
-
+abstract class AmountRate implements Built<AmountRate, AmountRateBuilder> {
   @BuiltValueField(wireName: r'currency')
   String get currency;
 
   @BuiltValueField(wireName: r'amount')
   double get amount;
 
-  @BuiltValueField(wireName: r'rates')
-  BuiltList<AmountRate> get rates;
+  AmountRate._();
 
-  @BuiltValueField(wireName: r'created_at')
-  DateTime get createdAt;
-
-  ReferralTransaction._();
-
-  factory ReferralTransaction([void updates(ReferralTransactionBuilder b)]) = _$ReferralTransaction;
+  factory AmountRate([void updates(AmountRateBuilder b)]) = _$AmountRate;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ReferralTransactionBuilder b) => b;
+  static void _defaults(AmountRateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ReferralTransaction> get serializer => _$ReferralTransactionSerializer();
+  static Serializer<AmountRate> get serializer => _$AmountRateSerializer();
 }
 
-class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTransaction> {
+class _$AmountRateSerializer implements PrimitiveSerializer<AmountRate> {
   @override
-  final Iterable<Type> types = const [ReferralTransaction, _$ReferralTransaction];
+  final Iterable<Type> types = const [AmountRate, _$AmountRate];
 
   @override
-  final String wireName = r'ReferralTransaction';
+  final String wireName = r'AmountRate';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    ReferralTransaction object, {
+    AmountRate object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(String),
-    );
     yield r'currency';
     yield serializers.serialize(
       object.currency,
@@ -73,22 +54,12 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
       object.amount,
       specifiedType: const FullType(double),
     );
-    yield r'rates';
-    yield serializers.serialize(
-      object.rates,
-      specifiedType: const FullType(BuiltList, [FullType(AmountRate)]),
-    );
-    yield r'created_at';
-    yield serializers.serialize(
-      object.createdAt,
-      specifiedType: const FullType(DateTime),
-    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    ReferralTransaction object, {
+    AmountRate object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -99,20 +70,13 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ReferralTransactionBuilder result,
+    required AmountRateBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.id = valueDes;
-          break;
         case r'currency':
           final valueDes = serializers.deserialize(
             value,
@@ -127,20 +91,6 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
           ) as double;
           result.amount = valueDes;
           break;
-        case r'rates':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(AmountRate)]),
-          ) as BuiltList<AmountRate>;
-          result.rates.replace(valueDes);
-          break;
-        case r'created_at':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(DateTime),
-          ) as DateTime;
-          result.createdAt = valueDes;
-          break;
         default:
           unhandled.add(key);
           unhandled.add(value);
@@ -150,12 +100,12 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
   }
 
   @override
-  ReferralTransaction deserialize(
+  AmountRate deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ReferralTransactionBuilder();
+    final result = AmountRateBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
