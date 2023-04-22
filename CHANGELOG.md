@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.1] - 2023-04-22
+
+### Changes
+
+- New features in Referral Api: transaction claim method
+
 ## [3.11.0] - 2023-04-22
 
 ### Changes

@@ -10,6 +10,8 @@ All URIs are relative to *https://api.forestvpn.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**applyReferralCode**](ReferralApi.md#applyreferralcode) | **POST** /referral/referrals/apply/ | Apply referral code
+[**claimReferralTransaction**](ReferralApi.md#claimreferraltransaction) | **POST** /referral/transactions/{transactionID}/claim/ | Claim referral transaction
+[**getReferralTransaction**](ReferralApi.md#getreferraltransaction) | **GET** /referral/transactions/{transactionID}/ | Get referral transaction detail
 [**listReferralTransactions**](ReferralApi.md#listreferraltransactions) | **GET** /referral/transactions/ | Get referral transactions
 [**listReferrals**](ReferralApi.md#listreferrals) | **GET** /referral/referrals/ | Get referrals list
 [**referralProfileDetail**](ReferralApi.md#referralprofiledetail) | **GET** /referral/profile/ | Referral Program. Profile
@@ -54,6 +56,94 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **claimReferralTransaction**
+> ReferralTransaction claimReferralTransaction(transactionID)
+
+Claim referral transaction
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getReferralApi();
+final String transactionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+
+try {
+    final response = api.claimReferralTransaction(transactionID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling ReferralApi->claimReferralTransaction: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transactionID** | **String**|  | 
+
+### Return type
+
+[**ReferralTransaction**](ReferralTransaction.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getReferralTransaction**
+> ReferralTransaction getReferralTransaction(transactionID)
+
+Get referral transaction detail
+
+### Example
+```dart
+import 'package:forestvpn_api/api.dart';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+final api = ForestvpnApi().getReferralApi();
+final String transactionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+
+try {
+    final response = api.getReferralTransaction(transactionID);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling ReferralApi->getReferralTransaction: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transactionID** | **String**|  | 
+
+### Return type
+
+[**ReferralTransaction**](ReferralTransaction.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

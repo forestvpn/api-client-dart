@@ -1,5 +1,5 @@
 name: forestvpn_api
-version: 3.11.0
+version: 3.11.1
 description: A package to interact api.forestvpn.com (manage vpn profiles / check usage statistics / manage locations / ...)
 homepage: https://forestvpn.com/
 
