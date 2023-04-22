@@ -89,6 +89,7 @@ doc/Referral.md
 doc/ReferralApi.md
 doc/ReferralBalanceItem.md
 doc/ReferralProfile.md
+doc/ReferralProgramTerms.md
 doc/ReferralTransaction.md
 doc/Server.md
 doc/SourceCode.md
@@ -224,6 +225,7 @@ lib/src/model/recurring.dart
 lib/src/model/referral.dart
 lib/src/model/referral_balance_item.dart
 lib/src/model/referral_profile.dart
+lib/src/model/referral_program_terms.dart
 lib/src/model/referral_transaction.dart
 lib/src/model/server.dart
 lib/src/model/source_code.dart
@@ -256,4 +258,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/amount_rate_test.dart
+test/referral_program_terms_test.dart

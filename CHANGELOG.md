@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.0] - 2023-04-22
+
+### Changes
+
+- New features in Referral Api: 
+  - New profile fields: pending_balance, errors, terms
+  - New transaction fields: pending flag, pending_expires_at, and errors
+
 ## [3.10.1] - 2023-04-20
 
 ### Changes

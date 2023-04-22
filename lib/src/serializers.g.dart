@@ -86,6 +86,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Referral.serializer)
       ..add(ReferralBalanceItem.serializer)
       ..add(ReferralProfile.serializer)
+      ..add(ReferralProgramTerms.serializer)
       ..add(ReferralTransaction.serializer)
       ..add(Server.serializer)
       ..add(SourceCode.serializer)
@@ -124,6 +125,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(AmountRate)]),
           () => new ListBuilder<AmountRate>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Error)]),
+          () => new ListBuilder<Error>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Architecture)]),
           () => new ListBuilder<Architecture>())
       ..addBuilderFactory(
@@ -157,6 +161,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(ReferralBalanceItem)]),
           () => new ListBuilder<ReferralBalanceItem>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(ReferralBalanceItem)]),
+          () => new ListBuilder<ReferralBalanceItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Error)]),
+          () => new ListBuilder<Error>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

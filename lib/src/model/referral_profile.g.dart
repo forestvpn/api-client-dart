@@ -14,9 +14,15 @@ class _$ReferralProfile extends ReferralProfile {
   @override
   final String referralLink;
   @override
-  final BuiltList<ReferralBalanceItem>? balance;
+  final BuiltList<ReferralBalanceItem> balance;
+  @override
+  final BuiltList<ReferralBalanceItem> pendingBalance;
   @override
   final PublicUser? invitedBy;
+  @override
+  final ReferralProgramTerms terms;
+  @override
+  final BuiltList<Error> errors;
 
   factory _$ReferralProfile([void Function(ReferralProfileBuilder)? updates]) =>
       (new ReferralProfileBuilder()..update(updates))._build();
@@ -25,14 +31,23 @@ class _$ReferralProfile extends ReferralProfile {
       {required this.id,
       required this.referralCode,
       required this.referralLink,
-      this.balance,
-      this.invitedBy})
+      required this.balance,
+      required this.pendingBalance,
+      this.invitedBy,
+      required this.terms,
+      required this.errors})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'ReferralProfile', 'id');
     BuiltValueNullFieldError.checkNotNull(
         referralCode, r'ReferralProfile', 'referralCode');
     BuiltValueNullFieldError.checkNotNull(
         referralLink, r'ReferralProfile', 'referralLink');
+    BuiltValueNullFieldError.checkNotNull(
+        balance, r'ReferralProfile', 'balance');
+    BuiltValueNullFieldError.checkNotNull(
+        pendingBalance, r'ReferralProfile', 'pendingBalance');
+    BuiltValueNullFieldError.checkNotNull(terms, r'ReferralProfile', 'terms');
+    BuiltValueNullFieldError.checkNotNull(errors, r'ReferralProfile', 'errors');
   }
 
   @override
@@ -51,7 +66,10 @@ class _$ReferralProfile extends ReferralProfile {
         referralCode == other.referralCode &&
         referralLink == other.referralLink &&
         balance == other.balance &&
-        invitedBy == other.invitedBy;
+        pendingBalance == other.pendingBalance &&
+        invitedBy == other.invitedBy &&
+        terms == other.terms &&
+        errors == other.errors;
   }
 
   @override
@@ -61,7 +79,10 @@ class _$ReferralProfile extends ReferralProfile {
     _$hash = $jc(_$hash, referralCode.hashCode);
     _$hash = $jc(_$hash, referralLink.hashCode);
     _$hash = $jc(_$hash, balance.hashCode);
+    _$hash = $jc(_$hash, pendingBalance.hashCode);
     _$hash = $jc(_$hash, invitedBy.hashCode);
+    _$hash = $jc(_$hash, terms.hashCode);
+    _$hash = $jc(_$hash, errors.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -73,7 +94,10 @@ class _$ReferralProfile extends ReferralProfile {
           ..add('referralCode', referralCode)
           ..add('referralLink', referralLink)
           ..add('balance', balance)
-          ..add('invitedBy', invitedBy))
+          ..add('pendingBalance', pendingBalance)
+          ..add('invitedBy', invitedBy)
+          ..add('terms', terms)
+          ..add('errors', errors))
         .toString();
   }
 }
@@ -100,10 +124,25 @@ class ReferralProfileBuilder
   set balance(ListBuilder<ReferralBalanceItem>? balance) =>
       _$this._balance = balance;
 
+  ListBuilder<ReferralBalanceItem>? _pendingBalance;
+  ListBuilder<ReferralBalanceItem> get pendingBalance =>
+      _$this._pendingBalance ??= new ListBuilder<ReferralBalanceItem>();
+  set pendingBalance(ListBuilder<ReferralBalanceItem>? pendingBalance) =>
+      _$this._pendingBalance = pendingBalance;
+
   PublicUserBuilder? _invitedBy;
   PublicUserBuilder get invitedBy =>
       _$this._invitedBy ??= new PublicUserBuilder();
   set invitedBy(PublicUserBuilder? invitedBy) => _$this._invitedBy = invitedBy;
+
+  ReferralProgramTermsBuilder? _terms;
+  ReferralProgramTermsBuilder get terms =>
+      _$this._terms ??= new ReferralProgramTermsBuilder();
+  set terms(ReferralProgramTermsBuilder? terms) => _$this._terms = terms;
+
+  ListBuilder<Error>? _errors;
+  ListBuilder<Error> get errors => _$this._errors ??= new ListBuilder<Error>();
+  set errors(ListBuilder<Error>? errors) => _$this._errors = errors;
 
   ReferralProfileBuilder() {
     ReferralProfile._defaults(this);
@@ -115,8 +154,11 @@ class ReferralProfileBuilder
       _id = $v.id;
       _referralCode = $v.referralCode;
       _referralLink = $v.referralLink;
-      _balance = $v.balance?.toBuilder();
+      _balance = $v.balance.toBuilder();
+      _pendingBalance = $v.pendingBalance.toBuilder();
       _invitedBy = $v.invitedBy?.toBuilder();
+      _terms = $v.terms.toBuilder();
+      _errors = $v.errors.toBuilder();
       _$v = null;
     }
     return this;
@@ -147,15 +189,24 @@ class ReferralProfileBuilder
                   referralCode, r'ReferralProfile', 'referralCode'),
               referralLink: BuiltValueNullFieldError.checkNotNull(
                   referralLink, r'ReferralProfile', 'referralLink'),
-              balance: _balance?.build(),
-              invitedBy: _invitedBy?.build());
+              balance: balance.build(),
+              pendingBalance: pendingBalance.build(),
+              invitedBy: _invitedBy?.build(),
+              terms: terms.build(),
+              errors: errors.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'balance';
-        _balance?.build();
+        balance.build();
+        _$failedField = 'pendingBalance';
+        pendingBalance.build();
         _$failedField = 'invitedBy';
         _invitedBy?.build();
+        _$failedField = 'terms';
+        terms.build();
+        _$failedField = 'errors';
+        errors.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ReferralProfile', _$failedField, e.toString());

@@ -102,6 +102,7 @@ export 'package:forestvpn_api/src/model/recurring.dart';
 export 'package:forestvpn_api/src/model/referral.dart';
 export 'package:forestvpn_api/src/model/referral_balance_item.dart';
 export 'package:forestvpn_api/src/model/referral_profile.dart';
+export 'package:forestvpn_api/src/model/referral_program_terms.dart';
 export 'package:forestvpn_api/src/model/referral_transaction.dart';
 export 'package:forestvpn_api/src/model/server.dart';
 export 'package:forestvpn_api/src/model/source_code.dart';

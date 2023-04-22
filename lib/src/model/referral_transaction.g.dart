@@ -14,7 +14,13 @@ class _$ReferralTransaction extends ReferralTransaction {
   @override
   final double amount;
   @override
+  final bool pending;
+  @override
+  final DateTime pendingExpiresAt;
+  @override
   final BuiltList<AmountRate> rates;
+  @override
+  final BuiltList<Error> errors;
   @override
   final DateTime createdAt;
 
@@ -26,7 +32,10 @@ class _$ReferralTransaction extends ReferralTransaction {
       {required this.id,
       required this.currency,
       required this.amount,
+      required this.pending,
+      required this.pendingExpiresAt,
       required this.rates,
+      required this.errors,
       required this.createdAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'ReferralTransaction', 'id');
@@ -35,7 +44,13 @@ class _$ReferralTransaction extends ReferralTransaction {
     BuiltValueNullFieldError.checkNotNull(
         amount, r'ReferralTransaction', 'amount');
     BuiltValueNullFieldError.checkNotNull(
+        pending, r'ReferralTransaction', 'pending');
+    BuiltValueNullFieldError.checkNotNull(
+        pendingExpiresAt, r'ReferralTransaction', 'pendingExpiresAt');
+    BuiltValueNullFieldError.checkNotNull(
         rates, r'ReferralTransaction', 'rates');
+    BuiltValueNullFieldError.checkNotNull(
+        errors, r'ReferralTransaction', 'errors');
     BuiltValueNullFieldError.checkNotNull(
         createdAt, r'ReferralTransaction', 'createdAt');
   }
@@ -56,7 +71,10 @@ class _$ReferralTransaction extends ReferralTransaction {
         id == other.id &&
         currency == other.currency &&
         amount == other.amount &&
+        pending == other.pending &&
+        pendingExpiresAt == other.pendingExpiresAt &&
         rates == other.rates &&
+        errors == other.errors &&
         createdAt == other.createdAt;
   }
 
@@ -66,7 +84,10 @@ class _$ReferralTransaction extends ReferralTransaction {
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, amount.hashCode);
+    _$hash = $jc(_$hash, pending.hashCode);
+    _$hash = $jc(_$hash, pendingExpiresAt.hashCode);
     _$hash = $jc(_$hash, rates.hashCode);
+    _$hash = $jc(_$hash, errors.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -78,7 +99,10 @@ class _$ReferralTransaction extends ReferralTransaction {
           ..add('id', id)
           ..add('currency', currency)
           ..add('amount', amount)
+          ..add('pending', pending)
+          ..add('pendingExpiresAt', pendingExpiresAt)
           ..add('rates', rates)
+          ..add('errors', errors)
           ..add('createdAt', createdAt))
         .toString();
   }
@@ -100,10 +124,23 @@ class ReferralTransactionBuilder
   double? get amount => _$this._amount;
   set amount(double? amount) => _$this._amount = amount;
 
+  bool? _pending;
+  bool? get pending => _$this._pending;
+  set pending(bool? pending) => _$this._pending = pending;
+
+  DateTime? _pendingExpiresAt;
+  DateTime? get pendingExpiresAt => _$this._pendingExpiresAt;
+  set pendingExpiresAt(DateTime? pendingExpiresAt) =>
+      _$this._pendingExpiresAt = pendingExpiresAt;
+
   ListBuilder<AmountRate>? _rates;
   ListBuilder<AmountRate> get rates =>
       _$this._rates ??= new ListBuilder<AmountRate>();
   set rates(ListBuilder<AmountRate>? rates) => _$this._rates = rates;
+
+  ListBuilder<Error>? _errors;
+  ListBuilder<Error> get errors => _$this._errors ??= new ListBuilder<Error>();
+  set errors(ListBuilder<Error>? errors) => _$this._errors = errors;
 
   DateTime? _createdAt;
   DateTime? get createdAt => _$this._createdAt;
@@ -119,7 +156,10 @@ class ReferralTransactionBuilder
       _id = $v.id;
       _currency = $v.currency;
       _amount = $v.amount;
+      _pending = $v.pending;
+      _pendingExpiresAt = $v.pendingExpiresAt;
       _rates = $v.rates.toBuilder();
+      _errors = $v.errors.toBuilder();
       _createdAt = $v.createdAt;
       _$v = null;
     }
@@ -151,7 +191,12 @@ class ReferralTransactionBuilder
                   currency, r'ReferralTransaction', 'currency'),
               amount: BuiltValueNullFieldError.checkNotNull(
                   amount, r'ReferralTransaction', 'amount'),
+              pending: BuiltValueNullFieldError.checkNotNull(
+                  pending, r'ReferralTransaction', 'pending'),
+              pendingExpiresAt: BuiltValueNullFieldError.checkNotNull(
+                  pendingExpiresAt, r'ReferralTransaction', 'pendingExpiresAt'),
               rates: rates.build(),
+              errors: errors.build(),
               createdAt: BuiltValueNullFieldError.checkNotNull(
                   createdAt, r'ReferralTransaction', 'createdAt'));
     } catch (_) {
@@ -159,6 +204,8 @@ class ReferralTransactionBuilder
       try {
         _$failedField = 'rates';
         rates.build();
+        _$failedField = 'errors';
+        errors.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ReferralTransaction', _$failedField, e.toString());

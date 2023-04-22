@@ -4,8 +4,10 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/referral_balance_item.dart';
 import 'package:forestvpn_api/src/model/public_user.dart';
+import 'package:forestvpn_api/src/model/referral_program_terms.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,7 +20,10 @@ part 'referral_profile.g.dart';
 /// * [referralCode] 
 /// * [referralLink] 
 /// * [balance] 
+/// * [pendingBalance] 
 /// * [invitedBy] 
+/// * [terms] 
+/// * [errors] 
 @BuiltValue()
 abstract class ReferralProfile implements Built<ReferralProfile, ReferralProfileBuilder> {
   @BuiltValueField(wireName: r'id')
@@ -31,10 +36,19 @@ abstract class ReferralProfile implements Built<ReferralProfile, ReferralProfile
   String get referralLink;
 
   @BuiltValueField(wireName: r'balance')
-  BuiltList<ReferralBalanceItem>? get balance;
+  BuiltList<ReferralBalanceItem> get balance;
+
+  @BuiltValueField(wireName: r'pending_balance')
+  BuiltList<ReferralBalanceItem> get pendingBalance;
 
   @BuiltValueField(wireName: r'invited_by')
   PublicUser? get invitedBy;
+
+  @BuiltValueField(wireName: r'terms')
+  ReferralProgramTerms get terms;
+
+  @BuiltValueField(wireName: r'errors')
+  BuiltList<Error> get errors;
 
   ReferralProfile._();
 
@@ -74,13 +88,16 @@ class _$ReferralProfileSerializer implements PrimitiveSerializer<ReferralProfile
       object.referralLink,
       specifiedType: const FullType(String),
     );
-    if (object.balance != null) {
-      yield r'balance';
-      yield serializers.serialize(
-        object.balance,
-        specifiedType: const FullType(BuiltList, [FullType(ReferralBalanceItem)]),
-      );
-    }
+    yield r'balance';
+    yield serializers.serialize(
+      object.balance,
+      specifiedType: const FullType(BuiltList, [FullType(ReferralBalanceItem)]),
+    );
+    yield r'pending_balance';
+    yield serializers.serialize(
+      object.pendingBalance,
+      specifiedType: const FullType(BuiltList, [FullType(ReferralBalanceItem)]),
+    );
     if (object.invitedBy != null) {
       yield r'invited_by';
       yield serializers.serialize(
@@ -88,6 +105,16 @@ class _$ReferralProfileSerializer implements PrimitiveSerializer<ReferralProfile
         specifiedType: const FullType(PublicUser),
       );
     }
+    yield r'terms';
+    yield serializers.serialize(
+      object.terms,
+      specifiedType: const FullType(ReferralProgramTerms),
+    );
+    yield r'errors';
+    yield serializers.serialize(
+      object.errors,
+      specifiedType: const FullType(BuiltList, [FullType(Error)]),
+    );
   }
 
   @override
@@ -139,12 +166,33 @@ class _$ReferralProfileSerializer implements PrimitiveSerializer<ReferralProfile
           ) as BuiltList<ReferralBalanceItem>;
           result.balance.replace(valueDes);
           break;
+        case r'pending_balance':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(ReferralBalanceItem)]),
+          ) as BuiltList<ReferralBalanceItem>;
+          result.pendingBalance.replace(valueDes);
+          break;
         case r'invited_by':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(PublicUser),
           ) as PublicUser;
           result.invitedBy.replace(valueDes);
+          break;
+        case r'terms':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ReferralProgramTerms),
+          ) as ReferralProgramTerms;
+          result.terms.replace(valueDes);
+          break;
+        case r'errors':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(Error)]),
+          ) as BuiltList<Error>;
+          result.errors.replace(valueDes);
           break;
         default:
           unhandled.add(key);

@@ -86,6 +86,7 @@ import 'package:forestvpn_api/src/model/recurring.dart';
 import 'package:forestvpn_api/src/model/referral.dart';
 import 'package:forestvpn_api/src/model/referral_balance_item.dart';
 import 'package:forestvpn_api/src/model/referral_profile.dart';
+import 'package:forestvpn_api/src/model/referral_program_terms.dart';
 import 'package:forestvpn_api/src/model/referral_transaction.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/source_code.dart';
@@ -192,6 +193,7 @@ part 'serializers.g.dart';
   Referral,
   ReferralBalanceItem,
   ReferralProfile,
+  ReferralProgramTerms,
   ReferralTransaction,
   Server,
   SourceCode,
