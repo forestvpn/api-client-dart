@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.2] - 2023-04-23
+
+### Changes
+
+- Referral Api:
+  - removed `pending` field and instead `type` field added with an enum: [`earn`, `spend`, `pending`]
+  - `errors` and `pending_expires_at` will appear in the API only in case `type` = `pending` otherwise omitted.
+
 ## [3.11.1] - 2023-04-22
 
 ### Changes
