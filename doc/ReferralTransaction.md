@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **currency** | **String** |  | 
 **amount** | **double** |  | 
-**pending** | **bool** |  | 
-**pendingExpiresAt** | [**DateTime**](DateTime.md) |  | 
+**type** | [**ReferralTransactionType**](ReferralTransactionType.md) |  | 
+**pendingExpiresAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**errors** | [**BuiltList&lt;Error&gt;**](Error.md) |  | [optional] 
 **rates** | [**BuiltList&lt;AmountRate&gt;**](AmountRate.md) |  | 
-**errors** | [**BuiltList&lt;Error&gt;**](Error.md) |  | 
 **createdAt** | [**DateTime**](DateTime.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

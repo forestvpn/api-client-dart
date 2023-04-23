@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:forestvpn_api/src/model/referral_transaction_type.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/model/amount_rate.dart';
 import 'package:forestvpn_api/src/model/error.dart';
@@ -17,10 +18,10 @@ part 'referral_transaction.g.dart';
 /// * [id] 
 /// * [currency] 
 /// * [amount] 
-/// * [pending] 
+/// * [type] 
 /// * [pendingExpiresAt] 
-/// * [rates] 
 /// * [errors] 
+/// * [rates] 
 /// * [createdAt] 
 @BuiltValue()
 abstract class ReferralTransaction implements Built<ReferralTransaction, ReferralTransactionBuilder> {
@@ -33,17 +34,18 @@ abstract class ReferralTransaction implements Built<ReferralTransaction, Referra
   @BuiltValueField(wireName: r'amount')
   double get amount;
 
-  @BuiltValueField(wireName: r'pending')
-  bool get pending;
+  @BuiltValueField(wireName: r'type')
+  ReferralTransactionType get type;
+  // enum typeEnum {  earn,  spend,  pending,  };
 
   @BuiltValueField(wireName: r'pending_expires_at')
-  DateTime get pendingExpiresAt;
+  DateTime? get pendingExpiresAt;
+
+  @BuiltValueField(wireName: r'errors')
+  BuiltList<Error>? get errors;
 
   @BuiltValueField(wireName: r'rates')
   BuiltList<AmountRate> get rates;
-
-  @BuiltValueField(wireName: r'errors')
-  BuiltList<Error> get errors;
 
   @BuiltValueField(wireName: r'created_at')
   DateTime get createdAt;
@@ -86,25 +88,29 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
       object.amount,
       specifiedType: const FullType(double),
     );
-    yield r'pending';
+    yield r'type';
     yield serializers.serialize(
-      object.pending,
-      specifiedType: const FullType(bool),
+      object.type,
+      specifiedType: const FullType(ReferralTransactionType),
     );
-    yield r'pending_expires_at';
-    yield serializers.serialize(
-      object.pendingExpiresAt,
-      specifiedType: const FullType(DateTime),
-    );
+    if (object.pendingExpiresAt != null) {
+      yield r'pending_expires_at';
+      yield serializers.serialize(
+        object.pendingExpiresAt,
+        specifiedType: const FullType(DateTime),
+      );
+    }
+    if (object.errors != null) {
+      yield r'errors';
+      yield serializers.serialize(
+        object.errors,
+        specifiedType: const FullType(BuiltList, [FullType(Error)]),
+      );
+    }
     yield r'rates';
     yield serializers.serialize(
       object.rates,
       specifiedType: const FullType(BuiltList, [FullType(AmountRate)]),
-    );
-    yield r'errors';
-    yield serializers.serialize(
-      object.errors,
-      specifiedType: const FullType(BuiltList, [FullType(Error)]),
     );
     yield r'created_at';
     yield serializers.serialize(
@@ -155,12 +161,12 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
           ) as double;
           result.amount = valueDes;
           break;
-        case r'pending':
+        case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.pending = valueDes;
+            specifiedType: const FullType(ReferralTransactionType),
+          ) as ReferralTransactionType;
+          result.type = valueDes;
           break;
         case r'pending_expires_at':
           final valueDes = serializers.deserialize(
@@ -169,19 +175,19 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
           ) as DateTime;
           result.pendingExpiresAt = valueDes;
           break;
-        case r'rates':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(AmountRate)]),
-          ) as BuiltList<AmountRate>;
-          result.rates.replace(valueDes);
-          break;
         case r'errors':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(BuiltList, [FullType(Error)]),
           ) as BuiltList<Error>;
           result.errors.replace(valueDes);
+          break;
+        case r'rates':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(AmountRate)]),
+          ) as BuiltList<AmountRate>;
+          result.rates.replace(valueDes);
           break;
         case r'created_at':
           final valueDes = serializers.deserialize(

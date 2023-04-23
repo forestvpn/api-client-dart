@@ -88,6 +88,7 @@ import 'package:forestvpn_api/src/model/referral_balance_item.dart';
 import 'package:forestvpn_api/src/model/referral_profile.dart';
 import 'package:forestvpn_api/src/model/referral_program_terms.dart';
 import 'package:forestvpn_api/src/model/referral_transaction.dart';
+import 'package:forestvpn_api/src/model/referral_transaction_type.dart';
 import 'package:forestvpn_api/src/model/server.dart';
 import 'package:forestvpn_api/src/model/source_code.dart';
 import 'package:forestvpn_api/src/model/stripe_checkout_session.dart';
@@ -195,6 +196,7 @@ part 'serializers.g.dart';
   ReferralProfile,
   ReferralProgramTerms,
   ReferralTransaction,
+  ReferralTransactionType,
   Server,
   SourceCode,
   StripeCheckoutSession,
@@ -257,6 +259,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ReferralTransaction)]),
         () => ListBuilder<ReferralTransaction>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ReferralTransactionType)]),
+        () => ListBuilder<ReferralTransactionType>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Referral)]),

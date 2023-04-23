@@ -91,6 +91,7 @@ doc/ReferralBalanceItem.md
 doc/ReferralProfile.md
 doc/ReferralProgramTerms.md
 doc/ReferralTransaction.md
+doc/ReferralTransactionType.md
 doc/Server.md
 doc/SourceCode.md
 doc/StripeCheckoutSession.md
@@ -227,6 +228,7 @@ lib/src/model/referral_balance_item.dart
 lib/src/model/referral_profile.dart
 lib/src/model/referral_program_terms.dart
 lib/src/model/referral_transaction.dart
+lib/src/model/referral_transaction_type.dart
 lib/src/model/server.dart
 lib/src/model/source_code.dart
 lib/src/model/stripe_checkout_session.dart
@@ -258,3 +260,4 @@ lib/src/model/wire_guard_peer_info.dart
 lib/src/model/wire_guard_peer_user.dart
 lib/src/serializers.dart
 pubspec.yaml
+test/referral_transaction_type_test.dart

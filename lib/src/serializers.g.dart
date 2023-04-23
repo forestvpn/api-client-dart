@@ -88,6 +88,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ReferralProfile.serializer)
       ..add(ReferralProgramTerms.serializer)
       ..add(ReferralTransaction.serializer)
+      ..add(ReferralTransactionType.serializer)
       ..add(Server.serializer)
       ..add(SourceCode.serializer)
       ..add(StripeCheckoutSession.serializer)
@@ -122,12 +123,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(AdUnit)]),
           () => new ListBuilder<AdUnit>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(AmountRate)]),
-          () => new ListBuilder<AmountRate>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Error)]),
-          () => new ListBuilder<Error>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Architecture)]),
           () => new ListBuilder<Architecture>())
       ..addBuilderFactory(
@@ -144,6 +139,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(CreateCheckoutSessionProduct)]),
           () => new ListBuilder<CreateCheckoutSessionProduct>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Error)]),
+          () => new ListBuilder<Error>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(AmountRate)]),
+          () => new ListBuilder<AmountRate>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(FriendshipInvitation)]),

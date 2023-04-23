@@ -13,6 +13,7 @@ import 'package:forestvpn_api/src/model/error.dart';
 import 'package:forestvpn_api/src/model/referral.dart';
 import 'package:forestvpn_api/src/model/referral_profile.dart';
 import 'package:forestvpn_api/src/model/referral_transaction.dart';
+import 'package:forestvpn_api/src/model/referral_transaction_type.dart';
 
 class ReferralApi {
 
@@ -262,8 +263,11 @@ class ReferralApi {
   /// 
   ///
   /// Parameters:
-  /// * [q] - Search query
   /// * [sort] - Sort by provided field
+  /// * [currency] - Filter by currency
+  /// * [type] - Transaction type
+  /// * [createdAtAfter] 
+  /// * [createdAtBefore] 
   /// * [perPage] 
   /// * [page] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -276,8 +280,11 @@ class ReferralApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<ReferralTransaction>] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BuiltList<ReferralTransaction>>> listReferralTransactions({ 
-    String? q,
-    String? sort,
+    BuiltList<String>? sort,
+    BuiltList<String>? currency,
+    BuiltList<ReferralTransactionType>? type,
+    DateTime? createdAtAfter,
+    DateTime? createdAtBefore,
     int? perPage,
     int? page,
     CancelToken? cancelToken,
@@ -307,8 +314,11 @@ class ReferralApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (q != null) r'q': encodeQueryParameter(_serializers, q, const FullType(String)),
-      if (sort != null) r'sort': encodeQueryParameter(_serializers, sort, const FullType(String)),
+      if (sort != null) r'sort': encodeCollectionQueryParameter<String>(_serializers, sort, const FullType(BuiltList, [FullType(String)]), format: ListFormat.csv,),
+      if (currency != null) r'currency': encodeCollectionQueryParameter<String>(_serializers, currency, const FullType(BuiltList, [FullType(String)]), format: ListFormat.csv,),
+      if (type != null) r'type': encodeCollectionQueryParameter<ReferralTransactionType>(_serializers, type, const FullType(BuiltList, [FullType(ReferralTransactionType)]), format: ListFormat.multi,),
+      if (createdAtAfter != null) r'created_at_after': encodeQueryParameter(_serializers, createdAtAfter, const FullType(DateTime)),
+      if (createdAtBefore != null) r'created_at_before': encodeQueryParameter(_serializers, createdAtBefore, const FullType(DateTime)),
       if (perPage != null) r'per_page': encodeQueryParameter(_serializers, perPage, const FullType(int)),
       if (page != null) r'page': encodeQueryParameter(_serializers, page, const FullType(int)),
     };

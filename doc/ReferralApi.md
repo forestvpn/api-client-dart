@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listReferralTransactions**
-> BuiltList<ReferralTransaction> listReferralTransactions(q, sort, perPage, page)
+> BuiltList<ReferralTransaction> listReferralTransactions(sort, currency, type, createdAtAfter, createdAtBefore, perPage, page)
 
 Get referral transactions
 
@@ -161,13 +161,16 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getReferralApi();
-final String q = q_example; // String | Search query
-final String sort = sort_example; // String | Sort by provided field
+final BuiltList<String> sort = ; // BuiltList<String> | Sort by provided field
+final BuiltList<String> currency = ; // BuiltList<String> | Filter by currency
+final BuiltList<ReferralTransactionType> type = ; // BuiltList<ReferralTransactionType> | Transaction type
+final DateTime createdAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime createdAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
 final int perPage = 56; // int | 
 final int page = 56; // int | 
 
 try {
-    final response = api.listReferralTransactions(q, sort, perPage, page);
+    final response = api.listReferralTransactions(sort, currency, type, createdAtAfter, createdAtBefore, perPage, page);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling ReferralApi->listReferralTransactions: $e\n');
@@ -178,8 +181,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **String**| Search query | [optional] 
- **sort** | **String**| Sort by provided field | [optional] 
+ **sort** | [**BuiltList&lt;String&gt;**](String.md)| Sort by provided field | [optional] 
+ **currency** | [**BuiltList&lt;String&gt;**](String.md)| Filter by currency | [optional] 
+ **type** | [**BuiltList&lt;ReferralTransactionType&gt;**](ReferralTransactionType.md)| Transaction type | [optional] 
+ **createdAtAfter** | **DateTime**|  | [optional] 
+ **createdAtBefore** | **DateTime**|  | [optional] 
  **perPage** | **int**|  | [optional] 
  **page** | **int**|  | [optional] 
 
