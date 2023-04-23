@@ -6,18 +6,19 @@ part of 'referral_transaction_type.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ReferralTransactionType _$earn = const ReferralTransactionType._('earn');
-const ReferralTransactionType _$spend =
-    const ReferralTransactionType._('spend');
+const ReferralTransactionType _$debit =
+    const ReferralTransactionType._('debit');
+const ReferralTransactionType _$credit =
+    const ReferralTransactionType._('credit');
 const ReferralTransactionType _$pending =
     const ReferralTransactionType._('pending');
 
 ReferralTransactionType _$valueOf(String name) {
   switch (name) {
-    case 'earn':
-      return _$earn;
-    case 'spend':
-      return _$spend;
+    case 'debit':
+      return _$debit;
+    case 'credit':
+      return _$credit;
     case 'pending':
       return _$pending;
     default:
@@ -27,15 +28,15 @@ ReferralTransactionType _$valueOf(String name) {
 
 final BuiltSet<ReferralTransactionType> _$values =
     new BuiltSet<ReferralTransactionType>(const <ReferralTransactionType>[
-  _$earn,
-  _$spend,
+  _$debit,
+  _$credit,
   _$pending,
 ]);
 
 class _$ReferralTransactionTypeMeta {
   const _$ReferralTransactionTypeMeta();
-  ReferralTransactionType get earn => _$earn;
-  ReferralTransactionType get spend => _$spend;
+  ReferralTransactionType get debit => _$debit;
+  ReferralTransactionType get credit => _$credit;
   ReferralTransactionType get pending => _$pending;
   ReferralTransactionType valueOf(String name) => _$valueOf(name);
   BuiltSet<ReferralTransactionType> get values => _$values;
@@ -53,13 +54,13 @@ Serializer<ReferralTransactionType> _$referralTransactionTypeSerializer =
 class _$ReferralTransactionTypeSerializer
     implements PrimitiveSerializer<ReferralTransactionType> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'earn': 'earn',
-    'spend': 'spend',
+    'debit': 'debit',
+    'credit': 'credit',
     'pending': 'pending',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'earn': 'earn',
-    'spend': 'spend',
+    'debit': 'debit',
+    'credit': 'credit',
     'pending': 'pending',
   };
 

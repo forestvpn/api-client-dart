@@ -36,7 +36,7 @@ abstract class ReferralTransaction implements Built<ReferralTransaction, Referra
 
   @BuiltValueField(wireName: r'type')
   ReferralTransactionType get type;
-  // enum typeEnum {  earn,  spend,  pending,  };
+  // enum typeEnum {  debit,  credit,  pending,  };
 
   @BuiltValueField(wireName: r'pending_expires_at')
   DateTime? get pendingExpiresAt;

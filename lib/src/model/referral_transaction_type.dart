@@ -11,10 +11,10 @@ part 'referral_transaction_type.g.dart';
 
 class ReferralTransactionType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'earn')
-  static const ReferralTransactionType earn = _$earn;
-  @BuiltValueEnumConst(wireName: r'spend')
-  static const ReferralTransactionType spend = _$spend;
+  @BuiltValueEnumConst(wireName: r'debit')
+  static const ReferralTransactionType debit = _$debit;
+  @BuiltValueEnumConst(wireName: r'credit')
+  static const ReferralTransactionType credit = _$credit;
   @BuiltValueEnumConst(wireName: r'pending')
   static const ReferralTransactionType pending = _$pending;
 

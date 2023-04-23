@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.3] - 2023-04-23
+
+### Changes
+
+- Referral Api:
+  - better name for transaction `type` field: [`debit`, `credit`, `pending`]
+
 ## [3.11.2] - 2023-04-23
 
 ### Changes
