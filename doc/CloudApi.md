@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**createFunction**](CloudApi.md#createfunction) | **POST** /cloud/functions/ | Create function
 [**deleteFunction**](CloudApi.md#deletefunction) | **DELETE** /cloud/functions/{functionID}/ | Delete Function
 [**getFunction**](CloudApi.md#getfunction) | **GET** /cloud/functions/{functionID}/ | Function Info
-[**getFunctionStdDataCache**](CloudApi.md#getfunctionstddatacache) | **GET** /cloud/functions/stream_data_cache/{functionID}/ | Std data
+[**getTaskStdDataCache**](CloudApi.md#gettaskstddatacache) | **GET** /cloud/functions/stream_data_cache/{task_id}/ | Std data
 [**listFunctions**](CloudApi.md#listfunctions) | **GET** /cloud/functions/ | Functions List
 [**updateFunction**](CloudApi.md#updatefunction) | **PATCH** /cloud/functions/{functionID}/ | Update function properties
 
@@ -148,8 +148,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getFunctionStdDataCache**
-> BuiltList<String> getFunctionStdDataCache(functionID)
+# **getTaskStdDataCache**
+> BuiltList<String> getTaskStdDataCache(taskId)
 
 Std data
 
@@ -161,13 +161,13 @@ import 'package:forestvpn_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 final api = ForestvpnApi().getCloudApi();
-final String functionID = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final String taskId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 
 try {
-    final response = api.getFunctionStdDataCache(functionID);
+    final response = api.getTaskStdDataCache(taskId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling CloudApi->getFunctionStdDataCache: $e\n');
+    print('Exception when calling CloudApi->getTaskStdDataCache: $e\n');
 }
 ```
 
@@ -175,7 +175,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **functionID** | **String**|  | 
+ **taskId** | **String**|  | 
 
 ### Return type
 

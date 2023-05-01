@@ -31,6 +31,8 @@ class _$User extends User {
   final String? language;
   @override
   final String? timezone;
+  @override
+  final bool isPremium;
 
   factory _$User([void Function(UserBuilder)? updates]) =>
       (new UserBuilder()..update(updates))._build();
@@ -47,11 +49,13 @@ class _$User extends User {
       this.country,
       this.currencyCode,
       this.language,
-      this.timezone})
+      this.timezone,
+      required this.isPremium})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
     BuiltValueNullFieldError.checkNotNull(username, r'User', 'username');
     BuiltValueNullFieldError.checkNotNull(dateJoined, r'User', 'dateJoined');
+    BuiltValueNullFieldError.checkNotNull(isPremium, r'User', 'isPremium');
   }
 
   @override
@@ -76,7 +80,8 @@ class _$User extends User {
         country == other.country &&
         currencyCode == other.currencyCode &&
         language == other.language &&
-        timezone == other.timezone;
+        timezone == other.timezone &&
+        isPremium == other.isPremium;
   }
 
   @override
@@ -94,6 +99,7 @@ class _$User extends User {
     _$hash = $jc(_$hash, currencyCode.hashCode);
     _$hash = $jc(_$hash, language.hashCode);
     _$hash = $jc(_$hash, timezone.hashCode);
+    _$hash = $jc(_$hash, isPremium.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -112,7 +118,8 @@ class _$User extends User {
           ..add('country', country)
           ..add('currencyCode', currencyCode)
           ..add('language', language)
-          ..add('timezone', timezone))
+          ..add('timezone', timezone)
+          ..add('isPremium', isPremium))
         .toString();
   }
 }
@@ -169,6 +176,10 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String? get timezone => _$this._timezone;
   set timezone(String? timezone) => _$this._timezone = timezone;
 
+  bool? _isPremium;
+  bool? get isPremium => _$this._isPremium;
+  set isPremium(bool? isPremium) => _$this._isPremium = isPremium;
+
   UserBuilder() {
     User._defaults(this);
   }
@@ -188,6 +199,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _currencyCode = $v.currencyCode;
       _language = $v.language;
       _timezone = $v.timezone;
+      _isPremium = $v.isPremium;
       _$v = null;
     }
     return this;
@@ -223,7 +235,9 @@ class UserBuilder implements Builder<User, UserBuilder> {
             country: country,
             currencyCode: currencyCode,
             language: language,
-            timezone: timezone);
+            timezone: timezone,
+            isPremium: BuiltValueNullFieldError.checkNotNull(
+                isPremium, r'User', 'isPremium'));
     replace(_$result);
     return _$result;
   }

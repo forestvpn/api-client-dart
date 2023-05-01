@@ -259,7 +259,7 @@ class CloudApi {
   /// 
   ///
   /// Parameters:
-  /// * [functionID] 
+  /// * [taskId] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -269,8 +269,8 @@ class CloudApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<String>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<String>>> getFunctionStdDataCache({ 
-    required String functionID,
+  Future<Response<BuiltList<String>>> getTaskStdDataCache({ 
+    required String taskId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -278,7 +278,7 @@ class CloudApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/cloud/functions/stream_data_cache/{functionID}/'.replaceAll('{' r'functionID' '}', functionID.toString());
+    final _path = r'/cloud/functions/stream_data_cache/{task_id}/'.replaceAll('{' r'task_id' '}', taskId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{

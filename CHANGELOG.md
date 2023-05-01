@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.4] - 2023-04-23
+
+### Changes
+
+- User field `is_premium` 
+
 ## [3.11.3] - 2023-04-23
 
 ### Changes

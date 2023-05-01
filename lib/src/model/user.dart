@@ -23,6 +23,7 @@ part 'user.g.dart';
 /// * [currencyCode] 
 /// * [language] 
 /// * [timezone] 
+/// * [isPremium] 
 @BuiltValue()
 abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: r'id')
@@ -60,6 +61,9 @@ abstract class User implements Built<User, UserBuilder> {
 
   @BuiltValueField(wireName: r'timezone')
   String? get timezone;
+
+  @BuiltValueField(wireName: r'is_premium')
+  bool get isPremium;
 
   User._();
 
@@ -162,6 +166,11 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
         specifiedType: const FullType(String),
       );
     }
+    yield r'is_premium';
+    yield serializers.serialize(
+      object.isPremium,
+      specifiedType: const FullType(bool),
+    );
   }
 
   @override
@@ -268,6 +277,13 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
             specifiedType: const FullType(String),
           ) as String;
           result.timezone = valueDes;
+          break;
+        case r'is_premium':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isPremium = valueDes;
           break;
         default:
           unhandled.add(key);
