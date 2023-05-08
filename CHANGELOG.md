@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.5] - 2023-05-08
+
+### Changes
+
+- UserUpdate: optional `date_joined` field
+
 ## [3.11.4] - 2023-04-23
 
 ### Changes

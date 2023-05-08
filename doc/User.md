@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **email** | **String** |  | [optional] 
 **emailVerified** | **bool** |  | [optional] 
 **photoUrl** | **String** |  | [optional] 
-**dateJoined** | [**DateTime**](DateTime.md) |  | 
+**dateJoined** | [**DateTime**](DateTime.md) |  | [optional] 
 **country** | **String** |  | [optional] 
 **currencyCode** | **String** |  | [optional] 
 **language** | **String** |  | [optional] 

@@ -48,7 +48,7 @@ abstract class User implements Built<User, UserBuilder> {
   String? get photoUrl;
 
   @BuiltValueField(wireName: r'date_joined')
-  DateTime get dateJoined;
+  DateTime? get dateJoined;
 
   @BuiltValueField(wireName: r'country')
   String? get country;
@@ -133,11 +133,13 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
         specifiedType: const FullType(String),
       );
     }
-    yield r'date_joined';
-    yield serializers.serialize(
-      object.dateJoined,
-      specifiedType: const FullType(DateTime),
-    );
+    if (object.dateJoined != null) {
+      yield r'date_joined';
+      yield serializers.serialize(
+        object.dateJoined,
+        specifiedType: const FullType(DateTime),
+      );
+    }
     if (object.country != null) {
       yield r'country';
       yield serializers.serialize(

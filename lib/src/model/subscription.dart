@@ -39,7 +39,6 @@ abstract class Subscription implements Built<Subscription, SubscriptionBuilder> 
 
   @BuiltValueField(wireName: r'source')
   SubscriptionSource? get source_;
-  // enum source_Enum {  default,  stripe,  google,  apple,  cloud_payments,  };
 
   @BuiltValueField(wireName: r'start_date')
   DateTime get startDate;
@@ -74,7 +73,6 @@ abstract class Subscription implements Built<Subscription, SubscriptionBuilder> 
 
   @BuiltValueField(wireName: r'status')
   SubscriptionStatus get status;
-  // enum statusEnum {  unknown,  incomplete,  incomplete_expired,  trialing,  active,  past_due,  canceled,  unpaid,  };
 
   /// The subscription’s description, meant to be displayable to the customer.
   @BuiltValueField(wireName: r'description')
