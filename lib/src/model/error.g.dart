@@ -12,7 +12,7 @@ class _$Error extends Error {
   @override
   final String message;
   @override
-  final BuiltMap<String, JsonObject?>? detail;
+  final JsonObject? detail;
 
   factory _$Error([void Function(ErrorBuilder)? updates]) =>
       (new ErrorBuilder()..update(updates))._build();
@@ -70,11 +70,9 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder> {
   String? get message => _$this._message;
   set message(String? message) => _$this._message = message;
 
-  MapBuilder<String, JsonObject?>? _detail;
-  MapBuilder<String, JsonObject?> get detail =>
-      _$this._detail ??= new MapBuilder<String, JsonObject?>();
-  set detail(MapBuilder<String, JsonObject?>? detail) =>
-      _$this._detail = detail;
+  JsonObject? _detail;
+  JsonObject? get detail => _$this._detail;
+  set detail(JsonObject? detail) => _$this._detail = detail;
 
   ErrorBuilder() {
     Error._defaults(this);
@@ -85,7 +83,7 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder> {
     if ($v != null) {
       _code = $v.code;
       _message = $v.message;
-      _detail = $v.detail?.toBuilder();
+      _detail = $v.detail;
       _$v = null;
     }
     return this;
@@ -106,26 +104,12 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder> {
   Error build() => _build();
 
   _$Error _build() {
-    _$Error _$result;
-    try {
-      _$result = _$v ??
-          new _$Error._(
-              code:
-                  BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
-              message: BuiltValueNullFieldError.checkNotNull(
-                  message, r'Error', 'message'),
-              detail: _detail?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'detail';
-        _detail?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'Error', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$Error._(
+            code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'Error', 'message'),
+            detail: detail);
     replace(_$result);
     return _$result;
   }

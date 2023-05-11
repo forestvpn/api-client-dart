@@ -99,13 +99,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Device _responseData;
+    Device? _responseData;
 
     try {
-      const _responseType = FullType(Device);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Device),
       ) as Device;
 
     } catch (error, stackTrace) {
@@ -202,13 +202,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    AdvertisedRoute _responseData;
+    AdvertisedRoute? _responseData;
 
     try {
-      const _responseType = FullType(AdvertisedRoute);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(AdvertisedRoute),
       ) as AdvertisedRoute;
 
     } catch (error, stackTrace) {
@@ -305,13 +305,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PortForwarding _responseData;
+    PortForwarding? _responseData;
 
     try {
-      const _responseType = FullType(PortForwarding);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(PortForwarding),
       ) as PortForwarding;
 
     } catch (error, stackTrace) {
@@ -494,13 +494,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Device _responseData;
+    Device? _responseData;
 
     try {
-      const _responseType = FullType(Device);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Device),
       ) as Device;
 
     } catch (error, stackTrace) {
@@ -577,13 +577,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceStats _responseData;
+    DeviceStats? _responseData;
 
     try {
-      const _responseType = FullType(DeviceStats);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(DeviceStats),
       ) as DeviceStats;
 
     } catch (error, stackTrace) {
@@ -660,13 +660,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    WireGuard _responseData;
+    WireGuard? _responseData;
 
     try {
-      const _responseType = FullType(WireGuard);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(WireGuard),
       ) as WireGuard;
 
     } catch (error, stackTrace) {
@@ -741,10 +741,11 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    String _responseData;
+    String? _responseData;
 
     try {
-      _responseData = _response.data as String;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as String;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -828,13 +829,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AdvertisedRoute> _responseData;
+    BuiltList<AdvertisedRoute>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(AdvertisedRoute)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(AdvertisedRoute)]),
       ) as BuiltList<AdvertisedRoute>;
 
     } catch (error, stackTrace) {
@@ -909,13 +910,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<String> _responseData;
+    BuiltList<String>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(String)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
       ) as BuiltList<String>;
 
     } catch (error, stackTrace) {
@@ -996,13 +997,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<ConnectionMode> _responseData;
+    BuiltList<ConnectionMode>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(ConnectionMode)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ConnectionMode)]),
       ) as BuiltList<ConnectionMode>;
 
     } catch (error, stackTrace) {
@@ -1093,13 +1094,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<DeviceStats> _responseData;
+    BuiltList<DeviceStats>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(DeviceStats)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(DeviceStats)]),
       ) as BuiltList<DeviceStats>;
 
     } catch (error, stackTrace) {
@@ -1184,13 +1185,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<PortForwarding> _responseData;
+    BuiltList<PortForwarding>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(PortForwarding)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(PortForwarding)]),
       ) as BuiltList<PortForwarding>;
 
     } catch (error, stackTrace) {
@@ -1281,13 +1282,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<DeviceStats> _responseData;
+    BuiltList<DeviceStats>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(DeviceStats)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(DeviceStats)]),
       ) as BuiltList<DeviceStats>;
 
     } catch (error, stackTrace) {
@@ -1364,13 +1365,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<WireGuardPeer> _responseData;
+    BuiltList<WireGuardPeer>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(WireGuardPeer)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(WireGuardPeer)]),
       ) as BuiltList<WireGuardPeer>;
 
     } catch (error, stackTrace) {
@@ -1455,13 +1456,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<WireGuard> _responseData;
+    BuiltList<WireGuard>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(WireGuard)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(WireGuard)]),
       ) as BuiltList<WireGuard>;
 
     } catch (error, stackTrace) {
@@ -1562,13 +1563,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Device> _responseData;
+    BuiltList<Device>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Device)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Device)]),
       ) as BuiltList<Device>;
 
     } catch (error, stackTrace) {
@@ -1665,13 +1666,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Device _responseData;
+    Device? _responseData;
 
     try {
-      const _responseType = FullType(Device);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Device),
       ) as Device;
 
     } catch (error, stackTrace) {
@@ -1770,13 +1771,13 @@ class DeviceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PortForwarding _responseData;
+    PortForwarding? _responseData;
 
     try {
-      const _responseType = FullType(PortForwarding);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(PortForwarding),
       ) as PortForwarding;
 
     } catch (error, stackTrace) {

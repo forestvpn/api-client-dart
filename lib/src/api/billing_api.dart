@@ -152,13 +152,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    StripeSetupIntent _responseData;
+    StripeSetupIntent? _responseData;
 
     try {
-      const _responseType = FullType(StripeSetupIntent);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(StripeSetupIntent),
       ) as StripeSetupIntent;
 
     } catch (error, stackTrace) {
@@ -253,13 +253,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Subscription _responseData;
+    Subscription? _responseData;
 
     try {
-      const _responseType = FullType(Subscription);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Subscription),
       ) as Subscription;
 
     } catch (error, stackTrace) {
@@ -385,13 +385,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BillingAccount _responseData;
+    BillingAccount? _responseData;
 
     try {
-      const _responseType = FullType(BillingAccount);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BillingAccount),
       ) as BillingAccount;
 
     } catch (error, stackTrace) {
@@ -466,13 +466,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Bundle _responseData;
+    Bundle? _responseData;
 
     try {
-      const _responseType = FullType(Bundle);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Bundle),
       ) as Bundle;
 
     } catch (error, stackTrace) {
@@ -547,13 +547,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PaymentOption _responseData;
+    PaymentOption? _responseData;
 
     try {
-      const _responseType = FullType(PaymentOption);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(PaymentOption),
       ) as PaymentOption;
 
     } catch (error, stackTrace) {
@@ -628,13 +628,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Product _responseData;
+    Product? _responseData;
 
     try {
-      const _responseType = FullType(Product);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Product),
       ) as Product;
 
     } catch (error, stackTrace) {
@@ -709,13 +709,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PaymentMethod _responseData;
+    PaymentMethod? _responseData;
 
     try {
-      const _responseType = FullType(PaymentMethod);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(PaymentMethod),
       ) as PaymentMethod;
 
     } catch (error, stackTrace) {
@@ -790,13 +790,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Subscription _responseData;
+    Subscription? _responseData;
 
     try {
-      const _responseType = FullType(Subscription);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Subscription),
       ) as Subscription;
 
     } catch (error, stackTrace) {
@@ -871,13 +871,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SubscriptionItem _responseData;
+    SubscriptionItem? _responseData;
 
     try {
-      const _responseType = FullType(SubscriptionItem);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(SubscriptionItem),
       ) as SubscriptionItem;
 
     } catch (error, stackTrace) {
@@ -950,13 +950,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Bundle> _responseData;
+    BuiltList<Bundle>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Bundle)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Bundle)]),
       ) as BuiltList<Bundle>;
 
     } catch (error, stackTrace) {
@@ -1034,13 +1034,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<BillingFeature> _responseData;
+    BuiltList<BillingFeature>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(BillingFeature)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(BillingFeature)]),
       ) as BuiltList<BillingFeature>;
 
     } catch (error, stackTrace) {
@@ -1113,13 +1113,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<PaymentOption> _responseData;
+    BuiltList<PaymentOption>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(PaymentOption)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(PaymentOption)]),
       ) as BuiltList<PaymentOption>;
 
     } catch (error, stackTrace) {
@@ -1192,13 +1192,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Product> _responseData;
+    BuiltList<Product>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Product)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Product)]),
       ) as BuiltList<Product>;
 
     } catch (error, stackTrace) {
@@ -1271,13 +1271,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<PaymentMethod> _responseData;
+    BuiltList<PaymentMethod>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(PaymentMethod)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(PaymentMethod)]),
       ) as BuiltList<PaymentMethod>;
 
     } catch (error, stackTrace) {
@@ -1363,13 +1363,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<SubscriptionItem> _responseData;
+    BuiltList<SubscriptionItem>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(SubscriptionItem)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(SubscriptionItem)]),
       ) as BuiltList<SubscriptionItem>;
 
     } catch (error, stackTrace) {
@@ -1455,13 +1455,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Subscription> _responseData;
+    BuiltList<Subscription>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Subscription)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Subscription)]),
       ) as BuiltList<Subscription>;
 
     } catch (error, stackTrace) {
@@ -1536,13 +1536,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Subscription _responseData;
+    Subscription? _responseData;
 
     try {
-      const _responseType = FullType(Subscription);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Subscription),
       ) as Subscription;
 
     } catch (error, stackTrace) {
@@ -1637,13 +1637,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BillingAccount _responseData;
+    BillingAccount? _responseData;
 
     try {
-      const _responseType = FullType(BillingAccount);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BillingAccount),
       ) as BillingAccount;
 
     } catch (error, stackTrace) {
@@ -1740,13 +1740,13 @@ class BillingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SubscriptionItem _responseData;
+    SubscriptionItem? _responseData;
 
     try {
-      const _responseType = FullType(SubscriptionItem);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(SubscriptionItem),
       ) as SubscriptionItem;
 
     } catch (error, stackTrace) {

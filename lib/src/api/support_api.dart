@@ -227,13 +227,13 @@ class SupportApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<TicketCategory> _responseData;
+    BuiltList<TicketCategory>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(TicketCategory)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(TicketCategory)]),
       ) as BuiltList<TicketCategory>;
 
     } catch (error, stackTrace) {
@@ -306,13 +306,13 @@ class SupportApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<UsageIssue> _responseData;
+    BuiltList<UsageIssue>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(UsageIssue)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(UsageIssue)]),
       ) as BuiltList<UsageIssue>;
 
     } catch (error, stackTrace) {
@@ -385,13 +385,13 @@ class SupportApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<UsageReport> _responseData;
+    BuiltList<UsageReport>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(UsageReport)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(UsageReport)]),
       ) as BuiltList<UsageReport>;
 
     } catch (error, stackTrace) {

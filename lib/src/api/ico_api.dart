@@ -66,13 +66,13 @@ class IcoApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ICOLanding _responseData;
+    ICOLanding? _responseData;
 
     try {
-      const _responseType = FullType(ICOLanding);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ICOLanding),
       ) as ICOLanding;
 
     } catch (error, stackTrace) {

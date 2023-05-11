@@ -3,7 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:forestvpn_api/src/model/task.dart';
 import 'package:forestvpn_api/src/model/architecture.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:forestvpn_api/src/model/function_environment.dart';
@@ -26,7 +25,6 @@ part 'model_function.g.dart';
 /// * [source_] 
 /// * [sourceId] 
 /// * [environment] 
-/// * [tasks] 
 @BuiltValue()
 abstract class ModelFunction implements Built<ModelFunction, ModelFunctionBuilder> {
   @BuiltValueField(wireName: r'id')
@@ -60,9 +58,6 @@ abstract class ModelFunction implements Built<ModelFunction, ModelFunctionBuilde
 
   @BuiltValueField(wireName: r'environment')
   FunctionEnvironment? get environment;
-
-  @BuiltValueField(wireName: r'tasks')
-  BuiltList<Task>? get tasks;
 
   ModelFunction._();
 
@@ -151,13 +146,6 @@ class _$ModelFunctionSerializer implements PrimitiveSerializer<ModelFunction> {
       yield serializers.serialize(
         object.environment,
         specifiedType: const FullType(FunctionEnvironment),
-      );
-    }
-    if (object.tasks != null) {
-      yield r'tasks';
-      yield serializers.serialize(
-        object.tasks,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(Task)]),
       );
     }
   }
@@ -252,14 +240,6 @@ class _$ModelFunctionSerializer implements PrimitiveSerializer<ModelFunction> {
             specifiedType: const FullType(FunctionEnvironment),
           ) as FunctionEnvironment;
           result.environment.replace(valueDes);
-          break;
-        case r'tasks':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(Task)]),
-          ) as BuiltList<Task>?;
-          if (valueDes == null) continue;
-          result.tasks.replace(valueDes);
           break;
         default:
           unhandled.add(key);

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.12.0] - 2023-05-11
+
+### Changes
+
+- Offer Api: App Store / Play Store offers
+
 ## [3.11.5] - 2023-05-08
 
 ### Changes

@@ -3,65 +3,73 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:forestvpn_api/src/model/file.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'code.g.dart';
+part 'app_store_offer_signature.g.dart';
 
-/// Code
+/// It contains App Store offer signature detail.
 ///
 /// Properties:
-/// * [id] 
-/// * [file] 
-/// * [fileId] 
+/// * [nonce] 
+/// * [timestamp] 
+/// * [keyId] 
+/// * [signature] 
 @BuiltValue()
-abstract class Code implements Built<Code, CodeBuilder> {
-  @BuiltValueField(wireName: r'id')
-  String get id;
+abstract class AppStoreOfferSignature implements Built<AppStoreOfferSignature, AppStoreOfferSignatureBuilder> {
+  @BuiltValueField(wireName: r'nonce')
+  String get nonce;
 
-  @BuiltValueField(wireName: r'file')
-  File get file;
+  @BuiltValueField(wireName: r'timestamp')
+  int get timestamp;
 
-  @BuiltValueField(wireName: r'file_id')
-  String get fileId;
+  @BuiltValueField(wireName: r'key_id')
+  String get keyId;
 
-  Code._();
+  @BuiltValueField(wireName: r'signature')
+  String get signature;
 
-  factory Code([void updates(CodeBuilder b)]) = _$Code;
+  AppStoreOfferSignature._();
+
+  factory AppStoreOfferSignature([void updates(AppStoreOfferSignatureBuilder b)]) = _$AppStoreOfferSignature;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CodeBuilder b) => b;
+  static void _defaults(AppStoreOfferSignatureBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Code> get serializer => _$CodeSerializer();
+  static Serializer<AppStoreOfferSignature> get serializer => _$AppStoreOfferSignatureSerializer();
 }
 
-class _$CodeSerializer implements PrimitiveSerializer<Code> {
+class _$AppStoreOfferSignatureSerializer implements PrimitiveSerializer<AppStoreOfferSignature> {
   @override
-  final Iterable<Type> types = const [Code, _$Code];
+  final Iterable<Type> types = const [AppStoreOfferSignature, _$AppStoreOfferSignature];
 
   @override
-  final String wireName = r'Code';
+  final String wireName = r'AppStoreOfferSignature';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Code object, {
+    AppStoreOfferSignature object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'id';
+    yield r'nonce';
     yield serializers.serialize(
-      object.id,
+      object.nonce,
       specifiedType: const FullType(String),
     );
-    yield r'file';
+    yield r'timestamp';
     yield serializers.serialize(
-      object.file,
-      specifiedType: const FullType(File),
+      object.timestamp,
+      specifiedType: const FullType(int),
     );
-    yield r'file_id';
+    yield r'key_id';
     yield serializers.serialize(
-      object.fileId,
+      object.keyId,
+      specifiedType: const FullType(String),
+    );
+    yield r'signature';
+    yield serializers.serialize(
+      object.signature,
       specifiedType: const FullType(String),
     );
   }
@@ -69,7 +77,7 @@ class _$CodeSerializer implements PrimitiveSerializer<Code> {
   @override
   Object serialize(
     Serializers serializers,
-    Code object, {
+    AppStoreOfferSignature object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -80,33 +88,40 @@ class _$CodeSerializer implements PrimitiveSerializer<Code> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CodeBuilder result,
+    required AppStoreOfferSignatureBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'id':
+        case r'nonce':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.id = valueDes;
+          result.nonce = valueDes;
           break;
-        case r'file':
+        case r'timestamp':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(File),
-          ) as File;
-          result.file.replace(valueDes);
+            specifiedType: const FullType(int),
+          ) as int;
+          result.timestamp = valueDes;
           break;
-        case r'file_id':
+        case r'key_id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.fileId = valueDes;
+          result.keyId = valueDes;
+          break;
+        case r'signature':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.signature = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -117,12 +132,12 @@ class _$CodeSerializer implements PrimitiveSerializer<Code> {
   }
 
   @override
-  Code deserialize(
+  AppStoreOfferSignature deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CodeBuilder();
+    final result = AppStoreOfferSignatureBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

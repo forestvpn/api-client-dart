@@ -18,7 +18,7 @@ environment:
 
 steps:
   - name: deps
-    image: dart:2.18.7-sdk
+    image: dart:2.19.6-sdk
     volumes:
       - name: cache
         path: /cache
@@ -26,7 +26,7 @@ steps:
       - dart pub get
 
   - name: build
-    image: dart:2.18.7-sdk
+    image: dart:2.19.6-sdk
     volumes:
       - name: cache
         path: /cache
@@ -75,7 +75,7 @@ environment:
 
 steps:
   - name: deps
-    image: dart:2.18.7-sdk
+    image: dart:2.19.6-sdk
     volumes:
       - name: cache
         path: /cache
@@ -83,7 +83,7 @@ steps:
       - dart pub get
 
   - name: build
-    image: dart:2.18.7-sdk
+    image: dart:2.19.6-sdk
     volumes:
       - name: cache
         path: /cache
@@ -95,7 +95,7 @@ steps:
       - deps
   
   - name: validate
-    image: dart:2.18.7-sdk
+    image: dart:2.19.6-sdk
     volumes:
       - name: cache
         path: /cache
@@ -107,7 +107,7 @@ steps:
       - build
 
   - name: publish
-    image: dart:2.18.7-sdk
+    image: dart:2.19.6-sdk
     environment:
       PUB_DEV_CREDENTIALS:
         from_secret: PUB_DEV_CREDENTIALS

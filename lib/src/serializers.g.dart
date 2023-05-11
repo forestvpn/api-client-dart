@@ -16,7 +16,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AdUnitFormatEnum.serializer)
       ..add(AdvertisedRoute.serializer)
       ..add(AggregatedDataUsageStats.serializer)
+      ..add(AggregatedFunctionStats.serializer)
       ..add(AmountRate.serializer)
+      ..add(AppStoreOfferSignature.serializer)
       ..add(AppStoreReceiptVerificationRequest.serializer)
       ..add(Architecture.serializer)
       ..add(BillingAccount.serializer)
@@ -71,11 +73,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(NotificationLevelEnum.serializer)
       ..add(NotificationTypeEnum.serializer)
       ..add(NotificationUnreadCount.serializer)
+      ..add(Offer.serializer)
       ..add(PaymentMethod.serializer)
       ..add(PaymentMethodCard.serializer)
       ..add(PaymentMethodType.serializer)
       ..add(PaymentOption.serializer)
       ..add(Plan.serializer)
+      ..add(PlayStoreOffer.serializer)
       ..add(PlayStorePurchaseVerificationRequest.serializer)
       ..add(PortForwarding.serializer)
       ..add(Price.serializer)
@@ -126,9 +130,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(Architecture)]),
           () => new ListBuilder<Architecture>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Task)]),
-          () => new ListBuilder<Task>())
-      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(CheckoutSessionProduct)]),
           () => new ListBuilder<CheckoutSessionProduct>())
@@ -158,6 +159,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Product)]),
           () => new ListBuilder<Product>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(ProductWithoutPrice)]),
+          () => new ListBuilder<ProductWithoutPrice>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(ReferralBalanceItem)]),
@@ -206,13 +211,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, const [
-            const FullType(String),
-            const FullType.nullable(JsonObject)
-          ]),
-          () => new MapBuilder<String, JsonObject?>()))
+          () => new MapBuilder<String, String>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

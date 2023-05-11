@@ -68,13 +68,13 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    NotificationUnreadCount _responseData;
+    NotificationUnreadCount? _responseData;
 
     try {
-      const _responseType = FullType(NotificationUnreadCount);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(NotificationUnreadCount),
       ) as NotificationUnreadCount;
 
     } catch (error, stackTrace) {
@@ -160,13 +160,13 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    NotificationAllList _responseData;
+    NotificationAllList? _responseData;
 
     try {
-      const _responseType = FullType(NotificationAllList);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(NotificationAllList),
       ) as NotificationAllList;
 
     } catch (error, stackTrace) {

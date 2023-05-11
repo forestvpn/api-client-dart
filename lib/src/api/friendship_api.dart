@@ -125,13 +125,13 @@ class FriendshipApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Friendship _responseData;
+    Friendship? _responseData;
 
     try {
-      const _responseType = FullType(Friendship);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(Friendship),
       ) as Friendship;
 
     } catch (error, stackTrace) {
@@ -206,13 +206,13 @@ class FriendshipApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FriendshipInvitation _responseData;
+    FriendshipInvitation? _responseData;
 
     try {
-      const _responseType = FullType(FriendshipInvitation);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(FriendshipInvitation),
       ) as FriendshipInvitation;
 
     } catch (error, stackTrace) {
@@ -295,13 +295,13 @@ class FriendshipApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Friendship> _responseData;
+    BuiltList<Friendship>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Friendship)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Friendship)]),
       ) as BuiltList<Friendship>;
 
     } catch (error, stackTrace) {
@@ -374,13 +374,13 @@ class FriendshipApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FriendshipInvitationList _responseData;
+    FriendshipInvitationList? _responseData;
 
     try {
-      const _responseType = FullType(FriendshipInvitationList);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(FriendshipInvitationList),
       ) as FriendshipInvitationList;
 
     } catch (error, stackTrace) {

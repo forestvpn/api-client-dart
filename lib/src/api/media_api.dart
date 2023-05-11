@@ -90,13 +90,13 @@ class MediaApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    File _responseData;
+    File? _responseData;
 
     try {
-      const _responseType = FullType(File);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(File),
       ) as File;
 
     } catch (error, stackTrace) {

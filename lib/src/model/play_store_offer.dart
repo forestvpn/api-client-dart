@@ -3,76 +3,54 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'error.g.dart';
+part 'play_store_offer.g.dart';
 
-/// Error
+/// It contains Play Store offer detail.
 ///
 /// Properties:
-/// * [code] 
-/// * [message] 
-/// * [detail] - Error detail
+/// * [id] 
 @BuiltValue()
-abstract class Error implements Built<Error, ErrorBuilder> {
-  @BuiltValueField(wireName: r'code')
-  String get code;
+abstract class PlayStoreOffer implements Built<PlayStoreOffer, PlayStoreOfferBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-  @BuiltValueField(wireName: r'message')
-  String get message;
+  PlayStoreOffer._();
 
-  /// Error detail
-  @BuiltValueField(wireName: r'detail')
-  JsonObject? get detail;
-
-  Error._();
-
-  factory Error([void updates(ErrorBuilder b)]) = _$Error;
+  factory PlayStoreOffer([void updates(PlayStoreOfferBuilder b)]) = _$PlayStoreOffer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ErrorBuilder b) => b;
+  static void _defaults(PlayStoreOfferBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Error> get serializer => _$ErrorSerializer();
+  static Serializer<PlayStoreOffer> get serializer => _$PlayStoreOfferSerializer();
 }
 
-class _$ErrorSerializer implements PrimitiveSerializer<Error> {
+class _$PlayStoreOfferSerializer implements PrimitiveSerializer<PlayStoreOffer> {
   @override
-  final Iterable<Type> types = const [Error, _$Error];
+  final Iterable<Type> types = const [PlayStoreOffer, _$PlayStoreOffer];
 
   @override
-  final String wireName = r'Error';
+  final String wireName = r'PlayStoreOffer';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Error object, {
+    PlayStoreOffer object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'code';
+    yield r'id';
     yield serializers.serialize(
-      object.code,
+      object.id,
       specifiedType: const FullType(String),
     );
-    yield r'message';
-    yield serializers.serialize(
-      object.message,
-      specifiedType: const FullType(String),
-    );
-    if (object.detail != null) {
-      yield r'detail';
-      yield serializers.serialize(
-        object.detail,
-        specifiedType: const FullType.nullable(JsonObject),
-      );
-    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    Error object, {
+    PlayStoreOffer object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -83,34 +61,19 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ErrorBuilder result,
+    required PlayStoreOfferBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'code':
+        case r'id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.code = valueDes;
-          break;
-        case r'message':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.message = valueDes;
-          break;
-        case r'detail':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(JsonObject),
-          ) as JsonObject?;
-          if (valueDes == null) continue;
-          result.detail = valueDes;
+          result.id = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -121,12 +84,12 @@ class _$ErrorSerializer implements PrimitiveSerializer<Error> {
   }
 
   @override
-  Error deserialize(
+  PlayStoreOffer deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ErrorBuilder();
+    final result = PlayStoreOfferBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

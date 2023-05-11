@@ -100,13 +100,13 @@ class CheckoutApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CouponCheckoutSession _responseData;
+    CouponCheckoutSession? _responseData;
 
     try {
-      const _responseType = FullType(CouponCheckoutSession);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CouponCheckoutSession),
       ) as CouponCheckoutSession;
 
     } catch (error, stackTrace) {
@@ -201,13 +201,13 @@ class CheckoutApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CheckoutSession _responseData;
+    CheckoutSession? _responseData;
 
     try {
-      const _responseType = FullType(CheckoutSession);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CheckoutSession),
       ) as CheckoutSession;
 
     } catch (error, stackTrace) {
@@ -389,13 +389,13 @@ class CheckoutApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CheckoutSession _responseData;
+    CheckoutSession? _responseData;
 
     try {
-      const _responseType = FullType(CheckoutSession);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CheckoutSession),
       ) as CheckoutSession;
 
     } catch (error, stackTrace) {
@@ -470,13 +470,13 @@ class CheckoutApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    StripeCheckoutSession _responseData;
+    StripeCheckoutSession? _responseData;
 
     try {
-      const _responseType = FullType(StripeCheckoutSession);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(StripeCheckoutSession),
       ) as StripeCheckoutSession;
 
     } catch (error, stackTrace) {
@@ -561,13 +561,13 @@ class CheckoutApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    StripePaymentIntent _responseData;
+    StripePaymentIntent? _responseData;
 
     try {
-      const _responseType = FullType(StripePaymentIntent);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(StripePaymentIntent),
       ) as StripePaymentIntent;
 
     } catch (error, stackTrace) {
@@ -664,13 +664,13 @@ class CheckoutApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CloudPaymentsAuth _responseData;
+    CloudPaymentsAuth? _responseData;
 
     try {
-      const _responseType = FullType(CloudPaymentsAuth);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CloudPaymentsAuth),
       ) as CloudPaymentsAuth;
 
     } catch (error, stackTrace) {
@@ -767,13 +767,13 @@ class CheckoutApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CloudPaymentsPost3ds _responseData;
+    CloudPaymentsPost3ds? _responseData;
 
     try {
-      const _responseType = FullType(CloudPaymentsPost3ds);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CloudPaymentsPost3ds),
       ) as CloudPaymentsPost3ds;
 
     } catch (error, stackTrace) {

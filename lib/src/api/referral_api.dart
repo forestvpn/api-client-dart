@@ -147,13 +147,13 @@ class ReferralApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ReferralTransaction _responseData;
+    ReferralTransaction? _responseData;
 
     try {
-      const _responseType = FullType(ReferralTransaction);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ReferralTransaction),
       ) as ReferralTransaction;
 
     } catch (error, stackTrace) {
@@ -228,13 +228,13 @@ class ReferralApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ReferralTransaction _responseData;
+    ReferralTransaction? _responseData;
 
     try {
-      const _responseType = FullType(ReferralTransaction);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ReferralTransaction),
       ) as ReferralTransaction;
 
     } catch (error, stackTrace) {
@@ -332,13 +332,13 @@ class ReferralApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<ReferralTransaction> _responseData;
+    BuiltList<ReferralTransaction>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(ReferralTransaction)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ReferralTransaction)]),
       ) as BuiltList<ReferralTransaction>;
 
     } catch (error, stackTrace) {
@@ -436,13 +436,13 @@ class ReferralApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Referral> _responseData;
+    BuiltList<Referral>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Referral)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Referral)]),
       ) as BuiltList<Referral>;
 
     } catch (error, stackTrace) {
@@ -515,13 +515,13 @@ class ReferralApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ReferralProfile _responseData;
+    ReferralProfile? _responseData;
 
     try {
-      const _responseType = FullType(ReferralProfile);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ReferralProfile),
       ) as ReferralProfile;
 
     } catch (error, stackTrace) {

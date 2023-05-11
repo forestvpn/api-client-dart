@@ -69,13 +69,13 @@ class WireguardApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    WireGuardPeerInfo _responseData;
+    WireGuardPeerInfo? _responseData;
 
     try {
-      const _responseType = FullType(WireGuardPeerInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(WireGuardPeerInfo),
       ) as WireGuardPeerInfo;
 
     } catch (error, stackTrace) {
@@ -148,13 +148,13 @@ class WireguardApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<WireGuardPeerInfo> _responseData;
+    BuiltList<WireGuardPeerInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(WireGuardPeerInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(WireGuardPeerInfo)]),
       ) as BuiltList<WireGuardPeerInfo>;
 
     } catch (error, stackTrace) {

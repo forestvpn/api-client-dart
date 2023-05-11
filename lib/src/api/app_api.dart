@@ -67,13 +67,13 @@ class AppApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserDevice _responseData;
+    UserDevice? _responseData;
 
     try {
-      const _responseType = FullType(UserDevice);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserDevice),
       ) as UserDevice;
 
     } catch (error, stackTrace) {

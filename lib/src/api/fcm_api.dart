@@ -90,13 +90,13 @@ class FcmApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FCMDevice _responseData;
+    FCMDevice? _responseData;
 
     try {
-      const _responseType = FullType(FCMDevice);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(FCMDevice),
       ) as FCMDevice;
 
     } catch (error, stackTrace) {
@@ -224,13 +224,13 @@ class FcmApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FCMDevice _responseData;
+    FCMDevice? _responseData;
 
     try {
-      const _responseType = FullType(FCMDevice);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(FCMDevice),
       ) as FCMDevice;
 
     } catch (error, stackTrace) {
@@ -327,13 +327,13 @@ class FcmApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FCMDevice _responseData;
+    FCMDevice? _responseData;
 
     try {
-      const _responseType = FullType(FCMDevice);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(FCMDevice),
       ) as FCMDevice;
 
     } catch (error, stackTrace) {

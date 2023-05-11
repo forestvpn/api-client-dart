@@ -3,90 +3,105 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
+import 'package:forestvpn_api/src/model/product_without_price.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'featured_image.g.dart';
+part 'offer.g.dart';
 
-/// FeaturedImage
+/// Offer
 ///
 /// Properties:
-/// * [small] 
-/// * [medium] 
-/// * [large] 
-/// * [xLarge] 
-/// * [xLargeAt2] 
+/// * [id] 
+/// * [name] 
+/// * [description] 
+/// * [amount] 
+/// * [products] 
+/// * [expiryDate] 
 @BuiltValue()
-abstract class FeaturedImage implements Built<FeaturedImage, FeaturedImageBuilder> {
-  @BuiltValueField(wireName: r'small')
-  String get small;
+abstract class Offer implements Built<Offer, OfferBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-  @BuiltValueField(wireName: r'medium')
-  String get medium;
+  @BuiltValueField(wireName: r'name')
+  String get name;
 
-  @BuiltValueField(wireName: r'large')
-  String get large;
+  @BuiltValueField(wireName: r'description')
+  String get description;
 
-  @BuiltValueField(wireName: r'x-large')
-  String get xLarge;
+  @BuiltValueField(wireName: r'amount')
+  double? get amount;
 
-  @BuiltValueField(wireName: r'x-large@2')
-  String get xLargeAt2;
+  @BuiltValueField(wireName: r'products')
+  BuiltList<ProductWithoutPrice> get products;
 
-  FeaturedImage._();
+  @BuiltValueField(wireName: r'expiry_date')
+  DateTime? get expiryDate;
 
-  factory FeaturedImage([void updates(FeaturedImageBuilder b)]) = _$FeaturedImage;
+  Offer._();
+
+  factory Offer([void updates(OfferBuilder b)]) = _$Offer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(FeaturedImageBuilder b) => b;
+  static void _defaults(OfferBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FeaturedImage> get serializer => _$FeaturedImageSerializer();
+  static Serializer<Offer> get serializer => _$OfferSerializer();
 }
 
-class _$FeaturedImageSerializer implements PrimitiveSerializer<FeaturedImage> {
+class _$OfferSerializer implements PrimitiveSerializer<Offer> {
   @override
-  final Iterable<Type> types = const [FeaturedImage, _$FeaturedImage];
+  final Iterable<Type> types = const [Offer, _$Offer];
 
   @override
-  final String wireName = r'FeaturedImage';
+  final String wireName = r'Offer';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    FeaturedImage object, {
+    Offer object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'small';
+    yield r'id';
     yield serializers.serialize(
-      object.small,
+      object.id,
       specifiedType: const FullType(String),
     );
-    yield r'medium';
+    yield r'name';
     yield serializers.serialize(
-      object.medium,
+      object.name,
       specifiedType: const FullType(String),
     );
-    yield r'large';
+    yield r'description';
     yield serializers.serialize(
-      object.large,
+      object.description,
       specifiedType: const FullType(String),
     );
-    yield r'x-large';
+    if (object.amount != null) {
+      yield r'amount';
+      yield serializers.serialize(
+        object.amount,
+        specifiedType: const FullType(double),
+      );
+    }
+    yield r'products';
     yield serializers.serialize(
-      object.xLarge,
-      specifiedType: const FullType(String),
+      object.products,
+      specifiedType: const FullType(BuiltList, [FullType(ProductWithoutPrice)]),
     );
-    yield r'x-large@2';
-    yield serializers.serialize(
-      object.xLargeAt2,
-      specifiedType: const FullType(String),
-    );
+    if (object.expiryDate != null) {
+      yield r'expiry_date';
+      yield serializers.serialize(
+        object.expiryDate,
+        specifiedType: const FullType(DateTime),
+      );
+    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    FeaturedImage object, {
+    Offer object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -97,47 +112,54 @@ class _$FeaturedImageSerializer implements PrimitiveSerializer<FeaturedImage> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required FeaturedImageBuilder result,
+    required OfferBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'small':
+        case r'id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.small = valueDes;
+          result.id = valueDes;
           break;
-        case r'medium':
+        case r'name':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.medium = valueDes;
+          result.name = valueDes;
           break;
-        case r'large':
+        case r'description':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.large = valueDes;
+          result.description = valueDes;
           break;
-        case r'x-large':
+        case r'amount':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.xLarge = valueDes;
+            specifiedType: const FullType(double),
+          ) as double;
+          result.amount = valueDes;
           break;
-        case r'x-large@2':
+        case r'products':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.xLargeAt2 = valueDes;
+            specifiedType: const FullType(BuiltList, [FullType(ProductWithoutPrice)]),
+          ) as BuiltList<ProductWithoutPrice>;
+          result.products.replace(valueDes);
+          break;
+        case r'expiry_date':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
+          result.expiryDate = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -148,12 +170,12 @@ class _$FeaturedImageSerializer implements PrimitiveSerializer<FeaturedImage> {
   }
 
   @override
-  FeaturedImage deserialize(
+  Offer deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = FeaturedImageBuilder();
+    final result = OfferBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

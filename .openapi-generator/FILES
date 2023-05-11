@@ -1,5 +1,4 @@
 .gitignore
-analysis_options.yaml
 doc/AccessTokenRequest.md
 doc/AdPlacement.md
 doc/AdProvider.md
@@ -8,9 +7,11 @@ doc/AdUnit.md
 doc/AdsApi.md
 doc/AdvertisedRoute.md
 doc/AggregatedDataUsageStats.md
+doc/AggregatedFunctionStats.md
 doc/AmountRate.md
 doc/AnalyticsApi.md
 doc/AppApi.md
+doc/AppStoreOfferSignature.md
 doc/AppStoreReceiptVerificationRequest.md
 doc/AppleApi.md
 doc/Architecture.md
@@ -73,11 +74,14 @@ doc/Notification.md
 doc/NotificationAllList.md
 doc/NotificationUnreadCount.md
 doc/NotificationsApi.md
+doc/Offer.md
+doc/OfferApi.md
 doc/PaymentMethod.md
 doc/PaymentMethodCard.md
 doc/PaymentMethodType.md
 doc/PaymentOption.md
 doc/Plan.md
+doc/PlayStoreOffer.md
 doc/PlayStorePurchaseVerificationRequest.md
 doc/PortForwarding.md
 doc/Price.md
@@ -142,6 +146,7 @@ lib/src/api/google_api.dart
 lib/src/api/ico_api.dart
 lib/src/api/media_api.dart
 lib/src/api/notifications_api.dart
+lib/src/api/offer_api.dart
 lib/src/api/referral_api.dart
 lib/src/api/support_api.dart
 lib/src/api/user_api.dart
@@ -160,7 +165,9 @@ lib/src/model/ad_reward.dart
 lib/src/model/ad_unit.dart
 lib/src/model/advertised_route.dart
 lib/src/model/aggregated_data_usage_stats.dart
+lib/src/model/aggregated_function_stats.dart
 lib/src/model/amount_rate.dart
+lib/src/model/app_store_offer_signature.dart
 lib/src/model/app_store_receipt_verification_request.dart
 lib/src/model/architecture.dart
 lib/src/model/billing_account.dart
@@ -211,11 +218,13 @@ lib/src/model/network_service.dart
 lib/src/model/notification.dart
 lib/src/model/notification_all_list.dart
 lib/src/model/notification_unread_count.dart
+lib/src/model/offer.dart
 lib/src/model/payment_method.dart
 lib/src/model/payment_method_card.dart
 lib/src/model/payment_method_type.dart
 lib/src/model/payment_option.dart
 lib/src/model/plan.dart
+lib/src/model/play_store_offer.dart
 lib/src/model/play_store_purchase_verification_request.dart
 lib/src/model/port_forwarding.dart
 lib/src/model/price.dart

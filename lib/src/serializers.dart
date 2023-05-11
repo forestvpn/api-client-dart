@@ -21,7 +21,9 @@ import 'package:forestvpn_api/src/model/ad_reward.dart';
 import 'package:forestvpn_api/src/model/ad_unit.dart';
 import 'package:forestvpn_api/src/model/advertised_route.dart';
 import 'package:forestvpn_api/src/model/aggregated_data_usage_stats.dart';
+import 'package:forestvpn_api/src/model/aggregated_function_stats.dart';
 import 'package:forestvpn_api/src/model/amount_rate.dart';
+import 'package:forestvpn_api/src/model/app_store_offer_signature.dart';
 import 'package:forestvpn_api/src/model/app_store_receipt_verification_request.dart';
 import 'package:forestvpn_api/src/model/architecture.dart';
 import 'package:forestvpn_api/src/model/billing_account.dart';
@@ -71,11 +73,13 @@ import 'package:forestvpn_api/src/model/network_service.dart';
 import 'package:forestvpn_api/src/model/notification.dart';
 import 'package:forestvpn_api/src/model/notification_all_list.dart';
 import 'package:forestvpn_api/src/model/notification_unread_count.dart';
+import 'package:forestvpn_api/src/model/offer.dart';
 import 'package:forestvpn_api/src/model/payment_method.dart';
 import 'package:forestvpn_api/src/model/payment_method_card.dart';
 import 'package:forestvpn_api/src/model/payment_method_type.dart';
 import 'package:forestvpn_api/src/model/payment_option.dart';
 import 'package:forestvpn_api/src/model/plan.dart';
+import 'package:forestvpn_api/src/model/play_store_offer.dart';
 import 'package:forestvpn_api/src/model/play_store_purchase_verification_request.dart';
 import 'package:forestvpn_api/src/model/port_forwarding.dart';
 import 'package:forestvpn_api/src/model/price.dart';
@@ -129,7 +133,9 @@ part 'serializers.g.dart';
   AdUnit,
   AdvertisedRoute,
   AggregatedDataUsageStats,
+  AggregatedFunctionStats,
   AmountRate,
+  AppStoreOfferSignature,
   AppStoreReceiptVerificationRequest,
   Architecture,
   BillingAccount,
@@ -179,11 +185,13 @@ part 'serializers.g.dart';
   Notification,
   NotificationAllList,
   NotificationUnreadCount,
+  Offer,
   PaymentMethod,
   PaymentMethodCard,
   PaymentMethodType,
   PaymentOption,
   Plan,
+  PlayStoreOffer,
   PlayStorePurchaseVerificationRequest,
   PortForwarding,
   Price,
@@ -265,6 +273,10 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<ReferralTransactionType>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Offer)]),
+        () => ListBuilder<Offer>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Referral)]),
         () => ListBuilder<Referral>(),
       )
@@ -285,6 +297,10 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PaymentMethod>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(Task)]),
+        () => ListBuilder<Task>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ModelFunction)]),
         () => ListBuilder<ModelFunction>(),
       )
@@ -299,6 +315,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Currency)]),
         () => ListBuilder<Currency>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(AggregatedFunctionStats)]),
+        () => ListBuilder<AggregatedFunctionStats>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Product)]),

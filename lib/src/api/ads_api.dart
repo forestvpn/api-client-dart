@@ -90,13 +90,13 @@ class AdsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CreateAdUnitRequestLogRequest _responseData;
+    CreateAdUnitRequestLogRequest? _responseData;
 
     try {
-      const _responseType = FullType(CreateAdUnitRequestLogRequest);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CreateAdUnitRequestLogRequest),
       ) as CreateAdUnitRequestLogRequest;
 
     } catch (error, stackTrace) {
@@ -169,13 +169,13 @@ class AdsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AdPlacement> _responseData;
+    BuiltList<AdPlacement>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(AdPlacement)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(AdPlacement)]),
       ) as BuiltList<AdPlacement>;
 
     } catch (error, stackTrace) {

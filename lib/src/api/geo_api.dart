@@ -69,13 +69,13 @@ class GeoApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Country> _responseData;
+    BuiltList<Country>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Country)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Country)]),
       ) as BuiltList<Country>;
 
     } catch (error, stackTrace) {
@@ -148,13 +148,13 @@ class GeoApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Currency> _responseData;
+    BuiltList<Currency>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Currency)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Currency)]),
       ) as BuiltList<Currency>;
 
     } catch (error, stackTrace) {
@@ -230,13 +230,13 @@ class GeoApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Location> _responseData;
+    BuiltList<Location>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Location)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(Location)]),
       ) as BuiltList<Location>;
 
     } catch (error, stackTrace) {

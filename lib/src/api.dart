@@ -25,6 +25,7 @@ import 'package:forestvpn_api/src/api/google_api.dart';
 import 'package:forestvpn_api/src/api/ico_api.dart';
 import 'package:forestvpn_api/src/api/media_api.dart';
 import 'package:forestvpn_api/src/api/notifications_api.dart';
+import 'package:forestvpn_api/src/api/offer_api.dart';
 import 'package:forestvpn_api/src/api/referral_api.dart';
 import 'package:forestvpn_api/src/api/support_api.dart';
 import 'package:forestvpn_api/src/api/user_api.dart';
@@ -178,6 +179,12 @@ class ForestvpnApi {
   /// by doing that all interceptors will not be executed
   NotificationsApi getNotificationsApi() {
     return NotificationsApi(dio, serializers);
+  }
+
+  /// Get OfferApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  OfferApi getOfferApi() {
+    return OfferApi(dio, serializers);
   }
 
   /// Get ReferralApi instance, base route and serializer can be overridden by a given but be careful,

@@ -91,13 +91,13 @@ class AnalyticsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AggregatedDataUsageStats> _responseData;
+    BuiltList<AggregatedDataUsageStats>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(AggregatedDataUsageStats)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(AggregatedDataUsageStats)]),
       ) as BuiltList<AggregatedDataUsageStats>;
 
     } catch (error, stackTrace) {
