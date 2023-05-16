@@ -16,7 +16,6 @@ part 'offer.g.dart';
 /// * [id] 
 /// * [name] 
 /// * [description] 
-/// * [amount] 
 /// * [products] 
 /// * [expiryDate] 
 @BuiltValue()
@@ -29,9 +28,6 @@ abstract class Offer implements Built<Offer, OfferBuilder> {
 
   @BuiltValueField(wireName: r'description')
   String get description;
-
-  @BuiltValueField(wireName: r'amount')
-  double? get amount;
 
   @BuiltValueField(wireName: r'products')
   BuiltList<ProductWithoutPrice> get products;
@@ -77,13 +73,6 @@ class _$OfferSerializer implements PrimitiveSerializer<Offer> {
       object.description,
       specifiedType: const FullType(String),
     );
-    if (object.amount != null) {
-      yield r'amount';
-      yield serializers.serialize(
-        object.amount,
-        specifiedType: const FullType(double),
-      );
-    }
     yield r'products';
     yield serializers.serialize(
       object.products,
@@ -139,13 +128,6 @@ class _$OfferSerializer implements PrimitiveSerializer<Offer> {
             specifiedType: const FullType(String),
           ) as String;
           result.description = valueDes;
-          break;
-        case r'amount':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(double),
-          ) as double;
-          result.amount = valueDes;
           break;
         case r'products':
           final valueDes = serializers.deserialize(

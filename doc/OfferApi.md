@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAppStoreOfferSignature**](OfferApi.md#getappstoreoffersignature) | **POST** /offer/offers/{offerID}/appstore/sign/ | Get App Store offer signature
 [**getOffer**](OfferApi.md#getoffer) | **GET** /offer/offers/{offerID}/ | Get offer detail
-[**getPlayStoreOffer**](OfferApi.md#getplaystoreoffer) | **POST** /offer/offers/{offerID}/playstore/ | Get Play Store offer
+[**getPlayStoreOffer**](OfferApi.md#getplaystoreoffer) | **POST** /offer/offers/{offerID}/playstore/offer/ | Get Play Store offer
 [**listOffers**](OfferApi.md#listoffers) | **GET** /offer/offers/ | Get offers
 
 

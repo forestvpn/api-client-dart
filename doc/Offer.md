@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **name** | **String** |  | 
 **description** | **String** |  | 
-**amount** | **double** |  | [optional] 
 **products** | [**BuiltList&lt;ProductWithoutPrice&gt;**](ProductWithoutPrice.md) |  | 
 **expiryDate** | [**DateTime**](DateTime.md) |  | [optional] 
 

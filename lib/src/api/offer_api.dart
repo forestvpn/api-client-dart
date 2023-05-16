@@ -232,7 +232,7 @@ class OfferApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/offer/offers/{offerID}/playstore/'.replaceAll('{' r'offerID' '}', offerID.toString());
+    final _path = r'/offer/offers/{offerID}/playstore/offer/'.replaceAll('{' r'offerID' '}', offerID.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{

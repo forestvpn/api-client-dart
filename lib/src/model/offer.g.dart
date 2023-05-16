@@ -14,8 +14,6 @@ class _$Offer extends Offer {
   @override
   final String description;
   @override
-  final double? amount;
-  @override
   final BuiltList<ProductWithoutPrice> products;
   @override
   final DateTime? expiryDate;
@@ -27,7 +25,6 @@ class _$Offer extends Offer {
       {required this.id,
       required this.name,
       required this.description,
-      this.amount,
       required this.products,
       this.expiryDate})
       : super._() {
@@ -51,7 +48,6 @@ class _$Offer extends Offer {
         id == other.id &&
         name == other.name &&
         description == other.description &&
-        amount == other.amount &&
         products == other.products &&
         expiryDate == other.expiryDate;
   }
@@ -62,7 +58,6 @@ class _$Offer extends Offer {
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
-    _$hash = $jc(_$hash, amount.hashCode);
     _$hash = $jc(_$hash, products.hashCode);
     _$hash = $jc(_$hash, expiryDate.hashCode);
     _$hash = $jf(_$hash);
@@ -75,7 +70,6 @@ class _$Offer extends Offer {
           ..add('id', id)
           ..add('name', name)
           ..add('description', description)
-          ..add('amount', amount)
           ..add('products', products)
           ..add('expiryDate', expiryDate))
         .toString();
@@ -97,10 +91,6 @@ class OfferBuilder implements Builder<Offer, OfferBuilder> {
   String? get description => _$this._description;
   set description(String? description) => _$this._description = description;
 
-  double? _amount;
-  double? get amount => _$this._amount;
-  set amount(double? amount) => _$this._amount = amount;
-
   ListBuilder<ProductWithoutPrice>? _products;
   ListBuilder<ProductWithoutPrice> get products =>
       _$this._products ??= new ListBuilder<ProductWithoutPrice>();
@@ -121,7 +111,6 @@ class OfferBuilder implements Builder<Offer, OfferBuilder> {
       _id = $v.id;
       _name = $v.name;
       _description = $v.description;
-      _amount = $v.amount;
       _products = $v.products.toBuilder();
       _expiryDate = $v.expiryDate;
       _$v = null;
@@ -153,7 +142,6 @@ class OfferBuilder implements Builder<Offer, OfferBuilder> {
                   BuiltValueNullFieldError.checkNotNull(name, r'Offer', 'name'),
               description: BuiltValueNullFieldError.checkNotNull(
                   description, r'Offer', 'description'),
-              amount: amount,
               products: products.build(),
               expiryDate: expiryDate);
     } catch (_) {
