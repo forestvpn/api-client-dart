@@ -8,6 +8,10 @@ part of 'app_store_offer_signature.dart';
 
 class _$AppStoreOfferSignature extends AppStoreOfferSignature {
   @override
+  final String productId;
+  @override
+  final String offerId;
+  @override
   final String nonce;
   @override
   final int timestamp;
@@ -21,11 +25,17 @@ class _$AppStoreOfferSignature extends AppStoreOfferSignature {
       (new AppStoreOfferSignatureBuilder()..update(updates))._build();
 
   _$AppStoreOfferSignature._(
-      {required this.nonce,
+      {required this.productId,
+      required this.offerId,
+      required this.nonce,
       required this.timestamp,
       required this.keyId,
       required this.signature})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        productId, r'AppStoreOfferSignature', 'productId');
+    BuiltValueNullFieldError.checkNotNull(
+        offerId, r'AppStoreOfferSignature', 'offerId');
     BuiltValueNullFieldError.checkNotNull(
         nonce, r'AppStoreOfferSignature', 'nonce');
     BuiltValueNullFieldError.checkNotNull(
@@ -49,6 +59,8 @@ class _$AppStoreOfferSignature extends AppStoreOfferSignature {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AppStoreOfferSignature &&
+        productId == other.productId &&
+        offerId == other.offerId &&
         nonce == other.nonce &&
         timestamp == other.timestamp &&
         keyId == other.keyId &&
@@ -58,6 +70,8 @@ class _$AppStoreOfferSignature extends AppStoreOfferSignature {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, productId.hashCode);
+    _$hash = $jc(_$hash, offerId.hashCode);
     _$hash = $jc(_$hash, nonce.hashCode);
     _$hash = $jc(_$hash, timestamp.hashCode);
     _$hash = $jc(_$hash, keyId.hashCode);
@@ -69,6 +83,8 @@ class _$AppStoreOfferSignature extends AppStoreOfferSignature {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'AppStoreOfferSignature')
+          ..add('productId', productId)
+          ..add('offerId', offerId)
           ..add('nonce', nonce)
           ..add('timestamp', timestamp)
           ..add('keyId', keyId)
@@ -80,6 +96,14 @@ class _$AppStoreOfferSignature extends AppStoreOfferSignature {
 class AppStoreOfferSignatureBuilder
     implements Builder<AppStoreOfferSignature, AppStoreOfferSignatureBuilder> {
   _$AppStoreOfferSignature? _$v;
+
+  String? _productId;
+  String? get productId => _$this._productId;
+  set productId(String? productId) => _$this._productId = productId;
+
+  String? _offerId;
+  String? get offerId => _$this._offerId;
+  set offerId(String? offerId) => _$this._offerId = offerId;
 
   String? _nonce;
   String? get nonce => _$this._nonce;
@@ -104,6 +128,8 @@ class AppStoreOfferSignatureBuilder
   AppStoreOfferSignatureBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _productId = $v.productId;
+      _offerId = $v.offerId;
       _nonce = $v.nonce;
       _timestamp = $v.timestamp;
       _keyId = $v.keyId;
@@ -130,6 +156,10 @@ class AppStoreOfferSignatureBuilder
   _$AppStoreOfferSignature _build() {
     final _$result = _$v ??
         new _$AppStoreOfferSignature._(
+            productId: BuiltValueNullFieldError.checkNotNull(
+                productId, r'AppStoreOfferSignature', 'productId'),
+            offerId: BuiltValueNullFieldError.checkNotNull(
+                offerId, r'AppStoreOfferSignature', 'offerId'),
             nonce: BuiltValueNullFieldError.checkNotNull(
                 nonce, r'AppStoreOfferSignature', 'nonce'),
             timestamp: BuiltValueNullFieldError.checkNotNull(

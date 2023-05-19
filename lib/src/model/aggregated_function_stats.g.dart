@@ -14,11 +14,13 @@ class _$AggregatedFunctionStats extends AggregatedFunctionStats {
   @override
   final String? functionName;
   @override
+  final int? resourcesUsed;
+  @override
+  final int? totalCompleted;
+  @override
   final int? dataUsed;
   @override
   final int? storageUsed;
-  @override
-  final int? totalUsed;
 
   factory _$AggregatedFunctionStats(
           [void Function(AggregatedFunctionStatsBuilder)? updates]) =>
@@ -28,9 +30,10 @@ class _$AggregatedFunctionStats extends AggregatedFunctionStats {
       {this.aggrInterval,
       this.functionId,
       this.functionName,
+      this.resourcesUsed,
+      this.totalCompleted,
       this.dataUsed,
-      this.storageUsed,
-      this.totalUsed})
+      this.storageUsed})
       : super._();
 
   @override
@@ -49,9 +52,10 @@ class _$AggregatedFunctionStats extends AggregatedFunctionStats {
         aggrInterval == other.aggrInterval &&
         functionId == other.functionId &&
         functionName == other.functionName &&
+        resourcesUsed == other.resourcesUsed &&
+        totalCompleted == other.totalCompleted &&
         dataUsed == other.dataUsed &&
-        storageUsed == other.storageUsed &&
-        totalUsed == other.totalUsed;
+        storageUsed == other.storageUsed;
   }
 
   @override
@@ -60,9 +64,10 @@ class _$AggregatedFunctionStats extends AggregatedFunctionStats {
     _$hash = $jc(_$hash, aggrInterval.hashCode);
     _$hash = $jc(_$hash, functionId.hashCode);
     _$hash = $jc(_$hash, functionName.hashCode);
+    _$hash = $jc(_$hash, resourcesUsed.hashCode);
+    _$hash = $jc(_$hash, totalCompleted.hashCode);
     _$hash = $jc(_$hash, dataUsed.hashCode);
     _$hash = $jc(_$hash, storageUsed.hashCode);
-    _$hash = $jc(_$hash, totalUsed.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -73,9 +78,10 @@ class _$AggregatedFunctionStats extends AggregatedFunctionStats {
           ..add('aggrInterval', aggrInterval)
           ..add('functionId', functionId)
           ..add('functionName', functionName)
+          ..add('resourcesUsed', resourcesUsed)
+          ..add('totalCompleted', totalCompleted)
           ..add('dataUsed', dataUsed)
-          ..add('storageUsed', storageUsed)
-          ..add('totalUsed', totalUsed))
+          ..add('storageUsed', storageUsed))
         .toString();
   }
 }
@@ -97,6 +103,16 @@ class AggregatedFunctionStatsBuilder
   String? get functionName => _$this._functionName;
   set functionName(String? functionName) => _$this._functionName = functionName;
 
+  int? _resourcesUsed;
+  int? get resourcesUsed => _$this._resourcesUsed;
+  set resourcesUsed(int? resourcesUsed) =>
+      _$this._resourcesUsed = resourcesUsed;
+
+  int? _totalCompleted;
+  int? get totalCompleted => _$this._totalCompleted;
+  set totalCompleted(int? totalCompleted) =>
+      _$this._totalCompleted = totalCompleted;
+
   int? _dataUsed;
   int? get dataUsed => _$this._dataUsed;
   set dataUsed(int? dataUsed) => _$this._dataUsed = dataUsed;
@@ -104,10 +120,6 @@ class AggregatedFunctionStatsBuilder
   int? _storageUsed;
   int? get storageUsed => _$this._storageUsed;
   set storageUsed(int? storageUsed) => _$this._storageUsed = storageUsed;
-
-  int? _totalUsed;
-  int? get totalUsed => _$this._totalUsed;
-  set totalUsed(int? totalUsed) => _$this._totalUsed = totalUsed;
 
   AggregatedFunctionStatsBuilder() {
     AggregatedFunctionStats._defaults(this);
@@ -119,9 +131,10 @@ class AggregatedFunctionStatsBuilder
       _aggrInterval = $v.aggrInterval;
       _functionId = $v.functionId;
       _functionName = $v.functionName;
+      _resourcesUsed = $v.resourcesUsed;
+      _totalCompleted = $v.totalCompleted;
       _dataUsed = $v.dataUsed;
       _storageUsed = $v.storageUsed;
-      _totalUsed = $v.totalUsed;
       _$v = null;
     }
     return this;
@@ -147,9 +160,10 @@ class AggregatedFunctionStatsBuilder
             aggrInterval: aggrInterval,
             functionId: functionId,
             functionName: functionName,
+            resourcesUsed: resourcesUsed,
+            totalCompleted: totalCompleted,
             dataUsed: dataUsed,
-            storageUsed: storageUsed,
-            totalUsed: totalUsed);
+            storageUsed: storageUsed);
     replace(_$result);
     return _$result;
   }

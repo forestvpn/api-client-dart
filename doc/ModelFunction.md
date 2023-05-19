@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **memorySize** | **String** | The amount of memory available to the function at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. | [optional] 
 **architectures** | [**BuiltList&lt;Architecture&gt;**](Architecture.md) |  | [optional] 
 **source_** | [**File**](File.md) |  | [optional] 
-**sourceId** | **String** |  | 
+**sourceId** | **String** |  | [optional] 
 **environment** | [**FunctionEnvironment**](FunctionEnvironment.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

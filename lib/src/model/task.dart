@@ -12,6 +12,7 @@ part 'task.g.dart';
 /// Task
 ///
 /// Properties:
+/// * [id] 
 /// * [assignmentDate] 
 /// * [executionDate] 
 /// * [resourcesUsed] 
@@ -21,6 +22,9 @@ part 'task.g.dart';
 /// * [response] 
 @BuiltValue()
 abstract class Task implements Built<Task, TaskBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String? get id;
+
   @BuiltValueField(wireName: r'assignment_date')
   String? get assignmentDate;
 
@@ -65,6 +69,13 @@ class _$TaskSerializer implements PrimitiveSerializer<Task> {
     Task object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.id != null) {
+      yield r'id';
+      yield serializers.serialize(
+        object.id,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.assignmentDate != null) {
       yield r'assignment_date';
       yield serializers.serialize(
@@ -137,6 +148,13 @@ class _$TaskSerializer implements PrimitiveSerializer<Task> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
         case r'assignment_date':
           final valueDes = serializers.deserialize(
             value,

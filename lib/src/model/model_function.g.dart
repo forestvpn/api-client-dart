@@ -24,7 +24,7 @@ class _$ModelFunction extends ModelFunction {
   @override
   final File? source_;
   @override
-  final String sourceId;
+  final String? sourceId;
   @override
   final FunctionEnvironment? environment;
 
@@ -40,12 +40,10 @@ class _$ModelFunction extends ModelFunction {
       this.memorySize,
       this.architectures,
       this.source_,
-      required this.sourceId,
+      this.sourceId,
       this.environment})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'ModelFunction', 'name');
-    BuiltValueNullFieldError.checkNotNull(
-        sourceId, r'ModelFunction', 'sourceId');
   }
 
   @override
@@ -203,8 +201,7 @@ class ModelFunctionBuilder
               memorySize: memorySize,
               architectures: _architectures?.build(),
               source_: _source_?.build(),
-              sourceId: BuiltValueNullFieldError.checkNotNull(
-                  sourceId, r'ModelFunction', 'sourceId'),
+              sourceId: sourceId,
               environment: _environment?.build());
     } catch (_) {
       late String _$failedField;

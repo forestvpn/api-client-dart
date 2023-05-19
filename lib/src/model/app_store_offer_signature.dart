@@ -11,12 +11,20 @@ part 'app_store_offer_signature.g.dart';
 /// It contains App Store offer signature detail.
 ///
 /// Properties:
+/// * [productId] 
+/// * [offerId] 
 /// * [nonce] 
 /// * [timestamp] 
 /// * [keyId] 
 /// * [signature] 
 @BuiltValue()
 abstract class AppStoreOfferSignature implements Built<AppStoreOfferSignature, AppStoreOfferSignatureBuilder> {
+  @BuiltValueField(wireName: r'product_id')
+  String get productId;
+
+  @BuiltValueField(wireName: r'offer_id')
+  String get offerId;
+
   @BuiltValueField(wireName: r'nonce')
   String get nonce;
 
@@ -52,6 +60,16 @@ class _$AppStoreOfferSignatureSerializer implements PrimitiveSerializer<AppStore
     AppStoreOfferSignature object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    yield r'product_id';
+    yield serializers.serialize(
+      object.productId,
+      specifiedType: const FullType(String),
+    );
+    yield r'offer_id';
+    yield serializers.serialize(
+      object.offerId,
+      specifiedType: const FullType(String),
+    );
     yield r'nonce';
     yield serializers.serialize(
       object.nonce,
@@ -95,6 +113,20 @@ class _$AppStoreOfferSignatureSerializer implements PrimitiveSerializer<AppStore
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'product_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.productId = valueDes;
+          break;
+        case r'offer_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.offerId = valueDes;
+          break;
         case r'nonce':
           final valueDes = serializers.deserialize(
             value,

@@ -54,7 +54,7 @@ abstract class ModelFunction implements Built<ModelFunction, ModelFunctionBuilde
   File? get source_;
 
   @BuiltValueField(wireName: r'source_id')
-  String get sourceId;
+  String? get sourceId;
 
   @BuiltValueField(wireName: r'environment')
   FunctionEnvironment? get environment;
@@ -136,11 +136,13 @@ class _$ModelFunctionSerializer implements PrimitiveSerializer<ModelFunction> {
         specifiedType: const FullType(File),
       );
     }
-    yield r'source_id';
-    yield serializers.serialize(
-      object.sourceId,
-      specifiedType: const FullType(String),
-    );
+    if (object.sourceId != null) {
+      yield r'source_id';
+      yield serializers.serialize(
+        object.sourceId,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.environment != null) {
       yield r'environment';
       yield serializers.serialize(

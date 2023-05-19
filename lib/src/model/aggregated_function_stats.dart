@@ -14,9 +14,10 @@ part 'aggregated_function_stats.g.dart';
 /// * [aggrInterval] - Aggregation value. It might de a hour, day, week, or month
 /// * [functionId] - Function id, useful for retrieve extra data through device API
 /// * [functionName] - Function name, useful for showing in the chart
+/// * [resourcesUsed] - Sum of the resources used aggregated around the device and aggr_interval
+/// * [totalCompleted] - Sum of the completed functions aggregated around the device and aggr_interval
 /// * [dataUsed] - Sum of the received bytes aggregated around the device and aggr_interval
 /// * [storageUsed] - Sum of the transmitted bytes aggregated around the device and aggr_interval
-/// * [totalUsed] - Sum of the data used + storage used aggregated around the device and aggr_interval
 @BuiltValue()
 abstract class AggregatedFunctionStats implements Built<AggregatedFunctionStats, AggregatedFunctionStatsBuilder> {
   /// Aggregation value. It might de a hour, day, week, or month
@@ -31,6 +32,14 @@ abstract class AggregatedFunctionStats implements Built<AggregatedFunctionStats,
   @BuiltValueField(wireName: r'function_name')
   String? get functionName;
 
+  /// Sum of the resources used aggregated around the device and aggr_interval
+  @BuiltValueField(wireName: r'resources_used')
+  int? get resourcesUsed;
+
+  /// Sum of the completed functions aggregated around the device and aggr_interval
+  @BuiltValueField(wireName: r'total_completed')
+  int? get totalCompleted;
+
   /// Sum of the received bytes aggregated around the device and aggr_interval
   @BuiltValueField(wireName: r'data_used')
   int? get dataUsed;
@@ -38,10 +47,6 @@ abstract class AggregatedFunctionStats implements Built<AggregatedFunctionStats,
   /// Sum of the transmitted bytes aggregated around the device and aggr_interval
   @BuiltValueField(wireName: r'storage_used')
   int? get storageUsed;
-
-  /// Sum of the data used + storage used aggregated around the device and aggr_interval
-  @BuiltValueField(wireName: r'total_used')
-  int? get totalUsed;
 
   AggregatedFunctionStats._();
 
@@ -87,6 +92,20 @@ class _$AggregatedFunctionStatsSerializer implements PrimitiveSerializer<Aggrega
         specifiedType: const FullType(String),
       );
     }
+    if (object.resourcesUsed != null) {
+      yield r'resources_used';
+      yield serializers.serialize(
+        object.resourcesUsed,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.totalCompleted != null) {
+      yield r'total_completed';
+      yield serializers.serialize(
+        object.totalCompleted,
+        specifiedType: const FullType(int),
+      );
+    }
     if (object.dataUsed != null) {
       yield r'data_used';
       yield serializers.serialize(
@@ -98,13 +117,6 @@ class _$AggregatedFunctionStatsSerializer implements PrimitiveSerializer<Aggrega
       yield r'storage_used';
       yield serializers.serialize(
         object.storageUsed,
-        specifiedType: const FullType(int),
-      );
-    }
-    if (object.totalUsed != null) {
-      yield r'total_used';
-      yield serializers.serialize(
-        object.totalUsed,
         specifiedType: const FullType(int),
       );
     }
@@ -152,6 +164,20 @@ class _$AggregatedFunctionStatsSerializer implements PrimitiveSerializer<Aggrega
           ) as String;
           result.functionName = valueDes;
           break;
+        case r'resources_used':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.resourcesUsed = valueDes;
+          break;
+        case r'total_completed':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.totalCompleted = valueDes;
+          break;
         case r'data_used':
           final valueDes = serializers.deserialize(
             value,
@@ -165,13 +191,6 @@ class _$AggregatedFunctionStatsSerializer implements PrimitiveSerializer<Aggrega
             specifiedType: const FullType(int),
           ) as int;
           result.storageUsed = valueDes;
-          break;
-        case r'total_used':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.totalUsed = valueDes;
           break;
         default:
           unhandled.add(key);

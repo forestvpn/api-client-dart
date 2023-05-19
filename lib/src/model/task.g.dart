@@ -8,6 +8,8 @@ part of 'task.dart';
 
 class _$Task extends Task {
   @override
+  final String? id;
+  @override
   final String? assignmentDate;
   @override
   final String? executionDate;
@@ -26,7 +28,8 @@ class _$Task extends Task {
       (new TaskBuilder()..update(updates))._build();
 
   _$Task._(
-      {this.assignmentDate,
+      {this.id,
+      this.assignmentDate,
       this.executionDate,
       this.resourcesUsed,
       this.dataUsed,
@@ -46,6 +49,7 @@ class _$Task extends Task {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Task &&
+        id == other.id &&
         assignmentDate == other.assignmentDate &&
         executionDate == other.executionDate &&
         resourcesUsed == other.resourcesUsed &&
@@ -58,6 +62,7 @@ class _$Task extends Task {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, assignmentDate.hashCode);
     _$hash = $jc(_$hash, executionDate.hashCode);
     _$hash = $jc(_$hash, resourcesUsed.hashCode);
@@ -72,6 +77,7 @@ class _$Task extends Task {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Task')
+          ..add('id', id)
           ..add('assignmentDate', assignmentDate)
           ..add('executionDate', executionDate)
           ..add('resourcesUsed', resourcesUsed)
@@ -85,6 +91,10 @@ class _$Task extends Task {
 
 class TaskBuilder implements Builder<Task, TaskBuilder> {
   _$Task? _$v;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
   String? _assignmentDate;
   String? get assignmentDate => _$this._assignmentDate;
@@ -124,6 +134,7 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
   TaskBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id;
       _assignmentDate = $v.assignmentDate;
       _executionDate = $v.executionDate;
       _resourcesUsed = $v.resourcesUsed;
@@ -155,6 +166,7 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
     try {
       _$result = _$v ??
           new _$Task._(
+              id: id,
               assignmentDate: assignmentDate,
               executionDate: executionDate,
               resourcesUsed: resourcesUsed,

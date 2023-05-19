@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTaskStdDataCache**
-> BuiltList<String> getTaskStdDataCache(taskId)
+> BuiltList<String> getTaskStdDataCache(taskId, perPage, page)
 
 Std data
 
@@ -308,9 +308,11 @@ import 'package:forestvpn_api/api.dart';
 
 final api = ForestvpnApi().getCloudApi();
 final String taskId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final int perPage = 56; // int | 
+final int page = 56; // int | 
 
 try {
-    final response = api.getTaskStdDataCache(taskId);
+    final response = api.getTaskStdDataCache(taskId, perPage, page);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling CloudApi->getTaskStdDataCache: $e\n');
@@ -322,6 +324,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **taskId** | **String**|  | 
+ **perPage** | **int**|  | [optional] 
+ **page** | **int**|  | [optional] 
 
 ### Return type
 
