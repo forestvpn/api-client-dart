@@ -1,6 +1,12 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## [3.12.3] - 2023-05-23
+
+### Changes
+
+- Offer Api: added `commission` field
 ## [3.12.2] - 2023-05-19
 
 ### Changes

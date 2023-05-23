@@ -14,6 +14,8 @@ class _$ReferralTransaction extends ReferralTransaction {
   @override
   final double amount;
   @override
+  final double commission;
+  @override
   final ReferralTransactionType type;
   @override
   final DateTime? pendingExpiresAt;
@@ -32,6 +34,7 @@ class _$ReferralTransaction extends ReferralTransaction {
       {required this.id,
       required this.currency,
       required this.amount,
+      required this.commission,
       required this.type,
       this.pendingExpiresAt,
       this.errors,
@@ -43,6 +46,8 @@ class _$ReferralTransaction extends ReferralTransaction {
         currency, r'ReferralTransaction', 'currency');
     BuiltValueNullFieldError.checkNotNull(
         amount, r'ReferralTransaction', 'amount');
+    BuiltValueNullFieldError.checkNotNull(
+        commission, r'ReferralTransaction', 'commission');
     BuiltValueNullFieldError.checkNotNull(type, r'ReferralTransaction', 'type');
     BuiltValueNullFieldError.checkNotNull(
         rates, r'ReferralTransaction', 'rates');
@@ -66,6 +71,7 @@ class _$ReferralTransaction extends ReferralTransaction {
         id == other.id &&
         currency == other.currency &&
         amount == other.amount &&
+        commission == other.commission &&
         type == other.type &&
         pendingExpiresAt == other.pendingExpiresAt &&
         errors == other.errors &&
@@ -79,6 +85,7 @@ class _$ReferralTransaction extends ReferralTransaction {
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, amount.hashCode);
+    _$hash = $jc(_$hash, commission.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, pendingExpiresAt.hashCode);
     _$hash = $jc(_$hash, errors.hashCode);
@@ -94,6 +101,7 @@ class _$ReferralTransaction extends ReferralTransaction {
           ..add('id', id)
           ..add('currency', currency)
           ..add('amount', amount)
+          ..add('commission', commission)
           ..add('type', type)
           ..add('pendingExpiresAt', pendingExpiresAt)
           ..add('errors', errors)
@@ -118,6 +126,10 @@ class ReferralTransactionBuilder
   double? _amount;
   double? get amount => _$this._amount;
   set amount(double? amount) => _$this._amount = amount;
+
+  double? _commission;
+  double? get commission => _$this._commission;
+  set commission(double? commission) => _$this._commission = commission;
 
   ReferralTransactionType? _type;
   ReferralTransactionType? get type => _$this._type;
@@ -151,6 +163,7 @@ class ReferralTransactionBuilder
       _id = $v.id;
       _currency = $v.currency;
       _amount = $v.amount;
+      _commission = $v.commission;
       _type = $v.type;
       _pendingExpiresAt = $v.pendingExpiresAt;
       _errors = $v.errors?.toBuilder();
@@ -186,6 +199,8 @@ class ReferralTransactionBuilder
                   currency, r'ReferralTransaction', 'currency'),
               amount: BuiltValueNullFieldError.checkNotNull(
                   amount, r'ReferralTransaction', 'amount'),
+              commission: BuiltValueNullFieldError.checkNotNull(
+                  commission, r'ReferralTransaction', 'commission'),
               type: BuiltValueNullFieldError.checkNotNull(
                   type, r'ReferralTransaction', 'type'),
               pendingExpiresAt: pendingExpiresAt,

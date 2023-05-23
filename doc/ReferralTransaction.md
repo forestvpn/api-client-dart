@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **currency** | **String** |  | 
 **amount** | **double** |  | 
+**commission** | **double** | Commission value in percentage. e.g. 20.00 means 20% | 
 **type** | [**ReferralTransactionType**](ReferralTransactionType.md) |  | 
 **pendingExpiresAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **errors** | [**BuiltList&lt;Error&gt;**](Error.md) |  | [optional] 

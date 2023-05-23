@@ -18,6 +18,7 @@ part 'referral_transaction.g.dart';
 /// * [id] 
 /// * [currency] 
 /// * [amount] 
+/// * [commission] - Commission value in percentage. e.g. 20.00 means 20%
 /// * [type] 
 /// * [pendingExpiresAt] 
 /// * [errors] 
@@ -33,6 +34,10 @@ abstract class ReferralTransaction implements Built<ReferralTransaction, Referra
 
   @BuiltValueField(wireName: r'amount')
   double get amount;
+
+  /// Commission value in percentage. e.g. 20.00 means 20%
+  @BuiltValueField(wireName: r'commission')
+  double get commission;
 
   @BuiltValueField(wireName: r'type')
   ReferralTransactionType get type;
@@ -86,6 +91,11 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
     yield r'amount';
     yield serializers.serialize(
       object.amount,
+      specifiedType: const FullType(double),
+    );
+    yield r'commission';
+    yield serializers.serialize(
+      object.commission,
       specifiedType: const FullType(double),
     );
     yield r'type';
@@ -160,6 +170,13 @@ class _$ReferralTransactionSerializer implements PrimitiveSerializer<ReferralTra
             specifiedType: const FullType(double),
           ) as double;
           result.amount = valueDes;
+          break;
+        case r'commission':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(double),
+          ) as double;
+          result.commission = valueDes;
           break;
         case r'type':
           final valueDes = serializers.deserialize(
