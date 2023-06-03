@@ -15,6 +15,7 @@ part 'referral_program_terms.g.dart';
 /// * [subsequentPct] - Subsequent plan purchase percentage.
 /// * [miningPct] - Mining coins percentage.
 /// * [pendingDur] - The duration within which rewards can redeem if the referral program criteria have not been met.
+/// * [payoutHoldDur] - The duration within which payout can be requested on a particular transaction.
 @BuiltValue()
 abstract class ReferralProgramTerms implements Built<ReferralProgramTerms, ReferralProgramTermsBuilder> {
   /// Initial plan purchase percentage.
@@ -32,6 +33,10 @@ abstract class ReferralProgramTerms implements Built<ReferralProgramTerms, Refer
   /// The duration within which rewards can redeem if the referral program criteria have not been met.
   @BuiltValueField(wireName: r'pending_dur')
   String get pendingDur;
+
+  /// The duration within which payout can be requested on a particular transaction.
+  @BuiltValueField(wireName: r'payout_hold_dur')
+  String get payoutHoldDur;
 
   ReferralProgramTerms._();
 
@@ -74,6 +79,11 @@ class _$ReferralProgramTermsSerializer implements PrimitiveSerializer<ReferralPr
     yield r'pending_dur';
     yield serializers.serialize(
       object.pendingDur,
+      specifiedType: const FullType(String),
+    );
+    yield r'payout_hold_dur';
+    yield serializers.serialize(
+      object.payoutHoldDur,
       specifiedType: const FullType(String),
     );
   }
@@ -126,6 +136,13 @@ class _$ReferralProgramTermsSerializer implements PrimitiveSerializer<ReferralPr
             specifiedType: const FullType(String),
           ) as String;
           result.pendingDur = valueDes;
+          break;
+        case r'payout_hold_dur':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.payoutHoldDur = valueDes;
           break;
         default:
           unhandled.add(key);

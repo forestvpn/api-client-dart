@@ -22,7 +22,7 @@ class _$User extends User {
   @override
   final String? photoUrl;
   @override
-  final DateTime dateJoined;
+  final DateTime? dateJoined;
   @override
   final String? country;
   @override
@@ -45,7 +45,7 @@ class _$User extends User {
       this.email,
       this.emailVerified,
       this.photoUrl,
-      required this.dateJoined,
+      this.dateJoined,
       this.country,
       this.currencyCode,
       this.language,
@@ -54,7 +54,6 @@ class _$User extends User {
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
     BuiltValueNullFieldError.checkNotNull(username, r'User', 'username');
-    BuiltValueNullFieldError.checkNotNull(dateJoined, r'User', 'dateJoined');
     BuiltValueNullFieldError.checkNotNull(isPremium, r'User', 'isPremium');
   }
 
@@ -230,8 +229,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
             email: email,
             emailVerified: emailVerified,
             photoUrl: photoUrl,
-            dateJoined: BuiltValueNullFieldError.checkNotNull(
-                dateJoined, r'User', 'dateJoined'),
+            dateJoined: dateJoined,
             country: country,
             currencyCode: currencyCode,
             language: language,

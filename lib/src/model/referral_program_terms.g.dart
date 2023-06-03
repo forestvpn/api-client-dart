@@ -15,6 +15,8 @@ class _$ReferralProgramTerms extends ReferralProgramTerms {
   final double miningPct;
   @override
   final String pendingDur;
+  @override
+  final String payoutHoldDur;
 
   factory _$ReferralProgramTerms(
           [void Function(ReferralProgramTermsBuilder)? updates]) =>
@@ -24,7 +26,8 @@ class _$ReferralProgramTerms extends ReferralProgramTerms {
       {required this.initialPct,
       required this.subsequentPct,
       required this.miningPct,
-      required this.pendingDur})
+      required this.pendingDur,
+      required this.payoutHoldDur})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         initialPct, r'ReferralProgramTerms', 'initialPct');
@@ -34,6 +37,8 @@ class _$ReferralProgramTerms extends ReferralProgramTerms {
         miningPct, r'ReferralProgramTerms', 'miningPct');
     BuiltValueNullFieldError.checkNotNull(
         pendingDur, r'ReferralProgramTerms', 'pendingDur');
+    BuiltValueNullFieldError.checkNotNull(
+        payoutHoldDur, r'ReferralProgramTerms', 'payoutHoldDur');
   }
 
   @override
@@ -52,7 +57,8 @@ class _$ReferralProgramTerms extends ReferralProgramTerms {
         initialPct == other.initialPct &&
         subsequentPct == other.subsequentPct &&
         miningPct == other.miningPct &&
-        pendingDur == other.pendingDur;
+        pendingDur == other.pendingDur &&
+        payoutHoldDur == other.payoutHoldDur;
   }
 
   @override
@@ -62,6 +68,7 @@ class _$ReferralProgramTerms extends ReferralProgramTerms {
     _$hash = $jc(_$hash, subsequentPct.hashCode);
     _$hash = $jc(_$hash, miningPct.hashCode);
     _$hash = $jc(_$hash, pendingDur.hashCode);
+    _$hash = $jc(_$hash, payoutHoldDur.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -72,7 +79,8 @@ class _$ReferralProgramTerms extends ReferralProgramTerms {
           ..add('initialPct', initialPct)
           ..add('subsequentPct', subsequentPct)
           ..add('miningPct', miningPct)
-          ..add('pendingDur', pendingDur))
+          ..add('pendingDur', pendingDur)
+          ..add('payoutHoldDur', payoutHoldDur))
         .toString();
   }
 }
@@ -98,6 +106,11 @@ class ReferralProgramTermsBuilder
   String? get pendingDur => _$this._pendingDur;
   set pendingDur(String? pendingDur) => _$this._pendingDur = pendingDur;
 
+  String? _payoutHoldDur;
+  String? get payoutHoldDur => _$this._payoutHoldDur;
+  set payoutHoldDur(String? payoutHoldDur) =>
+      _$this._payoutHoldDur = payoutHoldDur;
+
   ReferralProgramTermsBuilder() {
     ReferralProgramTerms._defaults(this);
   }
@@ -109,6 +122,7 @@ class ReferralProgramTermsBuilder
       _subsequentPct = $v.subsequentPct;
       _miningPct = $v.miningPct;
       _pendingDur = $v.pendingDur;
+      _payoutHoldDur = $v.payoutHoldDur;
       _$v = null;
     }
     return this;
@@ -138,7 +152,9 @@ class ReferralProgramTermsBuilder
             miningPct: BuiltValueNullFieldError.checkNotNull(
                 miningPct, r'ReferralProgramTerms', 'miningPct'),
             pendingDur: BuiltValueNullFieldError.checkNotNull(
-                pendingDur, r'ReferralProgramTerms', 'pendingDur'));
+                pendingDur, r'ReferralProgramTerms', 'pendingDur'),
+            payoutHoldDur: BuiltValueNullFieldError.checkNotNull(
+                payoutHoldDur, r'ReferralProgramTerms', 'payoutHoldDur'));
     replace(_$result);
     return _$result;
   }

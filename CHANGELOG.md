@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.12.4] - 2023-06-04
+
+### Changes
+
+- User Api: make `date_foined` as an optional field
+- Referral Api: add `payout_hold_dur` field
+
 ## [3.12.3] - 2023-05-23
 
 ### Changes
